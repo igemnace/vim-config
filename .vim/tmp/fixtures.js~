@@ -1,0 +1,186 @@
+export const testAccount = {
+  _id: '0',
+  username: 'ian',
+  email: 'ian@email.com',
+  name: {
+    firstName: 'ian',
+    middleName: 'zac',
+    lastName: 'emnace'
+  },
+  address: {
+    postalCode: '1234',
+    street1: '1234',
+    street2: '1234',
+    barangay: {name: 'Bigaa'},
+    municipality: {name: 'Cabuyao'},
+    province: {name: 'Laguna'},
+    region: {name: 'IV-A'},
+    country: {name: 'Philippines'}
+  },
+  pic: '',
+  isProgramStaff: true,
+  type: 'ProgramStaff',
+  maritalStatus: 'married',
+  sex: 'male',
+  dateOfBirth: '1977-06-11T03:10:13.368Z',
+  role: { name: 'ProgramStaff' },
+  filters: [
+    { key: 'chip', filterType: 'view' },
+    { key: 'chap', filterType: 'exemption' },
+    { key: 'chop', filterType: 'view' }
+  ],
+  materialsTaken: [
+    {
+      type: 'manual',
+      kind: 'File',
+      title: 'Wikis for Dummies',
+      cover: 'https://upload.wikimedia.org/wikipedia/en/1/15/Wikis_for_Dummies_cover.png'
+    },
+    {
+      type: 'manual',
+      kind: 'File',
+      title: 'A Little Bit of Everything for Dummies',
+      cover: 'http://bookoftheday.org/wp-content/uploads/2015/09/B006BBLNA8.01.LZZZZZZZ.jpg'
+    }
+  ]
+};
+
+export const testOnChange = (changes) => {
+  for (var key in changes) {
+    var value = changes[key];
+
+    testAccount[key] = value; // mimic mutation
+  }
+};
+
+export const testSave = (changes, cb) => {
+  console.log('saving... received these changes:');
+  console.log(changes);
+
+  setTimeout(() => {
+    // good
+    cb(null);
+
+    // bad
+    // cb(new Error());
+  }, 2000);
+};
+export const testDelete = (id, cb) => {
+  setTimeout(() => {
+    console.log('id:');
+    console.log(id);
+
+    // good
+    cb(null);
+
+    // bad
+    // cb(new Error());
+  }, 2000);
+};
+export const testChangePassword = (options, cb) => {
+  setTimeout(() => {
+    console.log('options:');
+    console.log(options);
+
+    // good
+    // cb(null);
+
+    // bad
+    cb(new Error());
+  }, 2000);
+};
+export const testUploadProfilePic = (blob, cb) => {
+  setTimeout(() => {
+    console.log('blob:');
+    console.log(blob);
+
+    // good
+    cb(null, 'https://pixabay.com/static/uploads/photo/2015/03/04/22/35/head-659652_960_720.png');
+
+    // bad
+    // cb(new Error());
+  }, 2000);
+};
+export const testCancel = () => { };
+
+export const testSourceRoles = [
+  { name: 'Admin' },
+  { name: 'ProgramStaff' }
+];
+
+export const testSourceViewFilters = [
+  { key: 'view filter 1' },
+  { key: 'view filter 2' },
+  { key: 'view filter 3' }
+];
+
+export const testSourceExemptionFilters = [
+  { key: 'exemption 1' },
+  { key: 'exemption 2' },
+  { key: 'exemption 3' }
+];
+
+export const selectCountry = country => console.log(country);
+export const selectRegion = region => console.log(region);
+export const selectProvince = province => console.log(province);
+export const selectMunicipality = municipality => console.log(municipality);
+
+export const countries = [
+  {
+    name: 'Philippines',
+  }
+  {
+    name: 'US',
+  }
+  {
+    name: 'UK',
+  }
+  {
+    name: 'China'
+  }
+];
+
+export const regions = [
+  {
+    name: 'I',
+  }
+  {
+    name: 'II',
+  }
+  {
+    name: 'III',
+  }
+  {
+    name: 'IV-A'
+  ];
+  }
+
+export const provinces = [
+  {
+    name: 'Laguna',
+  }
+  {
+    name: 'Cavite',
+  }
+  {
+    name: 'Batangas',
+  }
+  {
+    name: 'Rizal'
+  }
+];
+
+export const municipalities = [
+  {
+    name: 'Cabuyao',
+  }
+  {
+    name: 'Los Banos',
+  }
+  {
+    name: 'Santa Rosa',
+  }
+  {
+    name: 'Calamba'
+  }
+];

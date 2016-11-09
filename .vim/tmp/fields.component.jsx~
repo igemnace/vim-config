@@ -1,0 +1,62 @@
+'use strict';
+
+import React from 'react';
+import FieldsRow from './fields-row.component.jsx';
+import styles from './fields.scss';
+
+export default class Fields extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static propTypes = {
+    account: React.PropTypes.object.isRequired,
+    onChange: React.PropTypes.func.isRequired,
+    disabled: React.PropTypes.bool
+  };
+
+  static defaultProps = {
+    disabled: false
+  };
+
+  getFieldArrangement = () => {
+    return [
+      [
+        'username',
+        'email'
+      ],
+      [
+        ['name', 'firstName'],
+        ['name', 'middleName'],
+        ['name', 'lastName']
+      ],
+      [
+        ['address', 'postalCode'],
+        ['address', 'street1'],
+        ['address', 'street2'],
+        ['address', 'barangay', 'name']
+      ]
+    ];
+  }
+
+  getFieldsRows = () => {
+    return this.getFieldArrangement().map((rowArrangement, index) => {
+      return (
+        <FieldsRow
+          key={index}
+          fields={rowArrangement}
+          account={this.props.account}
+          onChange={this.props.onChange}
+          disabled={this.props.disabled} />
+      );
+    });
+  };
+
+  render() {
+    return (
+      <div className={styles.root}>
+        {this.getFieldsRows()}
+      </div>
+    );
+  }
+}

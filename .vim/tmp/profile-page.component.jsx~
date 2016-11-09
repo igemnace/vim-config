@@ -1,0 +1,181 @@
+'use strict';
+
+import React from 'react';
+import PersonalDetails from './personal-details/personal-details.component.jsx';
+import AdditionalPersonalDetails
+  from './additional-personal-details/additional-personal-details.component.jsx';
+import Controls from './controls/controls.component.jsx';
+import Privilege from './privilege/privilege.component.jsx';
+import CarouselView from '../list-view-page/carousel-view/carousel-view.component.jsx';
+import Thumbnail from '../list-view-page/thumbnail/thumbnail.component.jsx';
+import { diff } from '../list-view-page/utils/utils.js';
+import styles from './profile-page.scss';
+
+export default class ProfilePage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tempAccount: this.clone(this.props.account),
+      saveStatus: 'loaded' //enum: loaded, loading, failed
+    };
+  }
+
+  static propTypes = {
+    account: React.PropTypes.object.isRequired,
+    readOnly: React.PropTypes.bool,
+    save: React.PropTypes.func.isRequired,
+    canDelete: React.PropTypes.bool,
+    delete: React.PropTypes.func.isRequired,
+    canChangePassword: React.PropTypes.bool,
+    changePassword: React.PropTypes.func.isRequired,
+    canChangePrivilege: React.PropTypes.bool,
+    uploadProfilePic: React.PropTypes.func.isRequired,
+    onChange: React.PropTypes.func,
+    cancel: React.PropTypes.func
+  };
+
+  static defaultProps = {
+    readOnly: false,
+    canDelete: true,
+    canChangePassword: true,
+    canChangePrivilege: true
+  };
+
+  clone = (obj) => {
+    // deep clone by just reparsing the stringified object
+    return JSON.parse(JSON.stringify(obj));
+  };
+
+  handleSave = () => {
+    this.setState({ saveStatus: 'loading' });
+
+    let changes = diff(this.props.account, this.state.tempAccount, [], []);
+
+    this.props.save(changes, (err) => {
+      if (err) {
+        this.setState({ saveStatus: 'failed' });
+      } else {
+        this.setState({ saveStatus: 'loaded' });
+      }
+    });
+  };
+
+  handleCancel = () => {
+    this.setState({
+      tempAccount: this.clone(this.props.account)
+    });
+  };
+
+  handleChange = (path, value) => {
+    let walkPathArray = (item, path) => {
+      let tempValue = item;
+
+      path.forEach((pathKey) => {
+        tempValue = tempValue[pathKey];
+      });
+
+      return tempValue;
+    };
+
+    let newTempAccount = this.state.tempAccount;
+
+    if (typeof path === 'string') {
+      newTempAccount[path] = value;
+    } else {
+      let deepestObj = walkPathArray(newTempAccount, path.slice(0, path.length -1));
+      let key = path[path.length - 1];
+
+      deepestObj[key] = value;
+    }
+
+    this.setState({
+      tempAccount: newTempAccount
+    });
+  };
+
+  getMaterials = () => {
+    if (this.props.account.type === 'ProgramStaff') {
+      return this.props.account.materialsTaken;
+    }
+    if (this.props.account.type === 'Admin') {
+      return this.props.account.materialsCreated;
+    }
+
+    return '';
+  };
+
+  getMaterialsCarousel = () => {
+    let title = {
+      label: 'Title',
+      key: 'title',
+      format: (x) => x
+    };
+    let image = {
+      label: 'Image',
+      key: 'cover',
+      format: (x) => x
+    };
+    let actions = [{
+      label: 'Open',
+      fn: () => { }
+    }];
+
+    return (
+      <CarouselView
+        data={this.getMaterials()}
+        title={title}
+        image={image} />
+    );
+  };
+
+  render = () => {
+    return (
+      <div className={styles.root}>
+        <PersonalDetails
+          account={this.state.tempAccount}
+          onChange={this.handleChange}
+          uploadProfilePic={this.props.uploadProfilePic}
+          saveStatus={this.state.saveStatus}
+          countries={this.props.countries}
+          regions={this.props.regions}
+          provinces={this.props.provinces}
+          municipalities={this.props.municipalities}
+          searchCountry={this.props.searchCountry}
+          searchRegion={this.props.searchRegion}
+          searchProvince={this.props.searchProvince}
+          searchMunicipality={this.props.searchMunicipality}
+          readOnly={this.props.readOnly} />
+        <AdditionalPersonalDetails
+          account={this.state.tempAccount}
+          onChange={this.handleChange}
+          saveStatus={this.state.saveStatus}
+          readOnly={this.props.readOnly} />
+        <Privilege
+          account={this.state.tempAccount}
+          onChange={this.handleChange}
+          canChangePrivilege={this.props.canChangePrivilege}
+          sourceRoles={this.props.sourceRoles}
+          sourceViewFilters={this.props.sourceViewFilters}
+          sourceExemptionFilters={this.props.sourceExemptionFilters}
+          searchExemptionFilters={this.props.searchExemptionFilters}
+          searchViewFilters={this.props.searchViewFilters}
+          addViewFilterAction={this.props.addViewFilterAction}
+          addExemptionFilterAction={this.props.addExemptionFilterAction}
+          saveStatus={this.state.saveStatus}
+          readOnly={this.props.readOnly} />
+        {this.getMaterialsCarousel()}
+        <Controls
+          saveStatus={this.state.saveStatus}
+          canChangePassword={this.props.canChangePassword}
+          changePassword={this.props.changePassword}
+          save={this.handleSave}
+          delete={this.props.delete}
+          canDelete={this.props.canDelete}
+          cancel={this.handleCancel}
+          id={this.props.account._id}
+          readOnly={this.props.readOnly} />
+      </div>
+    );
+  }
+}

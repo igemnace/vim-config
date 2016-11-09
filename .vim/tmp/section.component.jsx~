@@ -1,0 +1,80 @@
+'use strict';
+
+import React from 'react';
+import RolesSettings from '../roles-settings/roles-settings.component.jsx';
+import styles from './section.scss';
+import Paper from 'material-ui/Paper';
+
+export default class Section extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static propTypes = {
+    roles: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    role: React.PropTypes.object,
+    selectRole: React.PropTypes.func,
+    save: React.PropTypes.func.isRequired,
+    type: React.PropTypes.oneOf(['admin', 'programStaff']).isRequired,
+    adminRoles: React.PropTypes.arrayOf(React.PropTypes.object),
+    programStaffRoles: React.PropTypes.arrayOf(React.PropTypes.object)
+  }
+
+  getHeader = () => {
+    var header = '';
+    if (this.props.type === 'admin') {
+      header = 'Admin Privilege Settings';
+    }
+    if (this.props.type === 'programStaff') {
+      header = 'ProgramStaff Privilege Settings';
+    }
+
+    return (
+      <span className={styles.header}>
+        {header}
+      </span>
+    );
+  }
+
+  getDescription = () => {
+    var description = '';
+    if (this.props.type === 'admin') {
+      description = 'Change CRUD permissions of accounts.';
+    }
+    if (this.props.type === 'programStaff') {
+      description = 'Change manual-viewing and exemption rights ' +
+        'of Program Staff accounts.';
+    }
+
+    return (
+      <span className={styles.description}>
+        {description}
+      </span>
+    );
+  }
+
+  render() {
+    return (
+      <Paper className={styles.root}>
+        {this.getHeader()}
+        {this.getDescription()}
+        <RolesSettings
+          roles={this.props.roles}
+          role={this.props.role}
+          save={this.props.save}
+          selectRole={this.props.selectRole}
+          type={this.props.type}
+          sourceViewFilters={this.props.sourceViewFilters}
+          sourceExemptionFilters={this.props.sourceExemptionFilters}
+          adminRoles={this.props.adminRoles}
+          searchAdminRoles={this.props.searchAdminRoles}
+          searchProgramStaffRoles={this.props.searchProgramStaffRoles}
+          searchExemptionFilters={this.props.searchExemptionFilters}
+          searchViewFilters={this.props.searchViewFilters}
+          addViewFilterAction={this.props.addViewFilter}
+          addExemptionFilterAction={this.props.addExemptionFilter}
+          programStaffRoles={this.props.programStaffRoles} />
+      </Paper>
+    );
+  }
+}

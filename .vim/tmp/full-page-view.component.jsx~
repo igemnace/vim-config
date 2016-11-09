@@ -1,0 +1,284 @@
+'use strict';
+
+import React from 'react';
+import Thumbnail from '../thumbnail/thumbnail.component.jsx';
+import { search, sort } from '../utils/utils.js';
+import styles from './full-page-view.scss';
+import TextField from 'material-ui/TextField';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
+export default class FullPageView extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentItemsIndex: 0,
+      currentPage: 1,
+      currentSortIndex: -1,
+      searchText: ''
+    };
+  }
+
+  // all except itemsToViewList inherited from CarouselView
+  static propTypes = {
+    data: React.PropTypes.arrayOf(React.PropTypes.object),
+    title: React.PropTypes.object, //ObjectKey
+    subtitle: React.PropTypes.object,
+    image: React.PropTypes.object,
+    defaultImage: React.PropTypes.string,
+    showSearch: React.PropTypes.bool,
+    searchString: React.PropTypes.string,
+    actions: React.PropTypes.arrayOf(React.PropTypes.shape({
+      label: React.PropTypes.string,
+      fn: React.PropTypes.func
+    })),
+    emphasizeIndices: React.PropTypes.arrayOf(React.PropTypes.number),
+    itemsToViewList: React.PropTypes.arrayOf(React.PropTypes.number)
+  };
+
+  static defaultProps = {
+    showSearch: false,
+    itemsToViewList: [5, 20, 50]
+  };
+
+  handleType = (e) => {
+    this.setState({ searchText: e.target.value });
+  };
+
+  handleChangeItemsToView = (event, index, value) => {
+    this.setState({
+      currentItemsIndex: value
+    });
+  };
+
+  handleChangeSort = (event, index, value) => {
+    this.setState({
+      currentSortIndex: value
+    });
+  };
+
+  getControls = () => {
+    let search = (this.props.showSearch)
+      ? <TextField
+        value={this.state.searchText}
+        onChange={this.handleType}
+        floatingLabelText='Search' />
+      : '';
+
+    return (
+      <div className={styles.controls}>
+        <span className={styles.selectLabel}>
+          Items to View
+        </span>
+        <SelectField
+          value={this.state.currentItemsIndex}
+          onChange={this.handleChangeItemsToView}
+          style={{ width: '50px' }}>
+          {this.getItemsToViewSelect()}
+        </SelectField>
+        <div className={styles.search}>
+          {search}
+        </div>
+        {this.getSortSelect()}
+        <div className={styles.pagination}>
+          {this.getPagination()}
+        </div>
+      </div>
+    );
+  };
+
+  getSortSelect = () => {
+    return (this.props.data === null
+      || this.props.data === undefined
+      || this.props.data.length === 0)
+      ? ''
+      : <SelectField
+        value={this.state.currentSortIndex}
+        floatingLabelText='Sort by'
+        onChange={this.handleChangeSort}>
+        {this.getKeysToSortBy()}
+      </SelectField>;
+  }
+
+  getPagination = () => {
+    let itemsToView = this.props.itemsToViewList[this.state.currentItemsIndex];
+
+    if (this.props.data === null
+      || this.props.data === undefined
+      || this.props.data.length <= itemsToView)
+      return '';
+
+    let numOfPages = Math.ceil(this.props.data.length * 1.0 / itemsToView);
+    let pageButtons = [];
+
+    for (let i = 1; i <= numOfPages; i++) {
+      let highlightStyle = (i === this.state.currentPage)
+        ? { color: '#2196F3' }
+        : {};
+      let pageButton = (
+        <span
+          key={i}
+          className={styles.pageButton}
+          style={highlightStyle}
+          onTouchTap={this.getHandleChangePage(i)}>
+          {i}
+        </span>
+      );
+
+      pageButtons.push(pageButton);
+    }
+
+    let prevPageButton = (
+      <span
+        key={-1}
+        className={styles.pageButton}
+        onTouchTap={this.getHandlePrevPage()}>
+        {'<'}
+      </span>
+    );
+    let nextPageCaret = (this.props.hasNextPage)
+      ? '>>'
+      : '>';
+    let nextPageButton = (
+      <span
+        key={-2}
+        className={styles.pageButton}
+        onTouchTap={this.getHandleNextPage(numOfPages)}>
+        {nextPageCaret}
+      </span>
+    );
+
+    return [prevPageButton].concat(pageButtons).concat([nextPageButton]);
+  };
+
+  getHandleChangePage = (pageNumber) => {
+    return () => {
+      this.setState({
+        currentPage: pageNumber
+      });
+    };
+  };
+
+  getHandlePrevPage = () => {
+    return () => {
+      if (this.state.currentPage === 1) return;
+
+      this.setState({
+        currentPage: this.state.currentPage - 1
+      });
+    }
+  };
+
+  getHandleNextPage = (numOfPages) => {
+    return () => {
+      if (this.state.currentPage === numOfPages) {
+        if (this.props.hasNextPage) {
+          this.props.nextPage();
+        } else {
+          return;
+        }
+      }
+
+      this.setState({
+        currentPage: this.state.currentPage + 1
+      });
+    }
+  };
+
+  getItemsToViewSelect = () => {
+    return this.props.itemsToViewList.map((select, index) => {
+      return <MenuItem
+        key={index}
+        value={index}
+        primaryText={select} />;
+    });
+  };
+
+  getKeysToSortBy = () => {
+    let keyMenuItems = Object.keys(this.props.data[0]).map((key, index) => {
+      return <MenuItem
+        key={index}
+        value={index}
+        primaryText={key} />;
+    });
+    let unsortedMenuItem = [
+      <MenuItem key={-1} value={-1} primaryText='unsorted' />
+    ];
+
+    return unsortedMenuItem.concat(keyMenuItems);
+  };
+
+  getThumbnails = () => {
+    if (this.props.data === null
+      || this.props.data === undefined
+      || this.props.data.length === 0) {
+      return (
+        <span className={styles.noResultsWarning}>
+          No results.
+        </span>
+      );
+    }
+
+    // clone so props don't get mutated
+    let cloneData = this.props.data.slice(0);
+
+    // search first...
+    let searchText = (/^\s*$/.test(this.props.searchString))
+      ? this.state.searchText
+      : this.props.searchString;
+    let shouldSearch = !/^\s*$/.test(searchText);
+    let searchArr = (shouldSearch)
+      ? this.props.search(cloneData, searchText)
+      : cloneData;
+
+    if (searchArr.length === 0) {
+      return (
+        <span className={styles.noResultsWarning}>
+          No results.
+        </span>
+      );
+    }
+
+    // ...then sort...
+    let sortArr = searchArr; // initialize
+    if (this.state.currentSortIndex !== -1) {
+      sort(sortArr, Object.keys(sortArr[0])[this.state.currentSortIndex]);
+    }
+
+    // ...then limit
+    let itemsToView = this.props.itemsToViewList[this.state.currentItemsIndex];
+    let begin = itemsToView * (this.state.currentPage - 1);
+    let end = Math.min(sortArr.length, begin + itemsToView);
+    let data = sortArr.slice(begin, end);
+
+    return data.map((item, index) => {
+      return (
+        <div key={index} className={styles.thumbnailContainer}>
+          <Thumbnail
+            data={item}
+            title={this.props.title}
+            subtitle={this.props.subtitle}
+            image={this.props.image}
+            defaultImage={this.props.defaultImage}
+            getActions={this.props.getActions}
+            actions={this.props.actions} />
+        </div>
+      );
+    });
+  };
+
+  render = () => {
+    return (
+      <div className={styles.root}>
+        <span className={styles.label}>
+          {this.props.label}
+        </span>
+        {this.getControls()}
+        <div className={styles.thumbnails}>
+          {this.getThumbnails()}
+        </div>
+      </div>
+    );
+  }
+}

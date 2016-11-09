@@ -1,0 +1,131 @@
+'use strict';
+
+import React from 'react';
+import MetaCreator from '../meta-creator/meta-creator.component.jsx';
+import styles from './about-step.scss';
+import TagsSetting from './tags-setting.component.jsx';
+import TabularView
+  from '../../list-view-page/tabular-view/tabular-view.component.jsx';
+
+export default class AboutStep extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static propTypes = {
+    material: React.PropTypes.arrayOf(React.PropTypes.object),
+    edit: React.PropTypes.bool,
+    type: React.PropTypes.string,
+    changeVersion: React.PropTypes.func,
+    onChange: React.PropTypes.func
+  }
+
+  static defaultProps = {
+    edit: false
+  }
+
+  getPublishedVersions = () => {
+    if ((this.props.type !== 'manual')
+      && (this.props.type !== 'guideline')) {
+      return '';
+    }
+
+    let title = this.props.type;
+    title = title.charAt(0).toUpperCase() + title.slice(1);
+    let headers = [{
+      label: 'Published Versions',
+      key: 'name',
+      format: (x) => x
+    }];
+
+    return (this.props.edit)
+      ? (
+        <div className={styles.publishedVersions}>
+          <span className={styles.tableTitle}>
+            {title} Published Versions
+          </span>
+          <TabularView
+            headers={headers}
+            data={this.props.material.publishedVersions} />
+        </div>
+      )
+      : '';
+  }
+
+  getDrafts = () => {
+    if ((this.props.type !== 'manual')
+      && (this.props.type !== 'guideline')) {
+      return '';
+    }
+
+    let title = this.props.type;
+    title = title.charAt(0).toUpperCase() + title.slice(1);
+    let headers = [{
+      label: 'Drafts',
+      key: 'name',
+      format: (x) => x
+    }];
+
+    return (this.props.edit)
+      ? (
+        <div className={styles.drafts}>
+          <span className={styles.tableTitle}>
+            {title} Drafts
+          </span>
+          <TabularView
+            headers={headers}
+            data={this.props.material.drafts} />
+        </div>
+      )
+      : '';
+  }
+
+  curriedChange = field => value => this.props.onChange(field, value);
+
+  render = () => {
+    return (
+      <div className={styles.root}>
+        <MetaCreator
+          meta={this.props.material}
+          edit={this.props.edit}
+          onChange={this.props.onChange}
+          uploadProfilePic={this.props.uploadProfilePic} />
+        <div className={styles.tags}>
+          <TagsSetting
+            description='Tags'
+            edit={true}
+            addAction={this.props.addTagAction}
+            search={this.props.searchTags}
+            source={this.props.sourceTags}
+            onChange={this.curriedChange('tags')}
+            setting={this.props.material.tags || []} />
+          <TagsSetting
+            description='View Filters'
+            edit={true}
+            addAction={this.props.addViewFilterAction}
+            search={this.props.searchViewFilters}
+            source={this.props.sourceViewFilters}
+            onChange={this.curriedChange('viewFilters')}
+            setting={this.props.material.viewFilters || []} />
+          <TagsSetting
+            description='Exemption Filters'
+            edit={true}
+            addAction={this.props.addExemptionFilterAction}
+            search={this.props.searchExemptionFilters}
+            source={this.props.sourceExemptionFilters}
+            onChange={this.curriedChange('exemptionFilters')}
+            setting={this.props.material.exemptionFilters || []} />
+          <TagsSetting
+            description='Admins'
+            edit={true}
+            search={this.props.searchAdmins}
+            source={this.props.sourceAdmins}
+            onChange={this.curriedChange('admins')}
+            setting={this.props.material.admins || []} />
+        </div>
+        {this.getPublishedVersions() }
+        {this.getDrafts() }
+      </div>
+    );
+  }
+}

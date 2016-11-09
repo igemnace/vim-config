@@ -1,0 +1,75 @@
+'use strict';
+
+import React from 'react';
+import styles from './address.scss';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
+export default class Address extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static propTypes = {
+    field: React.PropTypes.string,
+    value: React.PropTypes.string,
+    source: React.PropTypes.arrayOf(React.PropTypes.object),
+    onChange: React.PropTypes.func,
+    onSelect: React.PropTypes.func,
+    disabled: React.PropTypes.bool
+  }
+
+  handleChange = (event, index, value) => {
+    this.props.onChange(value);
+    if (this.props.onSelect) this.props.onSelect(value);
+  };
+
+  prettify(str) {
+    if (str === '') return;
+    if (!str) return;
+
+    // camel case to title case
+    // this regex: /\S(?=[A-Z0-9])/
+    // matches non-whitespace chars followed by a capital letter or a number
+    // which is where a space should be inserted
+    // e.g. CorrectHorseBatteryStapler => Correct Horse Battery Stapler
+    var pos = str.search(/\S(?=[A-Z0-9])/);
+
+    while (pos !== -1) {
+      //insert space after pos
+      str = str.slice(0, pos + 1) + ' ' + str.slice(pos + 1);
+
+      pos = str.search(/\S(?=[A-Z0-9])/);
+    }
+
+    // capitalize
+    str = str.charAt(0).toUpperCase() + str.slice(1);
+
+    return str;
+  }
+
+  getItems = () => {
+    if (!this.props.source) return;
+
+    return this.props.source.map((item) => {
+      return <MenuItem
+        key={item}
+        value={item}
+        primaryText={item} />;
+    });
+  }
+
+  render = () => {
+    return (
+      <div className={styles.root}>
+        <SelectField
+          floatingLabelText={this.prettify(this.props.field)}
+          value={this.props.value}
+          onChange={this.handleChange}
+          disabled={this.props.disabled}>
+          {this.getItems()}
+        </SelectField>
+      </div>
+    );
+  }
+}

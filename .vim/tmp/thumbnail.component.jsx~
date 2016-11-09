@@ -1,0 +1,186 @@
+'use strict';
+
+import _ from 'lodash';
+import React, { PropTypes } from 'react';
+import cs from 'classnames'
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card'
+import IconButton from 'material-ui/IconButton'
+import ActionReorder from 'material-ui/svg-icons/action/reorder'
+import Popover from 'material-ui/Popover'
+import Menu from 'material-ui/Menu'
+import MenuItem from 'material-ui/MenuItem'
+
+import MaterialInfo from './MaterialInfo'
+
+import styles from './thumbnail.scss';
+
+const ObjectKey = PropTypes.shape({
+  label: PropTypes.string,
+  key: PropTypes.string.isRequired,
+  format: PropTypes.func
+});
+
+export default class Thumbnail extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false
+    }
+  }
+
+  static propTypes = {
+    data: PropTypes.object,
+    title: ObjectKey,
+    subtitle: ObjectKey,
+    image: ObjectKey,
+    defaultImage: PropTypes.string,
+    hideImage: PropTypes.bool,
+    emphasize: PropTypes.bool,
+    imageOnly: PropTypes.bool,
+    actions: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      fn: PropTypes.func
+    })),
+    actionsPosition: PropTypes.string
+  };
+
+  static defaultProps = {
+    actionsPosition: 'top',
+    hideImage: false,
+    emphasize: false,
+    imageOnly: false,
+    actions: []
+  };
+
+  handleTouchTap = (event) => {
+    // This prevents ghost click.
+    event.preventDefault();
+
+    this.setState({
+      open: true,
+      anchorEl: event.currentTarget,
+    });
+  };
+
+  handleRequestClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
+
+  ellipsize = (text) => {
+    if (text === undefined) return;
+    if (text === null) return;
+
+    if (text.length >= 15) {
+      return text.slice(0, 12) + '...';
+    } else {
+      return text;
+    }
+  }
+
+  getActions = () => {
+    const { actionsPosition } = this.props;
+    let actions = (!_.isEmpty(this.props.actions))
+      ? this.props.actions
+      : (this.props.getActions)
+        ? this.props.getActions(this.props.data)
+        : null;
+
+    if (_.isEmpty(actions)) return;
+
+    return (
+      <div className={styles.iconBg}>
+        <IconButton
+          tooltip='actions'
+          className={cs({
+            [styles.actionsPositionTop]: actionsPosition === 'top',
+            [styles.actionsPositionBottom]: actionsPosition === 'bottom'
+          })}
+          onClick={this.handleTouchTap}
+          >
+          <ActionReorder />
+        </IconButton>
+        <Popover
+          open={this.state.open}
+          anchorEl={this.state.anchorEl}
+          anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+          targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+          onRequestClose={this.handleRequestClose}
+          >
+          <Menu>
+            {actions.map(({icon, label, fn}) => {
+              let handleFn = () => { fn(this.props.data) };
+
+              return <MenuItem
+                key={label}
+                leftIcon={icon}
+                primaryText={label}
+                onClick={handleFn} />;
+            })}
+          </Menu>
+        </Popover>
+      </div>
+    )
+  };
+
+  render() {
+    const { data, title, subtitle, image} = this.props;
+    const { emphasize, hideImage, imageOnly } = this.props;
+    const expand = hideImage || imageOnly;
+
+    const p = (item) => {
+      if (item) {
+        const { key, format } = item;
+        return (format) ? format(data[key]) : data[key]
+      } else {
+        return ''
+      }
+    };
+
+    const rootOnTouchTap = (this.props.actions && this.props.actions[0])
+      ? this.props.actions[0].fn
+      : () => { };
+
+    const cursorStyle = (this.props.actions && this.props.actions[0])
+      ? { cursor: 'pointer' }
+      : {};
+
+    return (
+      <Card
+        className={styles.root}
+        style={cursorStyle}>
+        <div onTouchTap={e => { e.preventDefault(); rootOnTouchTap(data) } }>
+          <CardMedia>
+            {hideImage
+              ? <div></div>
+              : <div className={cs(styles.imageHolder, { [styles.imageOnly]: imageOnly })}>
+                <img
+                  src={hideImage ? '' : p(image)}
+                  className={styles.image}
+                  />
+              </div>
+            }
+          </CardMedia>
+          {!imageOnly
+            ? <CardTitle>
+              <div className={cs({ [styles.emphasize]: emphasize })}>
+                <p className={cs(styles.title, styles.removeMargin)}>
+                  {this.ellipsize(p(title))}
+                </p>
+                <p className={cs(styles.subtitle, styles.removeMargin)}>
+                  {this.ellipsize(p(subtitle))}
+                </p>
+              </div>
+            </CardTitle>
+            : ''
+          }
+        </div>
+
+        {this.getActions()}
+
+      </Card>
+    )
+  }
+}

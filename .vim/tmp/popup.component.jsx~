@@ -1,0 +1,64 @@
+'use strict';
+
+import React from 'react';
+import Avatar from 'material-ui/Avatar';
+import Account from 'material-ui/svg-icons/action/account-circle';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import styles from './popup.scss';
+
+const p = (subtitle) => {
+  if (subtitle) {
+    if (subtitle.length > 50) {
+      return `${subtitle.substring(0, 50)}...`;
+    }
+  } else {
+    return '';
+  }
+};
+
+const Message = ({ message: { title, subtitle, creator }, onClick }) => {
+  let avatar = creator.pic;
+  return (
+    <Card onClick={onClick} className={styles.message} style={{ marginBottom: 8 }}>
+      <CardHeader
+        style={{ padding: 8 }}
+        {...{ title, subtitle: p(subtitle), avatar }}
+        />
+    </Card>
+  );
+};
+
+export default class Popup extends React.Component {
+  static defaultProps = {
+    showSeeAll: true
+  }
+
+  render = () => {
+    const { messages, onMessageTouchTap, onSeeAllTouchTap, showSeeAll } = this.props;
+
+    return (
+      <div className={styles.root}>
+        {messages.map((message) => (
+          <Message
+            onClick={e=>onMessageTouchTap(message)}
+            message={message}
+            key={message.id}
+          />
+        ))}
+        {showSeeAll
+          ? <RaisedButton onClick={e=>onSeeAllTouchTap()} label='See all' fullWidth primary />
+          : ''
+        }
+      </div>
+    );
+  }
+}

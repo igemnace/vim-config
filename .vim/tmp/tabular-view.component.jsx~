@@ -1,0 +1,285 @@
+'use strict';
+
+import React from 'react';
+import _ from 'lodash';
+import { search, sort } from '../utils/utils.js';
+import styles from './tabular-view.scss';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn
+} from 'material-ui/Table';
+import Popover from 'material-ui/Popover';
+import FlatButton from 'material-ui/FlatButton';
+import TextField from 'material-ui/TextField';
+import SelectField from 'material-ui/SelectField';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
+import Row from './row.component.jsx';
+
+export default class TabularView extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false,
+      currentItemsIndex: 0,
+      currentPage: 1,
+      anchorEl: null,
+      searchText: ''
+    }
+  }
+
+  static propTypes = {
+    data: React.PropTypes.arrayOf(React.PropTypes.object),
+    headers: React.PropTypes.arrayOf(React.PropTypes.shape({
+      label: React.PropTypes.string,
+      key: React.PropTypes.string,
+      format: React.PropTypes.func
+    })).isRequired,
+    showSearch: React.PropTypes.bool,
+    actions: React.PropTypes.arrayOf(React.PropTypes.shape({
+      label: React.PropTypes.string,
+      fn: React.PropTypes.func
+    })),
+    itemsToViewList: React.PropTypes.arrayOf(React.PropTypes.number)
+  };
+
+  static defaultProps = {
+    showSearch: false,
+    itemsToViewList: [5, 20, 50]
+  };
+
+  handleType = (e) => {
+    this.setState({ searchText: e.target.value });
+  };
+
+  handleChangeItemsToView = (event, index, value) => {
+    this.setState({
+      currentItemsIndex: value
+    });
+  };
+
+  getControls = () => {
+    let search = (this.props.showSearch)
+      ? <TextField
+        value={this.state.searchText}
+        onChange={this.handleType}
+        floatingLabelText='Search' />
+      : '';
+
+    return (
+      <div className={styles.controls}>
+        <span className={styles.selectLabel}>
+          Items to View
+        </span>
+        <SelectField
+          value={this.state.currentItemsIndex}
+          onChange={this.handleChangeItemsToView}
+          style={{ width: '50px' }}>
+          {this.getItemsToViewSelect()}
+        </SelectField>
+        <div className={styles.search}>
+          {search}
+        </div>
+        <div className={styles.pagination}>
+          {this.getPagination()}
+        </div>
+      </div>
+    );
+  };
+
+  getPagination = () => {
+    let itemsToView = this.props.itemsToViewList[this.state.currentItemsIndex];
+
+    if (this.props.data === null
+      || this.props.data === undefined
+      || this.props.data.length <= itemsToView)
+      return '';
+
+    let numOfPages = Math.ceil(this.props.data.length * 1.0 / itemsToView);
+    let pageButtons = [];
+
+    for (let i = 1; i <= numOfPages; i++) {
+      let highlightStyle = (i === this.state.currentPage)
+        ? { color: '#2196F3' }
+        : {};
+      let pageButton = (
+        <span
+          key={i}
+          className={styles.pageButton}
+          style={highlightStyle}
+          onTouchTap={this.getHandleChangePage(i)}>
+          {i}
+        </span>
+      );
+
+      pageButtons.push(pageButton);
+    }
+
+    let prevPageButton = (
+      <span
+        key={-1}
+        className={styles.pageButton}
+        onTouchTap={this.getHandlePrevPage()}>
+        {'<'}
+      </span>
+    );
+    let nextPageCaret = (this.props.hasNextPage)
+      ? '>>'
+      : '>';
+    let nextPageButton = (
+      <span
+        key={-2}
+        className={styles.pageButton}
+        onTouchTap={this.getHandleNextPage(numOfPages)}>
+        {nextPageCaret}
+      </span>
+    );
+
+    return [prevPageButton].concat(pageButtons).concat([nextPageButton]);
+  };
+
+  getHandleChangePage = (pageNumber) => {
+    return () => {
+      this.setState({
+        currentPage: pageNumber
+      });
+    };
+  };
+
+  getHandlePrevPage = () => {
+    return () => {
+      if (this.state.currentPage === 1) return;
+
+      this.setState({
+        currentPage: this.state.currentPage - 1
+      });
+    }
+  };
+
+  getHandleNextPage = (numOfPages) => {
+    return () => {
+      if (this.state.currentPage === numOfPages) return;
+
+      this.setState({
+        currentPage: this.state.currentPage + 1
+      });
+    }
+  };
+
+  getItemsToViewSelect = () => {
+    return this.props.itemsToViewList.map((select, index) => {
+      return <MenuItem
+        key={index}
+        value={index}
+        primaryText={select} />;
+    });
+  };
+
+  getHeadersRow = () => {
+    return this.props.headers.map((header, index) => {
+      return (
+        <TableHeaderColumn key={index}>
+          {header.label}
+        </TableHeaderColumn>
+      );
+    });
+  };
+
+  getRows = (data) => {
+    return data.map((rowObject, index) => {
+      let actions = (!_.isEmpty(this.props.actions))
+        ? this.props.actions
+        : (this.props.getActions)
+          ? this.props.getActions(rowObject)
+          : null;
+
+      return <Row
+        key={index}
+        headers={this.props.headers}
+        rowObject={rowObject}
+        actions={actions} />;
+    });
+  };
+
+  getActionsHeader = () => {
+    return (this.props.actions || this.props.getActions)
+      ? <TableHeaderColumn>Actions</TableHeaderColumn>
+      : '';
+  };
+
+  getResults = () => {
+    if (this.props.data === null
+      || this.props.data === undefined
+      || this.props.data.length === 0) {
+      return null;
+    }
+
+    // clone so props don't get mutated
+    let cloneData = this.props.data.slice(0);
+
+    // search first...
+    let searchText = (/^\s*$/.test(this.props.searchString))
+      ? this.state.searchText
+      : this.props.searchString;
+    let shouldSearch = !(/^\s*$/.test(searchText));
+    let searchArr = (shouldSearch)
+      ? search(cloneData, searchText)
+      : cloneData;
+
+    if (searchArr.length === 0) {
+      return null;
+    }
+
+    // ...then limit
+    let itemsToView = this.props.itemsToViewList[this.state.currentItemsIndex];
+    let begin = itemsToView * (this.state.currentPage - 1);
+    let end = Math.min(searchArr.length, begin + itemsToView);
+    let data = searchArr.slice(begin, end);
+
+    return data;
+  };
+
+  getTable = () => {
+    let data = this.getResults();
+    if (!data) {
+      return (
+        <span className={styles.noResultsWarning}>
+          No results.
+        </span>
+      );
+    } else {
+      return (
+        <Table>
+          <TableHeader
+            adjustForCheckbox={false}
+            displaySelectAll={false}>
+            <TableRow>
+              {this.getHeadersRow()}
+              {this.getActionsHeader()}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {this.getRows(data)}
+          </TableBody>
+        </Table>
+      );
+    }
+  }
+
+  render = () => {
+    return (
+      <div className={styles.root}>
+        <span className={styles.label}>
+          {this.props.label}
+        </span>
+        {this.getControls()}
+        {this.getTable()}
+      </div>
+    );
+  }
+}

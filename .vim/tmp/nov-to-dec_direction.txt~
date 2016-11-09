@@ -1,0 +1,18 @@
+---
+patients:
+  system design: similar system design to last app
+  todo:
+    -separate meeting with Sir Joff for model
+facility:
+  create:
+    -deferred from signup to first login
+    -can join existing or create
+scheduler:
+  system design:
+    -made by Sir Joff
+    -add to system system design if needed
+  todo:
+    -separate meeting with Sir Joff to revamp model
+secretary:
+  collection: 
+    -hiwalay na collection sa doctors 

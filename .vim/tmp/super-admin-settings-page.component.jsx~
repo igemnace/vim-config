@@ -1,0 +1,50 @@
+'use strict';
+
+import React from 'react';
+import Section from './section/section.component.jsx';
+import styles from './super-admin-settings-page.scss';
+
+export default class SuperAdminSettingsPage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static propTypes = {
+  }
+
+  render() {
+    return (
+      <div className={styles.root}>
+        <h1 className={styles.title}>
+          Settings
+        </h1>
+        <Section
+          type='admin'
+          roles={this.props.sourceAdminRoles}
+          role={this.props.adminRole}
+          selectRole={this.props.selectAdminRole}
+          save={this.props.saveAdminRole}
+          adminRoles={this.props.sourceAdminRoles}
+          searchAdminRoles={this.props.searchAdminRoles}
+          searchProgramStaffRoles={this.props.searchProgramStaffRoles}
+          searchExemptionFilters={this.props.searchExemptionFilters}
+          searchViewFilters={this.props.searchViewFilters}
+          programStaffRoles={this.props.sourceProgramStaffRoles} />
+        <Section
+          type='programStaff'
+          roles={this.props.sourceProgramStaffRoles}
+          role={this.props.psRole}
+          selectRole={this.props.selectPSRole}
+          sourceViewFilters={this.props.sourceViewFilters}
+          sourceExemptionFilters={this.props.sourceExemptionFilters}
+          searchAdminRoles={this.props.searchAdminRoles}
+          searchProgramStaffRoles={this.props.searchProgramStaffRoles}
+          searchExemptionFilters={this.props.searchExemptionFilters}
+          searchViewFilters={this.props.searchViewFilters}
+          addViewFilterAction={this.props.addViewFilter}
+          addExemptionFilterAction={this.props.addExemptionFilter}
+          save={this.props.savePSRole} />
+      </div>
+    );
+  }
+}

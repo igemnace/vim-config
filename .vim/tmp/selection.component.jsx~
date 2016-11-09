@@ -1,0 +1,79 @@
+import React, { PropTypes } from 'react';
+import cs from 'classnames'
+import R from 'ramda'
+import styles from './selection.scss'
+import Checkbox from 'material-ui/Checkbox'
+import TextField from 'material-ui/TextField'
+import FlatButton from 'material-ui/FlatButton'
+import Paper from 'material-ui/Paper'
+
+export default class Selection extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      addTag: ''
+    }
+  }
+
+  static propTypes = {
+    sourceItems: React.PropTypes.arrayOf(React.PropTypes.object),
+    selectedItems: React.PropTypes.arrayOf(React.PropTypes.object),
+    disableAddNew: React.PropTypes.bool,
+    onSelectedItemsChanged: React.PropTypes.func,
+    addFunction: React.PropTypes.func,
+    key: React.PropTypes.string,
+    search: React.PropTypes.func,
+    title: React.PropTypes.string,
+    addInstruction: React.PropTypes.string
+  }
+
+  static defaultProps = {
+    sourceItems: [],
+    selectedItems: [],
+    disableAddNew: false
+  }
+
+  inSelected(key) {
+    const { selectedItems } = this.props
+    return (R.filter(R.propEq('name', key))(selectedItems)).length > 0
+  }
+
+  changeTag = (e) => {
+    this.setState({ addTag: e.target.value })
+  }
+
+  render() {
+    const { title, sourceItems, selectedItems, onSelectedItemsChanged } = this.props
+    const { addFunction, search, onFinish } = this.props
+
+    return (
+      <div className={styles.root}>
+        <h1 className={styles.title}>{title}
+          <FlatButton label='Finish' primary onClick={e => onFinish() } />
+        </h1>
+        <TextField onChange={e => search(e.target.value) } hintText='Search' />
+        <div className={styles.checkboxes}>
+          {sourceItems.map(({key, name}) => (
+            <Checkbox
+              key={key || name}
+              label={key || name}
+              checked={this.inSelected(key || name) }
+              onCheck={(e, t) => { onSelectedItemsChanged(key || name, t) } }
+              />
+          )) }
+        </div>
+        { !addFunction
+            ? ''
+            : <TextField
+              value={this.state.addTag}
+              onChange={this.changeTag}
+              className={styles.textField}
+              hintText='Add a Tag'
+            />
+            <FlatButton label='Add' primary onClick={e => addFunction(this.state.addTag) } />
+        }
+      </div>
+    )
+  }
+}

@@ -1,0 +1,151 @@
+'use strict';
+
+
+export const search = (data, filter) => {
+  if (!filter) return [];
+
+  let result = [];
+
+  // worst case O(n^2) operation!
+  for (let i in data) {
+    let obj = data[i];
+
+    for (let key in obj) {
+      let stringified = '' + obj[key];
+
+      stringified = stringified.toLowerCase();
+      filter = filter.toLowerCase();
+
+      if (stringified.indexOf(filter) >= 0) {
+        result.push(obj);
+        break;
+      }
+    }
+  }
+
+  return result;
+};
+export const sort = (data, key) => {
+  data.sort((a, b) => {
+    let first = (typeof a[key] === 'string')
+      ? a[key].toLowerCase()
+      : a[key];
+    let second = (typeof b[key] === 'string')
+      ? b[key].toLowerCase()
+      : b[key];
+
+    if (first < second) {
+      return -1;
+    }
+    if (first > second) {
+      return 1;
+    }
+
+    return 0;
+  });
+};
+
+export const diff = (originalData, changedData, keysToExempt, keysToRemove) => {
+  // Did not implement add or remove of un-nested key-value pair. Only in Array Of Objects. (Can add if needed)
+  // Currently implementing KeysToExempt and KeysToRemove
+  let diffFxn = require('deep-diff').diff;
+  let rawDiff = diffFxn(originalData, changedData);
+  let processedDiff = {};
+
+  let isExempted = (path) => {
+    keysToExempt.forEach(function(array) {
+      // Fast eliminations
+      if(path.length === array.length) {
+        for(let i = 0; i < path.length; i++) {
+          if(path[i] !== array[i]) {
+            return false;
+          }
+        }
+        return true;
+      }
+    }, this);
+  }
+
+  let removeKeys = (data) => {
+    let obj;
+
+    keysToRemove.forEach(function(path) {
+      obj = data;
+      for(let i = 0; i < path.length - 1; i++) {
+        obj = obj[key];
+      }
+      delete obj[keysToRemove.length - 1];
+    }, this);
+  }
+
+  rawDiff.forEach(function(element) {
+    let key;
+    let returnObj = {};
+
+    // A key value pair was updated (Array with no object, Simple key-value pair, An object in the array updated). 
+    if(element['kind'] === 'E') {
+      //The change occured in an array. Create new array if key does not exist in the return object, then push new value. 
+      if(element.path.length === 2) {
+        key = element.path[element.path.length - 2];
+        // CAREFUL! Does not handle array of array of values (TODO). 
+        if(!processedDiff.hasOwnProperty(key)) {
+          processedDiff[key] = [];
+        }
+        
+        processedDiff[key].push(element.rhs);
+      } else if(element.path.length > 2) { // Array of Objects.
+        // Can't Include whole object of the affected key-value pair. Not specified in the return value of deep-diff(TODO)
+        // Included path instead. Can reconstruct object based on path. 
+        key = element.path[0]; //Name of the array.
+        if(!processedDiff.hasOwnProperty(key)) {
+          processedDiff[key] = [];
+        }
+        
+        returnObj[element.path[element.path.length - 1]] = element.rhs;
+        returnObj['path'] = element.path;
+
+        processedDiff[key].push(returnObj);
+      } else { // Unnested key-value pair. 
+        key = element.path[element.path.length - 1];
+        processedDiff[key] = element.rhs;
+      }
+    } else if(element['kind'] === 'A') { // Array modified (delete, add) (object or value) 
+      // Should return an object with an __action flag.
+      // Object may return wrong keys when fed with array of nested Objects (TODO).
+      let obj;
+      key = element.path[0]; // Name of the array.
+      if(!processedDiff.hasOwnProperty(key)) {
+        processedDiff[key] = [];
+      }
+      if(element.item.kind === 'N') { // Add obj.
+        if(typeof element.item.rhs === 'object') {
+          obj = element.item.rhs;
+          obj['__action'] = 'add';
+          obj['path'] = element.path; // Array of keys from the root element to the key of current Value (Nested Objects). Added just in case. Can be deleted.  
+          processedDiff[key].push(obj);
+        } else {
+          // All except Arrays and Objects. 
+          obj = {};
+          obj['__action'] = 'add';
+          obj[element.path[element.path.length - 1]] = element.item.rhs;
+          processedDiff[key].push(obj);
+        }
+      } else { // Remove
+        if(typeof element.item.lhs === 'object') {
+          obj = element.item.lhs;
+          obj['__action'] = 'remove';
+          obj['path'] = element.path; // Array of keys from the root element to the key of current Value (Nested Objects). removeed just in case. Can be deleted.  
+          processedDiff[key].push(obj);
+        } else {
+          // All except Arrays and Objects. 
+          obj = {};
+          obj['__action'] = 'remove';
+          obj[element.path[element.path.length - 1]] = element.item.lhs;
+          processedDiff[key].push(obj);
+        }
+      }
+    }
+  }, this);
+  console.log(rawDiff);
+  return processedDiff;
+};

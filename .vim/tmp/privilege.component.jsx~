@@ -1,0 +1,112 @@
+'use strict';
+
+import React from 'react';
+import TagList from '../../list-view-page/tags-list/tags-list.component.jsx';
+import TagsSetting from './tags-setting.component.jsx';
+import styles from './privilege.scss';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
+export default class Privilege extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedRole: this.props.account.role.name
+    };
+  }
+
+  static propTypes = {
+    account: React.PropTypes.object,
+    saveStatus: React.PropTypes.oneOf(['loaded', 'loading', 'failed']),
+    readOnly: React.PropTypes.bool,
+    onChange: React.PropTypes.func.isRequired,
+    canChangePrivilege: React.PropTypes.bool,
+    sourceRoles: React.PropTypes.arrayOf(React.PropTypes.object),
+    sourceViewFilters: React.PropTypes.arrayOf(React.PropTypes.object),
+    sourceExemptionFilters: React.PropTypes.arrayOf(React.PropTypes.object)
+  };
+
+  handleChooseRole = (event, index, value) => {
+    this.setState({
+      selectedRole: value
+    });
+  };
+
+  getIsDisabled = () => {
+    return (this.props.saveStatus === 'loading')
+      || (this.props.readOnly);
+  };
+
+  getFilters = () => {
+    if (!this.props.account) {
+      return;
+    }
+
+    let viewFilters = this.props.account.viewFilters || [];
+    let exemptionFilters = this.props.account.exemptionFilters || [];
+
+    let sourceViewFilters = (this.props.canChangePrivilege)
+      ? this.props.sourceViewFilters
+      : [];
+    let sourceExemptionFilters = (this.props.canChangePrivilege)
+      ? this.props.sourceExemptionFilters
+      : [];
+
+    return (this.props.account.type === 'ProgramStaff')
+      ? (
+        <div className={styles.filters}>
+          <TagsSetting
+            description='View Filters'
+            edit={this.props.canChangePrivilege}
+            setting={viewFilters}
+            addAction={this.props.addViewFilterAction}
+            search={this.props.searchViewFilters}
+            onChange={value => this.props.onChange('viewFilters', value)}
+            source={sourceViewFilters} />
+          <TagsSetting
+            description='Exemption Filters'
+            edit={this.props.canChangePrivilege}
+            setting={exemptionFilters}
+            addAction={this.props.addExemptionFilterAction}
+            search={this.props.searchExemptionFilters}
+            onChange={value => this.props.onChange('exemptionFilters', value)}
+            source={sourceExemptionFilters} />
+        </div>
+      )
+      : '';
+  };
+
+  getRole = () => {
+    return (this.props.canChangePrivilege)
+      ? (
+        <SelectField
+          value={this.state.selectedRole}
+          onChange={this.handleChooseRole}
+          >
+          {this.getSourceRoles()}
+        </SelectField>
+      )
+      : this.props.account.role.name;
+  };
+
+  getSourceRoles = () => {
+    return this.props.sourceRoles.map((role) => {
+      return <MenuItem key={role.name} value={role.name} primaryText={role.name} />;
+    });
+  };
+
+  render() {
+    return (
+      <div className={styles.root}>
+        <div className={styles.role}>
+          <span className={styles.roleLabel}>
+            Role:
+          </span>
+          {this.getRole()}
+        </div>
+        {this.getFilters()}
+      </div>
+    );
+  }
+}

@@ -1,0 +1,69 @@
+'use strict';
+
+import React from 'react';
+import Body from './body.component.jsx';
+import Date from './date.component.jsx';
+import styles from './message.scss';
+import Avatar from 'material-ui/Avatar';
+
+export default class Message extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static propTypes = {
+    message: React.PropTypes.object.isRequired,
+    showProfilePicture: React.PropTypes.bool,
+    profilePicturePosition: React.PropTypes.oneOf(['left', 'right'])
+  };
+
+  static defaultProps = {
+    showProfilePicture: true,
+    profilePicturePosition: 'right'
+  };
+
+  getProperFlexRowDirection = () => {
+    if (this.props.profilePicturePosition === 'left') {
+      return 'row';
+    }
+    if (this.props.profilePicturePosition === 'right') {
+      return 'row-reverse';
+    }
+  }
+
+  getProperFlexColumnAlign = () => {
+    if (this.props.profilePicturePosition === 'left') {
+      return 'flex-end';
+    }
+    if (this.props.profilePicturePosition === 'right') {
+      return 'flex-start';
+    }
+  }
+
+  getDate = () => {
+    return (this.props.message.date)
+      ? <Date date={this.props.message.date} />
+      : '';
+  }
+
+  getProfilePicture = () => {
+    return (this.props.showProfilePicture)
+      ? <Avatar className={styles.profilePicture}
+        src={this.props.message.creator.pic} />
+      : '';
+  }
+
+  render() {
+    return (
+      <div className={styles.root}
+        style={{ flexDirection: this.getProperFlexRowDirection() }}>
+        {this.getProfilePicture() }
+        <div className={styles.bubble}
+          style={{ alignItems: this.getProperFlexColumnAlign() }}>
+          <Body body={this.props.message.body} />
+          {this.getDate() }
+        </div>
+      </div>
+    );
+  }
+}

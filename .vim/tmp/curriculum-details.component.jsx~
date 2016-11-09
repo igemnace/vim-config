@@ -1,0 +1,224 @@
+'use strict';
+
+import React from 'react';
+import Loading from './loading.component.jsx';
+import styles from './curriculum-details.scss';
+import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import Dialog from 'material-ui/Dialog';
+import Dropzone from 'react-dropzone';
+
+export default class CurriculumDetails extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      content: '',
+      isDialogOpen: false,
+      isAlertOpen: false,
+      filename: '',
+      uploadStatus: 'loaded' // one of 'loaded', 'loading', 'failed'
+    };
+  }
+
+  static propTypes = {
+    curriculum: React.PropTypes.object,
+    canEnrol: React.PropTypes.bool,
+    edit: React.PropTypes.bool,
+    uploadCoverPic: React.PropTypes.func,
+    isEnroled: React.PropTypes.bool,
+    readOnly: React.PropTypes.bool,
+    canAddRemoveQuestions: React.PropTypes.bool,
+    enrol: React.PropTypes.func
+  }
+
+  static defaultProps = {
+    canEnrol: false,
+    edit: false,
+    isEnroled: false,
+    readOnly: false,
+    canAddRemoveQuestions: false
+  }
+
+  onDrop = (acceptedFiles, rejectedFiles) => {
+    if (acceptedFiles.length >= 0) {
+      let blob = acceptedFiles[0]; //only 1 file can be accepted by dropzone
+      this.setState({
+        uploadStatus: 'loading'
+      });
+      this.props.uploadCoverPic(blob, (err, filename) => {
+        if (err) {
+          this.setState({
+            uploadStatus: 'failed'
+          });
+        } else {
+          this.setState({
+            isDialogOpen: false,
+            uploadStatus: 'loaded',
+            filename: filename
+          });
+
+          this.props.onChange('pic', filename);
+        }
+      });
+    }
+  }
+
+  onDropRejected = () => {
+    this.handleOpenAlert();
+  }
+
+  onDropzoneOpen = () => {
+    this.dropzone.open();
+  }
+
+  handleOpenDialog = () => {
+    this.setState({
+      isDialogOpen: true
+    });
+  }
+
+  handleCloseDialog = () => {
+    this.setState({
+      isDialogOpen: false,
+      uploadStatus: 'loaded'
+    });
+  }
+
+  handleOpenAlert = () => {
+    this.setState({
+      isAlertOpen: true
+    });
+  }
+
+  handleCloseAlert = () => {
+    this.setState({
+      isAlertOpen: false
+    });
+  }
+
+  getUploadDialog = () => {
+    return (
+      <Dialog
+        title='Upload Profile Picture'
+        modal={this.state.uploadStatus === 'loading'}
+        open={this.state.isDialogOpen}
+        onRequestClose={this.handleCloseDialog}>
+        {this.getUploadDialogChild()}
+      </Dialog>
+    );
+  }
+
+  getUploadDialogChild = () => {
+    return (this.state.uploadStatus === 'loaded')
+      ? (
+        <Dropzone
+          className={styles.dropzone}
+          ref={(node) => { this.dropzone = node; } }
+          multiple={false}
+          accept='image/*'
+          onDrop={this.onDrop}
+          onDropRejected={this.onDropRejected}
+          onTouchTap={this.onDropzoneOpen}>
+          <span className={styles.dragAndDropText}>
+            Drag and drop an image here.
+          </span>
+          <span className={styles.clickText}>
+            Alternatively, click this area to browse your PC.
+          </span>
+          {this.getWrongFileTypeAlert()}
+        </Dropzone>
+      )
+      : <Loading saveStatus={this.state.uploadStatus} />;
+  }
+
+  getWrongFileTypeAlert = () => {
+    let actions = [
+      <FlatButton
+        label='OK'
+        onTouchTap={this.handleCloseAlert} />
+      ];
+    return (
+      <Dialog
+        title="Error"
+        actions={actions}
+        modal={true}
+        open={this.state.isAlertOpen}
+        onRequestClose={this.handleCloseAlert}>
+        Please upload an image-type file.
+      </Dialog>
+    );
+  }
+
+  render = () => {
+    const {
+      curriculum: { title, description, image },
+      canEnroll,
+      readOnly,
+      onChangeTitle,
+      onChangeDescription,
+      onCancel,
+      onSave,
+      onUploadCover,
+      onQuestions
+    } = this.props
+    const {filename} = this.state
+    const {
+      handleOpenDialog,
+      getUploadDialog
+    } = this
+
+    return (
+      <Paper className={styles.root}>
+        <div className={styles.cover}>
+          <div className={styles.imageHolder}>
+            <img
+              src={/^\s*$/.test(this.state.filename) ? `/cdn/${filename}` : `/cdn/${image}`}
+              className={styles.image}
+              />
+          </div>
+          {readOnly
+            ? ''
+            : <FlatButton label='Upload Cover' onClick={handleOpenDialog} />
+          }
+          {getUploadDialog()}
+        </div>
+        <div>
+          {readOnly
+            ? ''
+            : <div className={styles.auxButtons}>
+              <FlatButton label='Cancel' onClick={onCancel} secondary />
+              <RaisedButton label='Save' onClick={onSave} primary />
+            </div>
+          }
+          <TextField
+            id='title'
+            floatingLabelText='title'
+            value={title}
+            onChange={e => onChangeTitle(e.target.value) }
+            disabled={readOnly}
+            fullWidth
+            />
+          <TextField
+            id='description'
+            floatingLabelText='description'
+            value={description}
+            onChange={e => onChangeDescription(e.target.value) }
+            disabled={readOnly}
+            fullWidth
+            />
+          {canEnroll
+            ? <RaisedButton
+              label='Questions/Enroll'
+              className={styles.enroll}
+              onClick={onQuestions}
+              primary
+              />
+            : ''}
+        </div>
+      </Paper>
+    )
+  }
+}
