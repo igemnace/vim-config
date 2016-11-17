@@ -19,10 +19,19 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = 'node_modules'
 """ END CTRL-P
 
+""" VIM-JSON
+hi def link jsObjectKey Label
+""" END VIM-JSON
+
+""" VIM-JSX
+let g:jsx_ext_required = 0
+""" END VIM-JSX
+
 """ MISC CHANGES
 " set meta editor behavior
 set encoding=utf-8
 filetype plugin indent on
+syntax on
 set visualbell
 set ttyfast
 set ruler
@@ -36,8 +45,8 @@ set undodir=~/.vim/tmp//,.
 
 " set colors
 :colorscheme BlackSea
-hi def link jsObjectKey Label
-syntax on
+hi Search cterm=NONE ctermfg=white ctermbg=gray
+highlight ColorColumn ctermbg=0
 
 " set autosave behavior
 au FocusLost * :wa
