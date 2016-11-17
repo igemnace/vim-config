@@ -4,14 +4,14 @@ Easy way to transfer my vim configuration across multiple machines.
 
 ## Installation
 
-Create symlinks for `.vim`, `.vimrc`, and `.vimpkg`.
+First, make sure to install all necessary plugins. (Install script coming soon!)
+
+Create symlink for `.vimrc`.
 ```
-ln -s path/to/my-vim-config/.vim ~/.vim
 ln -s path/to/my-vim-config/.vimrc ~/.vimrc
-ln -s path/to/my-vim-config/.vimpkg ~/.vimpkg
 ```
 
-Note: Move or delete if these already exist.
+Note: Move or delete if this already exists.
 
 ## Licensing
 
