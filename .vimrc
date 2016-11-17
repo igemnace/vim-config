@@ -1,15 +1,6 @@
 set nocompatible
 filetype off
 
-""" VUNDLE
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'valloric/youcompleteme'
-call vundle#end()
-filetype plugin indent on
-""" END VUNDLE
-
 """ PATHOGEN
 packadd matchit
 execute pathogen#infect()
@@ -31,6 +22,7 @@ let g:ctrlp_custom_ignore = 'node_modules'
 """ MISC CHANGES
 " set meta editor behavior
 set encoding=utf-8
+filetype plugin indent on
 set visualbell
 set ttyfast
 set ruler
