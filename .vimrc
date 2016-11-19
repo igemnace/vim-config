@@ -70,8 +70,6 @@ set colorcolumn=80
 set incsearch
 set hlsearch
 set ignorecase smartcase
-nnoremap / /\v
-vnoremap / /\v
 
 " set command line behavior
 set showcmd
