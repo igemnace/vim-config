@@ -7,7 +7,7 @@ Easy way to transfer my vim configuration across multiple machines.
 Just run `install.sh`. This will automatically do the following:
 - Symlink `.vimrc` into your home directory (`vimrc.sh`)
 - Create `.vim/colors` directory if none exists, and symlink `BlackSea.vim` into it (`color.sh`)
-- Create `.vim/tmp` directory if none exists, for backup/undofile/swapfile storage
+- Create `.vim/tmp` directory if none exists, for backup/undofile/swapfile storage (`tmp.sh`)
 - Create `.vim/autoload` directory if none exists, and install pathogen into it (`pathogen.sh`)
 - Create `.vim/bundle` directory if none exists, and install my plugins into it (`plugins.sh`)
 
