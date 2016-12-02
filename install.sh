@@ -5,3 +5,4 @@
 ./tmp.sh
 ./pathogen.sh
 ./plugins.sh
+./tern.sh
