@@ -10,8 +10,10 @@ Just run `install.sh`. This will automatically do the following:
 - Create `.vim/tmp` directory if none exists, for backup/undofile/swapfile storage (`tmp.sh`)
 - Create `.vim/autoload` directory if none exists, and install pathogen into it (`pathogen.sh`)
 - Create `.vim/bundle` directory if none exists, and install my plugins into it (`plugins.sh`)
+- Install YouCompleteMe with Tern support according to its [full installation guide](https://github.com/Valloric/YouCompleteMe#full-installation-guide) (`youcompleteme.sh`)
+- Symlink `.tern-config` into your home directory (`tern.sh`)
 
-The [YouCompleteMe plugin](https://github.com/Valloric/YouCompleteMe) requires a more complicated installation, so please install manually for now. Script might come in the near future.
+The [YouCompleteMe plugin](https://github.com/Valloric/YouCompleteMe) requires a relatively complicated installation, so the script may fail in some cases. Please install manually in such cases.
 
 ## Licensing
 
