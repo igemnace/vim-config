@@ -2,6 +2,17 @@
 
 Easy way to transfer my vim configuration across multiple machines.
 
+## Pre-Installation
+
+Make sure that your machine satisfies the following:
+- Is using GNU/Linux (scripts are untested on other UNIX systems and will flat-out fail on Windows)
+- Has vim 7.4.143 or higher, with support for Python 2 or Python 3 scripting (required by YouCompleteMe)
+- Has no pre-existing `.vimrc` (backup and remove if existing)
+- Has bash and git (required by install scripts)
+- Has a working internet connection (will be cloning git repos for plugin installation)
+- Has Python headers (distro-dependent package names and installation procedure) and `cmake` (required by YouCompleteMe)
+- Has Node.js and npm (required by Tern support for YouCompleteMe)
+
 ## Installation
 
 Just run `install.sh`. This will automatically do the following:
