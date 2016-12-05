@@ -21,6 +21,7 @@ let g:ctrlp_custom_ignore = 'node_modules'
 
 """ VIM-AIRLINE
 let g:airline_powerline_fonts = 1
+set laststatus=2
 """ END VIM-AIRLINE
 
 """ VIM-JSON
