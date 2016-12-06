@@ -89,6 +89,7 @@ imap <C-o> <esc>o
 " set normal mode behavior
 nnoremap <BS> <nop>
 nnoremap <Space> <nop>
+nnoremap <CR> <nop>
 
 " set leader key behavior
 let mapleader = " "
