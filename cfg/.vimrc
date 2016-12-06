@@ -94,6 +94,7 @@ nnoremap <Space> <nop>
 let mapleader = " "
 map <Leader>j :bn<CR>
 map <Leader>k :bN<CR>
+map <Leader><Leader> :let @/ = ""
 """ END MISC CHANGES
 
 
