@@ -85,6 +85,15 @@ set wildmode=list:longest
 " set insert mode behavior
 set backspace=indent,eol,start
 imap <C-o> <esc>o
+
+" set normal mode behavior
+nnoremap <BS> <nop>
+nnoremap <Space> <nop>
+
+" set leader key behavior
+let mapleader = " "
+map <Leader>j :bn<CR>
+map <Leader>k :bN<CR>
 """ END MISC CHANGES
 
 
