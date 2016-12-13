@@ -37,3 +37,6 @@ git clone https://github.com/elzr/vim-json.git ~/.vim/bundle/vim-json
 
 # vim-jsx
 git clone https://github.com/mxw/vim-jsx.git ~/.vim/bundle/vim-jsx
+
+# vim-css-color
+git clone https://github.com/ap/vim-css-color.git ~/.vim/bundle/vim-css-color
