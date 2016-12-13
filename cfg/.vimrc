@@ -59,7 +59,7 @@ set backupdir=~/.vim/tmp//,.
 set undodir=~/.vim/tmp//,.
 
 " set colors
-:colorscheme BlackSea
+colorscheme BlackSea
 hi Search cterm=NONE ctermfg=white ctermbg=gray
 highlight ColorColumn ctermbg=0
 
@@ -67,14 +67,14 @@ highlight ColorColumn ctermbg=0
 au FocusLost * :wa
 
 " set tab behavior
-:set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set autoindent
 
 " set line numbering
-:set relativenumber
-:set number
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+set relativenumber
+set number
+au FocusLost * :set number
+au FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
