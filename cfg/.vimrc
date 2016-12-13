@@ -25,6 +25,10 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 """ END VIM-AIRLINE
 
+""" VIM-GITGUTTER
+set updatetime=250
+""" END VIM-GITGUTTER
+
 """ VIM-JSON
 hi def link jsObjectKey Label
 """ END VIM-JSON
