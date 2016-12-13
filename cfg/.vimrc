@@ -27,6 +27,7 @@ set laststatus=2
 
 """ VIM-GITGUTTER
 set updatetime=250
+map <Leader>hr :GitGutterAll<CR>
 """ END VIM-GITGUTTER
 
 """ VIM-JSON
