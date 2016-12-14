@@ -32,6 +32,10 @@ highlight GitGutterChangeLine ctermbg=226 ctermfg=black
 map <Leader>hh :GitGutterAll<CR>
 """ END VIM-GITGUTTER
 
+""" GUNDO
+map <Leader>u :GundoToggle<CR>
+""" END GUNDO
+
 """ VIM-JSON
 hi def link jsObjectKey Label
 """ END VIM-JSON
