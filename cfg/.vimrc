@@ -28,12 +28,11 @@ set laststatus=2
 """ VIM-GITGUTTER
 set updatetime=250
 let g:gitgutter_highlight_lines = 1
-highlight GitGutterChangeLine ctermbg=226 ctermfg=black
 map <Leader>hh :GitGutterAll<CR>
 """ END VIM-GITGUTTER
 
 """ GUNDO
-map <Leader>u :GundoToggle<CR>
+map U :GundoToggle<CR>
 """ END GUNDO
 
 """ VIM-JSON
@@ -69,6 +68,7 @@ set undodir=~/.vim/tmp//,.
 colorscheme BlackSea
 hi Search cterm=NONE ctermfg=white ctermbg=gray
 highlight ColorColumn ctermbg=0
+highlight GitGutterChangeLine ctermbg=226 ctermfg=black
 
 " set autosave behavior
 au FocusLost * :wa
