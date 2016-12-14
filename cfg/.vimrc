@@ -28,6 +28,7 @@ set laststatus=2
 """ VIM-GITGUTTER
 set updatetime=250
 let g:gitgutter_highlight_lines = 1
+highlight GitGutterChangeLine ctermbg=226 ctermfg=black
 map <Leader>hr :GitGutterAll<CR>
 """ END VIM-GITGUTTER
 
