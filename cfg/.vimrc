@@ -115,6 +115,8 @@ map Q gq
 nnoremap <BS> <nop>
 nnoremap <Space> <nop>
 nnoremap <CR> <nop>
+nnoremap H gT
+nnoremap L gt
 
 " set leader key behavior
 let mapleader = " "
