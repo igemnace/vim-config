@@ -8,7 +8,7 @@ call pathogen#helptags()
 """ END PATHOGEN
 
 """ NERDTREE
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 """ END NERDTREE
@@ -27,6 +27,7 @@ set laststatus=2
 
 """ VIM-GITGUTTER
 set updatetime=250
+let g:gitgutter_map_keys = 0
 let g:gitgutter_highlight_lines = 1
 """ END VIM-GITGUTTER
 
@@ -51,16 +52,16 @@ set visualbell
 set ttyfast
 set ruler
 set mouse=a
-autocmd BufReadPost *
+au BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
 
 " set window behavior
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
 
 " set temp files dir
 set backup
@@ -87,11 +88,11 @@ set relativenumber
 set number
 au FocusLost * :set number
 au FocusGained * :set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+au InsertEnter * :set number
+au InsertLeave * :set relativenumber
 
 " set line length
-autocmd FileType text setlocal textwidth=80
+au FileType text setlocal textwidth=80
 set colorcolumn=80
 
 " set search behavior
@@ -107,7 +108,7 @@ set history=50
 
 " set insert mode behavior
 set backspace=indent,eol,start
-imap <C-o> <esc>o
+inoremap <C-o> <esc>o
 inoremap <C-U> <C-G>u<C-U>
 
 " set normal mode behavior
@@ -117,6 +118,13 @@ nnoremap <Space> <nop>
 nnoremap <CR> <nop>
 nnoremap H gT
 nnoremap L gt
+
+" set visual mode behavior
+vnoremap <BS> <nop>
+vnoremap <Space> <nop>
+vnoremap <CR> <nop>
+vnoremap H gT
+vnoremap L gt
 
 " set leader key behavior
 let mapleader = " "
