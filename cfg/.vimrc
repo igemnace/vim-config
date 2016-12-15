@@ -112,7 +112,7 @@ set backspace=indent,eol,start
 inoremap <C-o> <esc>o
 inoremap <C-U> <C-G>u<C-U>
 
-" set non-mode specific maps
+" set non-mode-specific maps
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
