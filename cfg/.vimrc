@@ -28,7 +28,6 @@ set laststatus=2
 """ VIM-GITGUTTER
 set updatetime=250
 let g:gitgutter_highlight_lines = 1
-map <Leader>hh :GitGutterAll<CR>
 """ END VIM-GITGUTTER
 
 """ GUNDO
@@ -121,7 +120,7 @@ nnoremap <CR> <nop>
 let mapleader = " "
 map <Leader>j :bn<CR>
 map <Leader>k :bN<CR>
-map <Leader><Leader> :let @/ = ""<CR>
+map <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
 """ END MISC CHANGES
 
 
