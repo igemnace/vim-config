@@ -29,6 +29,13 @@ set laststatus=2
 set updatetime=250
 let g:gitgutter_map_keys = 0
 let g:gitgutter_highlight_lines = 1
+nmap [c <Plug>GitGutterPrevHunk
+nmap ]c <Plug>GitGutterNextHunk
+vmap [c <Plug>GitGutterPrevHunk
+vmap ]c <Plug>GitGutterNextHunk
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
+nmap <Leader>hh :GitGutterLineHighlightsToggle<CR>
 """ END VIM-GITGUTTER
 
 """ GUNDO
