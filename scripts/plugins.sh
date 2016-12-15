@@ -20,6 +20,9 @@ git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airli
 # vim-gitgutter
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 
+# vim-tmux-navigator
+git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle/vim-tmux-navigator
+
 # vim-surround
 git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
 
