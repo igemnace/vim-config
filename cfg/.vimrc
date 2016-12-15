@@ -57,6 +57,12 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
+" set window behavior
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+
 " set temp files dir
 set backup
 set undofile
