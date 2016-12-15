@@ -29,13 +29,6 @@ set laststatus=2
 set updatetime=250
 let g:gitgutter_map_keys = 0
 let g:gitgutter_highlight_lines = 1
-nmap [c <Plug>GitGutterPrevHunk
-nmap ]c <Plug>GitGutterNextHunk
-vmap [c <Plug>GitGutterPrevHunk
-vmap ]c <Plug>GitGutterNextHunk
-nmap <Leader>hs <Plug>GitGutterStageHunk
-nmap <Leader>hu <Plug>GitGutterUndoHunk
-nmap <Leader>hh :GitGutterLineHighlightsToggle<CR>
 """ END VIM-GITGUTTER
 
 """ GUNDO
@@ -63,12 +56,6 @@ au BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
-
-" set window behavior
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-h> <C-W>h
-noremap <C-l> <C-W>l
 
 " set temp files dir
 set backup
@@ -118,26 +105,31 @@ set backspace=indent,eol,start
 inoremap <C-o> <esc>o
 inoremap <C-U> <C-G>u<C-U>
 
-" set normal mode behavior
-map Q gq
-nnoremap <BS> <nop>
-nnoremap <Space> <nop>
-nnoremap <CR> <nop>
-nnoremap H gT
-nnoremap L gt
-
-" set visual mode behavior
-vnoremap <BS> <nop>
-vnoremap <Space> <nop>
-vnoremap <CR> <nop>
-vnoremap H gT
-vnoremap L gt
+" set non-mode specific maps
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
+noremap <BS> <nop>
+noremap <Space> <nop>
+noremap <CR> <nop>
+noremap H gT
+noremap L gt
 
 " set leader key behavior
-let mapleader = " "
+let mapleader = "\<Space>"
 map <Leader>j :bn<CR>
 map <Leader>k :bN<CR>
 map <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
+map [c <Plug>GitGutterPrevHunk
+map ]c <Plug>GitGutterNextHunk
+map <Leader>hs <Plug>GitGutterStageHunk
+map <Leader>hu <Plug>GitGutterUndoHunk
+map <Leader>hh :GitGutterLineHighlightsToggle<CR>
+map <Leader>ga :Gwrite<CR>
+map <Leader>gc :Gcommit<CR>
+map <Leader>gd :Gdiff<CR>
+map <Leader>gb :Gblame<CR>
 """ END MISC CHANGES
 
 
