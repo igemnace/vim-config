@@ -38,6 +38,9 @@ git clone https://github.com/tpope/vim-commentary.git ~/.vim/bundle/vim-commenta
 # auto-pairs
 git clone https://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
 
+# vim-argwrap
+git clone https://github.com/FooSoft/vim-argwrap ~/.vim/bundle/vim-argwrap
+
 # vim-javascript
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
 
