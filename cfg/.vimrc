@@ -137,4 +137,5 @@ map <Leader>ga :Gwrite<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gb :Gblame<CR>
+map <Leader>gg :Ggrep 
 """ END MISC CHANGES
