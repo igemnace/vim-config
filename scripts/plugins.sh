@@ -20,6 +20,9 @@ git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airli
 # codi.vim
 git clone https://github.com/metakirby5/codi.vim.git ~/.vim/bundle/codi.vim
 
+# syntastic
+git clone --depth=1 https://github.com/vim-syntastic/syntastic.git ~/.vim/bundle/syntastic
+
 # vim-obsession
 git clone https://github.com/tpope/vim-obsession.git ~/.vim/bundle/vim-obsession
 
