@@ -26,17 +26,6 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 """ END VIM-AIRLINE
 
-""" SYNTASTIC
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-""" END SYNTASTIC
-
 """ VIM-GITGUTTER
 set updatetime=250
 let g:gitgutter_map_keys = 0
@@ -150,8 +139,6 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gb :Gblame<CR>
 map <Leader>gg :Ggrep 
-map <Leader>ss :SyntasticCheck<CR>
-map <Leader>sr :SyntasticReset<CR>
 map <Leader>a :ArgWrap<CR>
 map <Leader>c :Codi!!<CR>
 """ END MISC CHANGES
