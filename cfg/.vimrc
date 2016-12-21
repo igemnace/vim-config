@@ -149,6 +149,8 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gb :Gblame<CR>
 map <Leader>gg :Ggrep 
+map <Leader>ss :SyntasticCheck<CR>
+map <Leader>sr :SyntasticReset<CR>
 map <Leader>a :ArgWrap<CR>
 map <Leader>c :Codi!!<CR>
 """ END MISC CHANGES
