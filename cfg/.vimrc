@@ -20,6 +20,10 @@ let g:ctrlp_custom_ignore = '\v[\/]*[\.]*(git|node_modules|build)$'
 let g:ctrlp_show_hidden = 1
 """ END CTRL-P
 
+""" YOUCOMPLETEME
+let g:ycm_autoclose_preview_window_after_completion = 1
+""" END YOUCOMPLETEME
+
 """ VIM-AIRLINE
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
