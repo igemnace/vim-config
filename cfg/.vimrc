@@ -53,10 +53,6 @@ set visualbell
 set ttyfast
 set ruler
 set mouse=a
-au BufReadPost *
-  \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
@@ -78,9 +74,6 @@ hi Search cterm=NONE ctermfg=white ctermbg=gray
 highlight ColorColumn ctermbg=0
 highlight GitGutterChangeLine ctermbg=226 ctermfg=black
 
-" set autosave behavior
-au FocusLost * :wa
-
 " set tab behavior
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set autoindent
@@ -88,13 +81,8 @@ set autoindent
 " set line numbering
 set relativenumber
 set number
-au FocusLost * :set number
-au FocusGained * :set relativenumber
-au InsertEnter * :set number
-au InsertLeave * :set relativenumber
 
 " set line length
-au FileType text setlocal textwidth=80
 set colorcolumn=80
 
 " set search behavior
