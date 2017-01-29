@@ -24,6 +24,12 @@ let g:ctrlp_show_hidden = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 """ END YOUCOMPLETEME
 
+""" ALE
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+""" END ALE
+
 """ VIM-AIRLINE
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
