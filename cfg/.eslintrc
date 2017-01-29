@@ -8,9 +8,140 @@ settings:
   jsx: true
 plugins:
   - react
+globals:
+  Promise: false
 rules:
-  strict: 1
-  quotes: 0
-  no-unused-vars: 0
-  camelcase: 0
-  no-underscore-dangle: 0
+  strict:
+    - error
+    - global
+  one-var:
+    - error
+    - never
+  operator-linebreak:
+    - warn
+    - before
+  padded-blocks:
+    - warn
+    - never
+  quote-props:
+    - warn
+    - as-needed
+  quotes:
+    - warn
+    - single
+  curly:
+    - warn
+    - multi-line
+  brace-style:
+    - warn
+    - 1tbs
+  comma-dangle:
+    - warn
+    - always-multiline
+  no-use-before-define:
+    - warn
+    - functions: false
+  indent:
+    - warn
+    - 2
+  space-before-function-paren:
+    - warn
+    - anonymous: always
+      named: never
+      asyncArrow: always
+  space-unary-ops:
+    - warn
+    - words: true
+      nonwords: true
+  arrow-body-style:
+    - warn
+    - as-needed
+  arrow-parens:
+    - warn
+    - as-needed
+  arrow-spacing:
+    - warn
+    - before: true
+      after: true
+  no-confusing-arrow:
+    - warn
+    - allowParens: true
+  generator-star-spacing:
+    - warn
+    - both
+  prefer-destructuring:
+    - warn
+    - array: true
+      object: true
+    - enforceForRenamedProperties: true
+  no-const-assign: 2
+  no-dupe-args: 2
+  no-dupe-class-members: 2
+  no-func-assign: 2
+  no-invalid-regexp: 2
+  no-unreachable: 2
+  default-case: 2
+  eqeqeq: 2
+  no-fallthrough: 2
+  no-eq-null: 2
+  no-global-assign: 2
+  no-invalid-this: 2
+  no-throw-literal: 2
+  no-useless-return: 2
+  radix: 2
+  no-delete-var: 2
+  no-undefined: 2
+  no-multi-assign: 2
+  no-this-before-super: 2
+  semi: 1
+  space-before-blocks: 1
+  func-call-spacing: 1
+  no-undef: 1
+  no-irregular-whitespace: 1
+  no-dupe-keys: 1
+  no-extra-parens: 1 no-template-curly-in-string: 1
+  block-scoped-var: 1
+  dot-location: 1
+  no-empty-pattern: 1
+  no-floating-decimal: 1
+  no-octal: 1
+  no-redeclare: 1
+  no-return-assign: 1
+  no-self-assign: 1
+  no-self-compare: 1
+  no-useless-concat: 1
+  require-await: 1
+  yoda: 1
+  no-catch-shadow: 1
+  no-shadow-restricted-names: 1
+  no-shadow: 1
+  no-unused-vars: 1
+  global-require: 1
+  comma-spacing: 1
+  computed-property-spacing: 1
+  key-spacing: 1
+  keyword-spacing: 1
+  linebreak-style: 1
+  max-len: 1
+  no-lonely-if: 1
+  no-mixed-spaces-and-tabs: 1
+  no-mixed-operators: 1
+  no-plusplus: 1
+  no-unneeded-ternary: 1
+  object-curly-newline: 1
+  newline-per-chained-call: 1
+  space-in-parens: 1
+  space-infix-ops: 1
+  no-duplicate-imports: 1
+  no-useless-computed-key: 1
+  no-useless-rename: 1
+  no-var: 1
+  object-shorthand: 1
+  prefer-arrow-callback: 1
+  prefer-const: 1
+  prefer-rest-params: 1
+  prefer-spread: 1
+  prefer-template: 1
+  require-yield: 1
+  rest-spread-spacing: 1
+  template-curly-spacing: 1
