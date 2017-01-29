@@ -11,9 +11,6 @@ plugins:
 globals:
   Promise: false
 rules:
-  strict:
-    - error
-    - global
   one-var:
     - error
     - never
@@ -69,11 +66,9 @@ rules:
   generator-star-spacing:
     - warn
     - both
-  prefer-destructuring:
+  dot-location:
     - warn
-    - array: true
-      object: true
-    - enforceForRenamedProperties: true
+    - property
   no-const-assign: 2
   no-dupe-args: 2
   no-dupe-class-members: 2
@@ -85,7 +80,6 @@ rules:
   no-fallthrough: 2
   no-eq-null: 2
   no-global-assign: 2
-  no-invalid-this: 2
   no-throw-literal: 2
   no-useless-return: 2
   radix: 2
@@ -102,7 +96,6 @@ rules:
   no-extra-parens: 1
   no-template-curly-in-string: 1
   block-scoped-var: 1
-  dot-location: 1
   no-empty-pattern: 1
   no-floating-decimal: 1
   no-octal: 1
@@ -129,7 +122,6 @@ rules:
   no-mixed-operators: 1
   no-plusplus: 1
   no-unneeded-ternary: 1
-  object-curly-newline: 1
   newline-per-chained-call: 1
   space-in-parens: 1
   space-infix-ops: 1
