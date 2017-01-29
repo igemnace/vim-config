@@ -10,7 +10,7 @@ call pathogen#helptags()
 """ NERDTREE
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 """ END NERDTREE
 
 """ CTRL-P
@@ -28,6 +28,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
+map ]e <Plug>(ale_next_wrap)
+map [e <Plug>(ale_previous_wrap)
 """ END ALE
 
 """ VIM-AIRLINE
