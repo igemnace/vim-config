@@ -111,7 +111,6 @@ set history=50
 " set insert mode behavior
 set backspace=indent,eol,start
 inoremap <C-o> <esc>o
-inoremap <C-U> <C-G>u<C-U>
 
 " set non-mode-specific maps
 noremap <C-j> <C-W>j
@@ -129,8 +128,8 @@ let mapleader = "\<Space>"
 map <Leader>j :bn<CR>
 map <Leader>k :bN<CR>
 map <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
-map [c <Plug>GitGutterPrevHunk
-map ]c <Plug>GitGutterNextHunk
+map [h <Plug>GitGutterPrevHunk
+map ]h <Plug>GitGutterNextHunk
 map <Leader>hs <Plug>GitGutterStageHunk
 map <Leader>hu <Plug>GitGutterUndoHunk
 map <Leader>hh :GitGutterLineHighlightsToggle<CR>
