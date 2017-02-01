@@ -49,7 +49,7 @@ rules:
   space-unary-ops:
     - warn
     - words: true
-      nonwords: true
+      nonwords: false
   arrow-body-style:
     - warn
     - as-needed
@@ -69,6 +69,12 @@ rules:
   dot-location:
     - warn
     - property
+  max-len:
+    - warn
+    - code: 80
+      ignoreUrls: true
+      ignoreStrings: true
+      ignoreTemplateLiterals: true
   no-const-assign: 2
   no-dupe-args: 2
   no-dupe-class-members: 2
@@ -116,7 +122,6 @@ rules:
   key-spacing: 1
   keyword-spacing: 1
   linebreak-style: 1
-  max-len: 1
   no-lonely-if: 1
   no-mixed-spaces-and-tabs: 1
   no-mixed-operators: 1
