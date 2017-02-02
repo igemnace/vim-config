@@ -130,7 +130,7 @@ map <Leader>k :bN<CR>
 map <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
 map [h <Plug>GitGutterPrevHunk
 map ]h <Plug>GitGutterNextHunk
-map <Leader>hs <Plug>GitGutterStageHunk
+map <Leader>ha <Plug>GitGutterStageHunk
 map <Leader>hu <Plug>GitGutterUndoHunk
 map <Leader>hh :GitGutterLineHighlightsToggle<CR>
 map <Leader>ga :Gwrite<CR>
