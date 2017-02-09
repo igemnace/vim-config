@@ -44,6 +44,9 @@ git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
 # vim-commentary
 git clone https://github.com/tpope/vim-commentary.git ~/.vim/bundle/vim-commentary
 
+# vim-unimpaired
+git clone https://github.com/tpope/vim-unimpaired.git ~/.vim/bundle/vim-unimpaired
+
 # auto-pairs
 git clone https://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
 
