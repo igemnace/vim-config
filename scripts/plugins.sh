@@ -35,6 +35,9 @@ git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
 # vim-tmux-navigator
 git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle/vim-tmux-navigator
 
+# vim-eunuch
+git clone https://github.com/tpope/vim-eunuch.git ~/.vim/bundle/vim-eunuch
+
 # emmet-vim
 git clone https://github.com/mattn/emmet-vim ~/.vim/bundle/emmet-vim
 
