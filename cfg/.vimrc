@@ -48,6 +48,10 @@ let g:gitgutter_highlight_lines = 1
 map U :GundoToggle<CR>
 """ END GUNDO
 
+""" VIM-ARGWRAP
+let g:argwrap_tail_comma_braces = '[{'
+""" END VIM-ARGWRAP
+
 """ VIM-JSON
 hi def link jsObjectKey Label
 """ END VIM-JSON
