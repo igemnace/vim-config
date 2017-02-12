@@ -50,6 +50,18 @@ git clone https://github.com/tpope/vim-commentary.git ~/.vim/bundle/vim-commenta
 # vim-unimpaired
 git clone https://github.com/tpope/vim-unimpaired.git ~/.vim/bundle/vim-unimpaired
 
+# vim-speeddating
+git clone git://github.com/tpope/vim-speeddating.git ~/.vim/bundle/vim-speeddating
+
+# vim-abolish
+git clone git://github.com/tpope/vim-abolish.git ~/.vim/bundle/vim-abolish
+
+# vim-repeat
+git clone git://github.com/tpope/vim-repeat.git ~/.vim/bundle/vim-repeat
+
+# YankRing.vim
+https://github.com/vim-scripts/YankRing.vim.git ~/.vim/bundle/YankRing.vim
+
 # auto-pairs
 git clone https://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
 
