@@ -28,8 +28,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
-map ]e <Plug>(ale_next_wrap)
-map [e <Plug>(ale_previous_wrap)
+map ]w <Plug>(ale_next_wrap)
+map [w <Plug>(ale_previous_wrap)
 """ END ALE
 
 """ VIM-AIRLINE
@@ -129,8 +129,6 @@ noremap L gt
 
 " set leader key behavior
 let mapleader = "\<Space>"
-map <Leader>j :bn<CR>
-map <Leader>k :bN<CR>
 map <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
 map [h <Plug>GitGutterPrevHunk
 map ]h <Plug>GitGutterNextHunk
