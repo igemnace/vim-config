@@ -48,6 +48,10 @@ let g:gitgutter_highlight_lines = 1
 map U :GundoToggle<CR>
 """ END GUNDO
 
+""" VIM-YANKSTACK
+let g:yankstack_map_keys = 0
+""" END VIM-YANKSTACK
+
 """ VIM-ARGWRAP
 let g:argwrap_tail_comma_braces = '[{'
 """ END VIM-ARGWRAP
@@ -142,4 +146,6 @@ map <Leader>gb :Gblame<CR>
 map <Leader>gg :Ggrep 
 map <Leader>a :ArgWrap<CR>
 map <Leader>c :Codi!!<CR>
+map <leader>p <Plug>yankstack_substitute_older_paste
+map <leader>P <Plug>yankstack_substitute_newer_paste
 """ END MISC CHANGES
