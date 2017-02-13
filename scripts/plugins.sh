@@ -59,8 +59,8 @@ git clone git://github.com/tpope/vim-abolish.git ~/.vim/bundle/vim-abolish
 # vim-repeat
 git clone git://github.com/tpope/vim-repeat.git ~/.vim/bundle/vim-repeat
 
-# YankRing.vim
-git clone https://github.com/vim-scripts/YankRing.vim.git ~/.vim/bundle/YankRing.vim
+# vim-yankstack
+git clone https://github.com/maxbrunsfeld/vim-yankstack.git ~/.vim/bundle/vim-yankstack
 
 # auto-pairs
 git clone https://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs

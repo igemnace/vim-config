@@ -50,11 +50,18 @@ map U :GundoToggle<CR>
 
 """ VIM-YANKSTACK
 let g:yankstack_map_keys = 0
+call yankstack#setup()
+nmap Y y$
 """ END VIM-YANKSTACK
 
 """ VIM-ARGWRAP
 let g:argwrap_tail_comma_braces = '[{'
 """ END VIM-ARGWRAP
+
+""" VIM-REPEAT
+silent! call repeat#set("\<Plug>yankstack_substitute_older_paste", v:count)
+silent! call repeat#set("\<Plug>yankstack_substitute_newer_paste", v:count)
+""" END VIM-REPEAT
 
 """ VIM-JSON
 hi def link jsObjectKey Label
@@ -146,6 +153,7 @@ map <Leader>gb :Gblame<CR>
 map <Leader>gg :Ggrep 
 map <Leader>a :ArgWrap<CR>
 map <Leader>c :Codi!!<CR>
-map <leader>p <Plug>yankstack_substitute_older_paste
-map <leader>P <Plug>yankstack_substitute_newer_paste
+map <Leader>y :Yanks<CR>
+map <Leader>p <Plug>yankstack_substitute_older_paste
+map <Leader>P <Plug>yankstack_substitute_newer_paste
 """ END MISC CHANGES
