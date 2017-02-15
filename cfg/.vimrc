@@ -84,7 +84,7 @@ nnoremap U :GundoToggle<CR>
 " disallow YankStack's default misc maps
 let g:yankstack_map_keys = 0
 
-" YankStack setup, so further maps involving `y` will use YankStack's behavior
+" YankStack setup, so further maps involving y will use YankStack's behavior
 call yankstack#setup()
 
 " map Y to yank to end of line, similar to D and C
@@ -208,7 +208,7 @@ set smartcase
 " display commands below the statusline
 set showcmd
 
-" allow the `q:` menu to display command history
+" allow the q: menu to display command history
 set wildmenu
 set wildmode=list:longest
 set history=50
@@ -222,7 +222,7 @@ set backspace=indent,eol,start
 inoremap <C-o> <esc>o
 
 "" Visual Mode Behavior
-" make the `<>` indent commands preserve the highlighted visual block
+" make the <> indent commands preserve the highlighted visual block
 vnoremap > >gv
 vnoremap < <gv
 
@@ -237,14 +237,15 @@ noremap <C-l> <C-W>l
 noremap H gT
 noremap L gt
 
-" unmap Backspace, Spacebar, and Enter outside of Insert mode
-" since they are merely maps to `h`, `l`, and `j`, respectively
+" unmap Backspace, Spacebar, Enter, and - outside of Insert mode
+" since they are merely maps to h, l, j, and k, respectively
 noremap <BS> <nop>
 noremap <Space> <nop>
 noremap <CR> <nop>
+noremap - <nop>
 
 "" Leader Key Behavior
-" change Leader key to Spacebar, since `\` is too hard to reach
+" change Leader key to Spacebar, since \ is too hard to reach
 let mapleader = "\<Space>"
 
 " map a key to reset highlights from search and GitGutter
