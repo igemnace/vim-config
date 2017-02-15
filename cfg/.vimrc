@@ -127,6 +127,10 @@ set history=50
 set backspace=indent,eol,start
 inoremap <C-o> <esc>o
 
+" set visual mode behavior
+vnoremap > >gv
+vnoremap < <gv
+
 " set non-mode-specific maps
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
@@ -146,8 +150,10 @@ map ]h <Plug>GitGutterNextHunk
 map <Leader>ha <Plug>GitGutterStageHunk
 map <Leader>hu <Plug>GitGutterUndoHunk
 map <Leader>hh :GitGutterLineHighlightsToggle<CR>
+map <Leader>gs :Gstatus<CR>
 map <Leader>ga :Gwrite<CR>
 map <Leader>gc :Gcommit<CR>
+map <Leader>gm :Gmerge<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gb :Gblame<CR>
 map <Leader>gg :Ggrep 
