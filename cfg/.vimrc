@@ -13,8 +13,7 @@ call pathogen#helptags()
 """ NERDTREE
 " close Vim when the last buffer is a NERDTree
 augroup NERDTree
-  au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") \
-    && b:NERDTree.isTabTree()) | q | endif
+  au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup END
 
 " map a key to toggle NERDTree
