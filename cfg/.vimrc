@@ -254,12 +254,12 @@ noremap <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
 noremap <Leader>hh :GitGutterLineHighlightsToggle<CR>
 
 " map keys for moving between GitGutter hunks
-noremap [h <Plug>GitGutterPrevHunk
-noremap ]h <Plug>GitGutterNextHunk
+map [h <Plug>GitGutterPrevHunk
+map ]h <Plug>GitGutterNextHunk
 
 " map keys for managing GitGutter hunks
-noremap <Leader>ha <Plug>GitGutterStageHunk
-noremap <Leader>hu <Plug>GitGutterUndoHunk
+map <Leader>ha <Plug>GitGutterStageHunk
+map <Leader>hu <Plug>GitGutterUndoHunk
 
 " map keys for Fugitive
 noremap <Leader>gs :Gstatus<CR>
@@ -280,6 +280,6 @@ noremap <Leader>c :Codi!!<CR>
 noremap <Leader>y :Yanks<CR>
 
 " map keys for cycling through the YankStack
-noremap <Leader>p <Plug>yankstack_substitute_older_paste
-noremap <Leader>P <Plug>yankstack_substitute_newer_paste
+map <Leader>p <Plug>yankstack_substitute_older_paste
+map <Leader>P <Plug>yankstack_substitute_newer_paste
 """ END MISC CHANGES
