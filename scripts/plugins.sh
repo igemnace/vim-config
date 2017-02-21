@@ -17,6 +17,9 @@ git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 # vim-airline
 git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airline
 
+# base16-vim
+git clone https://github.com/chriskempson/base16-vim.git ~/.vim/bundle/base16-vim
+
 # ale
 git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
 
@@ -67,6 +70,9 @@ git clone https://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
 
 # vim-argwrap
 git clone https://github.com/FooSoft/vim-argwrap ~/.vim/bundle/vim-argwrap
+
+# vim-rsi
+git clone git://github.com/tpope/vim-rsi.git ~/.vim/bundle/vim-rsi
 
 # vim-javascript
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
