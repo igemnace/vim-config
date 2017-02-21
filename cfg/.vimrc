@@ -47,8 +47,8 @@ let g:ale_linters = {
 \}
 
 " map keys for moving between linted errors
-noremap ]w <Plug>(ale_next_wrap)
-noremap [w <Plug>(ale_previous_wrap)
+map ]w <Plug>(ale_next_wrap)
+map [w <Plug>(ale_previous_wrap)
 """ END ALE
 
 """ VIM-AIRLINE
