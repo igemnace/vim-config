@@ -162,13 +162,17 @@ set undodir=~/.vim/tmp//,.
 colorscheme BlackSea
 
 " define colors for highlighting search results
-hi Search cterm=NONE ctermfg=white ctermbg=gray
+hi Search cterm=NONE ctermfg=black ctermbg=lightgray
 
 " define colors for the colorcolumn marking the 80-char limit
-highlight ColorColumn ctermbg=0
+hi ColorColumn ctermbg=0
+
+" define colors for the cursor crosshairs
+hi CursorLine cterm=NONE ctermfg=black ctermbg=lightgray
+hi CursorColumn cterm=NONE ctermfg=black ctermbg=lightgray
 
 " define colors for GitGutter's highlights for 'change' hunks
-highlight GitGutterChangeLine ctermbg=226 ctermfg=black
+hi GitGutterChangeLine ctermbg=226 ctermfg=black
 
 "" Tab Behavior
 " set up tabs to insert 2 spaces
