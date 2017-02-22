@@ -74,6 +74,9 @@ git clone https://github.com/FooSoft/vim-argwrap ~/.vim/bundle/vim-argwrap
 # vim-rsi
 git clone git://github.com/tpope/vim-rsi.git ~/.vim/bundle/vim-rsi
 
+# vim-sleuth
+git clone https://github.com/tpope/vim-sleuth.git ~/.vim/bundle/vim-sleuth
+
 # vim-javascript
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
 
