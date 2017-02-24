@@ -17,6 +17,9 @@ git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 # vim-airline
 git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airline
 
+# vim-airline-themes
+git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
+
 # base16-vim
 git clone https://github.com/chriskempson/base16-vim.git ~/.vim/bundle/base16-vim
 
