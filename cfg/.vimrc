@@ -51,6 +51,13 @@ map ]w <Plug>(ale_next_wrap)
 map [w <Plug>(ale_previous_wrap)
 """ END ALE
 
+""" BASE16-VIM
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+""" END BASE16-VIM
+
 """ VIM-AIRLINE
 " make Airline display tabs across the top
 let g:airline#extensions#tabline#enabled = 1
@@ -158,9 +165,6 @@ set backupdir=~/.vim/tmp//,.
 set undodir=~/.vim/tmp//,.
 
 "" Colors
-" define the colorscheme
-colorscheme BlackSea
-
 " define colors for highlighting search results
 hi Search cterm=NONE ctermfg=black ctermbg=lightgray
 
@@ -170,9 +174,6 @@ hi ColorColumn ctermbg=0
 " define colors for the cursor crosshairs
 hi CursorLine cterm=NONE ctermfg=black ctermbg=lightgray
 hi CursorColumn cterm=NONE ctermfg=black ctermbg=lightgray
-
-" define colors for GitGutter's highlights for 'change' hunks
-hi GitGutterChangeLine ctermbg=226 ctermfg=black
 
 "" Tab Behavior
 " set up tabs to insert 2 spaces
@@ -247,19 +248,22 @@ noremap <Space> <nop>
 noremap <CR> <nop>
 noremap - <nop>
 
+" map keys for moving between GitGutter hunks
+map [h <Plug>GitGutterPrevHunk
+map ]h <Plug>GitGutterNextHunk
+
 "" Leader Key Behavior
 " change Leader key to Spacebar, since \ is too hard to reach
 let mapleader = "\<Space>"
+
+" map a key to quickly set syntax
+noremap <Leader>s :set syntax=
 
 " map a key to reset highlights from search and GitGutter
 noremap <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
 
 " map a key to toggle GitGutter highlights
 noremap <Leader>hh :GitGutterLineHighlightsToggle<CR>
-
-" map keys for moving between GitGutter hunks
-map [h <Plug>GitGutterPrevHunk
-map ]h <Plug>GitGutterNextHunk
 
 " map keys for managing GitGutter hunks
 map <Leader>ha <Plug>GitGutterStageHunk
