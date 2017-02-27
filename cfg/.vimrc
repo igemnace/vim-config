@@ -23,17 +23,17 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 """ END NERDTREE
 
-""" CTRL-P
-" map a key to toggle Ctrl-P
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+""" FZF.VIM
+" make FZF use ripgrep to search
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
-" make Ctrl-P ignore non-source directories for faster loading
-let g:ctrlp_custom_ignore = '\v[\/]*[\.]*(git|node_modules|build)$'
-
-" make Ctrl-P show hidden dotfiles
-let g:ctrlp_show_hidden = 1
-""" END CTRL-P
+" map a key to toggle FZF for files
+noremap <C-p> :FZF<CR>
+""" END FZF.VIM
 
 """ YOUCOMPLETEME
 " auto-close the annoying preview window
@@ -79,6 +79,9 @@ let g:gitgutter_map_keys = 0
 
 " make GitGutter highlight hunks by default
 let g:gitgutter_highlight_lines = 1
+
+" customize GitGutter signs
+let g:gitgutter_sign_removed = '-'
 """ END VIM-GITGUTTER
 
 """ GUNDO
@@ -166,14 +169,18 @@ set undodir=~/.vim/tmp//,.
 
 "" Colors
 " define colors for highlighting search results
-hi Search cterm=NONE ctermfg=black ctermbg=lightgray
+hi Search cterm=NONE ctermfg=000 ctermbg=008
 
 " define colors for the colorcolumn marking the 80-char limit
-hi ColorColumn ctermbg=0
+hi ColorColumn ctermbg=018
 
 " define colors for the cursor crosshairs
-hi CursorLine cterm=NONE ctermfg=black ctermbg=lightgray
-hi CursorColumn cterm=NONE ctermfg=black ctermbg=lightgray
+hi link CursorLine Search
+hi link CursorColumn Search
+
+" redefine colors for GitGutter highlights
+hi GitGutterChange cterm=NONE ctermfg=003
+hi GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
 
 "" Tab Behavior
 " set up tabs to insert 2 spaces
@@ -277,6 +284,18 @@ noremap <Leader>gm :Gmerge<CR>
 noremap <Leader>gd :Gdiff<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gg :Ggrep 
+
+" map keys for FZF
+noremap <Leader>fs :GFiles?<CR>
+noremap <Leader>fb :Buffers<CR>
+noremap <Leader>fL :Lines<CR>
+noremap <Leader>fl :BLines<CR>
+noremap <Leader>f: :History:<CR>
+noremap <Leader>f/ :History/<CR>
+noremap <Leader>fc :Commits<CR>
+noremap <Leader>fo :Commands<CR>
+noremap <Leader>fm :Marks<CR>
+noremap <Leader>ff :Filetypes<CR>
 
 " map a key to trigger ArgWrap
 noremap <Leader>a :ArgWrap<CR>
