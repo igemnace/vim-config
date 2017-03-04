@@ -29,7 +29,10 @@ let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
   \ -g "!{.git,node_modules,vendor}/*" '
-command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+" make FZF open an existing buffer if possible
+let g:fzf_buffers_jump = 1
 
 " map a key to toggle FZF for files
 noremap <C-p> :FZF<CR>
@@ -263,9 +266,6 @@ map ]h <Plug>GitGutterNextHunk
 " change Leader key to Spacebar, since \ is too hard to reach
 let mapleader = "\<Space>"
 
-" map a key to quickly set syntax
-noremap <Leader>s :set syntax=
-
 " map a key to reset highlights from search and GitGutter
 noremap <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
 
@@ -286,6 +286,7 @@ noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gg :Ggrep 
 
 " map keys for FZF
+noremap <Leader>fr :Rg<CR>
 noremap <Leader>fs :GFiles?<CR>
 noremap <Leader>fb :Buffers<CR>
 noremap <Leader>fL :Lines<CR>
