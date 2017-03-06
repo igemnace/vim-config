@@ -17,7 +17,7 @@ augroup NERDTree
 augroup END
 
 " map a key to toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
 
 " make NERDTree show hidden dotfiles
 let NERDTreeShowHidden = 1
