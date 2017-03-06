@@ -80,6 +80,9 @@ git clone git://github.com/tpope/vim-rsi.git ~/.vim/bundle/vim-rsi
 # vim-sleuth
 git clone https://github.com/tpope/vim-sleuth.git ~/.vim/bundle/vim-sleuth
 
+# todo.txt-vim
+git clone https://github.com/freitass/todo.txt-vim.git ~/.vim/bundle/todo.txt-vim
+
 # vim-javascript
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
 
