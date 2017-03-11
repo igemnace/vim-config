@@ -41,6 +41,10 @@ noremap <C-p> :FZF<CR>
 """ YOUCOMPLETEME
 " auto-close the annoying preview window
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+" make YouCompleteMe use Python 2, because for some retarded reason
+" it builds for Python 2 EVEN WHEN MY DEFAULT PYTHON IS PYTHON 3
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
 """ END YOUCOMPLETEME
 
 """ ALE
@@ -48,6 +52,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
+
+" disallow ALE from setting highlights
+let g:ale_set_highlights = 0
 
 " map keys for moving between linted errors
 map ]w <Plug>(ale_next_wrap)
@@ -115,6 +122,15 @@ silent! call repeat#set("\<Plug>yankstack_substitute_older_paste", v:count)
 silent! call repeat#set("\<Plug>yankstack_substitute_newer_paste", v:count)
 """ END VIM-REPEAT
 
+""" CODI-VIM
+let g:codi#interpreters = {
+  \ 'lisp': {
+    \ 'bin': 'sbcl',
+    \ 'prompt': '^\(*\|\) ',
+  \ },
+\ }
+""" END CODI-VIM
+
 """ VIM-JSON
 " Vim-JSON setup boilerplate
 hi def link jsObjectKey Label
@@ -126,7 +142,10 @@ let g:jsx_ext_required = 0
 """ END VIM-JSX
 
 """ MISC CHANGES
-"" Meta Editor behavior
+""" META EDITOR BEHAVIOR
+" use matchit
+runtime macros/matchit.vim
+
 " use Unicode
 set encoding=utf-8
 
@@ -161,7 +180,13 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
-"" Temp Files Directory
+""" WINDOW BEHAVIOR
+" make Vim add new vertical splits to the right
+" and new horizontal splits below
+set splitright
+set splitbelow
+
+""" TEMP FILES DIRECTORY
 " make Vim save swapfiles and undofiles in .vim
 " to avoid cluttering the working directory
 set backup
@@ -170,7 +195,7 @@ set dir=~/.vim/tmp//,.
 set backupdir=~/.vim/tmp//,.
 set undodir=~/.vim/tmp//,.
 
-"" Colors
+""" COLORS
 " define colors for highlighting search results
 hi Search cterm=NONE ctermfg=000 ctermbg=008
 
@@ -185,7 +210,7 @@ hi link CursorColumn Search
 hi GitGutterChange cterm=NONE ctermfg=003
 hi GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
 
-"" Tab Behavior
+""" TAB BEHAVIOR
 " set up tabs to insert 2 spaces
 set tabstop=2
 set softtabstop=0
@@ -196,17 +221,17 @@ set smarttab
 " make Vim auto indent with tabs
 set autoindent
 
-"" Line Numbering
+""" LINE NUMBERING
 " make Vim display the line number of the current line
 " but relative line numbers for all other lines
 set number
 set relativenumber
 
-"" Line Length
+""" LINE LENGTH
 " add a colored column to mark the 80-char limit
 set colorcolumn=80
 
-"" Search Behavior
+""" SEARCH BEHAVIOR
 " allow incremental search
 set incsearch
 
@@ -218,7 +243,7 @@ set hlsearch
 set ignorecase
 set smartcase
 
-"" Command Line Behavior
+""" COMMAND LINE BEHAVIOR
 " display commands below the statusline
 set showcmd
 
@@ -227,7 +252,7 @@ set wildmenu
 set wildmode=list:longest
 set history=50
 
-"" Insert Mode Behavior
+""" INSERT MODE BEHAVIOR
 " allow Backspace to delete the following special characters
 " standard Vim boilerplate
 set backspace=indent,eol,start
@@ -235,12 +260,12 @@ set backspace=indent,eol,start
 " map a key to immediately add a new line below in Insert mode
 inoremap <C-o> <esc>o
 
-"" Visual Mode Behavior
+""" VISUAL MODE BEHAVIOR
 " make the <> indent commands preserve the highlighted visual block
 vnoremap > >gv
 vnoremap < <gv
 
-"" Non-Mode-Specific Maps
+""" NON-MODE-SPECIFIC MAPS
 " map keys to easily move between splits
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
@@ -262,7 +287,7 @@ noremap - <nop>
 map [h <Plug>GitGutterPrevHunk
 map ]h <Plug>GitGutterNextHunk
 
-"" Leader Key Behavior
+""" LEADER KEY BEHAVIOR
 " change Leader key to Spacebar, since \ is too hard to reach
 let mapleader = "\<Space>"
 
