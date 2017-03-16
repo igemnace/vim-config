@@ -116,20 +116,28 @@ nmap Y y$
 let g:argwrap_tail_comma_braces = '[{'
 """ END VIM-ARGWRAP
 
+""" AUTO-PAIRS
+" disable certain pairs when in Lisp files, especially quote '
+augroup AutoPairs
+  au FileType lisp let b:AutoPairs = {'(': ')', '"': '"'}
+augroup END
+""" END AUTO-PAIRS
+
 """ VIM-REPEAT
 " allow YankStack's behavior to be repeated
 silent! call repeat#set("\<Plug>yankstack_substitute_older_paste", v:count)
 silent! call repeat#set("\<Plug>yankstack_substitute_newer_paste", v:count)
 """ END VIM-REPEAT
 
-""" CODI-VIM
-let g:codi#interpreters = {
-  \ 'lisp': {
-    \ 'bin': 'sbcl',
-    \ 'prompt': '^\(*\|\) ',
-  \ },
-\ }
-""" END CODI-VIM
+""" VIM-SLIME
+" make vim-slime work with tmux panes by default
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+
+" unset vim-slime's default emacs bindings
+" new leader key bindings are set in the MISC CHANGES section
+let g:slime_no_mappings = 1
+""" END VIM-SLIME
 
 """ VIM-JSON
 " Vim-JSON setup boilerplate
@@ -328,6 +336,11 @@ noremap <Leader>a :ArgWrap<CR>
 
 " map a key to toggle Codi
 noremap <Leader>c :Codi!!<CR>
+
+" map keys for vim-slime
+xmap <Leader>s <Plug>SlimeRegionSend
+nmap <Leader>s <Plug>SlimeMotionSend
+nmap <Leader>ss <Plug>SlimeLineSend
 
 " map a key to display the YankStack
 noremap <Leader>y :Yanks<CR>

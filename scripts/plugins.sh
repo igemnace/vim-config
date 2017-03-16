@@ -29,6 +29,9 @@ git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
 # codi.vim
 git clone https://github.com/metakirby5/codi.vim.git ~/.vim/bundle/codi.vim
 
+# vim-slime
+git clone https://github.com/jpalardy/vim-slime.git ~/.vim/bundle/vim-slime
+
 # vim-obsession
 git clone https://github.com/tpope/vim-obsession.git ~/.vim/bundle/vim-obsession
 
