@@ -1,42 +1,34 @@
 set nocompatible
-packloadall
 
 """ FZF.VIM
 " make FZF use ripgrep to search
-let g:rg_command = '
+let g:rg_command='
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
   \ -g "!{.git,node_modules,vendor}/*" '
 command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 " make FZF open an existing buffer if possible
-let g:fzf_buffers_jump = 1
-
-" map a key to toggle FZF for files
-noremap <C-p> :FZF<CR>
+let g:fzf_buffers_jump=1
 """ END FZF.VIM
 
 """ YOUCOMPLETEME
 " auto-close the annoying preview window
-let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_completion=1
 
 " make YouCompleteMe use Python 2, because for some retarded reason
 " it builds for Python 2 EVEN WHEN MY DEFAULT PYTHON IS PYTHON 3
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_server_python_interpreter='/usr/bin/python2'
 """ END YOUCOMPLETEME
 
 """ ALE
 " use eslint for linting
-let g:ale_linters = {
+let g:ale_linters={
 \   'javascript': ['eslint'],
 \}
 
 " disallow ALE from setting highlights
-let g:ale_set_highlights = 0
-
-" map keys for moving between linted errors
-map ]w <Plug>(ale_next_wrap)
-map [w <Plug>(ale_previous_wrap)
+let g:ale_set_highlights=0
 """ END ALE
 
 """ BASE16-VIM
@@ -52,43 +44,34 @@ set updatetime=250
 
 " disallow GitGutter's default maps
 " My own maps are in the MISC CHANGES section, under Leader key behavior
-let g:gitgutter_map_keys = 0
+let g:gitgutter_map_keys=0
 
 " make GitGutter highlight hunks by default
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines=1
 
 " customize GitGutter signs
-let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed='-'
 """ END VIM-GITGUTTER
-
-""" GUNDO
-" map a key to toggle Gundo
-nnoremap U :GundoToggle<CR>
-""" END GUNDO
 
 """ VIM-YANKSTACK
 " disallow YankStack's default misc maps
-let g:yankstack_map_keys = 0
-
-" YankStack setup, so further maps involving y will use YankStack's behavior
-call yankstack#setup()
-
-" map Y to yank to end of line, similar to D and C
-" don't use noremap, to trigger YankStack's behavior
-nmap Y y$
+let g:yankstack_map_keys=0
 """ END VIM-YANKSTACK
 
 """ VIM-ARGWRAP
 " make ArgWrap add tail commas when working with [] or {}
-let g:argwrap_tail_comma_braces = '[{'
+let g:argwrap_tail_comma_braces='[{'
 """ END VIM-ARGWRAP
 
-""" AUTO-PAIRS
-" disable certain pairs when in Lisp files, especially quote '
+""" AUTO-PAIRS-GENTLE
+" turn on gentle mode
+let g:AutoPairsUseInsertedCount=1
+
+" disable certain pairs when in Lisp files, especially quote (')
 augroup AutoPairs
-  au FileType lisp let b:AutoPairs = {'(': ')', '"': '"'}
+  autocmd FileType lisp let b:AutoPairs={'(': ')', '"': '"'}
 augroup END
-""" END AUTO-PAIRS
+""" END AUTO-PAIRS-GENTLE
 
 """ VIM-REPEAT
 " allow YankStack's behavior to be repeated
@@ -98,28 +81,46 @@ silent! call repeat#set("\<Plug>yankstack_substitute_newer_paste", v:count)
 
 """ VIM-SLIME
 " make vim-slime work with tmux panes by default
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+" guard for tmux
+if $TMUX != ""
+  let g:slime_target="tmux"
+  let g:slime_default_config={"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+endif
 
 " unset vim-slime's default emacs bindings
-" new leader key bindings are set in the MISC CHANGES section
-let g:slime_no_mappings = 1
+" new leader key bindings are set in the LEADER KEY BEHAVIOR section
+let g:slime_no_mappings=1
 """ END VIM-SLIME
 
 """ VIM-JSON
 " Vim-JSON setup boilerplate
-hi def link jsObjectKey Label
+highlight def link jsObjectKey Label
 """ END VIM-JSON
 
 """ VIM-JSX
 " allow Vim-JSX to work even without a .jsx extension
-let g:jsx_ext_required = 0
+let g:jsx_ext_required=0
 """ END VIM-JSX
+
+""" LOAD PACKAGES
+packloadall
+
+" vim-surround assert xmap rule
+xmap S <Plug>VSurround
+
+" YankStack setup, so further maps involving y will use YankStack's behavior
+" WARNING: depends on packloadall
+call yankstack#setup()
+
+" map Y to yank to end of line, similar to D and C
+" don't use noremap, to trigger YankStack's behavior
+nmap Y y$
+""" END LOAD PACKAGES
 
 """ MISC CHANGES
 """ META EDITOR BEHAVIOR
 " use matchit
-runtime macros/matchit.vim
+packadd! matchit
 
 " use Unicode
 set encoding=utf-8
@@ -129,9 +130,6 @@ filetype plugin indent on
 
 " enable syntax highlighting
 syntax on
-
-" disable beeping
-set visualbell
 
 " make Vim display faster, since modern terminals can handle it
 set ttyfast
@@ -217,25 +215,25 @@ highlight User5 ctermfg=016 ctermbg=018
 highlight User9 ctermfg=002 ctermbg=018
 
 " define colors for highlighting search results
-hi Search cterm=NONE ctermfg=000 ctermbg=008
+highlight Search cterm=NONE ctermfg=000 ctermbg=008
 
 " define colors for the colorcolumn marking the 80-char limit
-hi ColorColumn ctermbg=018
+highlight ColorColumn ctermbg=018
 
 " define colors for the cursor crosshairs
-hi link CursorLine Search
-hi link CursorColumn Search
+highlight link CursorLine Search
+highlight link CursorColumn Search
 
-" redefine colors for GitGutter highlights
-hi GitGutterChange cterm=NONE ctermfg=003
-hi GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
+" redefine colors for GitGutter highlightghlights
+highlight GitGutterChange cterm=NONE ctermfg=003
+highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
 
 """ TAB BEHAVIOR
 " set up tabs to insert 2 spaces
 set tabstop=2
 set softtabstop=0
-set expandtab
 set shiftwidth=2
+set expandtab
 set smarttab
 
 " make Vim auto indent with tabs
@@ -267,18 +265,16 @@ set smartcase
 " display commands below the statusline
 set showcmd
 
-" allow the q: menu to display command history
+" display tab completions for command line
 set wildmenu
 set wildmode=list:longest
+
+" keep history of commands
 set history=50
 
 """ INSERT MODE BEHAVIOR
 " allow Backspace to delete the following special characters
-" standard Vim boilerplate
 set backspace=indent,eol,start
-
-" map a key to immediately add a new line below in Insert mode
-inoremap <C-o> <esc>o
 
 """ VISUAL MODE BEHAVIOR
 " make the <> indent commands preserve the highlighted visual block
@@ -286,30 +282,27 @@ vnoremap > >gv
 vnoremap < <gv
 
 """ NON-MODE-SPECIFIC MAPS
-" map keys to easily move between splits
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-h> <C-W>h
-noremap <C-l> <C-W>l
-
 " map keys to easily move between tabs
 noremap H gT
 noremap L gt
 
-" unmap Backspace, Spacebar, Enter, and - outside of Insert mode
-" since they are merely maps to h, l, j, and k, respectively
+" unmap Backspace, Spacebar, and Enter outside of Insert mode
+" since they are merely maps to h, l, and j, respectively
 noremap <BS> <nop>
 noremap <Space> <nop>
 noremap <CR> <nop>
-noremap - <nop>
 
 " map keys for moving between GitGutter hunks
 map [h <Plug>GitGutterPrevHunk
 map ]h <Plug>GitGutterNextHunk
 
+" map keys for moving between linted errors
+map ]w <Plug>(ale_next_wrap)
+map [w <Plug>(ale_previous_wrap)
+
 """ LEADER KEY BEHAVIOR
 " change Leader key to Spacebar, since \ is too hard to reach
-let mapleader = "\<Space>"
+let mapleader="\<Space>"
 
 " map a key to reset highlights from search and GitGutter
 noremap <Leader><Leader> :let @/=""<CR>:GitGutterAll<CR>
