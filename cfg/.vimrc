@@ -312,7 +312,7 @@ map ]h <Plug>GitGutterNextHunk
 let mapleader = "\<Space>"
 
 " map a key to reset highlights from search and GitGutter
-noremap <Leader><Leader> :let @/ = ""<CR>:GitGutterAll<CR>
+noremap <Leader><Leader> :let @/=""<CR>:GitGutterAll<CR>
 
 " map a key to toggle GitGutter highlights
 noremap <Leader>hh :GitGutterLineHighlightsToggle<CR>
@@ -331,6 +331,7 @@ noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gg :Ggrep 
 
 " map keys for FZF
+noremap <Leader>fp :Files<CR>
 noremap <Leader>fr :Rg<CR>
 noremap <Leader>fs :GFiles?<CR>
 noremap <Leader>fb :Buffers<CR>
@@ -343,16 +344,27 @@ noremap <Leader>fo :Commands<CR>
 noremap <Leader>fm :Marks<CR>
 noremap <Leader>ff :Filetypes<CR>
 
+" map keys to open other files
+noremap <Leader>ee :edit **/*
+noremap <Leader>es :split **/*
+noremap <Leader>ev :vsplit **/*
+noremap <Leader>et :tabedit **/*
+noremap <Leader>ea :argadd **/*
+noremap <Leader>eb :buffers<CR>:buffer **/*
+
+" map a key to load a plugin
+noremap <Leader>vp :packadd 
+
 " map a key to trigger ArgWrap
 noremap <Leader>a :ArgWrap<CR>
 
-" map a key to toggle Codi
-noremap <Leader>c :Codi!!<CR>
-
-" map keys for vim-slime
+" map keys for Vim-Slime
 xmap <Leader>s <Plug>SlimeRegionSend
 nmap <Leader>s <Plug>SlimeMotionSend
 nmap <Leader>ss <Plug>SlimeLineSend
+
+" map a key for GUndo
+nnoremap <Leader>u :GundoToggle<CR>
 
 " map a key to display the YankStack
 noremap <Leader>y :Yanks<CR>
