@@ -1,27 +1,5 @@
 set nocompatible
-" turn filetype off temporarily, for Pathogen
-" this will be turned on again in the MISC CHANGES section
-filetype off
-
-""" PATHOGEN
-" Pathogen setup boilerplate
-packadd matchit
-execute pathogen#infect()
-call pathogen#helptags()
-""" END PATHOGEN
-
-""" NERDTREE
-" close Vim when the last buffer is a NERDTree
-augroup NERDTree
-  au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-augroup END
-
-" map a key to toggle NERDTree
-noremap <C-n> :NERDTreeToggle<CR>
-
-" make NERDTree show hidden dotfiles
-let NERDTreeShowHidden = 1
-""" END NERDTREE
+packloadall
 
 """ FZF.VIM
 " make FZF use ripgrep to search
