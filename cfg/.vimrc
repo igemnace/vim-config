@@ -46,17 +46,6 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 """ END BASE16-VIM
 
-""" VIM-AIRLINE
-" make Airline display tabs across the top
-let g:airline#extensions#tabline#enabled = 1
-
-" make Airline use Powerline glyphs
-let g:airline_powerline_fonts = 1
-
-" make Vim to display the statusline at all times
-set laststatus=2
-""" END VIM-AIRLINE
-
 """ VIM-GITGUTTER
 " make Vim update the buffer faster, for GitGutter to highlight faster
 set updatetime=250
@@ -150,21 +139,56 @@ set ttyfast
 " make Vim display cursor line and column numbers at all times
 set ruler
 
-" allow mouse actions
-set mouse=a
+""" STATUSLINE BEHAVIOR
+" make Vim display the status and tab lines at all times
+set laststatus=2
+set showtabline=2
 
-" define :DiffOrig to display a buffer's source file, but unedited
-" standard Vim boilerplate
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
+" define statusline items
+function! ChangeModeColor()
+  if (mode() =~? "n")
+    exe "highlight User9 ctermfg=002 ctermbg=018"
+  elseif (mode() =~? "i")
+    exe "highlight User9 ctermfg=004 ctermbg=018"
+  elseif (mode() =~? "r")
+    exe "highlight User9 ctermfg=001 ctermbg=018"
+  elseif (strtrans(mode()) =~? "v")
+    exe "highlight User9 ctermfg=005 ctermbg=018"
+  endif
+  return ''
+endfunction
+function! ModeLetter()
+  let modeletter=strtrans(toupper(mode()))
+  return strcharpart(modeletter,strchars(modeletter)-1)
+endfunction
+set statusline=
+" current mode
+set statusline+=%{ChangeModeColor()}
+set statusline+=%9*
+set statusline+=[%{ModeLetter()}]
+" filename
+set statusline+=%*
+set statusline+=\ %(%f%)
+" window type (help, preview, qlist)
+set statusline+=%*
+set statusline+=%(%h%w%q%)
+" modified flag
+set statusline+=%3*
+set statusline+=%(%m%)
+" readonly flag
+set statusline+=%1*
+set statusline+=%(%r%)
+" midline separator
+set statusline+=%=
+" buffer syntax
+set statusline+=%*
+set statusline+=%(%y%)
+" ruler (line/col numbers, percent, total lines)
+set statusline+=%*
+set statusline+=\ %-8.(%l,%v%)\ %(%p%%\ %LL%)
 
-" make Vim respect non-standard keyboard input in Insert mode
-" langnoremap is used instead of langmap to avoid mapping bugs
-if has('langmap') && exists('+langnoremap')
-  set langnoremap
-endif
+" define tabline items
+" TODO: craft tab line that displays buffers as well
 
 """ WINDOW BEHAVIOR
 " make Vim add new vertical splits to the right
@@ -182,6 +206,16 @@ set backupdir=~/.vim/tmp//,.
 set undodir=~/.vim/tmp//,.
 
 """ COLORS
+" define colors for the statusline
+highlight StatusLine ctermbg=018
+highlight StatusLineNC ctermfg=019 ctermbg=018
+highlight User1 ctermfg=001 ctermbg=018
+highlight User2 ctermfg=002 ctermbg=018
+highlight User3 ctermfg=003 ctermbg=018
+highlight User4 ctermfg=004 ctermbg=018
+highlight User5 ctermfg=016 ctermbg=018
+highlight User9 ctermfg=002 ctermbg=018
+
 " define colors for highlighting search results
 hi Search cterm=NONE ctermfg=000 ctermbg=008
 
