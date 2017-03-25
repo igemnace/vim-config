@@ -103,18 +103,20 @@ let g:jsx_ext_required=0
 """ END VIM-JSX
 
 """ LOAD PACKAGES
+" Vim doesn't add packages to runtimepath until after processing .vimrc
+" but I need to call yankstack#setup(), which will error out if I don't
+" have the plugin in my runtime path
+" so I load them all right away
 packloadall
 
-" vim-surround assert xmap rule
-xmap S <Plug>VSurround
-
 " YankStack setup, so further maps involving y will use YankStack's behavior
-" WARNING: depends on packloadall
 call yankstack#setup()
 
 " map Y to yank to end of line, similar to D and C
-" don't use noremap, to trigger YankStack's behavior
 nmap Y y$
+
+" YankStack overrides visual-mode S, which I need for vim-surround
+xmap S <Plug>VSurround
 """ END LOAD PACKAGES
 
 """ MISC CHANGES
@@ -337,16 +339,18 @@ noremap <Leader>fo :Commands<CR>
 noremap <Leader>fm :Marks<CR>
 noremap <Leader>ff :Filetypes<CR>
 
-" map keys to open other files
-noremap <Leader>ee :edit **/*
-noremap <Leader>es :split **/*
-noremap <Leader>ev :vsplit **/*
-noremap <Leader>et :tabedit **/*
-noremap <Leader>ea :argadd **/*
-noremap <Leader>eb :buffers<CR>:buffer **/*
+" map keys for netrw
+noremap <Leader>nn :Explore<CR>
+noremap <Leader>ns :Sexplore<CR>
+noremap <Leader>nv :Vexplore<CR>
 
-" map a key to load a plugin
+" map keys for useful native Vim functions
+noremap <Leader>va :argadd **/*
+" edit with no parameters is useful for reloading a buffer
+noremap <Leader>vr :edit<CR>
 noremap <Leader>vp :packadd 
+" float directories to the top in Dirvish
+" noremap <Leader>vs :v/\/$/m$<CR>:let @/=""<CR>
 
 " map a key to trigger ArgWrap
 noremap <Leader>a :ArgWrap<CR>

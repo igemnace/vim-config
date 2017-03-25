@@ -44,7 +44,8 @@ fi
 
 # START
 cd "$HOME/.vim/pack/extend/start"
-git clone https://github.com/jiangmiao/auto-pairs.git
+git clone https://github.com/vim-scripts/auto-pairs-gentle.git
+git clone https://github.com/tpope/vim-endwise
 git clone git://github.com/tpope/vim-abolish.git
 git clone https://github.com/FooSoft/vim-argwrap
 git clone https://github.com/tpope/vim-commentary.git
@@ -54,11 +55,11 @@ git clone https://github.com/tpope/vim-sleuth.git
 git clone https://github.com/tpope/vim-surround.git
 git clone https://github.com/tpope/vim-unimpaired.git
 git clone https://github.com/maxbrunsfeld/vim-yankstack.git
+git clone git://github.com/tpope/vim-speeddating.git
 
 # OPT
 cd "$HOME/.vim/pack/extend/opt"
-# TODO: add gundo
-git clone git://github.com/tpope/vim-speeddating.git
+git clone https://github.com/sjl/gundo.vim
 ### END EXTEND
 
 ### FILENAV
