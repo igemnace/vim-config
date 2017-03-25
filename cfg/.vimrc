@@ -263,6 +263,13 @@ set hlsearch
 set ignorecase
 set smartcase
 
+""" BUFFER-SPECIFIC BEHAVIOR
+augroup BufferSpecific
+
+  " allow K to search :help in vim files
+  autocmd FileType vim setlocal keywordprg=:help
+augroup END
+
 """ COMMAND LINE BEHAVIOR
 " display commands below the statusline
 set showcmd
