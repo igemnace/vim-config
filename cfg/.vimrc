@@ -285,6 +285,12 @@ set history=50
 " allow Backspace to delete the following special characters
 set backspace=indent,eol,start
 
+augroup InsertBehavior
+  " make Vim respect relative paths for file completion
+  autocmd InsertEnter * let b:save_cwd = getcwd() | lcd %:p:h
+  autocmd InsertLeave * execute 'cd' fnameescape(b:save_cwd)
+augroup END
+
 """ VISUAL MODE BEHAVIOR
 " make the <> indent commands preserve the highlighted visual block
 vnoremap > >gv
