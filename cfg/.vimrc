@@ -301,11 +301,10 @@ vnoremap < <gv
 noremap H gT
 noremap L gt
 
-" unmap Backspace, Spacebar, and Enter outside of Insert mode
-" since they are merely maps to h, l, and j, respectively
+" unmap Backspace and Spacebar outside of Insert mode
+" since they are merely maps to h and l, respectively
 noremap <BS> <nop>
 noremap <Space> <nop>
-noremap <CR> <nop>
 
 " map keys for moving between GitGutter hunks
 map [h <Plug>GitGutterPrevHunk
@@ -314,6 +313,9 @@ map ]h <Plug>GitGutterNextHunk
 " map keys for moving between linted errors
 map ]w <Plug>(ale_next_wrap)
 map [w <Plug>(ale_previous_wrap)
+
+" map a key for vim-dispatch
+map <F5> :Dispatch<CR>
 
 """ LEADER KEY BEHAVIOR
 " change Leader key to Spacebar, since \ is too hard to reach
@@ -364,6 +366,12 @@ noremap <Leader>vr :edit<CR>
 noremap <Leader>vp :packadd 
 " float directories to the top in Dirvish
 " noremap <Leader>vs :v/\/$/m$<CR>:let @/=""<CR>
+
+" map keys for quickfix and loc lists
+noremap <Leader>qo :copen<CR>
+noremap <Leader>qc :cclose<CR>
+noremap <Leader>lo :lopen<CR>
+noremap <Leader>lc :lclose<CR>
 
 " map a key to trigger ArgWrap
 noremap <Leader>a :ArgWrap<CR>

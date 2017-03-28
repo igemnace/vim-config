@@ -60,6 +60,7 @@ git clone git://github.com/tpope/vim-speeddating.git
 # OPT
 cd "$HOME/.vim/pack/extend/opt"
 git clone https://github.com/sjl/gundo.vim
+git clone https://github.com/tpope/vim-dispatch.git
 ### END EXTEND
 
 ### FILENAV
