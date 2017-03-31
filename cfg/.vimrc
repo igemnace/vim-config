@@ -139,6 +139,9 @@ set ttyfast
 " make Vim display cursor line and column numbers at all times
 set ruler
 
+" make Vim indent wrapped lines
+set breakindent
+
 """ STATUSLINE BEHAVIOR
 " make Vim display the status and tab lines at all times
 set laststatus=2
@@ -293,8 +296,8 @@ augroup END
 
 """ VISUAL MODE BEHAVIOR
 " make the <> indent commands preserve the highlighted visual block
-vnoremap > >gv
-vnoremap < <gv
+xnoremap > >gv
+xnoremap < <gv
 
 """ NON-MODE-SPECIFIC MAPS
 " map keys to easily move between tabs
@@ -361,11 +364,9 @@ noremap <Leader>nv :Vexplore<CR>
 
 " map keys for useful native Vim functions
 noremap <Leader>va :argadd **/*
+noremap <Leader>vp :packadd 
 " edit with no parameters is useful for reloading a buffer
 noremap <Leader>vr :edit<CR>
-noremap <Leader>vp :packadd 
-" float directories to the top in Dirvish
-" noremap <Leader>vs :v/\/$/m$<CR>:let @/=""<CR>
 
 " map keys for quickfix and loc lists
 noremap <Leader>qo :copen<CR>
