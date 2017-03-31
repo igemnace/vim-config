@@ -271,6 +271,9 @@ augroup BufferSpecific
 
   " allow K to search :help in vim files
   autocmd FileType vim setlocal keywordprg=:help
+
+  " automatically set cursorline for fugitive and todo.txt
+  autocmd FileType gitcommit,todo setlocal cursorline
 augroup END
 
 """ COMMAND LINE BEHAVIOR
