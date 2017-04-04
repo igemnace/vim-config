@@ -139,9 +139,6 @@ set ttyfast
 " make Vim display cursor line and column numbers at all times
 set ruler
 
-" make Vim indent wrapped lines
-set breakindent
-
 """ STATUSLINE BEHAVIOR
 " make Vim display the status and tab lines at all times
 set laststatus=2
