@@ -139,6 +139,9 @@ set ttyfast
 " make Vim display cursor line and column numbers at all times
 set ruler
 
+" allow Vim to hide modified buffers without abandoning them
+set hidden
+
 """ STATUSLINE BEHAVIOR
 " make Vim display the status and tab lines at all times
 set laststatus=2
@@ -270,7 +273,7 @@ augroup BufferSpecific
   autocmd FileType vim setlocal keywordprg=:help
 
   " automatically set cursorline for fugitive and todo.txt
-  autocmd FileType gitcommit,todo setlocal cursorline
+  autocmd FileType gitcommit,todo,qf setlocal cursorline
 augroup END
 
 """ COMMAND LINE BEHAVIOR
