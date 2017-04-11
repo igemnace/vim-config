@@ -148,30 +148,10 @@ set laststatus=2
 set showtabline=2
 
 " define statusline items
-function! ChangeModeColor()
-  if (mode() =~? "n")
-    exe "highlight User9 ctermfg=002 ctermbg=018"
-  elseif (mode() =~? "i")
-    exe "highlight User9 ctermfg=004 ctermbg=018"
-  elseif (mode() =~? "r")
-    exe "highlight User9 ctermfg=001 ctermbg=018"
-  elseif (strtrans(mode()) =~? "v")
-    exe "highlight User9 ctermfg=005 ctermbg=018"
-  endif
-  return ''
-endfunction
-function! ModeLetter()
-  let modeletter=strtrans(toupper(mode()))
-  return strcharpart(modeletter,strchars(modeletter)-1)
-endfunction
 set statusline=
-" current mode
-set statusline+=%{ChangeModeColor()}
-set statusline+=%9*
-set statusline+=[%{ModeLetter()}]
 " filename
 set statusline+=%*
-set statusline+=\ %(%f%)
+set statusline+=%(%f%)
 " window type (help, preview, qlist)
 set statusline+=%*
 set statusline+=%(%h%w%q%)
@@ -189,9 +169,6 @@ set statusline+=%(%y%)
 " ruler (line/col numbers, percent, total lines)
 set statusline+=%*
 set statusline+=\ %-8.(%l,%v%)\ %(%p%%\ %LL%)
-
-" define tabline items
-" TODO: craft tab line that displays buffers as well
 
 """ WINDOW BEHAVIOR
 " make Vim add new vertical splits to the right
