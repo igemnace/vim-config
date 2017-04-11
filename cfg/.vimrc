@@ -23,6 +23,7 @@ let g:ale_set_highlights=0
 """ END ALE
 
 """ BASE16-VIM
+" make base16-vim read colors from base16-shell
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
