@@ -198,7 +198,7 @@ highlight ColorColumn ctermbg=018
 highlight link CursorLine Search
 highlight link CursorColumn Search
 
-" redefine colors for GitGutter highlightghlights
+" redefine colors for GitGutter highlights
 highlight GitGutterChange cterm=NONE ctermfg=003
 highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
 
