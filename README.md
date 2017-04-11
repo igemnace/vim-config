@@ -6,7 +6,7 @@ Easy way to transfer my Vim configuration across multiple machines.
 
 Make sure that your machine satisfies the following:
 - Is using GNU/Linux (scripts are untested on other UNIX systems and will flat-out fail on Windows)
-- Has Vim 8 or higher (required by ALE and completor.vim for async jobs), with support for Python 2 or Python 3 scripting (required by completor.vim)
+- Has Vim 8 or higher (required by ALE and completor.vim for async jobs, and by the plugin install script for the new package system), with support for Python 2 or Python 3 scripting (required by completor.vim)
 - Has no pre-existing `.vimrc` (backup and remove if existing)
 - Has env, bash, and git (required by install scripts)
 - Has a working internet connection (will be cloning git repos for plugin installation)
