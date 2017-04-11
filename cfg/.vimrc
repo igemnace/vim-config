@@ -293,7 +293,7 @@ map ]w <Plug>(ale_next_wrap)
 map [w <Plug>(ale_previous_wrap)
 
 " map a key for vim-dispatch
-map <F5> :Dispatch<CR>
+noremap <F5> :Dispatch<CR>
 
 """ LEADER KEY BEHAVIOR
 " change Leader key to Spacebar, since \ is too hard to reach
