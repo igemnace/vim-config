@@ -309,7 +309,7 @@ map <Leader>ha <Plug>GitGutterStageHunk
 map <Leader>hu <Plug>GitGutterUndoHunk
 
 " map keys for Fugitive
-noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gs :Gstatus \| wincmd o<CR>
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gm :Gmerge<CR>
