@@ -274,6 +274,9 @@ augroup BufferSpecific
 
   " automatically set cursorline for fugitive and todo.txt
   autocmd FileType gitcommit,todo,qf setlocal cursorline
+
+  " set markdown documents textwidth to 80
+  autocmd FileType markdown setlocal textwidth=80
 augroup END
 
 """ COMMAND LINE BEHAVIOR
