@@ -12,15 +12,6 @@ command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>)
 let g:fzf_buffers_jump=1
 """ END FZF.VIM
 
-""" YOUCOMPLETEME
-" auto-close the annoying preview window
-let g:ycm_autoclose_preview_window_after_completion=1
-
-" make YouCompleteMe use Python 2, because for some retarded reason
-" it builds for Python 2 EVEN WHEN MY DEFAULT PYTHON IS PYTHON 3
-let g:ycm_server_python_interpreter='/usr/bin/python2'
-""" END YOUCOMPLETEME
-
 """ ALE
 " use eslint for linting
 let g:ale_linters={
