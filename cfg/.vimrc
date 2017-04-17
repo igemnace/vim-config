@@ -32,7 +32,7 @@ endif
 set updatetime=250
 
 " disallow GitGutter's default maps
-" My own maps are in the MISC CHANGES section, under Leader key behavior
+" My own maps are in the MISC CHANGES section, under LEADER KEY BEHAVIOR
 let g:gitgutter_map_keys=0
 
 " make GitGutter highlight hunks by default
@@ -43,7 +43,8 @@ let g:gitgutter_sign_removed='-'
 """ END VIM-GITGUTTER
 
 """ VIM-YANKSTACK
-" disallow YankStack's default misc maps
+" disallow YankStack's default maps
+" My own maps are in the MISC CHANGES section, under LEADER KEY BEHAVIOR
 let g:yankstack_map_keys=0
 """ END VIM-YANKSTACK
 
@@ -77,13 +78,13 @@ if $TMUX != ""
 endif
 
 " unset vim-slime's default emacs bindings
-" new leader key bindings are set in the LEADER KEY BEHAVIOR section
+" My own maps are in the MISC CHANGES section, under LEADER KEY BEHAVIOR
 let g:slime_no_mappings=1
 """ END VIM-SLIME
 
 """ VIM-JSON
-" Vim-JSON setup boilerplate
-highlight def link jsObjectKey Label
+" define a default highlight for vim-JSON's highlight groups
+highlight default link jsObjectKey Label
 """ END VIM-JSON
 
 """ VIM-JSX
