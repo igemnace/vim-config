@@ -7,9 +7,6 @@ let g:rg_command='
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
   \ -g "!{.git,node_modules,vendor}/*" '
 command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
-
-" make FZF open an existing buffer if possible
-let g:fzf_buffers_jump=1
 """ END FZF.VIM
 
 """ ALE
