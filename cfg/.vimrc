@@ -1,5 +1,3 @@
-set nocompatible
-
 """ FZF.VIM
 " make FZF use ripgrep to search
 let g:rg_command='
@@ -254,7 +252,7 @@ set showcmd
 set wildmenu
 set wildmode=list:longest
 
-" keep history of commands
+" limit command history
 set history=50
 
 """ INSERT MODE BEHAVIOR
