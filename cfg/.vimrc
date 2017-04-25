@@ -78,6 +78,12 @@ endif
 let g:slime_no_mappings=1
 """ END VIM-SLIME
 
+""" VIM-TABLE-MODE
+" make tables pandoc-markdown-compatible
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
+""" END VIM-TABLE-MODE
+
 """ VIM-JSON
 " define a default highlight for vim-JSON's highlight groups
 highlight default link jsObjectKey Label
