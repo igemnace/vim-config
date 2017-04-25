@@ -26,7 +26,7 @@ endif
 """ END BASE16-VIM
 
 """ VIM-GITGUTTER
-" make Vim update the buffer faster, for GitGutter to highlight faster
+" make Vim update the buffer faster, for GitGutter to update highlights faster
 set updatetime=250
 
 " disallow GitGutter's default maps
@@ -51,15 +51,12 @@ let g:yankstack_map_keys=0
 let g:argwrap_tail_comma_braces='[{'
 """ END VIM-ARGWRAP
 
-""" AUTO-PAIRS-GENTLE
-" turn on gentle mode
-let g:AutoPairsUseInsertedCount=1
-
+""" AUTO-PAIRS
 " disable certain pairs when in Lisp files, especially quote (')
 augroup AutoPairs
   autocmd FileType lisp let b:AutoPairs={'(': ')', '"': '"'}
 augroup END
-""" END AUTO-PAIRS-GENTLE
+""" END AUTO-PAIRS
 
 """ VIM-REPEAT
 " allow YankStack's behavior to be repeated
@@ -93,7 +90,7 @@ let g:jsx_ext_required=0
 """ LOAD PACKAGES
 " Vim doesn't add packages to runtimepath until after processing .vimrc
 " but I need to call yankstack#setup(), which will error out if I don't
-" have the plugin in my runtime path
+" have the plugin in my runtimepath
 " so I load them all right away
 packloadall
 
@@ -115,20 +112,20 @@ packadd! matchit
 " use Unicode
 set encoding=utf-8
 
-" make Vim indent smartly, based on filetype
+" make Vim detect filetypes and apply filetype plugin and indent files
 filetype plugin indent on
 
 " enable syntax highlighting
-syntax on
+syntax enable
 
 " make Vim display faster, since modern terminals can handle it
 set ttyfast
 
-" make Vim display cursor line and column numbers at all times
-set ruler
-
 " allow Vim to hide modified buffers without abandoning them
 set hidden
+
+" delete comment characters when joining lines
+set formatoptions+=j
 
 """ STATUSLINE BEHAVIOR
 " make Vim display the status and tab lines at all times
@@ -165,11 +162,12 @@ set splitright
 set splitbelow
 
 """ TEMP FILES DIRECTORY
-" make Vim save swapfiles and undofiles in .vim
-" to avoid cluttering the working directory
+" make Vim save swapfiles, backups, and undofiles in .vim
+" so I can make use of them without cluttering the working directory
+set swapfile
 set backup
 set undofile
-set dir=~/.vim/tmp//,.
+set directory=~/.vim/tmp//,.
 set backupdir=~/.vim/tmp//,.
 set undodir=~/.vim/tmp//,.
 
@@ -198,15 +196,28 @@ highlight link CursorColumn Search
 highlight GitGutterChange cterm=NONE ctermfg=003
 highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
 
-""" TAB BEHAVIOR
-" set up tabs to insert 2 spaces
-set tabstop=2
-set softtabstop=0
+""" INDENT BEHAVIOR
+" set up indents to use 2 spaces
 set shiftwidth=2
+
+" round indents, so nothing is offset from shiftwidth
+set shiftround
+
+" set up <Tab> to insert an indent instead of a tab character
+" this relies on the value of shiftwidth
+set softtabstop=-1
 set expandtab
+
+" make <Tab> insert an indent (shiftwidth) when at the start of a line
+" and a tab character elsewhere (tabstop/softtabstop)
+" my softabstop is set up to rely on shiftwidth so this may seem superfluous
+" but there may be times I'd want to change tab settings locally
 set smarttab
 
-" make Vim auto indent with tabs
+" make tab characters display as 8 characters wide
+set tabstop=8
+
+" make Vim auto indent when typing new lines
 set autoindent
 
 """ LINE NUMBERING
@@ -237,11 +248,14 @@ augroup BufferSpecific
   " allow K to search :help in vim files
   autocmd FileType vim setlocal keywordprg=:help
 
-  " automatically set cursorline for fugitive and todo.txt
+  " automatically set cursorline for fugitive, todo.txt, and quickfix
   autocmd FileType gitcommit,todo,qf setlocal cursorline
 
   " set markdown documents textwidth to 80
   autocmd FileType markdown setlocal textwidth=80
+
+  " set spell check for prose-related buffers
+  autocmd FileType markdown,gitcommit setlocal spell
 augroup END
 
 """ COMMAND LINE BEHAVIOR
@@ -255,8 +269,12 @@ set wildmode=list:longest
 " limit command history
 set history=50
 
+" abbreviate commandline messages as much as possible
+" to help above hit-enter prompts
+set shortmess=atoO
+
 """ INSERT MODE BEHAVIOR
-" allow Backspace to delete the following special characters
+" allow <BS> to delete the following special characters
 set backspace=indent,eol,start
 
 augroup InsertBehavior
@@ -287,9 +305,6 @@ map ]h <Plug>GitGutterNextHunk
 " map keys for moving between linted errors
 map ]w <Plug>(ale_next_wrap)
 map [w <Plug>(ale_previous_wrap)
-
-" map a key for vim-dispatch
-noremap <F5> :Dispatch<CR>
 
 """ LEADER KEY BEHAVIOR
 " change Leader key to Spacebar, since \ is too hard to reach
