@@ -54,6 +54,7 @@ let g:argwrap_tail_comma_braces='[{'
 """ AUTO-PAIRS
 " disable certain pairs when in Lisp files, especially quote (')
 augroup AutoPairs
+  autocmd!
   autocmd FileType lisp let b:AutoPairs={'(': ')', '"': '"'}
 augroup END
 """ END AUTO-PAIRS
@@ -244,6 +245,7 @@ set smartcase
 
 """ BUFFER-SPECIFIC BEHAVIOR
 augroup BufferSpecific
+  autocmd!
 
   " allow K to search :help in vim files
   autocmd FileType vim setlocal keywordprg=:help
@@ -278,6 +280,8 @@ set shortmess=atoO
 set backspace=indent,eol,start
 
 augroup InsertBehavior
+  autocmd!
+
   " make Vim respect relative paths for file completion
   autocmd InsertEnter * let b:save_cwd = getcwd() | lcd %:p:h
   autocmd InsertLeave * execute 'cd' fnameescape(b:save_cwd)
