@@ -1,22 +1,8 @@
 #!/usr/bin/env bash
 
-if [ ! -d "$HOME/.vim" ]; then
-  mkdir "$HOME/.vim"
-fi
-if [ ! -d "$HOME/.vim/pack" ]; then
-  mkdir "$HOME/.vim/pack"
-fi
-
 ### CODE
-if [ ! -d "$HOME/.vim/pack/code" ]; then
-  mkdir "$HOME/.vim/pack/code"
-fi
-if [ ! -d "$HOME/.vim/pack/code/start" ]; then
-  mkdir "$HOME/.vim/pack/code/start"
-fi
-if [ ! -d "$HOME/.vim/pack/code/opt" ]; then
-  mkdir "$HOME/.vim/pack/code/opt"
-fi
+mkdir -p "$HOME/.vim/pack/code/start"
+mkdir -p "$HOME/.vim/pack/code/opt"
 
 # START
 cd "$HOME/.vim/pack/code/start"
@@ -33,15 +19,8 @@ git clone https://github.com/dhruvasagar/vim-table-mode.git
 ### END CODE
 
 ### EXTEND
-if [ ! -d "$HOME/.vim/pack/extend" ]; then
-  mkdir "$HOME/.vim/pack/extend"
-fi
-if [ ! -d "$HOME/.vim/pack/extend/start" ]; then
-  mkdir "$HOME/.vim/pack/extend/start"
-fi
-if [ ! -d "$HOME/.vim/pack/extend/opt" ]; then
-  mkdir "$HOME/.vim/pack/extend/opt"
-fi
+mkdir -p "$HOME/.vim/pack/extend/start"
+mkdir -p "$HOME/.vim/pack/extend/opt"
 
 # START
 cd "$HOME/.vim/pack/extend/start"
@@ -65,12 +44,7 @@ git clone https://github.com/tpope/vim-dispatch.git
 ### END EXTEND
 
 ### FILENAV
-if [ ! -d "$HOME/.vim/pack/filenav" ]; then
-  mkdir "$HOME/.vim/pack/filenav"
-fi
-if [ ! -d "$HOME/.vim/pack/filenav/start" ]; then
-  mkdir "$HOME/.vim/pack/filenav/start"
-fi
+mkdir -p "$HOME/.vim/pack/filenav/start"
 
 # START
 cd "$HOME/.vim/pack/filenav/start"
@@ -79,15 +53,8 @@ git clone https://github.com/tpope/vim-vinegar.git
 ### END FILENAV
 
 ### INTEGRATE
-if [ ! -d "$HOME/.vim/pack/integrate" ]; then
-  mkdir "$HOME/.vim/pack/integrate"
-fi
-if [ ! -d "$HOME/.vim/pack/integrate/start" ]; then
-  mkdir "$HOME/.vim/pack/integrate/start"
-fi
-if [ ! -d "$HOME/.vim/pack/integrate/opt" ]; then
-  mkdir "$HOME/.vim/pack/integrate/opt"
-fi
+mkdir -p "$HOME/.vim/pack/integrate/start"
+mkdir -p "$HOME/.vim/pack/integrate/opt"
 
 # START
 cd "$HOME/.vim/pack/integrate/start"
@@ -102,15 +69,8 @@ git clone https://github.com/jpalardy/vim-slime.git
 ### END INTEGRATE
 
 ### THEME
-if [ ! -d "$HOME/.vim/pack/theme" ]; then
-  mkdir "$HOME/.vim/pack/theme"
-fi
-if [ ! -d "$HOME/.vim/pack/theme/start" ]; then
-  mkdir "$HOME/.vim/pack/theme/start"
-fi
-if [ ! -d "$HOME/.vim/pack/theme/opt" ]; then
-  mkdir "$HOME/.vim/pack/theme/opt"
-fi
+mkdir -p "$HOME/.vim/pack/theme/start"
+mkdir -p "$HOME/.vim/pack/theme/opt"
 
 # START
 cd "$HOME/.vim/pack/theme/start"
