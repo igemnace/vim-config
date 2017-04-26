@@ -1,0 +1,6 @@
+This package is meant to hold all plugins designed to make writing code easier.
+Linters, completion engines, snippets, and syntax files all fall under this
+category.
+
+As a rule of thumb, plugins that either parse your own code or write
+auto-generated code should fall under this package.

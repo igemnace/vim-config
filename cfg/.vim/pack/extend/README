@@ -1,0 +1,7 @@
+This package is meant to hold all plugins designed to enhance Vim's native
+functionality. tpope plugins and the like mostly fall under this category.
+
+Take note that this package is meant for general Vim functionality, and so must
+act on text without necessarily knowing context. If a plugin relies heavily on
+parsing your code to behave properly, consider moving it to the `code` package
+instead.

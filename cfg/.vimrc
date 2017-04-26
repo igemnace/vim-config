@@ -94,23 +94,6 @@ highlight default link jsObjectKey Label
 let g:jsx_ext_required=0
 """ END VIM-JSX
 
-""" LOAD PACKAGES
-" Vim doesn't add packages to runtimepath until after processing .vimrc
-" but I need to call yankstack#setup(), which will error out if I don't
-" have the plugin in my runtimepath
-" so I load them all right away
-packloadall
-
-" YankStack setup, so further maps involving y will use YankStack's behavior
-call yankstack#setup()
-
-" map Y to yank to end of line, similar to D and C
-nmap Y y$
-
-" YankStack overrides visual-mode S, which I need for vim-surround
-xmap S <Plug>VSurround
-""" END LOAD PACKAGES
-
 """ MISC CHANGES
 """ META EDITOR BEHAVIOR
 " use matchit

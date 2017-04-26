@@ -1,0 +1,5 @@
+This package is meant to hold all plugins designed to integrate Vim with
+external programs, such as git or tmux.
+
+Plugins that send text out of Vim, such as to a REPL, also fall under this
+category.
