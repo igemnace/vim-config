@@ -247,6 +247,9 @@ augroup BufferSpecific
 
   " set spell check for prose-related buffers
   autocmd FileType markdown,gitcommit setlocal spell
+
+  " set makeprg to pandoc for markdown
+  autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
 augroup END
 
 """ COMMAND LINE BEHAVIOR
