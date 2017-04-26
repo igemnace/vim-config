@@ -299,6 +299,10 @@ map ]h <Plug>GitGutterNextHunk
 map ]w <Plug>(ale_next_wrap)
 map [w <Plug>(ale_previous_wrap)
 
+""" COMMANDS
+" define a command for splitting a statement with a ternary operator
+command! SplitTernary silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
+
 """ LEADER KEY BEHAVIOR
 " change Leader key to Spacebar, since \ is too hard to reach
 let mapleader="\<Space>"
