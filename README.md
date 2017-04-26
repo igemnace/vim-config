@@ -20,6 +20,7 @@ Make sure that your machine satisfies the following:
 
 Just run `install.sh`. This will automatically do the following:
 - Symlink `.vimrc` into your home directory (`vimrc.sh`)
+- Symlink all of the contents of `.vim` into your home directory (`vim.sh`)
 - Create `.vim/tmp` directory if none exists, for backup/undofile/swapfile
   storage (`tmp.sh`)
 - Create `.vim/pack` directory if none exists, and install my plugin packages
