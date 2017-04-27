@@ -6,12 +6,12 @@ mkdir -p "$HOME/.vim/pack/code/opt"
 
 # START
 cd "$HOME/.vim/pack/code/start"
-git clone https://github.com/w0rp/ale.git
-git clone https://github.com/mattn/emmet-vim
-git clone https://github.com/pangloss/vim-javascript.git
 git clone https://github.com/elzr/vim-json.git
-git clone https://github.com/mxw/vim-jsx.git
 git clone https://github.com/freitass/todo.txt-vim.git
+git clone https://github.com/mattn/emmet-vim
+git clone https://github.com/mxw/vim-jsx.git
+git clone https://github.com/pangloss/vim-javascript.git
+git clone https://github.com/w0rp/ale.git
 
 # OPT
 cd "$HOME/.vim/pack/code/opt"
@@ -24,23 +24,23 @@ mkdir -p "$HOME/.vim/pack/extend/opt"
 
 # START
 cd "$HOME/.vim/pack/extend/start"
-git clone https://github.com/jiangmiao/auto-pairs.git
-git clone https://github.com/tpope/vim-endwise
 git clone git://github.com/tpope/vim-abolish.git
-git clone https://github.com/FooSoft/vim-argwrap
-git clone https://github.com/tpope/vim-commentary.git
 git clone git://github.com/tpope/vim-repeat.git
 git clone git://github.com/tpope/vim-rsi.git
+git clone git://github.com/tpope/vim-speeddating.git
+git clone https://github.com/FooSoft/vim-argwrap
+git clone https://github.com/jiangmiao/auto-pairs.git
+git clone https://github.com/maxbrunsfeld/vim-yankstack.git
+git clone https://github.com/tpope/vim-commentary.git
+git clone https://github.com/tpope/vim-dispatch.git
+git clone https://github.com/tpope/vim-endwise
 git clone https://github.com/tpope/vim-sleuth.git
 git clone https://github.com/tpope/vim-surround.git
 git clone https://github.com/tpope/vim-unimpaired.git
-git clone https://github.com/maxbrunsfeld/vim-yankstack.git
-git clone git://github.com/tpope/vim-speeddating.git
 
 # OPT
 cd "$HOME/.vim/pack/extend/opt"
 git clone https://github.com/sjl/gundo.vim
-git clone https://github.com/tpope/vim-dispatch.git
 ### END EXTEND
 
 ### FILENAV
