@@ -190,9 +190,6 @@ highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
 " set up indents to use 2 spaces
 set shiftwidth=2
 
-" round indents, so nothing is offset from shiftwidth
-set shiftround
-
 " set up <Tab> to insert an indent instead of a tab character
 " this relies on the value of shiftwidth
 set softtabstop=-1
