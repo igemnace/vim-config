@@ -60,6 +60,7 @@ mkdir -p "$HOME/.vim/pack/integrate/opt"
 cd "$HOME/.vim/pack/integrate/start"
 git clone https://github.com/airblade/vim-gitgutter.git
 git clone https://github.com/christoomey/vim-tmux-navigator.git
+git clone https://github.com/tommcdo/vim-fubitive.git
 git clone https://github.com/tpope/vim-eunuch.git
 git clone https://github.com/tpope/vim-fugitive.git
 
