@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { PropTypes, Component } from 'react';
+import { View } from 'react-native';
 import { styles } from './name.styles.js';
 
 export default class Name extends Component {
@@ -11,6 +12,9 @@ export default class Name extends Component {
   static propTypes = {}
 
   render() {
-    return ();
+    return (
+      <View>
+      </View>
+    );
   }
 }

@@ -1,10 +1,14 @@
 'use script';
 
 import React, { PropTypes } from 'react';
+import { View } from 'react-native';
 import { styles } from './name.styles.js';
 
 function Name(props) {
-  return ();
+  return (
+    <View>
+    </View>
+  );
 }
 
 Name.propTypes = {};
