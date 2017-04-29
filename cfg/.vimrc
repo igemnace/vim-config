@@ -265,6 +265,9 @@ function! EnableAutoTemplate()
     autocmd BufNewFile *.component.js 0r $SKELETONS/react-native/component.js
     autocmd BufNewFile *.hoc.js 0r $SKELETONS/react-native/hoc.js
     autocmd BufNewFile *.styles.js 0r $SKELETONS/react-native/styles.js
+
+    " filetype templates
+    autocmd BufNewFile * silent! execute "0r $SKELETONS/" . &filetype . "." . expand("%:e") 
   augroup END
 endfunction
 
@@ -279,6 +282,9 @@ endfunction
 function! ManualLoadTemplate(type, template)
   execute "0r $SKELETONS/".a:type."/".a:template
 endfunction
+
+" enable template loading by default
+call EnableAutoTemplate()
 
 """ COMMAND LINE BEHAVIOR
 " display commands below the statusline
