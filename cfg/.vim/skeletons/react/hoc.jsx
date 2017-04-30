@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PropTypes, Component } from 'react';
 import Name from './name.component.js';
 
