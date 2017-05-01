@@ -331,6 +331,10 @@ noremap L gt
 noremap <BS> <nop>
 noremap <Space> <nop>
 
+" swap g] and g<C-]>
+noremap g] g<C-]>
+noremap g<C-]> g]
+
 " map keys for moving between GitGutter hunks
 map [h <Plug>GitGutterPrevHunk
 map ]h <Plug>GitGutterNextHunk
