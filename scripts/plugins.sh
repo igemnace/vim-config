@@ -16,6 +16,7 @@ git clone https://github.com/w0rp/ale.git
 # OPT
 cd "$HOME/.vim/pack/code/opt"
 git clone https://github.com/dhruvasagar/vim-table-mode.git
+git clone https://github.com/ternjs/tern_for_vim.git
 ### END CODE
 
 ### EXTEND
