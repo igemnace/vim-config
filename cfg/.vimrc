@@ -259,43 +259,6 @@ augroup BufferSpecific
   autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
 augroup END
 
-" template loading
-let $SKELETONS=$HOME."/.vim/skeletons"
-function! EnableAutoTemplate()
-  let g:auto_templates_on=1
-
-  augroup TemplateLoading
-    autocmd!
-
-    " React templates
-    autocmd BufNewFile *.component.jsx 0r $SKELETONS/react/component.jsx
-    autocmd BufNewFile *.hoc.jsx 0r $SKELETONS/react/hoc.jsx
-
-    " React Native templates
-    autocmd BufNewFile *.component.js 0r $SKELETONS/react-native/component.js
-    autocmd BufNewFile *.hoc.js 0r $SKELETONS/react-native/hoc.js
-    autocmd BufNewFile *.styles.js 0r $SKELETONS/react-native/styles.js
-
-    " filetype templates
-    autocmd BufNewFile * silent! execute "0r $SKELETONS/" . &filetype . "." . expand("%:e") 
-  augroup END
-endfunction
-
-function! DisableAutoTemplate()
-  unlet g:auto_templates_on
-
-  augroup TemplateLoading
-    autocmd!
-  augroup END
-endfunction
-
-function! ManualLoadTemplate(type, template)
-  execute "0r $SKELETONS/".a:type."/".a:template
-endfunction
-
-" enable template loading by default
-call EnableAutoTemplate()
-
 """ COMMAND LINE BEHAVIOR
 " display commands below the statusline
 set showcmd
@@ -354,11 +317,6 @@ map [w <Plug>(ale_previous_wrap)
 " define a command for splitting a statement with a ternary operator
 command! SplitTernary silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
 
-command! -nargs=0 EnableTemplates call EnableAutoTemplate()
-command! -nargs=0 DisableTemplates call DisableAutoTemplate()
-command! -nargs=+ LoadTemplate call ManualLoadTemplate(<f-args>)
-
-" define commands for templates
 
 """ LEADER KEY BEHAVIOR
 " change Leader key to Spacebar, since \ is too hard to reach
