@@ -42,6 +42,7 @@ git clone https://github.com/tpope/vim-unimpaired.git
 # OPT
 cd "$HOME/.vim/pack/extend/opt"
 git clone https://github.com/sjl/gundo.vim
+git clone https://github.com/Konfekt/FastFold.git
 ### END EXTEND
 
 ### FILENAV
