@@ -313,10 +313,39 @@ map ]h <Plug>GitGutterNextHunk
 map ]w <Plug>(ale_next_wrap)
 map [w <Plug>(ale_previous_wrap)
 
+""" FUNCTIONS
+function! EnableLineBind()
+  let t:line_bind_on=1
+
+  setlocal cursorline scrollbind
+  wincmd w
+  setlocal cursorline scrollbind
+  wincmd w
+endfunction
+
+function! DisableLineBind()
+  unlet t:line_bind_on
+
+  setlocal nocursorline noscrollbind
+  wincmd w
+  setlocal nocursorline noscrollbind
+  wincmd w
+endfunction
+
+function! ToggleLineBind()
+  if exists("t:line_bind_on")
+    call DisableLineBind()
+  else
+    call EnableLineBind()
+  endif
+endfunction
+
 """ COMMANDS
 " define a command for splitting a statement with a ternary operator
 command! SplitTernary silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
 
+" define a command for ToggleLineBind
+command! -nargs=0 ToggleLineBind call ToggleLineBind()
 
 """ LEADER KEY BEHAVIOR
 " change Leader key to Spacebar, since \ is too hard to reach
@@ -338,7 +367,7 @@ noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gm :Gmerge<CR>
 noremap <Leader>gd :Gdiff<CR>
-noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gb :Gblame \| ToggleLineBind<CR>
 noremap <Leader>gg :Ggrep 
 
 " map keys for FZF
