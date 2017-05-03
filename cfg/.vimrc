@@ -94,6 +94,17 @@ highlight default link jsObjectKey Label
 let g:jsx_ext_required=0
 """ END VIM-JSX
 
+""" TEMPLATES.VIM
+let g:templates_mappings={
+  \  '*.component.js': 'react-native/component.js',
+  \  '*.hoc.js': 'react-native/hoc.js',
+  \  '*.styles.js': 'react-native/styles.js',
+  \  '*.component.jsx': 'react/component.jsx',
+  \  '*.hoc.jsx': 'react/hoc.jsx',
+  \  '*.sh': 'sh.sh',
+  \}
+""" END TEMPLATES.VIM
+
 """ MISC CHANGES
 """ META EDITOR BEHAVIOR
 " use matchit
