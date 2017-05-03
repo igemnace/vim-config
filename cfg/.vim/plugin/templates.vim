@@ -1,55 +1,90 @@
-" guard against multiple sourcing
+""" DECLARATIONS {
+" guard against multiple loaded instances
 if exists("g:loaded_templates")
   finish
 endif
+
+" declare plugin has loaded
 let g:loaded_templates=1
 
+" define default templates directory
+" default: $HOME/.vim/skeletons
 if !exists("g:templates_dir")
   let g:templates_dir=$HOME."/.vim/skeletons"
 endif
 
-if !exists("g:enable_templates")
-  let g:enable_templates=1
+" define default autoload behavior
+" default: on
+if !exists("g:templates_autoload")
+  let g:templates_autoload=1
 endif
 
-function! EnableAutoTemplate()
-  let g:auto_templates_on=1
+" define default template mappings
+" default: empty dict
+if !exists("g:templates_mappings")
+  let g:templates_mappings={}
+endif
+""" END DECLARATIONS }
+
+""" FUNCTIONS {
+" returns the load command for a template
+function! s:loadCmd(template)
+  return "0r " g:templates_dir . "/" . a:template
+endfunction
+
+" executes the load command from s:loadCmd()
+function! s:loadTemplate(template)
+  execute s:loadCmd(a:template)
+endfunction
+
+" attaches the load command from s:loadCmd() to an autocmd
+function! s:attachAutocmd(pattern, template)
+  execute "autocmd BufNewFile " . a:pattern . " " . s:loadCmd(a:template)
+endfunction
+
+" runs s:attachAutocmd() for each pattern-template pair in g:templates_mappings
+function! s:enableTemplates()
+  let s:templates_enabled=1
 
   augroup TemplateLoading
     autocmd!
 
-    " React templates
-    autocmd BufNewFile *.component.jsx execute "0r ".g:templates_dir."/react/component.jsx"
-    autocmd BufNewFile *.hoc.jsx execute "0r " . g:templates_dir . "/react/hoc.jsx"
-
-    " React Native templates
-    autocmd BufNewFile *.component.js execute "0r " . g:templates_dir . "/react-native/component.js"
-    autocmd BufNewFile *.hoc.js execute "0r " . g:templates_dir . "/react-native/hoc.js"
-    autocmd BufNewFile *.styles.js execute "0r " . g:templates_dir . "/react-native/styles.js"
-
-    " filetype templates
-    autocmd BufNewFile * silent! execute "0r " . g:templates_dir . "/" . &filetype . "." . expand("%:e") 
+    for [pattern, template] in items(g:templates_mappings)
+      call s:attachAutocmd(pattern, template)
+    endfor
   augroup END
 endfunction
 
-function! DisableAutoTemplate()
-  unlet g:auto_templates_on
+" clears all autocmds set by s:enableTemplates()
+function! s:disableTemplates()
+  unlet s:templates_enabled
 
   augroup TemplateLoading
     autocmd!
   augroup END
 endfunction
 
-function! ManualLoadTemplate(type, template)
-  execute "0r " . g:templates_dir . "/" . a:type . "/" . a:template
+" toggles s:enableTemplates() and s:disableTemplates()
+function! s:toggleTemplates()
+  if exists("s:templates_enabled") && s:templates_enabled
+    call s:disableTemplates()
+  else
+    call s:enableTemplates()
+  endif
 endfunction
+""" END FUNCTIONS }
 
-" enable template loading by default
-if g:enable_templates
-  call EnableAutoTemplate()
-endif
-
+""" COMMANDS {
 " define commands for template functions
-command! -nargs=0 EnableTemplates call EnableAutoTemplate()
-command! -nargs=0 DisableTemplates call DisableAutoTemplate()
-command! -nargs=+ LoadTemplate call ManualLoadTemplate(<f-args>)
+command! -nargs=0 EnableTemplates call s:enableTemplates()
+command! -nargs=0 DisableTemplates call s:disableTemplates()
+command! -nargs=0 ToggleTemplates call s:toggleTemplates()
+command! -nargs=1 LoadTemplate call s:loadTemplate(<f-args>)
+""" END COMMANDS }
+
+""" MISC {
+" enable template loading by default
+if g:templates_autoload
+  call s:enableTemplates()
+endif
+""" END MISC }
