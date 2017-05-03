@@ -117,6 +117,13 @@ set hidden
 " delete comment characters when joining lines
 set formatoptions+=j
 
+" remove timeout on mappings...
+set notimeout
+
+" ...but keep them for key codes
+" to remove timeout from mapleader but avoid breaking <ESC> codes
+set ttimeout
+
 """ STATUSLINE BEHAVIOR
 " make Vim display the status and tab lines at all times
 set laststatus=2
