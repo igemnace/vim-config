@@ -29,7 +29,7 @@ endif
 """ FUNCTIONS {
 " returns the load command for a template
 function! s:loadCmd(template)
-  return "0r " g:templates_dir . "/" . a:template
+  return "0r " . g:templates_dir . "/" . a:template
 endfunction
 
 " executes the load command from s:loadCmd()
