@@ -76,6 +76,11 @@ set undodir=~/.vim/tmp//,.
 """ END TEMP FILES BEHAVIOR }}}
 
 """ COLORS {{{
+" set the colorscheme
+" base16-eighties works only if base16 is forced into 256-color mode
+let base16colorspace=256
+colorscheme base16-eighties
+
 " define colors for the statusline
 highlight StatusLine ctermbg=018
 highlight StatusLineNC ctermfg=019 ctermbg=018
