@@ -35,14 +35,14 @@ git clone https://github.com/maxbrunsfeld/vim-yankstack.git
 git clone https://github.com/tpope/vim-commentary.git
 git clone https://github.com/tpope/vim-dispatch.git
 git clone https://github.com/tpope/vim-endwise
-git clone https://github.com/tpope/vim-sleuth.git
 git clone https://github.com/tpope/vim-surround.git
 git clone https://github.com/tpope/vim-unimpaired.git
 
 # OPT
 cd "$HOME/.vim/pack/extend/opt"
-git clone https://github.com/sjl/gundo.vim
 git clone https://github.com/Konfekt/FastFold.git
+git clone https://github.com/sjl/gundo.vim
+git clone https://github.com/tpope/vim-sleuth.git
 ### END EXTEND
 
 ### FILENAV
@@ -62,10 +62,8 @@ mkdir -p "$HOME/.vim/pack/integrate/opt"
 cd "$HOME/.vim/pack/integrate/start"
 git clone https://github.com/airblade/vim-gitgutter.git
 git clone https://github.com/christoomey/vim-tmux-navigator.git
-git clone https://github.com/tommcdo/vim-fubitive.git
 git clone https://github.com/tpope/vim-eunuch.git
 git clone https://github.com/tpope/vim-fugitive.git
-git clone https://github.com/tpope/vim-rhubarb.git
 
 # OPT
 cd "$HOME/.vim/pack/integrate/opt"
