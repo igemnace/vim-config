@@ -184,7 +184,7 @@ set wildmode=list:longest
 set history=50
 
 " abbreviate commandline messages as much as possible
-" to help above hit-enter prompts
+" to help avoid hit-enter prompts
 set shortmess=atoO
 """ END COMMAND LINE BEHAVIOR
 
