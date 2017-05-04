@@ -1,14 +1,14 @@
-""" PLUGIN CONFIG
-""" FZF.VIM
+""" PLUGIN CONFIG {{{
+""" FZF.VIM {{{
 " make FZF use ripgrep to search
 let g:rg_command='
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
   \ -g "!{.git,node_modules,vendor}/*" '
 command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
-""" END FZF.VIM
+""" END FZF.VIM }}}
 
-""" ALE
+""" ALE {{{
 " use eslint for linting
 let g:ale_linters={
 \   'javascript': ['eslint'],
@@ -16,17 +16,17 @@ let g:ale_linters={
 
 " disallow ALE from setting highlights
 let g:ale_set_highlights=0
-""" END ALE
+""" END ALE }}}
 
-""" BASE16-VIM
+""" BASE16-VIM {{{
 " make base16-vim read colors from base16-shell
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-""" END BASE16-VIM
+""" END BASE16-VIM }}}
 
-""" VIM-GITGUTTER
+""" VIM-GITGUTTER {{{
 " make Vim update the buffer faster, for GitGutter to update highlights faster
 set updatetime=250
 
@@ -39,34 +39,34 @@ let g:gitgutter_highlight_lines=1
 
 " customize GitGutter signs
 let g:gitgutter_sign_removed='-'
-""" END VIM-GITGUTTER
+""" END VIM-GITGUTTER }}}
 
-""" VIM-YANKSTACK
+""" VIM-YANKSTACK {{{
 " disallow YankStack's default maps
 " My own maps are in the MISC CHANGES section, under LEADER KEY BEHAVIOR
 let g:yankstack_map_keys=0
-""" END VIM-YANKSTACK
+""" END VIM-YANKSTACK }}}
 
-""" VIM-ARGWRAP
+""" VIM-ARGWRAP {{{
 " make ArgWrap add tail commas when working with [] or {}
 let g:argwrap_tail_comma_braces='[{'
-""" END VIM-ARGWRAP
+""" END VIM-ARGWRAP }}}
 
-""" AUTO-PAIRS
+""" AUTO-PAIRS {{{
 " disable certain pairs when in Lisp files, especially quote (')
 augroup AutoPairs
   autocmd!
   autocmd FileType lisp let b:AutoPairs={'(': ')', '"': '"'}
 augroup END
-""" END AUTO-PAIRS
+""" END AUTO-PAIRS }}}
 
-""" VIM-REPEAT
+""" VIM-REPEAT {{{
 " allow YankStack's behavior to be repeated
 silent! call repeat#set("\<Plug>yankstack_substitute_older_paste", v:count)
 silent! call repeat#set("\<Plug>yankstack_substitute_newer_paste", v:count)
-""" END VIM-REPEAT
+""" END VIM-REPEAT }}}
 
-""" VIM-SLIME
+""" VIM-SLIME {{{
 " make vim-slime work with tmux panes by default
 " guard for tmux
 if $TMUX != ""
@@ -77,25 +77,25 @@ endif
 " unset vim-slime's default emacs bindings
 " My own maps are in the MISC CHANGES section, under LEADER KEY BEHAVIOR
 let g:slime_no_mappings=1
-""" END VIM-SLIME
+""" END VIM-SLIME }}}
 
-""" VIM-TABLE-MODE
+""" VIM-TABLE-MODE {{{
 " make tables pandoc-markdown-compatible
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
-""" END VIM-TABLE-MODE
+""" END VIM-TABLE-MODE }}}
 
-""" VIM-JSON
+""" VIM-JSON {{{
 " define a default highlight for vim-JSON's highlight groups
 highlight default link jsObjectKey Label
-""" END VIM-JSON
+""" END VIM-JSON }}}
 
-""" VIM-JSX
+""" VIM-JSX {{{
 " allow Vim-JSX to work even without a .jsx extension
 let g:jsx_ext_required=0
-""" END VIM-JSX
+""" END VIM-JSX }}}
 
-""" TEMPLATES.VIM
+""" TEMPLATES.VIM {{{
 let g:templates_mappings={
   \  '*.component.js': 'react-native/component.js',
   \  '*.hoc.js': 'react-native/hoc.js',
@@ -104,11 +104,11 @@ let g:templates_mappings={
   \  '*.hoc.jsx': 'react/hoc.jsx',
   \  '*.sh': 'sh.sh',
   \}
-""" END TEMPLATES.VIM
-""" END PLUGIN CONFIG
+""" END TEMPLATES.VIM }}}
+""" END PLUGIN CONFIG }}}
 
-""" VIM CONFIG
-""" MISC EDITOR BEHAVIOR
+""" VIM CONFIG {{{
+""" MISC EDITOR BEHAVIOR {{{
 " use matchit
 packadd! matchit
 
@@ -135,9 +135,9 @@ set formatoptions+=j
 " to remove timeout from mapleader but avoid breaking <ESC> codes
 set notimeout
 set ttimeout
-""" MISC EDITOR BEHAVIOR
+""" MISC EDITOR BEHAVIOR }}}
 
-""" STATUSLINE BEHAVIOR
+""" STATUSLINE BEHAVIOR {{{
 " make Vim display the status and tab lines at all times
 set laststatus=2
 set showtabline=2
@@ -164,16 +164,16 @@ set statusline+=%(%y%)
 " ruler (line/col numbers, percent, total lines)
 set statusline+=%*
 set statusline+=\ %-8.(%l,%v%)\ %(%p%%\ %LL%)
-""" END STATUSLINE BEHAVIOR
+""" END STATUSLINE BEHAVIOR }}}
 
-""" WINDOW BEHAVIOR
+""" WINDOW BEHAVIOR {{{
 " make Vim add new vertical splits to the right
 " and new horizontal splits below
 set splitright
 set splitbelow
-""" END WINDOW BEHAVIOR
+""" END WINDOW BEHAVIOR }}}
 
-""" TEMP FILES BEHAVIOR
+""" TEMP FILES BEHAVIOR {{{
 " make Vim save swapfiles, backups, and undofiles in .vim
 " so I can make use of them without cluttering the working directory
 set swapfile
@@ -182,9 +182,9 @@ set undofile
 set directory=~/.vim/tmp//,.
 set backupdir=~/.vim/tmp//,.
 set undodir=~/.vim/tmp//,.
-""" END TEMP FILES BEHAVIOR
+""" END TEMP FILES BEHAVIOR }}}
 
-""" COLORS
+""" COLORS {{{
 " define colors for the statusline
 highlight StatusLine ctermbg=018
 highlight StatusLineNC ctermfg=019 ctermbg=018
@@ -211,9 +211,9 @@ highlight Folded ctermfg=020
 " redefine colors for GitGutter highlights
 highlight GitGutterChange cterm=NONE ctermfg=003
 highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
-""" END COLORS
+""" END COLORS }}}
 
-""" INDENT BEHAVIOR
+""" INDENT BEHAVIOR {{{
 " set up indents to use 2 spaces
 set shiftwidth=2
 
@@ -233,21 +233,21 @@ set tabstop=8
 
 " make Vim auto indent when typing new lines
 set autoindent
-""" END INDENT BEHAVIOR
+""" END INDENT BEHAVIOR }}}
 
-""" LINE NUMBERING
+""" LINE NUMBERING {{{
 " make Vim display the line number of the current line
 " but relative line numbers for all other lines
 set number
 set relativenumber
-""" END LINE NUMBERING
+""" END LINE NUMBERING }}}
 
-""" LINE LENGTH
+""" LINE LENGTH {{{
 " add a colored column to mark the 80-char limit
 set colorcolumn=80
-""" END LINE LENGTH
+""" END LINE LENGTH }}}
 
-""" SEARCH BEHAVIOR
+""" SEARCH BEHAVIOR {{{
 " allow incremental search
 set incsearch
 
@@ -258,9 +258,9 @@ set hlsearch
 " but case insensitive for everything else
 set ignorecase
 set smartcase
-""" END SEARCH BEHAVIOR
+""" END SEARCH BEHAVIOR }}}
 
-""" BUFFER-SPECIFIC BEHAVIOR
+""" BUFFER-SPECIFIC BEHAVIOR {{{
 augroup BufferSpecific
   autocmd!
 
@@ -279,9 +279,9 @@ augroup BufferSpecific
   " set makeprg to pandoc for markdown
   autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
 augroup END
-""" END BUFFER-SPECIFIC BEHAVIOR
+""" END BUFFER-SPECIFIC BEHAVIOR }}}
 
-""" COMMAND LINE BEHAVIOR
+""" COMMAND LINE BEHAVIOR {{{
 " display commands below the statusline
 set showcmd
 
@@ -295,9 +295,9 @@ set history=50
 " abbreviate commandline messages as much as possible
 " to help avoid hit-enter prompts
 set shortmess=atoO
-""" END COMMAND LINE BEHAVIOR
+""" END COMMAND LINE BEHAVIOR }}}
 
-""" INSERT MODE BEHAVIOR
+""" INSERT MODE BEHAVIOR {{{
 " allow <BS> to delete the following special characters
 set backspace=indent,eol,start
 
@@ -308,15 +308,15 @@ augroup InsertBehavior
   autocmd InsertEnter * let b:save_cwd = getcwd() | lcd %:p:h
   autocmd InsertLeave * execute 'cd' fnameescape(b:save_cwd)
 augroup END
-""" END INSERT MODE BEHAVIOR
+""" END INSERT MODE BEHAVIOR }}}
 
-""" VISUAL MODE BEHAVIOR
+""" VISUAL MODE BEHAVIOR {{{
 " make the <> indent commands preserve the highlighted visual block
 xnoremap > >gv
 xnoremap < <gv
-""" END VISUAL MODE BEHAVIOR
+""" END VISUAL MODE BEHAVIOR }}}
 
-""" NON-MODE-SPECIFIC MAPS
+""" NON-MODE-SPECIFIC MAPS {{{
 " map keys to easily move between tabs
 noremap H gT
 noremap L gt
@@ -337,9 +337,9 @@ map ]h <Plug>GitGutterNextHunk
 " map keys for moving between linted errors
 map ]w <Plug>(ale_next_wrap)
 map [w <Plug>(ale_previous_wrap)
-""" END NON-MODE-SPECIFIC MAPS
+""" END NON-MODE-SPECIFIC MAPS }}}
 
-""" FUNCTIONS
+""" FUNCTIONS {{{
 " define convenience functions for cursorline+scrollbind
 " define enable, disable, and toggle
 function! EnableLineBind()
@@ -372,9 +372,9 @@ endfunction
 function! Scratch()
   setlocal buftype=nofile bufhidden=hide noswapfile
 endfunction
-""" END FUNCTIONS
+""" END FUNCTIONS }}}
 
-""" COMMANDS
+""" COMMANDS {{{
 " define a command for splitting a statement with a ternary operator
 command! -nargs=0 SplitTernary
   \ silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
@@ -386,9 +386,9 @@ command! -nargs=0 ToggleLineBind call ToggleLineBind()
 command! -nargs=0 Scratch enew | call Scratch()
 command! -nargs=0 SScratch split | Scratch
 command! -nargs=0 VScratch vsplit | Scratch
-""" END COMMANDS
+""" END COMMANDS }}}
 
-""" LEADER KEY BEHAVIOR
+""" LEADER KEY BEHAVIOR {{{
 " change Leader key to Spacebar, since \ is too hard to reach
 let mapleader="\<Space>"
 
@@ -464,5 +464,5 @@ noremap <Leader>y :Yanks<CR>
 " map keys for cycling through the YankStack
 map <Leader>p <Plug>yankstack_substitute_older_paste
 map <Leader>P <Plug>yankstack_substitute_newer_paste
-""" END LEADER KEY BEHAVIOR
-""" END VIM CONFIG
+""" END LEADER KEY BEHAVIOR }}}
+""" END VIM CONFIG }}}
