@@ -341,8 +341,8 @@ noremap <Leader>vp :packadd
 noremap <Leader>vr :edit<CR>
 
 " map keys for quickfix and loc lists
-noremap <Leader>co :copen<CR>
-noremap <Leader>cc :cclose<CR>
+noremap <Leader>qo :copen<CR>
+noremap <Leader>qc :cclose<CR>
 noremap <Leader>lo :lopen<CR>
 noremap <Leader>lc :lclose<CR>
 
