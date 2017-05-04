@@ -340,6 +340,8 @@ map [w <Plug>(ale_previous_wrap)
 """ END NON-MODE-SPECIFIC MAPS
 
 """ FUNCTIONS
+" define convenience functions for cursorline+scrollbind
+" define enable, disable, and toggle
 function! EnableLineBind()
   let t:line_bind_on=1
 
@@ -365,14 +367,25 @@ function! ToggleLineBind()
     call EnableLineBind()
   endif
 endfunction
+
+" define function to turn current buffer into a scratch buffer
+function! Scratch()
+  setlocal buftype=nofile bufhidden=hide noswapfile
+endfunction
 """ END FUNCTIONS
 
 """ COMMANDS
 " define a command for splitting a statement with a ternary operator
-command! SplitTernary silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
+command! -nargs=0 SplitTernary
+  \ silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
 
 " define a command for ToggleLineBind
 command! -nargs=0 ToggleLineBind call ToggleLineBind()
+
+" define commands to open scratch buffers with Scratch()
+command! -nargs=0 Scratch enew | call Scratch()
+command! -nargs=0 SScratch split | Scratch
+command! -nargs=0 VScratch vsplit | Scratch
 """ END COMMANDS
 
 """ LEADER KEY BEHAVIOR
