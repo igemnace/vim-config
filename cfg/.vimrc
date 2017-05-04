@@ -1,3 +1,351 @@
+""" VIM CONFIG
+""" MISC EDITOR BEHAVIOR
+" use matchit
+packadd! matchit
+
+" use Unicode
+set encoding=utf-8
+
+" make Vim detect filetypes and apply filetype plugin and indent files
+filetype plugin indent on
+
+" enable syntax highlighting
+syntax enable
+
+" make Vim display faster, since modern terminals can handle it
+set ttyfast
+
+" allow Vim to hide modified buffers without abandoning them
+set hidden
+
+" delete comment characters when joining lines
+set formatoptions+=j
+
+" remove timeout on mappings
+" but keep them for key codes
+" to remove timeout from mapleader but avoid breaking <ESC> codes
+set notimeout
+set ttimeout
+""" MISC EDITOR BEHAVIOR
+
+""" STATUSLINE BEHAVIOR
+" make Vim display the status and tab lines at all times
+set laststatus=2
+set showtabline=2
+
+" define statusline items
+set statusline=
+" filename
+set statusline+=%*
+set statusline+=%(%f%)
+" window type (help, preview, qlist)
+set statusline+=%*
+set statusline+=%(%h%w%q%)
+" modified flag
+set statusline+=%3*
+set statusline+=%(%m%)
+" readonly flag
+set statusline+=%1*
+set statusline+=%(%r%)
+" midline separator
+set statusline+=%=
+" buffer syntax
+set statusline+=%*
+set statusline+=%(%y%)
+" ruler (line/col numbers, percent, total lines)
+set statusline+=%*
+set statusline+=\ %-8.(%l,%v%)\ %(%p%%\ %LL%)
+""" END STATUSLINE BEHAVIOR
+
+""" WINDOW BEHAVIOR
+" make Vim add new vertical splits to the right
+" and new horizontal splits below
+set splitright
+set splitbelow
+""" END WINDOW BEHAVIOR
+
+""" TEMP FILES BEHAVIOR
+" make Vim save swapfiles, backups, and undofiles in .vim
+" so I can make use of them without cluttering the working directory
+set swapfile
+set backup
+set undofile
+set directory=~/.vim/tmp//,.
+set backupdir=~/.vim/tmp//,.
+set undodir=~/.vim/tmp//,.
+""" END TEMP FILES BEHAVIOR
+
+""" COLORS
+" define colors for the statusline
+highlight StatusLine ctermbg=018
+highlight StatusLineNC ctermfg=019 ctermbg=018
+highlight User1 ctermfg=001 ctermbg=018
+highlight User2 ctermfg=002 ctermbg=018
+highlight User3 ctermfg=003 ctermbg=018
+highlight User4 ctermfg=004 ctermbg=018
+highlight User5 ctermfg=016 ctermbg=018
+highlight User9 ctermfg=002 ctermbg=018
+
+" define colors for highlighting search results
+highlight Search cterm=NONE ctermfg=000 ctermbg=008
+
+" define colors for the colorcolumn marking the 80-char limit
+highlight ColorColumn ctermbg=018
+
+" define colors for the cursor crosshairs
+highlight link CursorLine Search
+highlight link CursorColumn Search
+
+" define colors for folds
+highlight Folded ctermfg=020
+
+" redefine colors for GitGutter highlights
+highlight GitGutterChange cterm=NONE ctermfg=003
+highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
+""" END COLORS
+
+""" INDENT BEHAVIOR
+" set up indents to use 2 spaces
+set shiftwidth=2
+
+" set up <Tab> to insert an indent instead of a tab character
+" this relies on the value of shiftwidth
+set softtabstop=-1
+set expandtab
+
+" make <Tab> insert an indent (shiftwidth) when at the start of a line
+" and a tab character elsewhere (tabstop/softtabstop)
+" my softabstop is set up to rely on shiftwidth so this may seem superfluous
+" but there may be times I'd want to change tab settings locally
+set smarttab
+
+" make tab characters display as 8 characters wide
+set tabstop=8
+
+" make Vim auto indent when typing new lines
+set autoindent
+""" END INDENT BEHAVIOR
+
+""" LINE NUMBERING
+" make Vim display the line number of the current line
+" but relative line numbers for all other lines
+set number
+set relativenumber
+""" END LINE NUMBERING
+
+""" LINE LENGTH
+" add a colored column to mark the 80-char limit
+set colorcolumn=80
+""" END LINE LENGTH
+
+""" SEARCH BEHAVIOR
+" allow incremental search
+set incsearch
+
+" highlight search results
+set hlsearch
+
+" make search case sensitive for queries with capital letters
+" but case insensitive for everything else
+set ignorecase
+set smartcase
+""" END SEARCH BEHAVIOR
+
+""" BUFFER-SPECIFIC BEHAVIOR
+augroup BufferSpecific
+  autocmd!
+
+  " allow K to search :help in vim files
+  autocmd FileType vim setlocal keywordprg=:help
+
+  " automatically set cursorline for fugitive, todo.txt, and quickfix
+  autocmd FileType gitcommit,todo,qf setlocal cursorline
+
+  " set markdown documents textwidth to 80
+  autocmd FileType markdown setlocal textwidth=80
+
+  " set spell check for prose-related buffers
+  autocmd FileType markdown,gitcommit setlocal spell
+
+  " set makeprg to pandoc for markdown
+  autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
+augroup END
+""" END BUFFER-SPECIFIC BEHAVIOR
+
+""" COMMAND LINE BEHAVIOR
+" display commands below the statusline
+set showcmd
+
+" display tab completions for command line
+set wildmenu
+set wildmode=list:longest
+
+" limit command history
+set history=50
+
+" abbreviate commandline messages as much as possible
+" to help above hit-enter prompts
+set shortmess=atoO
+""" END COMMAND LINE BEHAVIOR
+
+""" INSERT MODE BEHAVIOR
+" allow <BS> to delete the following special characters
+set backspace=indent,eol,start
+
+augroup InsertBehavior
+  autocmd!
+
+  " make Vim respect relative paths for file completion
+  autocmd InsertEnter * let b:save_cwd = getcwd() | lcd %:p:h
+  autocmd InsertLeave * execute 'cd' fnameescape(b:save_cwd)
+augroup END
+""" END INSERT MODE BEHAVIOR
+
+""" VISUAL MODE BEHAVIOR
+" make the <> indent commands preserve the highlighted visual block
+xnoremap > >gv
+xnoremap < <gv
+""" END VISUAL MODE BEHAVIOR
+
+""" NON-MODE-SPECIFIC MAPS
+" map keys to easily move between tabs
+noremap H gT
+noremap L gt
+
+" unmap Backspace and Spacebar outside of Insert mode
+" since they are merely maps to h and l, respectively
+noremap <BS> <nop>
+noremap <Space> <nop>
+
+" swap g] and g<C-]>
+noremap g] g<C-]>
+noremap g<C-]> g]
+
+" map keys for moving between GitGutter hunks
+map [h <Plug>GitGutterPrevHunk
+map ]h <Plug>GitGutterNextHunk
+
+" map keys for moving between linted errors
+map ]w <Plug>(ale_next_wrap)
+map [w <Plug>(ale_previous_wrap)
+""" END NON-MODE-SPECIFIC MAPS
+
+""" FUNCTIONS
+function! EnableLineBind()
+  let t:line_bind_on=1
+
+  setlocal cursorline scrollbind
+  wincmd w
+  setlocal cursorline scrollbind
+  wincmd w
+endfunction
+
+function! DisableLineBind()
+  unlet t:line_bind_on
+
+  setlocal nocursorline noscrollbind
+  wincmd w
+  setlocal nocursorline noscrollbind
+  wincmd w
+endfunction
+
+function! ToggleLineBind()
+  if exists("t:line_bind_on")
+    call DisableLineBind()
+  else
+    call EnableLineBind()
+  endif
+endfunction
+""" END FUNCTIONS
+
+""" COMMANDS
+" define a command for splitting a statement with a ternary operator
+command! SplitTernary silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
+
+" define a command for ToggleLineBind
+command! -nargs=0 ToggleLineBind call ToggleLineBind()
+""" END COMMANDS
+
+""" LEADER KEY BEHAVIOR
+" change Leader key to Spacebar, since \ is too hard to reach
+let mapleader="\<Space>"
+
+" map a key to reset highlights from search and GitGutter
+noremap <Leader><Leader> :let @/=""<CR>:GitGutterAll<CR>
+
+" map a key to toggle GitGutter highlights
+noremap <Leader>hh :GitGutterLineHighlightsToggle<CR>
+
+" map keys for managing GitGutter hunks
+map <Leader>ha <Plug>GitGutterStageHunk
+map <Leader>hu <Plug>GitGutterUndoHunk
+
+" map keys for Fugitive
+noremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gm :Gmerge<CR>
+noremap <Leader>gd :Gdiff<CR>
+noremap <Leader>gb :Gblame \| ToggleLineBind<CR>
+noremap <Leader>gg :Ggrep 
+
+" map keys for FZF
+noremap <Leader>fp :Files<CR>
+noremap <Leader>fr :Rg<CR>
+noremap <Leader>fs :GFiles?<CR>
+noremap <Leader>fb :Buffers<CR>
+noremap <Leader>fL :Lines<CR>
+noremap <Leader>fl :BLines<CR>
+noremap <Leader>f: :History:<CR>
+noremap <Leader>f/ :History/<CR>
+noremap <Leader>fc :Commits<CR>
+noremap <Leader>fo :Commands<CR>
+noremap <Leader>fm :Marks<CR>
+noremap <Leader>ff :Filetypes<CR>
+noremap <Leader>ft :Tags<CR>
+
+" map keys for Dispatch
+noremap <Leader>dd :Dispatch<CR>
+noremap <Leader>df :Focus 
+
+" map keys for netrw
+noremap <Leader>nn :Explore<CR>
+noremap <Leader>ns :Sexplore<CR>
+noremap <Leader>nv :Vexplore<CR>
+
+" map keys for useful native Vim functions
+noremap <Leader>va :argadd **/*
+noremap <Leader>vp :packadd 
+" edit with no parameters is useful for reloading a buffer
+noremap <Leader>vr :edit<CR>
+
+" map keys for quickfix and loc lists
+noremap <Leader>co :copen<CR>
+noremap <Leader>cc :cclose<CR>
+noremap <Leader>lo :lopen<CR>
+noremap <Leader>lc :lclose<CR>
+
+" map a key to trigger ArgWrap
+noremap <Leader>a :ArgWrap<CR>
+
+" map keys for Vim-Slime
+xmap <Leader>s <Plug>SlimeRegionSend
+nmap <Leader>s <Plug>SlimeMotionSend
+nmap <Leader>ss <Plug>SlimeLineSend
+
+" map a key for GUndo
+nnoremap <Leader>u :GundoToggle<CR>
+
+" map a key to display the YankStack
+noremap <Leader>y :Yanks<CR>
+
+" map keys for cycling through the YankStack
+map <Leader>p <Plug>yankstack_substitute_older_paste
+map <Leader>P <Plug>yankstack_substitute_newer_paste
+""" END LEADER KEY BEHAVIOR
+""" END VIM CONFIG
+
+""" PLUGIN CONFIG
 """ FZF.VIM
 " make FZF use ripgrep to search
 let g:rg_command='
@@ -104,334 +452,4 @@ let g:templates_mappings={
   \  '*.sh': 'sh.sh',
   \}
 """ END TEMPLATES.VIM
-
-""" MISC CHANGES
-""" META EDITOR BEHAVIOR
-" use matchit
-packadd! matchit
-
-" use Unicode
-set encoding=utf-8
-
-" make Vim detect filetypes and apply filetype plugin and indent files
-filetype plugin indent on
-
-" enable syntax highlighting
-syntax enable
-
-" make Vim display faster, since modern terminals can handle it
-set ttyfast
-
-" allow Vim to hide modified buffers without abandoning them
-set hidden
-
-" delete comment characters when joining lines
-set formatoptions+=j
-
-" remove timeout on mappings...
-set notimeout
-
-" ...but keep them for key codes
-" to remove timeout from mapleader but avoid breaking <ESC> codes
-set ttimeout
-
-""" STATUSLINE BEHAVIOR
-" make Vim display the status and tab lines at all times
-set laststatus=2
-set showtabline=2
-
-" define statusline items
-set statusline=
-" filename
-set statusline+=%*
-set statusline+=%(%f%)
-" window type (help, preview, qlist)
-set statusline+=%*
-set statusline+=%(%h%w%q%)
-" modified flag
-set statusline+=%3*
-set statusline+=%(%m%)
-" readonly flag
-set statusline+=%1*
-set statusline+=%(%r%)
-" midline separator
-set statusline+=%=
-" buffer syntax
-set statusline+=%*
-set statusline+=%(%y%)
-" ruler (line/col numbers, percent, total lines)
-set statusline+=%*
-set statusline+=\ %-8.(%l,%v%)\ %(%p%%\ %LL%)
-
-""" WINDOW BEHAVIOR
-" make Vim add new vertical splits to the right
-" and new horizontal splits below
-set splitright
-set splitbelow
-
-""" TEMP FILES DIRECTORY
-" make Vim save swapfiles, backups, and undofiles in .vim
-" so I can make use of them without cluttering the working directory
-set swapfile
-set backup
-set undofile
-set directory=~/.vim/tmp//,.
-set backupdir=~/.vim/tmp//,.
-set undodir=~/.vim/tmp//,.
-
-""" COLORS
-" define colors for the statusline
-highlight StatusLine ctermbg=018
-highlight StatusLineNC ctermfg=019 ctermbg=018
-highlight User1 ctermfg=001 ctermbg=018
-highlight User2 ctermfg=002 ctermbg=018
-highlight User3 ctermfg=003 ctermbg=018
-highlight User4 ctermfg=004 ctermbg=018
-highlight User5 ctermfg=016 ctermbg=018
-highlight User9 ctermfg=002 ctermbg=018
-
-" define colors for highlighting search results
-highlight Search cterm=NONE ctermfg=000 ctermbg=008
-
-" define colors for the colorcolumn marking the 80-char limit
-highlight ColorColumn ctermbg=018
-
-" define colors for the cursor crosshairs
-highlight link CursorLine Search
-highlight link CursorColumn Search
-
-" define colors for folds
-highlight Folded ctermfg=020
-
-" redefine colors for GitGutter highlights
-highlight GitGutterChange cterm=NONE ctermfg=003
-highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
-
-""" INDENT BEHAVIOR
-" set up indents to use 2 spaces
-set shiftwidth=2
-
-" set up <Tab> to insert an indent instead of a tab character
-" this relies on the value of shiftwidth
-set softtabstop=-1
-set expandtab
-
-" make <Tab> insert an indent (shiftwidth) when at the start of a line
-" and a tab character elsewhere (tabstop/softtabstop)
-" my softabstop is set up to rely on shiftwidth so this may seem superfluous
-" but there may be times I'd want to change tab settings locally
-set smarttab
-
-" make tab characters display as 8 characters wide
-set tabstop=8
-
-" make Vim auto indent when typing new lines
-set autoindent
-
-""" LINE NUMBERING
-" make Vim display the line number of the current line
-" but relative line numbers for all other lines
-set number
-set relativenumber
-
-""" LINE LENGTH
-" add a colored column to mark the 80-char limit
-set colorcolumn=80
-
-""" SEARCH BEHAVIOR
-" allow incremental search
-set incsearch
-
-" highlight search results
-set hlsearch
-
-" make search case sensitive for queries with capital letters
-" but case insensitive for everything else
-set ignorecase
-set smartcase
-
-""" BUFFER-SPECIFIC BEHAVIOR
-augroup BufferSpecific
-  autocmd!
-
-  " allow K to search :help in vim files
-  autocmd FileType vim setlocal keywordprg=:help
-
-  " automatically set cursorline for fugitive, todo.txt, and quickfix
-  autocmd FileType gitcommit,todo,qf setlocal cursorline
-
-  " set markdown documents textwidth to 80
-  autocmd FileType markdown setlocal textwidth=80
-
-  " set spell check for prose-related buffers
-  autocmd FileType markdown,gitcommit setlocal spell
-
-  " set makeprg to pandoc for markdown
-  autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
-augroup END
-
-""" COMMAND LINE BEHAVIOR
-" display commands below the statusline
-set showcmd
-
-" display tab completions for command line
-set wildmenu
-set wildmode=list:longest
-
-" limit command history
-set history=50
-
-" abbreviate commandline messages as much as possible
-" to help above hit-enter prompts
-set shortmess=atoO
-
-""" INSERT MODE BEHAVIOR
-" allow <BS> to delete the following special characters
-set backspace=indent,eol,start
-
-augroup InsertBehavior
-  autocmd!
-
-  " make Vim respect relative paths for file completion
-  autocmd InsertEnter * let b:save_cwd = getcwd() | lcd %:p:h
-  autocmd InsertLeave * execute 'cd' fnameescape(b:save_cwd)
-augroup END
-
-""" VISUAL MODE BEHAVIOR
-" make the <> indent commands preserve the highlighted visual block
-xnoremap > >gv
-xnoremap < <gv
-
-""" NON-MODE-SPECIFIC MAPS
-" map keys to easily move between tabs
-noremap H gT
-noremap L gt
-
-" unmap Backspace and Spacebar outside of Insert mode
-" since they are merely maps to h and l, respectively
-noremap <BS> <nop>
-noremap <Space> <nop>
-
-" swap g] and g<C-]>
-noremap g] g<C-]>
-noremap g<C-]> g]
-
-" map keys for moving between GitGutter hunks
-map [h <Plug>GitGutterPrevHunk
-map ]h <Plug>GitGutterNextHunk
-
-" map keys for moving between linted errors
-map ]w <Plug>(ale_next_wrap)
-map [w <Plug>(ale_previous_wrap)
-
-""" FUNCTIONS
-function! EnableLineBind()
-  let t:line_bind_on=1
-
-  setlocal cursorline scrollbind
-  wincmd w
-  setlocal cursorline scrollbind
-  wincmd w
-endfunction
-
-function! DisableLineBind()
-  unlet t:line_bind_on
-
-  setlocal nocursorline noscrollbind
-  wincmd w
-  setlocal nocursorline noscrollbind
-  wincmd w
-endfunction
-
-function! ToggleLineBind()
-  if exists("t:line_bind_on")
-    call DisableLineBind()
-  else
-    call EnableLineBind()
-  endif
-endfunction
-
-""" COMMANDS
-" define a command for splitting a statement with a ternary operator
-command! SplitTernary silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
-
-" define a command for ToggleLineBind
-command! -nargs=0 ToggleLineBind call ToggleLineBind()
-
-""" LEADER KEY BEHAVIOR
-" change Leader key to Spacebar, since \ is too hard to reach
-let mapleader="\<Space>"
-
-" map a key to reset highlights from search and GitGutter
-noremap <Leader><Leader> :let @/=""<CR>:GitGutterAll<CR>
-
-" map a key to toggle GitGutter highlights
-noremap <Leader>hh :GitGutterLineHighlightsToggle<CR>
-
-" map keys for managing GitGutter hunks
-map <Leader>ha <Plug>GitGutterStageHunk
-map <Leader>hu <Plug>GitGutterUndoHunk
-
-" map keys for Fugitive
-noremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gm :Gmerge<CR>
-noremap <Leader>gd :Gdiff<CR>
-noremap <Leader>gb :Gblame \| ToggleLineBind<CR>
-noremap <Leader>gg :Ggrep 
-
-" map keys for FZF
-noremap <Leader>fp :Files<CR>
-noremap <Leader>fr :Rg<CR>
-noremap <Leader>fs :GFiles?<CR>
-noremap <Leader>fb :Buffers<CR>
-noremap <Leader>fL :Lines<CR>
-noremap <Leader>fl :BLines<CR>
-noremap <Leader>f: :History:<CR>
-noremap <Leader>f/ :History/<CR>
-noremap <Leader>fc :Commits<CR>
-noremap <Leader>fo :Commands<CR>
-noremap <Leader>fm :Marks<CR>
-noremap <Leader>ff :Filetypes<CR>
-noremap <Leader>ft :Tags<CR>
-
-" map keys for Dispatch
-noremap <Leader>dd :Dispatch<CR>
-noremap <Leader>df :Focus 
-
-" map keys for netrw
-noremap <Leader>nn :Explore<CR>
-noremap <Leader>ns :Sexplore<CR>
-noremap <Leader>nv :Vexplore<CR>
-
-" map keys for useful native Vim functions
-noremap <Leader>va :argadd **/*
-noremap <Leader>vp :packadd 
-" edit with no parameters is useful for reloading a buffer
-noremap <Leader>vr :edit<CR>
-
-" map keys for quickfix and loc lists
-noremap <Leader>co :copen<CR>
-noremap <Leader>cc :cclose<CR>
-noremap <Leader>lo :lopen<CR>
-noremap <Leader>lc :lclose<CR>
-
-" map a key to trigger ArgWrap
-noremap <Leader>a :ArgWrap<CR>
-
-" map keys for Vim-Slime
-xmap <Leader>s <Plug>SlimeRegionSend
-nmap <Leader>s <Plug>SlimeMotionSend
-nmap <Leader>ss <Plug>SlimeLineSend
-
-" map a key for GUndo
-nnoremap <Leader>u :GundoToggle<CR>
-
-" map a key to display the YankStack
-noremap <Leader>y :Yanks<CR>
-
-" map keys for cycling through the YankStack
-map <Leader>p <Plug>yankstack_substitute_older_paste
-map <Leader>P <Plug>yankstack_substitute_newer_paste
-""" END MISC CHANGES
+""" END PLUGIN CONFIG
