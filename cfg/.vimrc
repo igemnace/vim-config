@@ -367,7 +367,7 @@ map <Leader>P <Plug>yankstack_substitute_newer_paste
 
 """ PLUGIN CONFIG {{{
 """ FZF.VIM {{{
-" make FZF use ripgrep to search
+" add a command to search with ripgrep then feed to fzf
 let g:rg_command='
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
@@ -390,7 +390,7 @@ let g:ale_set_highlights=0
 set updatetime=250
 
 " disallow GitGutter's default maps
-" My own maps are in the MISC CHANGES section, under LEADER KEY BEHAVIOR
+" My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
 let g:gitgutter_map_keys=0
 
 " make GitGutter highlight hunks by default
@@ -402,7 +402,7 @@ let g:gitgutter_sign_removed='-'
 
 """ VIM-YANKSTACK {{{
 " disallow YankStack's default maps
-" My own maps are in the MISC CHANGES section, under LEADER KEY BEHAVIOR
+" My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
 let g:yankstack_map_keys=0
 """ END VIM-YANKSTACK }}}
 
@@ -434,7 +434,7 @@ if $TMUX != ""
 endif
 
 " unset vim-slime's default emacs bindings
-" My own maps are in the MISC CHANGES section, under LEADER KEY BEHAVIOR
+" My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
 let g:slime_no_mappings=1
 """ END VIM-SLIME }}}
 
