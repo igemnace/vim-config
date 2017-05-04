@@ -100,6 +100,9 @@ highlight link CursorColumn Search
 " define colors for folds
 highlight Folded ctermfg=020
 
+" define colors for wildmenu
+highlight WildMenu ctermfg=003 ctermbg=018
+
 " redefine colors for GitGutter highlights
 highlight GitGutterChange cterm=NONE ctermfg=003
 highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
@@ -183,8 +186,8 @@ set showcmd
 " display tab completions for command line
 set wildmenu
 
-" partial-complete before displaying wildmenu
-set wildmode=longest:full
+" partial-complete before displaying wildmenu, then cycle through options
+set wildmode=longest:full,full
 
 " limit command history
 set history=100
