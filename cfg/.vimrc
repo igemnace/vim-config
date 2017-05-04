@@ -182,7 +182,9 @@ set showcmd
 
 " display tab completions for command line
 set wildmenu
-set wildmode=list:longest
+
+" partial-complete before displaying wildmenu
+set wildmode=longest:full
 
 " limit command history
 set history=100
