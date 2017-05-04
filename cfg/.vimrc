@@ -12,17 +12,13 @@ filetype plugin indent on
 " enable syntax highlighting
 syntax enable
 
-" make Vim display faster, since modern terminals can handle it
-set ttyfast
-
 " allow Vim to hide modified buffers without abandoning them
 set hidden
 
 " delete comment characters when joining lines
 set formatoptions+=j
 
-" remove timeout on mappings
-" but keep them for key codes
+" remove timeout on mappings but keep them for key codes
 " to remove timeout from mapleader but avoid breaking <ESC> codes
 set notimeout
 set ttimeout
@@ -175,6 +171,7 @@ augroup BufferSpecific
   " set makeprg to pandoc for markdown
   autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
 
+  " set foldmethod to marker in my vimrc
   autocmd BufEnter .vimrc setlocal foldmethod=marker
 augroup END
 """ END BUFFER-SPECIFIC BEHAVIOR }}}
@@ -188,7 +185,7 @@ set wildmenu
 set wildmode=list:longest
 
 " limit command history
-set history=50
+set history=100
 
 " abbreviate commandline messages as much as possible
 " to help avoid hit-enter prompts
@@ -219,12 +216,16 @@ xnoremap < <gv
 noremap H gT
 noremap L gt
 
-" unmap Backspace and Spacebar outside of Insert mode
-" since they are merely maps to h and l, respectively
-noremap <BS> <nop>
+" map <BS> to switch to the alternate buffer
+noremap <BS> <C-^>
+
+" unmap <Space> so it doesn't move to the right when I press <Leader>
+" since I have <Space> as <Leader>
 noremap <Space> <nop>
 
 " swap g] and g<C-]>
+" since g<C-]> jumps immediately if there is just one tag, which I want
+" but g] is easier to press
 noremap g] g<C-]>
 noremap g<C-]> g]
 
