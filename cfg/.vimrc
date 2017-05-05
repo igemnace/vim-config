@@ -290,6 +290,10 @@ command! -nargs=0 ToggleLineBind call ToggleLineBind()
 command! -nargs=0 Scratch enew | call Scratch()
 command! -nargs=0 SScratch split | Scratch
 command! -nargs=0 VScratch vsplit | Scratch
+
+" define a command to post to Sprunge
+command! -nargs=0 -range Sprunge
+  \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
 """ END COMMANDS }}}
 
 """ LEADER KEY BEHAVIOR {{{
