@@ -22,6 +22,9 @@ set formatoptions+=j
 " to remove timeout from mapleader but avoid breaking <ESC> codes
 set notimeout
 set ttimeout
+
+" make Vim use ripgrep for :grep
+set grepprg=rg\ --vimgrep\ --no-heading
 """ MISC EDITOR BEHAVIOR }}}
 
 """ STATUSLINE BEHAVIOR {{{
