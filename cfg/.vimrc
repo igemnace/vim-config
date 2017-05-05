@@ -465,6 +465,8 @@ let g:templates_mappings={
   \  '*.component.js': 'react-native/component.js',
   \  '*.hoc.js': 'react-native/hoc.js',
   \  '*.styles.js': 'react-native/styles.js',
+  \  '*.redux.js': 'react-native/redux.js',
+  \  '*.fire.js': 'react-native/fire.js',
   \  '*.component.jsx': 'react/component.jsx',
   \  '*.hoc.jsx': 'react/hoc.jsx',
   \  '*.sh': 'sh.sh',
