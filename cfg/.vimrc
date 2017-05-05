@@ -176,9 +176,6 @@ augroup BufferSpecific
 
   " set makeprg to pandoc for markdown
   autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
-
-  " set foldmethod to marker in my vimrc
-  autocmd BufEnter .vimrc setlocal foldmethod=marker
 augroup END
 """ END BUFFER-SPECIFIC BEHAVIOR }}}
 
@@ -480,3 +477,5 @@ let g:templates_mappings={
   \}
 """ END TEMPLATES.VIM }}}
 """ END PLUGIN CONFIG }}}
+
+" vim:fdm=marker
