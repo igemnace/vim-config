@@ -32,6 +32,7 @@ git clone git://github.com/tpope/vim-speeddating.git
 git clone https://github.com/FooSoft/vim-argwrap
 git clone https://github.com/jiangmiao/auto-pairs.git
 git clone https://github.com/maxbrunsfeld/vim-yankstack.git
+git clone https://github.com/skywind3000/asyncrun.vim.git
 git clone https://github.com/tpope/vim-commentary.git
 git clone https://github.com/tpope/vim-dispatch.git
 git clone https://github.com/tpope/vim-endwise
