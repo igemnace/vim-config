@@ -298,6 +298,10 @@ command! -nargs=0 -range Sprunge
 " define commands for setting up ctags with AsyncRun
 command! -nargs=+ TagsPrg let g:tagsprg=<q-args>
 command! -nargs=0 GenerateTags execute "AsyncRun" g:tagsprg
+
+" define commands to run native functions with AsyncRun
+command! -nargs=0 AsyncMake execute "AsyncRun" &makeprg
+command! -nargs=+ AsyncGrep execute "AsyncRun" &grepprg <q-args>
 """ END COMMANDS }}}
 
 """ LEADER KEY BEHAVIOR {{{
@@ -364,8 +368,10 @@ noremap <Leader>a :ArgWrap<CR>
 
 " map keys for AsyncRun
 noremap <Leader>rr :AsyncRun 
-noremap <Leader>rt :TagsPrg 
-noremap <Leader>rg :GenerateTags<CR>
+noremap <Leader>rp :TagsPrg 
+noremap <Leader>rt :GenerateTags<CR>
+noremap <Leader>rm :AsyncMake<CR>
+noremap <Leader>rg :AsyncGrep 
 
 " map keys for Vim-Slime
 xmap <Leader>s <Plug>SlimeRegionSend
