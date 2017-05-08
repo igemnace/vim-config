@@ -28,35 +28,35 @@ endif
 
 """ FUNCTIONS {
 " returns the load command for a template
-function! s:loadCmd(template)
+function! s:LoadCmd(template)
   return "0r " . g:templates_dir . "/" . a:template
 endfunction
 
-" executes the load command from s:loadCmd()
-function! s:loadTemplate(template)
-  execute s:loadCmd(a:template)
+" executes the load command from s:LoadCmd()
+function! s:LoadTemplate(template)
+  execute s:LoadCmd(a:template)
 endfunction
 
-" attaches the load command from s:loadCmd() to an autocmd
-function! s:attachAutocmd(pattern, template)
-  execute "autocmd BufNewFile " . a:pattern . " " . s:loadCmd(a:template)
+" attaches the load command from s:LoadCmd() to an autocmd
+function! s:AttachAutocmd(pattern, template)
+  execute "autocmd BufNewFile " . a:pattern . " " . s:LoadCmd(a:template)
 endfunction
 
-" runs s:attachAutocmd() for each pattern-template pair in g:templates_mappings
-function! s:enableTemplates()
+" runs s:AttachAutocmd() for each pattern-template pair in g:templates_mappings
+function! s:EnableTemplates()
   let s:templates_enabled=1
 
   augroup TemplateLoading
     autocmd!
 
     for [pattern, template] in items(g:templates_mappings)
-      call s:attachAutocmd(pattern, template)
+      call s:AttachAutocmd(pattern, template)
     endfor
   augroup END
 endfunction
 
-" clears all autocmds set by s:enableTemplates()
-function! s:disableTemplates()
+" clears all autocmds set by s:EnableTemplates()
+function! s:DisableTemplates()
   unlet s:templates_enabled
 
   augroup TemplateLoading
@@ -64,12 +64,12 @@ function! s:disableTemplates()
   augroup END
 endfunction
 
-" toggles s:enableTemplates() and s:disableTemplates()
-function! s:toggleTemplates()
+" toggles s:EnableTemplates() and s:DisableTemplates()
+function! s:ToggleTemplates()
   if exists("s:templates_enabled") && s:templates_enabled
-    call s:disableTemplates()
+    call s:DisableTemplates()
   else
-    call s:enableTemplates()
+    call s:EnableTemplates()
   endif
 endfunction
 
@@ -100,6 +100,6 @@ command! -nargs=1 -complete=customlist,s:CompleteTemplates LoadTemplate
 """ MISC {
 " enable template loading by default
 if g:templates_autoload
-  call s:enableTemplates()
+  call s:EnableTemplates()
 endif
 """ END MISC }
