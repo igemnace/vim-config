@@ -282,6 +282,7 @@ endfunction
 " define a command for splitting a statement with a ternary operator
 command! -nargs=0 SplitTernary
   \ silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
+command! -nargs=0 SplitWrapperXML silent normal! ^f>a$F<i
 
 " define a command for ToggleLineBind
 command! -nargs=0 ToggleLineBind call ToggleLineBind()
