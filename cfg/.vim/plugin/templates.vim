@@ -72,14 +72,29 @@ function! s:toggleTemplates()
     call s:enableTemplates()
   endif
 endfunction
+
+function! s:ShortenTemplateFilename(index, filename)
+  execute "return fnamemodify('" . a:filename . "', "
+    \ . "':s?" . g:templates_dir . "/??')"
+endfunction
+
+function! s:CompleteTemplates(ArgLead, CmdLine, CursorPos)
+  let l:path_list=globpath(g:templates_dir, a:ArgLead . "**", 0, 1)
+  let l:files_path_list=filter(l:path_list, "!isdirectory(v:val)")
+  let l:relative_path_list=map(l:files_path_list,
+    \ function("s:ShortenTemplateFilename"))
+
+  return l:relative_path_list
+endfunction
 """ END FUNCTIONS }
 
 """ COMMANDS {
 " define commands for template functions
-command! -nargs=0 EnableTemplates call s:enableTemplates()
-command! -nargs=0 DisableTemplates call s:disableTemplates()
-command! -nargs=0 ToggleTemplates call s:toggleTemplates()
-command! -nargs=1 LoadTemplate call s:loadTemplate(<f-args>)
+command! -nargs=0 EnableTemplates call s:EnableTemplates()
+command! -nargs=0 DisableTemplates call s:DisableTemplates()
+command! -nargs=0 ToggleTemplates call s:ToggleTemplates()
+command! -nargs=1 -complete=customlist,s:CompleteTemplates LoadTemplate
+  \ call s:LoadTemplate(<f-args>)
 """ END COMMANDS }
 
 """ MISC {
