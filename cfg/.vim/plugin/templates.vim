@@ -59,9 +59,7 @@ endfunction
 function! s:DisableTemplates()
   unlet s:templates_enabled
 
-  augroup TemplateLoading
-    autocmd!
-  augroup END
+  autocmd! TemplateLoading
 endfunction
 
 " toggles s:EnableTemplates() and s:DisableTemplates()
@@ -73,11 +71,13 @@ function! s:ToggleTemplates()
   endif
 endfunction
 
+" removes the preceding templates_dir from a template filename
 function! s:ShortenTemplateFilename(index, filename)
   execute "return fnamemodify('" . a:filename . "', "
     \ . "':s?" . g:templates_dir . "/??')"
 endfunction
 
+" returns tab-completion candidates for template filenames
 function! s:CompleteTemplates(ArgLead, CmdLine, CursorPos)
   let l:path_list=globpath(g:templates_dir, a:ArgLead . "**", 0, 1)
   let l:files_path_list=filter(l:path_list, "!isdirectory(v:val)")
@@ -98,7 +98,7 @@ command! -nargs=1 -complete=customlist,s:CompleteTemplates LoadTemplate
 """ END COMMANDS }
 
 """ MISC {
-" enable template loading by default
+" enable template loading if autoload is turned on
 if g:templates_autoload
   call s:EnableTemplates()
 endif
