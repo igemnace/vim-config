@@ -335,6 +335,7 @@ noremap <Leader>gb :Gblame \| ToggleLineBind<CR>
 noremap <Leader>gg :Ggrep<Space>
 noremap <Leader>gl :Gllog -- %<CR><CR><CR>
 noremap <Leader>gL :Gllog --<CR><CR><CR>
+noremap <Leader>gw :Gbrowse<CR>
 
 " map keys for FZF
 noremap <Leader>fp :Files<CR>
