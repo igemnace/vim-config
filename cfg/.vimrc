@@ -187,7 +187,7 @@ set showcmd
 set wildmenu
 
 " partial-complete before displaying wildmenu, then cycle through options
-set wildmode=longest:full,full
+set wildmode=list:longest,full
 
 " limit command history
 set history=100
