@@ -1,4 +1,4 @@
-""" DECLARATIONS {
+""" DECLARATIONS {{{
 " guard against multiple loaded instances
 if exists("g:loaded_templates")
   finish
@@ -24,9 +24,9 @@ endif
 if !exists("g:templates_mappings")
   let g:templates_mappings={}
 endif
-""" END DECLARATIONS }
+""" END DECLARATIONS }}}
 
-""" FUNCTIONS {
+""" FUNCTIONS {{{
 " returns the load command for a template
 function! s:LoadCmd(template)
   return "0r " . g:templates_dir . "/" . a:template
@@ -86,20 +86,22 @@ function! s:CompleteTemplates(ArgLead, CmdLine, CursorPos)
 
   return l:relative_path_list
 endfunction
-""" END FUNCTIONS }
+""" END FUNCTIONS }}}
 
-""" COMMANDS {
+""" COMMANDS {{{
 " define commands for template functions
 command! -nargs=0 EnableTemplates call s:EnableTemplates()
 command! -nargs=0 DisableTemplates call s:DisableTemplates()
 command! -nargs=0 ToggleTemplates call s:ToggleTemplates()
 command! -nargs=1 -complete=customlist,s:CompleteTemplates LoadTemplate
   \ call s:LoadTemplate(<f-args>)
-""" END COMMANDS }
+""" END COMMANDS }}}
 
-""" MISC {
+""" MISC {{{
 " enable template loading if autoload is turned on
 if g:templates_autoload
   call s:EnableTemplates()
 endif
-""" END MISC }
+""" END MISC }}}
+
+" vim:fdm=marker
