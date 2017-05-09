@@ -69,6 +69,8 @@ git clone https://github.com/tpope/vim-fugitive.git
 # OPT
 cd "$HOME/.vim/pack/integrate/opt"
 git clone https://github.com/jpalardy/vim-slime.git
+git clone https://github.com/tommcdo/vim-fubitive.git
+git clone https://github.com/tpope/vim-rhubarb.git
 ### END INTEGRATE
 
 ### THEME
