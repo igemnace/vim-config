@@ -333,6 +333,8 @@ noremap <Leader>gm :Gmerge<CR>
 noremap <Leader>gd :Gdiff<CR>
 noremap <Leader>gb :Gblame \| ToggleLineBind<CR>
 noremap <Leader>gg :Ggrep 
+noremap <Leader>gl :Gllog -- %<CR><CR><CR>
+noremap <Leader>gL :Gllog --<CR><CR><CR>
 
 " map keys for FZF
 noremap <Leader>fp :Files<CR>
