@@ -28,6 +28,9 @@ set grepprg=rg\ --vimgrep\ --no-heading
 
 " change characters used to fill vsplit separator and folds
 set fillchars=fold:\ ,diff:-
+
+" make Vim use 'define' for completion
+set complete+=d
 """ MISC EDITOR BEHAVIOR }}}
 
 """ STATUSLINE BEHAVIOR {{{
