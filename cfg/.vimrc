@@ -332,7 +332,7 @@ noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gm :Gmerge<CR>
 noremap <Leader>gd :Gdiff<CR>
 noremap <Leader>gb :Gblame \| ToggleLineBind<CR>
-noremap <Leader>gg :Ggrep 
+noremap <Leader>gg :Ggrep<Space>
 noremap <Leader>gl :Gllog -- %<CR><CR><CR>
 noremap <Leader>gL :Gllog --<CR><CR><CR>
 
@@ -353,7 +353,7 @@ noremap <Leader>ft :Tags<CR>
 
 " map keys for Dispatch
 noremap <Leader>dd :Dispatch<CR>
-noremap <Leader>df :Focus 
+noremap <Leader>df :Focus<Space>
 
 " map keys for netrw
 noremap <Leader>nn :Explore<CR>
@@ -362,7 +362,7 @@ noremap <Leader>nv :Vexplore<CR>
 
 " map keys for useful native Vim functions
 noremap <Leader>va :argadd **/*
-noremap <Leader>vp :packadd 
+noremap <Leader>vp :packadd<Space>
 " edit with no parameters is useful for reloading a buffer
 noremap <Leader>vr :edit<CR>
 
@@ -376,11 +376,11 @@ noremap <Leader>lc :lclose<CR>
 noremap <Leader>a :ArgWrap<CR>
 
 " map keys for AsyncRun
-noremap <Leader>rr :AsyncRun 
-noremap <Leader>rp :TagsPrg 
+noremap <Leader>rr :AsyncRun<Space>
+noremap <Leader>rp :TagsPrg<Space>
 noremap <Leader>rt :GenerateTags<CR>
 noremap <Leader>rm :AsyncMake<CR>
-noremap <Leader>rg :AsyncGrep 
+noremap <Leader>rg :AsyncGrep<Space>
 
 " map keys for Vim-Slime
 xmap <Leader>s <Plug>SlimeRegionSend
