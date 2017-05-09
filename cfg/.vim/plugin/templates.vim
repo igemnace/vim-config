@@ -39,7 +39,7 @@ endfunction
 
 " attaches the load command from s:LoadCmd() to an autocmd
 function! s:AttachAutocmd(pattern, template)
-  execute "autocmd BufNewFile " . a:pattern . " " . s:LoadCmd(a:template)
+  execute "autocmd BufNewFile" a:pattern s:LoadCmd(a:template)
 endfunction
 
 " runs s:AttachAutocmd() for each pattern-template pair in g:templates_mappings
