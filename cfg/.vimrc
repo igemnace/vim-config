@@ -25,6 +25,9 @@ set ttimeout
 
 " make Vim use ripgrep for :grep
 set grepprg=rg\ --vimgrep\ --no-heading
+
+" change characters used to fill vsplit separator and folds
+set fillchars=fold:\ ,diff:-
 """ MISC EDITOR BEHAVIOR }}}
 
 """ STATUSLINE BEHAVIOR {{{
@@ -102,6 +105,9 @@ highlight link CursorColumn Search
 
 " define colors for folds
 highlight Folded ctermfg=020
+
+" define colors for vsplit separator
+highlight VertSplit ctermbg=018
 
 " define colors for wildmenu
 highlight WildMenu ctermfg=003 ctermbg=018
