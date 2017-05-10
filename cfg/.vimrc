@@ -211,7 +211,7 @@ set shortmess=atoO
 set backspace=indent,eol,start
 
 " map a key to quickly insert the date
-inoremap <C-\> <C-r>=system("date -Idate \| xargs echo -n")<CR>
+inoremap <C-e><C-d> <C-r>=system("date -Idate \| xargs echo -n")<CR>
 
 augroup InsertBehavior
   autocmd!
