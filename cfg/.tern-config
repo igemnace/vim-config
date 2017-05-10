@@ -1,12 +1,13 @@
 {
   "plugins": {
     "node": {},
-    "es_modules": {}
+    "modules": {},
+    "es_modules": {},
+    "complete_strings": {}
   },
-    "libs": [
-    "ecma5",
-    "ecma6",
-    "ecma7"
-    ],
+  "libs": [
+    "browser",
+    "ecmascript"
+  ],
   "ecmaVersion": 6
 }
