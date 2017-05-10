@@ -331,7 +331,7 @@ map <Leader>hu <Plug>GitGutterUndoHunk
 " map keys for Fugitive
 noremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
 noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gc :Gcommit --verbose<CR>
 noremap <Leader>gm :Gmerge<CR>
 noremap <Leader>gd :Gdiff<CR>
 noremap <Leader>gb :Gblame \| ToggleLineBind<CR>
