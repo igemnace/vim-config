@@ -427,8 +427,16 @@ let g:ale_set_highlights=0
 """ END ALE }}}
 
 """ COMPLETOR.VIM {{{
-let g:completor_min_chars=0
+" use Javascript completion on javascript.jsx-filetype buffers
+" e.g. React files
 let g:completor_filetype_map={'javascript.jsx': 'javascript'}
+
+" make completor.vim pop up even without typing leading characters
+" useful for semantic completion after a . in Javascript
+let g:completor_min_chars=0
+
+" make completor.vim pop up faster
+let g:completor_completion_delay=10
 """ END COMPLETOR.VIM }}}
 
 """ VIM-GITGUTTER {{{
