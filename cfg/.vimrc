@@ -426,6 +426,11 @@ let g:ale_linters={
 let g:ale_set_highlights=0
 """ END ALE }}}
 
+""" COMPLETOR.VIM {{{
+let g:completor_min_chars=0
+let g:completor_filetype_map={'javascript.jsx': 'javascript'}
+""" END COMPLETOR.VIM }}}
+
 """ VIM-GITGUTTER {{{
 " make Vim update the buffer faster, for GitGutter to update highlights faster
 set updatetime=250
