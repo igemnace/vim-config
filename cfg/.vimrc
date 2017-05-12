@@ -429,18 +429,10 @@ let g:ale_linters={
 let g:ale_set_highlights=0
 """ END ALE }}}
 
-""" COMPLETOR.VIM {{{
-" use Javascript completion on javascript.jsx-filetype buffers
-" e.g. React files
-let g:completor_filetype_map={'javascript.jsx': 'javascript'}
-
-" make completor.vim pop up even without typing leading characters
-" useful for semantic completion after a . in Javascript
-let g:completor_min_chars=0
-
-" make completor.vim pop up faster
-let g:completor_completion_delay=10
-""" END COMPLETOR.VIM }}}
+""" TERN_FOR_VIM {{{
+" allow tern_for_vim to map <LocalLeader> keybinds
+let tern_map_keys=1
+""" END TERN_FOR_VIM }}}
 
 """ VIM-GITGUTTER {{{
 " make Vim update the buffer faster, for GitGutter to update highlights faster
