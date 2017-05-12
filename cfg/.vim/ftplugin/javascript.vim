@@ -33,5 +33,5 @@ let s:snippets_map={
   \ }
 
 for [pattern, expansion] in items(s:snippets_map)
-  call snippets#CreateBufferLocal(pattern, expansion)
+  execute "ISnipletBuffer" pattern expansion
 endfor
