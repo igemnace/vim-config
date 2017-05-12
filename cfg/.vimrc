@@ -311,13 +311,10 @@ command! -nargs=0 VScratch vsplit | Scratch
 command! -nargs=0 -range Sprunge
   \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
 
-" define commands for setting up ctags with AsyncRun
-command! -nargs=+ TagsPrg let g:tagsprg=<q-args>
-command! -nargs=0 GenerateTags execute "AsyncRun" g:tagsprg
-
 " define commands to run native functions with AsyncRun
 command! -nargs=0 AsyncMake execute "AsyncRun" &makeprg
 command! -nargs=+ AsyncGrep execute "AsyncRun" &grepprg <q-args>
+command! -nargs=0 AsyncTags execute "AsyncRun" g:tagsprg
 """ END COMMANDS }}}
 
 """ LEADER KEY BEHAVIOR {{{
@@ -387,8 +384,7 @@ noremap <Leader>a :ArgWrap<CR>
 
 " map keys for AsyncRun
 noremap <Leader>rr :AsyncRun<Space>
-noremap <Leader>rp :TagsPrg<Space>
-noremap <Leader>rt :GenerateTags<CR>
+noremap <Leader>rt :AsyncTags<CR>
 noremap <Leader>rm :AsyncMake<CR>
 noremap <Leader>rg :AsyncGrep<Space>
 
