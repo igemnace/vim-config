@@ -210,6 +210,9 @@ set shortmess=atoO
 " allow <BS> to delete the following special characters
 set backspace=indent,eol,start
 
+" map a key to expand my own system of snippets
+inoremap <C-e><C-e> <Expand><C-]>
+
 " map a key to quickly insert the date
 inoremap <C-e><C-d> <C-r>=system("date -Idate \| xargs echo -n")<CR>
 
