@@ -214,8 +214,10 @@ set backspace=indent,eol,start
 " this byte is sent by both <C-2> and <C-Space>
 inoremap <C-@> <nop>
 
-" map a key to expand my own system of snippets
+" map keys to expand my own system of snippets
+" add both <C-Space><C-Space> and <C-Space><C-Space>, to cover errors
 inoremap <C-@><Space> <Expand><C-]>
+inoremap <C-@><C-@> <Expand><C-]>
 
 " map a key to quickly insert the date
 inoremap <C-@>d <C-r>=system("date -Idate \| xargs echo -n")<CR>
