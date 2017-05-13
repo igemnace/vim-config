@@ -210,11 +210,15 @@ set shortmess=atoO
 " allow <BS> to delete the following special characters
 set backspace=indent,eol,start
 
+" map <C-@> to nop, so I can use it as my Insert mode leader
+" this byte is sent by both <C-2> and <C-Space>
+inoremap <C-@> <nop>
+
 " map a key to expand my own system of snippets
-inoremap <C-e><C-e> <Expand><C-]>
+inoremap <C-@><Space> <Expand><C-]>
 
 " map a key to quickly insert the date
-inoremap <C-e><C-d> <C-r>=system("date -Idate \| xargs echo -n")<CR>
+inoremap <C-@>d <C-r>=system("date -Idate \| xargs echo -n")<CR>
 
 augroup InsertBehavior
   autocmd!
