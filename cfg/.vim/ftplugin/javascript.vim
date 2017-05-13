@@ -14,6 +14,7 @@ let s:snippets_map={
   \ "parr": "PropTypes.arrayOf(",
   \ "pstr": "PropTypes.string",
   \ "pshape": "PropTypes.shape({",
+  \ "pnum": "PropTypes.number",
   \ "pany": "PropTypes.any",
   \ "pnode": "PropTypes.node",
   \ "ptypes": "static propTypes = {",
