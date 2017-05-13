@@ -17,9 +17,6 @@ endif
 """ COMMANDS {{{
 " define a command to run g:tagsprg
 command! -nargs=0 TagsGenerate execute "!" g:tagsprg
-
-" define a wrapper command to set g:tagsprg
-command! -nargs=+ TagsPrg let g:tagsprg=<q-args>
 """ END COMMANDS }}}
 
 " vim:fdm=marker
