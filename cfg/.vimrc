@@ -316,7 +316,7 @@ command! -nargs=0 -range Sprunge
   \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
 
 " define wrapper commands to set makeprg and tagsprg
-command! -nargs=+ MakePrg set makeprg=<q-args>
+command! -nargs=+ MakePrg let &makeprg=<q-args>
 command! -nargs=+ TagsPrg let g:tagsprg=<q-args>
 
 " define commands to run native functions with AsyncRun
