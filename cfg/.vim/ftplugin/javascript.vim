@@ -13,6 +13,7 @@ let s:snippets_map={
   \ "pfn": "PropTypes.func",
   \ "parr": "PropTypes.arrayOf(",
   \ "pstr": "PropTypes.string",
+  \ "pbool": "PropTypes.bool",
   \ "pshape": "PropTypes.shape({",
   \ "pnum": "PropTypes.number",
   \ "pany": "PropTypes.any",
