@@ -83,7 +83,7 @@ set undodir=~/.vim/tmp//,.
 """ COLORS {{{
 " set the colorscheme
 " base16-eighties works only if base16 is forced into 256-color mode
-let base16colorspace=256
+let base16colorspace = 256
 colorscheme base16-eighties
 
 " define colors for the statusline
@@ -268,7 +268,7 @@ map [w <Plug>(ale_previous_wrap)
 " define convenience functions for cursorline+scrollbind
 " define enable, disable, and toggle
 function! EnableLineBind()
-  let t:line_bind_on=1
+  let t:line_bind_on = 1
 
   setlocal cursorline scrollbind
   wincmd w
@@ -329,7 +329,7 @@ command! -nargs=0 AsyncTags execute "AsyncRun" g:tagsprg
 
 """ LEADER KEY BEHAVIOR {{{
 " change Leader key to Spacebar, since \ is too hard to reach
-let mapleader="\<Space>"
+let mapleader = "\<Space>"
 
 " map a key to reset highlights from search and GitGutter
 noremap <Leader><Leader> :let @/=""<CR>:GitGutterAll<CR>
@@ -418,7 +418,7 @@ map <Leader>P <Plug>yankstack_substitute_newer_paste
 """ PLUGIN CONFIG {{{
 """ FZF.VIM {{{
 " add a command to search with ripgrep then feed to fzf
-let g:rg_command='
+let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
   \ -g "!{.git,node_modules,vendor}/*" '
@@ -427,17 +427,17 @@ command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>)
 
 """ ALE {{{
 " use eslint for linting
-let g:ale_linters={
+let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
 
 " disallow ALE from setting highlights
-let g:ale_set_highlights=0
+let g:ale_set_highlights = 0
 """ END ALE }}}
 
 """ TERN_FOR_VIM {{{
 " allow tern_for_vim to map <LocalLeader> keybinds
-let tern_map_keys=1
+let tern_map_keys = 1
 """ END TERN_FOR_VIM }}}
 
 """ VIM-GITGUTTER {{{
@@ -446,31 +446,34 @@ set updatetime=250
 
 " disallow GitGutter's default maps
 " My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
-let g:gitgutter_map_keys=0
+let g:gitgutter_map_keys = 0
 
 " make GitGutter highlight hunks by default
-let g:gitgutter_highlight_lines=1
+let g:gitgutter_highlight_lines = 1
 
 " customize GitGutter signs
-let g:gitgutter_sign_removed='-'
+let g:gitgutter_sign_removed = '-'
 """ END VIM-GITGUTTER }}}
 
 """ VIM-YANKSTACK {{{
 " disallow YankStack's default maps
 " My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
-let g:yankstack_map_keys=0
+let g:yankstack_map_keys = 0
 """ END VIM-YANKSTACK }}}
 
 """ VIM-ARGWRAP {{{
 " make ArgWrap add tail commas when working with [] or {}
-let g:argwrap_tail_comma_braces='[{'
+let g:argwrap_tail_comma_braces = '[{'
 """ END VIM-ARGWRAP }}}
 
 """ AUTO-PAIRS {{{
+" disallow AutoPairs from jumping to closing brackets on the next line
+let g:AutoPairsMultilineClose = 0
+
 " disable certain pairs when in Lisp files, especially quote (')
 augroup AutoPairs
   autocmd!
-  autocmd FileType lisp let b:AutoPairs={'(': ')', '"': '"'}
+  autocmd FileType lisp let b:AutoPairs = {'(': ')', '"': '"'}
 augroup END
 """ END AUTO-PAIRS }}}
 
@@ -484,19 +487,19 @@ silent! call repeat#set("\<Plug>yankstack_substitute_newer_paste", v:count)
 " make vim-slime work with tmux panes by default
 " guard for tmux
 if $TMUX != ""
-  let g:slime_target="tmux"
-  let g:slime_default_config={"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+  let g:slime_target = "tmux"
+  let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
 endif
 
 " unset vim-slime's default emacs bindings
 " My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
-let g:slime_no_mappings=1
+let g:slime_no_mappings = 1
 """ END VIM-SLIME }}}
 
 """ VIM-TABLE-MODE {{{
 " make tables pandoc-markdown-compatible
-let g:table_mode_corner_corner='+'
-let g:table_mode_header_fillchar='='
+let g:table_mode_corner_corner = '+'
+let g:table_mode_header_fillchar = '='
 """ END VIM-TABLE-MODE }}}
 
 """ VIM-JSON {{{
@@ -506,11 +509,11 @@ highlight default link jsObjectKey Label
 
 """ VIM-JSX {{{
 " allow Vim-JSX to work even without a .jsx extension
-let g:jsx_ext_required=0
+let g:jsx_ext_required = 0
 """ END VIM-JSX }}}
 
 """ TEMPLATES.VIM {{{
-let g:templates_mappings={
+let g:templates_mappings = {
   \  '*.component.js': 'react-native/component.js',
   \  '*.hoc.js': 'react-native/hoc.js',
   \  '*.styles.js': 'react-native/styles.js',
