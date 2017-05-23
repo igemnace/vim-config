@@ -458,6 +458,20 @@ let g:gitgutter_highlight_lines = 1
 let g:gitgutter_sign_removed = '-'
 """ END VIM-GITGUTTER }}}
 
+""" VIMWIKI {{{
+" allow VimWiki to fold sections and code blocks
+let g:vimwiki_folding = 'expr'
+
+" make VimWiki use Markdown, at least for now
+let g:vimwiki_list = [
+      \ {
+        \ 'path': '~/vimwiki/',
+        \ 'syntax': 'markdown',
+        \ 'ext': '.md',
+      \ }
+  \ ]
+""" END VIMWIKI }}}
+
 """ VIM-YANKSTACK {{{
 " disallow YankStack's default maps
 " My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
