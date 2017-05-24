@@ -355,8 +355,8 @@ noremap <Leader>gg :Ggrep<Space>
 noremap <Leader>gl :Gllog -- %<CR><CR><CR>
 noremap <Leader>gL :Gllog --<CR><CR><CR>
 noremap <Leader>gw :Gbrowse<CR>
-noremap <Leader>gps :Gpush<CR>
-noremap <Leader>gpl :Gpull<CR>
+noremap <Leader>gp :Gpush<CR>
+noremap <Leader>gf :Gfetch<CR>
 
 " map keys for FZF
 noremap <Leader>fp :Files<CR>
