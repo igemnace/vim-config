@@ -41,7 +41,6 @@ bg_clone https://github.com/jiangmiao/auto-pairs.git
 bg_clone https://github.com/maxbrunsfeld/vim-yankstack.git
 bg_clone https://github.com/skywind3000/asyncrun.vim.git
 bg_clone https://github.com/tpope/vim-commentary.git
-bg_clone https://github.com/tpope/vim-dispatch.git
 bg_clone https://github.com/tpope/vim-endwise
 bg_clone https://github.com/tpope/vim-surround.git
 bg_clone https://github.com/tpope/vim-unimpaired.git

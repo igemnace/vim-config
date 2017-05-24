@@ -371,10 +371,6 @@ noremap <Leader>fm :Marks<CR>
 noremap <Leader>ff :Filetypes<CR>
 noremap <Leader>ft :Tags<CR>
 
-" map keys for Dispatch
-noremap <Leader>dd :Dispatch<CR>
-noremap <Leader>df :Focus<Space>
-
 " map keys for netrw
 noremap <Leader>nn :Explore<CR>
 noremap <Leader>ns :Sexplore<CR>
