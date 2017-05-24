@@ -355,6 +355,8 @@ noremap <Leader>gg :Ggrep<Space>
 noremap <Leader>gl :Gllog -- %<CR><CR><CR>
 noremap <Leader>gL :Gllog --<CR><CR><CR>
 noremap <Leader>gw :Gbrowse<CR>
+noremap <Leader>gps :Gpush<CR>
+noremap <Leader>gpl :Gpull<CR>
 
 " map keys for FZF
 noremap <Leader>fp :Files<CR>
@@ -433,6 +435,11 @@ let g:ale_linters = {
 " disallow ALE from setting highlights
 let g:ale_set_highlights = 0
 """ END ALE }}}
+
+""" ASYNCRUN.VIM {{{
+" define a Make command for Fugitive's Gpush and Gpull
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+""" END ASYNCRUN.VIM }}}
 
 """ TERN_FOR_VIM {{{
 " allow tern_for_vim to map <LocalLeader> keybinds
