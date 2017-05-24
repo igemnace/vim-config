@@ -464,15 +464,6 @@ let g:gitgutter_sign_removed = '-'
 """ VIMWIKI {{{
 " allow VimWiki to fold sections and code blocks
 let g:vimwiki_folding = 'expr'
-
-" make VimWiki use Markdown, at least for now
-let g:vimwiki_list = [
-      \ {
-        \ 'path': '~/vimwiki/',
-        \ 'syntax': 'markdown',
-        \ 'ext': '.md',
-      \ }
-  \ ]
 """ END VIMWIKI }}}
 
 """ VIM-YANKSTACK {{{
@@ -518,8 +509,9 @@ let g:slime_no_mappings = 1
 
 """ VIM-TABLE-MODE {{{
 " make tables pandoc-markdown-compatible
-let g:table_mode_corner_corner = '+'
-let g:table_mode_header_fillchar = '='
+let g:table_mode_corner = '|'
+let g:table_mode_corner_corner = '|'
+let g:table_mode_header_fillchar = '-'
 """ END VIM-TABLE-MODE }}}
 
 """ VIM-JSON {{{
