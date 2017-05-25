@@ -180,11 +180,11 @@ augroup BufferSpecific
   " automatically set cursorline for fugitive, todo.txt, and quickfix
   autocmd FileType gitcommit,todo,qf setlocal cursorline
 
-  " set markdown documents textwidth to 80
-  autocmd FileType markdown setlocal textwidth=80
+  " set notes textwidth to 80
+  autocmd FileType vimwiki,markdown setlocal textwidth=80
 
   " set spell check for prose-related buffers
-  autocmd FileType markdown,gitcommit setlocal spell
+  autocmd FileType vimwiki,markdown,gitcommit setlocal spell
 
   " set makeprg to pandoc for markdown
   autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
