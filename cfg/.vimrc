@@ -508,10 +508,13 @@ let g:slime_no_mappings = 1
 """ END VIM-SLIME }}}
 
 """ VIM-TABLE-MODE {{{
-" make tables pandoc-markdown-compatible
+" make tables bitbucket-markdown-compatible
 let g:table_mode_corner = '|'
 let g:table_mode_corner_corner = '|'
 let g:table_mode_header_fillchar = '-'
+
+" disallow vim-table-mode from automatically aligning every now and then
+let g:table_mode_auto_align = 0
 """ END VIM-TABLE-MODE }}}
 
 """ VIM-JSON {{{
