@@ -222,8 +222,9 @@ inoremap <C-@> <nop>
 inoremap <C-@><Space> <Expand><C-]>
 inoremap <C-@><C-@> <Expand><C-]>
 
-" map a key to quickly insert the date
+" map keys to quickly insert dates and times
 inoremap <C-@>d <C-r>=system("date -Idate \| xargs echo -n")<CR>
+inoremap <C-@>t <C-r>=system("date +%R \| xargs echo -n")<CR>
 
 augroup InsertBehavior
   autocmd!
