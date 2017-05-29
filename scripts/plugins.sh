@@ -15,6 +15,7 @@ cd "$HOME/.vim/pack/code/start"
 bg_clone https://github.com/editorconfig/editorconfig-vim.git
 bg_clone https://github.com/elzr/vim-json.git
 bg_clone https://github.com/freitass/todo.txt-vim.git
+bg_clone https://github.com/leafgarland/typescript-vim.git
 bg_clone https://github.com/mattn/emmet-vim
 bg_clone https://github.com/mxw/vim-jsx.git
 bg_clone https://github.com/pangloss/vim-javascript.git
