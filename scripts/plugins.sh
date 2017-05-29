@@ -12,13 +12,14 @@ mkdir -p "$HOME/.vim/pack/code/opt"
 
 # START
 cd "$HOME/.vim/pack/code/start"
+bg_clone https://github.com/editorconfig/editorconfig-vim.git
 bg_clone https://github.com/elzr/vim-json.git
 bg_clone https://github.com/freitass/todo.txt-vim.git
 bg_clone https://github.com/mattn/emmet-vim
 bg_clone https://github.com/mxw/vim-jsx.git
 bg_clone https://github.com/pangloss/vim-javascript.git
-bg_clone https://github.com/w0rp/ale.git
 bg_clone https://github.com/vimwiki/vimwiki.git
+bg_clone https://github.com/w0rp/ale.git
 
 # OPT
 cd "$HOME/.vim/pack/code/opt"
