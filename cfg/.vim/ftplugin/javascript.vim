@@ -31,7 +31,7 @@ let s:snippets_map={
   \ "this": "const {} = this;<C-o>F}<Space>",
   \ "props": "const {} = this.props;<C-o>F}<Space>",
   \ "state": "const {} = this.state;<C-o>F}<Space>",
-  \ "context": "const {} = this.context;<C-o>F}<Space>",
+  \ "ctx": "const {} = this.context;<C-o>F}<Space>",
   \ }
 
 for [pattern, expansion] in items(s:snippets_map)
