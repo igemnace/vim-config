@@ -326,7 +326,7 @@ command! -nargs=+ MakePrg let &makeprg=<q-args>
 command! -nargs=+ TagsPrg let g:tagsprg=<q-args>
 
 " define commands to run native functions with AsyncRun
-command! -nargs=0 AsyncMake execute "AsyncRun" &makeprg
+command! -nargs=* AsyncMake execute "AsyncRun" &makeprg <q-args>
 command! -nargs=+ AsyncGrep execute "AsyncRun" &grepprg <q-args>
 command! -nargs=0 AsyncTags execute "AsyncRun" g:tagsprg
 """ END COMMANDS }}}
