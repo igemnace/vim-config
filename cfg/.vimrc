@@ -537,6 +537,7 @@ let g:templates_mappings = {
   \  '*.fire.js': 'react-native/fire.js',
   \  '*.component.jsx': 'react/component.jsx',
   \  '*.hoc.jsx': 'react/hoc.jsx',
+  \  '*.component.ts': 'angular/component.ts',
   \  '*.sh': 'sh.sh',
   \}
 """ END TEMPLATES.VIM }}}
