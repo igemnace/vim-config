@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'name',
@@ -8,8 +6,5 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./name.component.css'],
 })
 export class NameComponent {
-  constructor(
-    private router: Router,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor() {}
 }
