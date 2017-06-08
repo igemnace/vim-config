@@ -518,6 +518,15 @@ let g:table_mode_header_fillchar = '-'
 let g:table_mode_auto_align = 0
 """ END VIM-TABLE-MODE }}}
 
+""" TSUQUYOMI {{{
+" make Tsuquyomi use single quotes for automatic imports
+let g:tsuquyomi_single_quote_import = 1
+
+" disallow Tsuquyomi from a lot of unwanted default behavior
+let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_disable_default_mappings = 1
+""" END TSUQUYOMI }}}
+
 """ VIM-JSON {{{
 " define a default highlight for vim-JSON's highlight groups
 highlight default link jsObjectKey Label
