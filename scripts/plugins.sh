@@ -24,6 +24,7 @@ bg_clone https://github.com/w0rp/ale.git
 
 # OPT
 cd "$HOME/.vim/pack/code/opt"
+bg_clone https://github.com/Quramy/tsuquyomi.git
 bg_clone https://github.com/dhruvasagar/vim-table-mode.git
 bg_clone https://github.com/ternjs/tern_for_vim.git
 ### END CODE
