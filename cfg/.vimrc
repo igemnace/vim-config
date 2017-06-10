@@ -384,6 +384,7 @@ noremap <Leader>va :argadd **/*
 noremap <Leader>vp :packadd<Space>
 " edit with no parameters is useful for reloading a buffer
 noremap <Leader>vr :edit<CR>
+noremap <Leader>vf :filetype detect<CR>
 
 " map keys for quickfix and loc lists
 noremap <Leader>qo :copen<CR>
