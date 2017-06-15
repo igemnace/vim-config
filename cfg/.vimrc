@@ -538,7 +538,7 @@ highlight default link jsObjectKey Label
 let g:jsx_ext_required = 0
 """ END VIM-JSX }}}
 
-""" TEMPLATES.VIM {{{
+""" VIM-TEMPLATE-LITE {{{
 " declare mappings of patterns to templates to load
 let g:templates_mappings = {
   \  '*.component.js': 'react-native/component.js',
@@ -560,7 +560,7 @@ augroup TemplatesVim
   autocmd User TemplateLoad
     \ silent! execute "%S/skeleton-name/" . expand('%:t:r:r') . "/g"
 augroup END
-""" END TEMPLATES.VIM }}}
+""" END VIM-TEMPLATE-LITE }}}
 """ END PLUGIN CONFIG }}}
 
 " vim:fdm=marker
