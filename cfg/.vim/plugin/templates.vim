@@ -35,11 +35,15 @@ endfunction
 " executes the load command from s:LoadCmd()
 function! s:LoadTemplate(template)
   execute s:LoadCmd(a:template)
+
+  " trigger a custom autocmd, to allow arbitrary scripts to run
+  doautocmd User TemplateLoad
 endfunction
 
 " attaches the load command from s:LoadCmd() to an autocmd
 function! s:AttachAutocmd(pattern, template)
-  execute "autocmd BufNewFile" a:pattern s:LoadCmd(a:template)
+  execute "autocmd BufNewFile" a:pattern
+    \ "call s:LoadTemplate('" . a:template . "')"
 endfunction
 
 " runs s:AttachAutocmd() for each pattern-template pair in g:templates_mappings
