@@ -1,16 +1,16 @@
 'use strict';
 
 import React, { PropTypes, Component } from 'react';
-import NameHOC from './name.hoc.js';
+import SkeletonNameHOC from './skeleton-name.hoc.js';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({});
 
-const DuckyName = connect(
+const DuckySkeletonName = connect(
   mapStateToProps,
   mapDispatchToProps
-)(NameHOC);
+)(SkeletonNameHOC);
 
-export default DuckyName
+export default DuckySkeletonName

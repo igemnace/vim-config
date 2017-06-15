@@ -539,6 +539,7 @@ let g:jsx_ext_required = 0
 """ END VIM-JSX }}}
 
 """ TEMPLATES.VIM {{{
+" declare mappings of patterns to templates to load
 let g:templates_mappings = {
   \  '*.component.js': 'react-native/component.js',
   \  '*.hoc.js': 'react-native/hoc.js',
@@ -550,6 +551,15 @@ let g:templates_mappings = {
   \  '*.component.ts': 'angular/component.ts',
   \  '*.sh': 'sh.sh',
   \}
+
+" trigger vim-abolish on template load
+augroup TemplatesVim
+  autocmd!
+
+  " replace skeleton-name with filename
+  autocmd User TemplateLoad
+    \ silent! execute "%S/skeleton-name/" . expand('%:t:r:r') . "/g"
+augroup END
 """ END TEMPLATES.VIM }}}
 """ END PLUGIN CONFIG }}}
 

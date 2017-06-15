@@ -2,15 +2,15 @@
 
 import React, { PropTypes } from 'react';
 import { View } from 'react-native';
-import { styles } from './name.styles.js';
+import { styles } from './skeleton-name.styles.js';
 
-function Name(props) {
+function SkeletonName(props) {
   return (
     <View>
     </View>
   );
 }
 
-Name.propTypes = {};
+SkeletonName.propTypes = {};
 
-export default Name
+export default SkeletonName

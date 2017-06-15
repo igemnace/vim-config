@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'name',
-  templateUrl: './name.component.html',
-  styleUrls: ['./name.component.css'],
+  selector: 'skeleton-name',
+  templateUrl: './skeleton-name.component.html',
+  styleUrls: ['./skeleton-name.component.css'],
 })
-export class NameComponent {
+export class SkeletonNameComponent {
   constructor() {}
 }

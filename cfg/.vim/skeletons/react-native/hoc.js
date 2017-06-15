@@ -1,9 +1,9 @@
 'use strict';
 
 import React, { PropTypes, Component } from 'react';
-import Name from './name.component.js';
+import SkeletonName from './skeleton-name.component.js';
 
-export default class NameHOC extends Component {
+export default class SkeletonNameHOC extends Component {
   constructor(props) {
     super(props);
   }
@@ -12,7 +12,7 @@ export default class NameHOC extends Component {
 
   render() {
     return (
-      <Name
+      <SkeletonName
         {...this.props}
       />
     );

@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import styles from './name.scss';
+import styles from './skeleton-name.scss';
 
-export default class Name extends Component {
+export default class SkeletonName extends Component {
   constructor(props) {
     super(props);
   }

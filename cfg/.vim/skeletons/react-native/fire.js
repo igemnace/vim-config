@@ -2,9 +2,9 @@
 
 import React, { PropTypes, Component } from 'react';
 import { InteractionManager } from 'react-native';
-import NameHOC from './name.hoc.js';
+import SkeletonNameHOC from './skeleton-name.hoc.js';
 
-export default class FieryName extends Component {
+export default class FierySkeletonName extends Component {
   constructor(props) {
     super(props);
   }
@@ -19,7 +19,7 @@ export default class FieryName extends Component {
 
   render() {
     return (
-      <NameHOC
+      <SkeletonNameHOC
         {...this.props}
       />
     );
