@@ -219,8 +219,8 @@ inoremap <C-@> <nop>
 
 " map keys to expand my own system of snippets
 " add both <C-Space><C-Space> and <C-Space><C-Space>, to cover errors
-inoremap <C-@><Space> <Expand><C-]>
-inoremap <C-@><C-@> <Expand><C-]>
+imap <C-@><Space> <Plug>SnipletExpand
+imap <C-@><C-@> <Plug>SnipletExpand
 
 " map keys to quickly insert dates and times
 inoremap <C-@>d <C-r>=system("date -Idate \| xargs echo -n")<CR>
