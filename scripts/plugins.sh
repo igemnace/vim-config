@@ -40,6 +40,7 @@ bg_clone git://github.com/tpope/vim-repeat.git
 bg_clone git://github.com/tpope/vim-rsi.git
 bg_clone git://github.com/tpope/vim-speeddating.git
 bg_clone https://github.com/FooSoft/vim-argwrap
+bg_clone https://github.com/igemnace/vim-sniplet.git
 bg_clone https://github.com/igemnace/vim-template-lite.git
 bg_clone https://github.com/jiangmiao/auto-pairs.git
 bg_clone https://github.com/maxbrunsfeld/vim-yankstack.git
