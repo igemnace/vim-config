@@ -540,7 +540,7 @@ let g:jsx_ext_required = 0
 
 """ VIM-TEMPLATE-LITE {{{
 " declare mappings of patterns to templates to load
-let g:templates_mappings = {
+let g:template_lite_mappings = {
   \  '*.component.js': 'react-native/component.js',
   \  '*.hoc.js': 'react-native/hoc.js',
   \  '*.styles.js': 'react-native/styles.js',
