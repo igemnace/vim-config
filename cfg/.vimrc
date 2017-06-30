@@ -38,14 +38,11 @@ set complete+=d
 set laststatus=2
 set showtabline=2
 
-function! BufNameShort()
-  return pathshorten(expand("%:~:."))
-endfunction
 " define statusline items
 set statusline=
 " filename
 set statusline+=%*
-set statusline+=%(%{BufNameShort()}%)
+set statusline+=%(%{statusline#bufnameshort()}%)
 " window type (help, preview, qlist)
 set statusline+=%*
 set statusline+=%(%h%w%q%)
