@@ -81,43 +81,53 @@ set undodir=~/.vim/tmp//,.
 """ END TEMP FILES BEHAVIOR }}}
 
 """ COLORS {{{
+" define a wrapper function to set all my highlight overrides
+function! OverrideHighlights()
+  " define colors for the statusline
+  highlight StatusLine ctermbg=018
+  highlight StatusLineNC ctermfg=019 ctermbg=018
+  highlight User1 ctermfg=001 ctermbg=018
+  highlight User2 ctermfg=002 ctermbg=018
+  highlight User3 ctermfg=003 ctermbg=018
+  highlight User4 ctermfg=004 ctermbg=018
+  highlight User5 ctermfg=016 ctermbg=018
+  highlight User9 ctermfg=002 ctermbg=018
+
+  " define colors for highlighting search results
+  highlight Search cterm=NONE ctermfg=000 ctermbg=008
+
+  " define colors for the colorcolumn marking the 80-char limit
+  highlight ColorColumn ctermbg=018
+
+  " define colors for the cursor crosshairs
+  highlight link CursorLine Search
+  highlight link CursorColumn Search
+
+  " define colors for folds
+  highlight Folded ctermfg=020
+
+  " define colors for vsplit separator
+  highlight VertSplit ctermbg=018
+
+  " define colors for wildmenu
+  highlight WildMenu ctermfg=003 ctermbg=018
+
+  " redefine colors for GitGutter highlights
+  highlight GitGutterChange cterm=NONE ctermfg=003
+  highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
+endfunction
+
+" override highlights everytime the colorscheme is set
+augroup HighlightOverrides
+  autocmd!
+
+  autocmd ColorScheme * call OverrideHighlights()
+augroup END
+
 " set the colorscheme
 " base16-eighties works only if base16 is forced into 256-color mode
 let base16colorspace = 256
 colorscheme base16-eighties
-
-" define colors for the statusline
-highlight StatusLine ctermbg=018
-highlight StatusLineNC ctermfg=019 ctermbg=018
-highlight User1 ctermfg=001 ctermbg=018
-highlight User2 ctermfg=002 ctermbg=018
-highlight User3 ctermfg=003 ctermbg=018
-highlight User4 ctermfg=004 ctermbg=018
-highlight User5 ctermfg=016 ctermbg=018
-highlight User9 ctermfg=002 ctermbg=018
-
-" define colors for highlighting search results
-highlight Search cterm=NONE ctermfg=000 ctermbg=008
-
-" define colors for the colorcolumn marking the 80-char limit
-highlight ColorColumn ctermbg=018
-
-" define colors for the cursor crosshairs
-highlight link CursorLine Search
-highlight link CursorColumn Search
-
-" define colors for folds
-highlight Folded ctermfg=020
-
-" define colors for vsplit separator
-highlight VertSplit ctermbg=018
-
-" define colors for wildmenu
-highlight WildMenu ctermfg=003 ctermbg=018
-
-" redefine colors for GitGutter highlights
-highlight GitGutterChange cterm=NONE ctermfg=003
-highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
 """ END COLORS }}}
 
 """ INDENT BEHAVIOR {{{
@@ -239,10 +249,6 @@ xnoremap < <gv
 """ END VISUAL MODE BEHAVIOR }}}
 
 """ NON-MODE-SPECIFIC MAPS {{{
-" map keys to easily move between tabs
-noremap H gT
-noremap L gt
-
 " map <BS> to switch to the alternate buffer
 noremap <BS> <C-^>
 
