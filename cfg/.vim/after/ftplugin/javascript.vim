@@ -28,12 +28,10 @@ let s:snippets_map={
   \ "cwu": "componentWillUpdate() {",
   \ "cdu": "componentDidUpdate() {",
   \ "cwum": "componentWillUnmount() {",
-  \ "this": "const {} = this;<C-o>F}<Space>",
-  \ "props": "const {} = this.props;<C-o>F}<Space>",
-  \ "state": "const {} = this.state;<C-o>F}<Space>",
-  \ "ctx": "const {} = this.context;<C-o>F}<Space>",
   \ }
 
-for [pattern, expansion] in items(s:snippets_map)
-  execute "ISnipletBuffer" pattern expansion
+for [s:pattern, s:expansion] in items(s:snippets_map)
+  execute "ISnipletBuffer" s:pattern s:expansion
 endfor
+
+inoremap <buffer> <C-@>x ;<C-o>Bconst {} = <C-o>F}<Space><Space><Left>
