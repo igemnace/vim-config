@@ -21,6 +21,7 @@ let s:snippets_map={
   \ "ptypes": "static propTypes = {",
   \ "defprops": "static defaultProps = {",
   \ "ctypes": "static contextTypes = {",
+  \ "constructor": "constructor(props) {super(props);",
   \ "cwm": "componentWillMount() {",
   \ "cdm": "componentDidMount() {",
   \ "scu": "shouldComponentUpdate(nextProps, nextState) {",
