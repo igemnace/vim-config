@@ -29,6 +29,9 @@ set grepprg=rg\ --vimgrep\ --no-heading
 " change characters used to fill vsplit separator and folds
 set fillchars=fold:\ ,diff:-
 
+" display trailing whitespace and line continuations in list mode
+set listchars=trail:_,extends:>,precedes:<,tab:>-
+
 " make Vim use 'define' for completion
 set complete+=d
 """ MISC EDITOR BEHAVIOR }}}
