@@ -18,17 +18,17 @@ Make sure that your machine satisfies the following:
 
 ## Installation
 
-Just run `install.sh`. This will automatically do the following:
-- Symlink `.vimrc` into your home directory (`vimrc.sh`)
-- Symlink all of the contents of `.vim` into your home directory (`vim.sh`)
+Just run `./install`. This will automatically do the following:
+- Symlink `.vimrc` into your home directory (`install-vimrc`)
+- Symlink all of the contents of `.vim` into your home directory (`install-vim`)
 - Create `.vim/tmp` directory if none exists, for backup/undofile/swapfile
-  storage (`tmp.sh`)
+  storage (`install-tmp`)
 - Create `.vim/pack` directory if none exists, and install my plugin packages
-  into it (`plugins.sh`)
-- Install ESLint with React plugins (`eslint.sh`)
-- Symlink `.eslintrc` into your home directory (`eslintrc.sh`)
-- Install completor.vim and `make` for Tern support (`completor.sh`)
-- Symlink `.tern-config` into your home directory (`tern.sh`)
+  into it (`install-plugins`)
+- Install ESLint with React plugins (`install-eslint`)
+- Symlink `.eslintrc` into your home directory (`install-eslintrc`)
+- Install completor.vim and `make` for Tern support (`install-completor`)
+- Symlink `.tern-config` into your home directory (`install-tern`)
 
 ## Licensing
 

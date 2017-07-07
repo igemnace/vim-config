@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+./scripts/install-vimrc
+./scripts/install-vim
+./scripts/install-tmp
+./scripts/install-plugins
+./scripts/install-eslint
+./scripts/install-eslintrc
+./scripts/install-completor
+./scripts/install-tern
