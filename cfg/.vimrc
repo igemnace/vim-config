@@ -37,9 +37,10 @@ set complete+=d
 """ MISC EDITOR BEHAVIOR }}}
 
 """ STATUSLINE BEHAVIOR {{{
-" make Vim display the status and tab lines at all times
+" make Vim display the statusline at all times
+" but the tabline only when necessary
 set laststatus=2
-set showtabline=2
+set showtabline=1
 
 " define statusline items
 set statusline=
@@ -106,18 +107,30 @@ function! OverrideHighlights()
   highlight link CursorLine Search
   highlight link CursorColumn Search
 
+  " blend line number, sign, and vert split columns into the background
+  highlight LineNr ctermbg=000
+  highlight CursorLineNr ctermbg=000
+  highlight SignColumn ctermbg=000
+
   " define colors for folds
   highlight Folded ctermfg=020
 
   " define colors for vsplit separator
-  highlight VertSplit ctermbg=018
+  highlight VertSplit ctermbg=000
 
   " define colors for wildmenu
   highlight WildMenu ctermfg=003 ctermbg=018
 
   " redefine colors for GitGutter highlights
-  highlight GitGutterChange cterm=NONE ctermfg=003
+  highlight GitGutterAdd cterm=NONE ctermbg=000
+  highlight GitGutterDelete cterm=NONE ctermbg=000
+  highlight GitGutterChangeDelete cterm=NONE ctermbg=000
+  highlight GitGutterChange cterm=NONE ctermfg=003 ctermbg=000
   highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
+
+  " redefine colors for ALE highlights
+  highlight ALEErrorSign ctermfg=001 ctermbg=000
+  highlight ALEWarningSign ctermfg=003 ctermbg=000
 endfunction
 
 " override highlights everytime the colorscheme is set
@@ -161,11 +174,6 @@ set autoindent
 set number
 set relativenumber
 """ END LINE NUMBERING }}}
-
-""" LINE LENGTH {{{
-" add a colored column to mark the 80-char limit
-set colorcolumn=80
-""" END LINE LENGTH }}}
 
 """ SEARCH BEHAVIOR {{{
 " allow incremental search
@@ -265,6 +273,18 @@ noremap <Space> <nop>
 noremap g] g<C-]>
 noremap g<C-]> g]
 
+" map keys to toggle a colorcolumn at the 80-char limit
+function! ToggleColorColumn()
+  if &colorcolumn
+    set colorcolumn=
+  else
+    set colorcolumn=80
+  endif
+endfunction
+noremap [ot :set colorcolumn=80<CR>
+noremap ]ot :set colorcolumn=<CR>
+noremap cot :call ToggleColorColumn()<CR>
+
 " map keys for moving between GitGutter hunks
 map [h <Plug>GitGutterPrevHunk
 map ]h <Plug>GitGutterNextHunk
@@ -352,7 +372,7 @@ map <Leader>ha <Plug>GitGutterStageHunk
 map <Leader>hu <Plug>GitGutterUndoHunk
 
 " map keys for Fugitive
-noremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
+noremap <Leader>gs :tab split \| Gstatus \| wincmd o \| GitGutterLineHighlightsEnable<CR>
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit --verbose<CR>
 noremap <Leader>gm :Gmerge<CR>
@@ -463,8 +483,8 @@ set updatetime=250
 " My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
 let g:gitgutter_map_keys = 0
 
-" make GitGutter highlight hunks by default
-let g:gitgutter_highlight_lines = 1
+" disallow GitGutter from highlighting hunks by default
+let g:gitgutter_highlight_lines = 0
 
 " customize GitGutter signs
 let g:gitgutter_sign_removed = '-'
