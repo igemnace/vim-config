@@ -463,6 +463,9 @@ let g:ale_linters = {
 
 " disallow ALE from setting highlights
 let g:ale_set_highlights = 0
+
+" customize ALE signs
+let g:ale_sign_error = '!!'
 """ END ALE }}}
 
 """ ASYNCRUN.VIM {{{
