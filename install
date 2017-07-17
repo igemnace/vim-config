@@ -6,5 +6,4 @@
 ./scripts/install-plugins
 ./scripts/install-eslint
 ./scripts/install-eslintrc
-./scripts/install-completor
 ./scripts/install-tern

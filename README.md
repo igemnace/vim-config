@@ -27,7 +27,6 @@ Just run `./install`. This will automatically do the following:
   into it (`install-plugins`)
 - Install ESLint with React plugins (`install-eslint`)
 - Symlink `.eslintrc` into your home directory (`install-eslintrc`)
-- Install completor.vim and `make` for Tern support (`install-completor`)
 - Symlink `.tern-config` into your home directory (`install-tern`)
 
 ## Licensing
