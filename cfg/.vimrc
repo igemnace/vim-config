@@ -129,7 +129,7 @@ function! OverrideHighlights()
   highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
 
   " redefine colors for ALE highlights
-  highlight ALEErrorSign ctermfg=001 ctermbg=000
+  highlight ALEErrorSign ctermfg=000 ctermbg=001
   highlight ALEWarningSign ctermfg=003 ctermbg=000
 endfunction
 
