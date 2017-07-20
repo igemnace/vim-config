@@ -227,6 +227,11 @@ set history=100
 set shortmess=atoO
 """ END COMMAND LINE BEHAVIOR }}}
 
+""" NORMAL MODE BEHAVIOR {{{
+" map a key to quickly close a tab
+nnoremap ZT :tabclose<CR>
+""" END NORMAL MODE BEHAVIOR }}}
+
 """ INSERT MODE BEHAVIOR {{{
 " allow <BS> to delete the following special characters
 set backspace=indent,eol,start
