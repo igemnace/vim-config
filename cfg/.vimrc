@@ -195,6 +195,9 @@ augroup BufferSpecific
   " allow K to search :help in vim files
   autocmd FileType vim setlocal keywordprg=:help
 
+  " disallow soft-wrapping in quickfix and loc lists
+  autocmd FileType qf setlocal nowrap
+
   " automatically set cursorline for fugitive, todo.txt, and quickfix
   autocmd FileType gitcommit,todo,qf setlocal cursorline
 
