@@ -393,6 +393,7 @@ noremap <Leader>gL :Gllog --<CR><CR><CR>
 noremap <Leader>gw :Gbrowse<CR>
 noremap <Leader>gp :Gpush<CR>
 noremap <Leader>gf :Gfetch<CR>
+noremap <Leader>gv :Gitv<CR>
 
 " map keys for FZF
 noremap <Leader>fp :Files<CR>
@@ -501,6 +502,11 @@ let g:gitgutter_highlight_lines = 0
 " customize GitGutter signs
 let g:gitgutter_sign_removed = '-'
 """ END VIM-GITGUTTER }}}
+
+""" GITV {{{
+" disable ctrl key maps to allow <C-hjkl> navigation
+let g:Gitv_DoNotMapCtrlKey = 1
+""" END GITV }}}
 
 """ VIMWIKI {{{
 " allow VimWiki to fold sections and code blocks
