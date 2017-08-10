@@ -478,6 +478,24 @@ let g:ale_set_highlights = 0
 let g:ale_sign_error = '!!'
 """ END ALE }}}
 
+""" COMPLETOR.VIM {{{
+" disallow auto popup except for filename
+" auto popup needs certain completeopt settings to work sanely
+" but that messes with repeated <C-x><C-p> and <C-l> completion
+let g:completor_disable_filename = 0
+let g:completor_disable_buffer = 1
+let g:completor_disable_ultisnips = 1
+
+augroup Completor
+  autocmd!
+
+  " completor.vim automatically sets up completeopt
+  " such that it works sanely with auto popup (noselect in particular)
+  " set it back after completion
+  autocmd CompleteDone * set completeopt&
+augroup END
+""" END COMPLETOR.VIM }}}
+
 """ ASYNCRUN.VIM {{{
 " define a Make command for Fugitive's Gpush and Gpull
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>

@@ -101,12 +101,4 @@ bg_clone https://github.com/ap/vim-css-color.git
 
 wait
 
-# Set up completor.vim
-
-setup_completor() {
-  cd "$HOME/.vim/pack/code/opt/completor.vim" || return
-  make js
-}
-setup_completor
-
 >&2 echo "Done."
