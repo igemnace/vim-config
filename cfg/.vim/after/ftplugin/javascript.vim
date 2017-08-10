@@ -18,6 +18,7 @@ let s:snippets_map={
   \ "pnum": "PropTypes.number",
   \ "pany": "PropTypes.any",
   \ "pnode": "PropTypes.node",
+  \ "pone": "PropTypes.oneOf([",
   \ "ptypes": "static propTypes = {",
   \ "defprops": "static defaultProps = {",
   \ "ctypes": "static contextTypes = {",
