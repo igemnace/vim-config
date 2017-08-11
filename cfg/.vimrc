@@ -233,6 +233,18 @@ set shortmess=atoO
 """ NORMAL MODE BEHAVIOR {{{
 " map a key to quickly close a tab
 nnoremap ZT :tabclose<CR>
+
+" map keys to toggle a colorcolumn at the 80-char limit
+function! ToggleColorColumn()
+  if &colorcolumn
+    set colorcolumn=
+  else
+    set colorcolumn=80
+  endif
+endfunction
+nnoremap [ot :set colorcolumn=80<CR>
+nnoremap ]ot :set colorcolumn=<CR>
+nnoremap =ot :call ToggleColorColumn()<CR>
 """ END NORMAL MODE BEHAVIOR }}}
 
 """ INSERT MODE BEHAVIOR {{{
@@ -281,18 +293,6 @@ noremap <Space> <nop>
 " but g] is easier to press
 noremap g] g<C-]>
 noremap g<C-]> g]
-
-" map keys to toggle a colorcolumn at the 80-char limit
-function! ToggleColorColumn()
-  if &colorcolumn
-    set colorcolumn=
-  else
-    set colorcolumn=80
-  endif
-endfunction
-noremap [ot :set colorcolumn=80<CR>
-noremap ]ot :set colorcolumn=<CR>
-noremap cot :call ToggleColorColumn()<CR>
 
 " map keys for moving between GitGutter hunks
 map [h <Plug>GitGutterPrevHunk
