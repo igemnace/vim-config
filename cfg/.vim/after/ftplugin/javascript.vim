@@ -4,6 +4,12 @@ setlocal include=^import.\\+from
 " make Vim use ES6 export statements as define statements
 setlocal define=^export\\s\\(var\\\|let\\\|const\\\|function\\\|default\\\|class\\)\\{,2}
 
+let b:match_switch = matchutils#add_word_bounds('switch:case:default')
+let b:match_words = exists("b:match_words")
+  \ ? matchutils#concat_groups(b:match_words, b:match_switch)
+  \ : b:match_switch
+
+" define convenience sniplets
 let s:snippets_map={
   \ "log": "console.log(",
   \ "warn": "console.warn(",
@@ -36,4 +42,5 @@ for [s:pattern, s:expansion] in items(s:snippets_map)
   execute "ISnipletBuffer" s:pattern s:expansion
 endfor
 
+" define convenience map for destructuring
 inoremap <buffer> <C-@>x ;<C-o>Bconst {} = <C-o>F}<Space><Space><Left>
