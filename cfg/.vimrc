@@ -352,6 +352,9 @@ command! -nargs=0 Scratch enew | call Scratch()
 command! -nargs=0 SScratch split | Scratch
 command! -nargs=0 VScratch vsplit | Scratch
 
+" define a convenience command to write with sudo privileges
+command! -nargs=0 SudoWrite w ! sudo tee % > /dev/null
+
 " define a command to post to Sprunge
 command! -nargs=0 -range Sprunge
   \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
