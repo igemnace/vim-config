@@ -445,13 +445,6 @@ nmap <Leader>ss <Plug>SlimeLineSend
 
 " map a key for GUndo
 nnoremap <Leader>u :GundoToggle<CR>
-
-" map a key to display the YankStack
-noremap <Leader>y :Yanks<CR>
-
-" map keys for cycling through the YankStack
-map <Leader>p <Plug>yankstack_substitute_older_paste
-map <Leader>P <Plug>yankstack_substitute_newer_paste
 """ END LEADER KEY BEHAVIOR }}}
 """ END VIM CONFIG }}}
 
@@ -531,12 +524,6 @@ let g:Gitv_DoNotMapCtrlKey = 1
 let g:vimwiki_folding = 'expr'
 """ END VIMWIKI }}}
 
-""" VIM-YANKSTACK {{{
-" disallow YankStack's default maps
-" My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
-let g:yankstack_map_keys = 0
-""" END VIM-YANKSTACK }}}
-
 """ VIM-ARGWRAP {{{
 " make ArgWrap add tail commas when working with [] or {}
 let g:argwrap_tail_comma_braces = '[{'
@@ -552,12 +539,6 @@ augroup AutoPairs
   autocmd FileType lisp let b:AutoPairs = {'(': ')', '"': '"'}
 augroup END
 """ END AUTO-PAIRS }}}
-
-""" VIM-REPEAT {{{
-" allow YankStack's behavior to be repeated
-silent! call repeat#set("\<Plug>yankstack_substitute_older_paste", v:count)
-silent! call repeat#set("\<Plug>yankstack_substitute_newer_paste", v:count)
-""" END VIM-REPEAT }}}
 
 """ VIM-SLIME {{{
 " make vim-slime work with tmux panes by default
