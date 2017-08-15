@@ -43,4 +43,5 @@ for [s:pattern, s:expansion] in items(s:snippets_map)
 endfor
 
 " define convenience map for destructuring
-inoremap <buffer> <C-@>x ;<C-o>Bconst {} = <C-o>F}<Space><Space><Left>
+inoremap <buffer> <C-@>xx ;<C-o>Bconst {} = <C-o>F}<Space><Space><Left>
+inoremap <buffer> <C-@>xi ';<C-o>B'<Left>import {} from <C-o>F}
