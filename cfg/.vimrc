@@ -424,7 +424,10 @@ noremap <Leader>vp :packadd<Space>
 " edit with no parameters is useful for reloading a buffer
 noremap <Leader>vr :edit<CR>
 noremap <Leader>vf :filetype detect<CR>
-noremap <Leader>vd :setlocal foldmethod=
+noremap <Leader>vdd :setlocal foldmethod=
+noremap <Leader>vds :setlocal foldmethod=syntax<CR>
+noremap <Leader>vdr :setlocal foldmethod=marker<CR>
+noremap <Leader>vdm :setlocal foldmethod=manual<CR>
 
 " map keys for quickfix and loc lists
 noremap <Leader>qo :copen<CR>
