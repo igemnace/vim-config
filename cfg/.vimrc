@@ -234,6 +234,9 @@ set shortmess=atoO
 " map a key to quickly close a tab
 nnoremap ZT :tabclose<CR>
 
+" map Y to y$, to be similar to D and C
+nnoremap Y y$
+
 " map keys to toggle a colorcolumn at the 80-char limit
 function! ToggleColorColumn()
   if &colorcolumn
