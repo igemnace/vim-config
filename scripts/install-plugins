@@ -12,6 +12,7 @@ mkdir -p "$HOME/.vim/pack/code/opt"
 
 # START
 cd "$HOME/.vim/pack/code/start" || exit
+bg_clone https://github.com/bpietravalle/vim-bolt.git
 bg_clone https://github.com/elzr/vim-json.git
 bg_clone https://github.com/freitass/todo.txt-vim.git
 bg_clone https://github.com/leafgarland/typescript-vim.git
