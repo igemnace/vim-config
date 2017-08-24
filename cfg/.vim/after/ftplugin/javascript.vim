@@ -45,3 +45,7 @@ endfor
 " define convenience map for destructuring
 inoremap <buffer> <C-@>xx ;<C-o>Bconst {} = <C-o>F}<Space><Space><Left>
 inoremap <buffer> <C-@>xi ';<C-o>B'<Left>import {} from <C-o>F}
+
+" define convenience map for passing down handler props
+inoremap <buffer> <C-@>xp <C-o>"zyiw<C-r>z={<End>}
+  \ <C-o>:s/handle/on<CR><C-o>:let @/ = ""<CR>
