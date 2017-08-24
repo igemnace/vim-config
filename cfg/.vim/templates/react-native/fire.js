@@ -9,13 +9,7 @@ export default class FierySkeletonName extends Component {
     super(props);
   }
 
-  static propTypes = {
-    db: PropTypes.object,
-  }
-
-  static defaultProps = {
-    db: {},
-  }
+  static propTypes = {}
 
   render() {
     return (
