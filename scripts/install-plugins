@@ -71,9 +71,7 @@ mkdir -p "$HOME/.vim/pack/integrate/opt"
 
 # START
 cd "$HOME/.vim/pack/integrate/start" || exit
-bg_clone https://github.com/airblade/vim-gitgutter.git
 bg_clone https://github.com/christoomey/vim-tmux-navigator.git
-bg_clone https://github.com/gregsexton/gitv.git
 bg_clone https://github.com/tommcdo/vim-fubitive.git
 bg_clone https://github.com/tpope/vim-fugitive.git
 bg_clone https://github.com/tpope/vim-rhubarb.git

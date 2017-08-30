@@ -124,12 +124,11 @@ function! OverrideHighlights()
   " define colors for wildmenu
   highlight WildMenu ctermfg=003 ctermbg=018
 
-  " redefine colors for GitGutter highlights
-  highlight GitGutterAdd cterm=NONE ctermbg=000
-  highlight GitGutterDelete cterm=NONE ctermbg=000
-  highlight GitGutterChangeDelete cterm=NONE ctermbg=000
-  highlight GitGutterChange cterm=NONE ctermfg=003 ctermbg=000
-  highlight GitGutterChangeLine cterm=NONE ctermfg=003 ctermbg=018
+  " redefine colors for diff highlights
+  highlight DiffAdd cterm=bold ctermfg=002 ctermbg=018
+  highlight DiffDelete cterm=bold ctermfg=001 ctermbg=018
+  highlight DiffChange cterm=bold ctermfg=008 ctermbg=018
+  highlight DiffText cterm=bold ctermfg=003 ctermbg=018
 
   " redefine colors for ALE highlights
   highlight ALEErrorSign ctermfg=000 ctermbg=001
@@ -300,10 +299,6 @@ noremap <Space> <nop>
 noremap g] g<C-]>
 noremap g<C-]> g]
 
-" map keys for moving between GitGutter hunks
-map [h <Plug>GitGutterPrevHunk
-map ]h <Plug>GitGutterNextHunk
-
 " map keys for moving between linted errors
 map ]w <Plug>(ale_next_wrap)
 map [w <Plug>(ale_previous_wrap)
@@ -379,18 +374,11 @@ command! -nargs=0 AsyncTags execute "AsyncRun" g:tagsprg
 " change Leader key to Spacebar, since \ is too hard to reach
 let mapleader = "\<Space>"
 
-" map a key to reset highlights from search and GitGutter
-noremap <Leader><Leader> :let @/=""<CR>:GitGutterAll<CR>
-
-" map a key to toggle GitGutter highlights
-noremap <Leader>hh :GitGutterLineHighlightsToggle<CR>
-
-" map keys for managing GitGutter hunks
-map <Leader>ha <Plug>GitGutterStageHunk
-map <Leader>hu <Plug>GitGutterUndoHunk
+" map a key to reset search text
+noremap <Leader><Leader> :let @/=""<CR>
 
 " map keys for Fugitive
-noremap <Leader>gs :tab split \| Gstatus \| wincmd o \| GitGutterLineHighlightsEnable<CR>
+noremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit --verbose<CR>
 noremap <Leader>gm :Gmerge<CR>
@@ -402,7 +390,6 @@ noremap <Leader>gL :Gllog --<CR><CR><CR>
 noremap <Leader>gw :Gbrowse<CR>
 noremap <Leader>gp :Gpush<CR>
 noremap <Leader>gf :Gfetch<CR>
-noremap <Leader>gv :Gitv<CR>
 
 " map keys for FZF
 noremap <Leader>fp :Files<CR>
@@ -510,26 +497,6 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 " allow tern_for_vim to map <LocalLeader> keybinds
 let tern_map_keys = 1
 """ END TERN_FOR_VIM }}}
-
-""" VIM-GITGUTTER {{{
-" make Vim update the buffer faster, for GitGutter to update highlights faster
-set updatetime=250
-
-" disallow GitGutter's default maps
-" My own maps are in the VIM CONFIG section, under LEADER KEY BEHAVIOR
-let g:gitgutter_map_keys = 0
-
-" disallow GitGutter from highlighting hunks by default
-let g:gitgutter_highlight_lines = 0
-
-" customize GitGutter signs
-let g:gitgutter_sign_removed = '-'
-""" END VIM-GITGUTTER }}}
-
-""" GITV {{{
-" disable ctrl key maps to allow <C-hjkl> navigation
-let g:Gitv_DoNotMapCtrlKey = 1
-""" END GITV }}}
 
 """ VIMWIKI {{{
 " allow VimWiki to fold sections and code blocks
