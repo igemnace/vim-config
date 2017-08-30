@@ -35,9 +35,8 @@ set listchars=trail:_,extends:>,precedes:<,tab:>-
 " make Vim use 'define' for completion
 set complete+=d
 
-" make Vim increment/decrement letters with <C-a>/<C-x>
-" and disallow octal detection
-set nrformats=alpha,bin,hex
+" disallow octal detection for <C-a>/<C-x>
+set nrformats-=octal
 """ MISC EDITOR BEHAVIOR }}}
 
 """ STATUSLINE BEHAVIOR {{{
