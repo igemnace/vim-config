@@ -423,10 +423,8 @@ noremap <Leader>vdr :setlocal foldmethod=marker<CR>
 noremap <Leader>vdm :setlocal foldmethod=manual<CR>
 
 " map keys for quickfix and loc lists
-noremap <Leader>qo :copen<CR>
-noremap <Leader>qc :cclose<CR>
-noremap <Leader>lo :lopen<CR>
-noremap <Leader>lc :lclose<CR>
+nmap <Leader>qq <Plug>qf_qf_toggle
+nmap <Leader>ql <Plug>qf_loc_toggle
 
 " map a key to trigger ArgWrap
 noremap <Leader>a :ArgWrap<CR>
@@ -492,6 +490,11 @@ augroup END
 " define a Make command for Fugitive's Gpush and Gpull
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 """ END ASYNCRUN.VIM }}}
+
+""" VIM-QF {{{
+" make :Keep and friends match buffer name only
+let g:qf_bufname_or_text = 1
+""" END VIM-QF }}}
 
 """ TERN_FOR_VIM {{{
 " allow tern_for_vim to map <LocalLeader> keybinds
