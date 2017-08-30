@@ -19,16 +19,17 @@ bg_clone https://github.com/leafgarland/typescript-vim.git
 bg_clone https://github.com/mattn/emmet-vim
 bg_clone https://github.com/mxw/vim-jsx.git
 bg_clone https://github.com/pangloss/vim-javascript.git
+bg_clone https://github.com/salomvary/vim-eslint-compiler.git
 bg_clone https://github.com/vimwiki/vimwiki.git
-bg_clone https://github.com/w0rp/ale.git
 
 # OPT
 cd "$HOME/.vim/pack/code/opt" || exit
-bg_clone https://github.com/Quramy/tsuquyomi.git
 bg_clone https://github.com/dhruvasagar/vim-table-mode.git
 bg_clone https://github.com/editorconfig/editorconfig-vim.git
 bg_clone https://github.com/maralla/completor.vim.git
+bg_clone https://github.com/Quramy/tsuquyomi.git
 bg_clone https://github.com/ternjs/tern_for_vim.git
+bg_clone https://github.com/w0rp/ale.git
 ### END CODE
 
 ### EXTEND
@@ -45,6 +46,7 @@ bg_clone https://github.com/FooSoft/vim-argwrap
 bg_clone https://github.com/igemnace/vim-sniplet.git
 bg_clone https://github.com/igemnace/vim-template-lite.git
 bg_clone https://github.com/jiangmiao/auto-pairs.git
+bg_clone https://github.com/romainl/vim-qf.git
 bg_clone https://github.com/skywind3000/asyncrun.vim.git
 bg_clone https://github.com/tpope/vim-commentary.git
 bg_clone https://github.com/tpope/vim-endwise
