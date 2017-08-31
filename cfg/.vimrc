@@ -433,6 +433,7 @@ noremap <Leader>a :ArgWrap<CR>
 noremap <Leader>rr :AsyncRun<Space>
 noremap <Leader>rt :AsyncTags<CR>
 noremap <Leader>rm :AsyncMake<CR>
+noremap <Leader>rl :AsyncMake %<CR>
 noremap <Leader>rg :AsyncGrep<Space>
 
 " map keys for Vim-Slime
@@ -492,6 +493,13 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 """ END ASYNCRUN.VIM }}}
 
 """ VIM-QF {{{
+" disallow Vim-QF from automatically resizing quickfix and location windows
+let g:qf_auto_resize = 0
+
+" disallow Vim-QF from automatically opening quickfix and location windows
+let g:qf_auto_open_quickfix = 0
+let g:qf_auto_open_loclist = 0
+
 " make :Keep and friends match buffer name only
 let g:qf_bufname_or_text = 1
 """ END VIM-QF }}}
