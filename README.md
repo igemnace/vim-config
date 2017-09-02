@@ -7,19 +7,22 @@ Easy way to transfer my Vim configuration across multiple machines.
 Make sure that your machine satisfies the following:
 - Is using GNU/Linux (scripts are untested on other UNIX systems and will
   flat-out fail on Windows)
-- Has Vim 8 or higher (required by ALE and completor.vim for async jobs, and by
-  the plugin install script for the new package system), with support for Python
-  2 or Python 3 scripting (required by completor.vim)
+- Preferably has Vim 8 or higher (for async jobs and package system)
+  - If installing on versions lower than Vim 8, installing [tpope's pathogen][1]
+    will take care of loading the plugins in start directories in place of the
+    package system
+  - Python support is needed for the optional completor.vim plugin
 - Has no pre-existing `.vimrc` (backup and remove if existing)
 - Has env, bash, and git (required by install scripts)
 - Has a working internet connection (will be cloning git repos for plugin
   installation)
 - Has Node.js and npm (required by ESLint and Tern)
+[1]: https://github.com/tpope/vim-pathogen
 
 ## Installation
 
-Just run `./install`. This will automatically do the following:
-- Symlink `.vimrc` into your home directory (`install-vimrc`)
+Just run `./install` from the repository's root directory. This will
+automatically do the following:
 - Symlink all of the contents of `.vim` into your home directory (`install-vim`)
 - Create `.vim/tmp` directory if none exists, for backup/undofile/swapfile
   storage (`install-tmp`)
