@@ -39,18 +39,18 @@ mkdir -p "$HOME/.vim/pack/extend/opt"
 
 # START
 cd "$HOME/.vim/pack/extend/start" || exit
-bg_clone git://github.com/tpope/vim-abolish.git
-bg_clone git://github.com/tpope/vim-repeat.git
-bg_clone git://github.com/tpope/vim-rsi.git
-bg_clone git://github.com/tpope/vim-speeddating.git
 bg_clone https://github.com/FooSoft/vim-argwrap
 bg_clone https://github.com/igemnace/vim-sniplet.git
 bg_clone https://github.com/igemnace/vim-template-lite.git
 bg_clone https://github.com/jiangmiao/auto-pairs.git
 bg_clone https://github.com/romainl/vim-qf.git
 bg_clone https://github.com/skywind3000/asyncrun.vim.git
+bg_clone https://github.com/tpope/vim-abolish.git
 bg_clone https://github.com/tpope/vim-commentary.git
 bg_clone https://github.com/tpope/vim-endwise
+bg_clone https://github.com/tpope/vim-repeat.git
+bg_clone https://github.com/tpope/vim-rsi.git
+bg_clone https://github.com/tpope/vim-speeddating.git
 bg_clone https://github.com/tpope/vim-surround.git
 bg_clone https://github.com/tpope/vim-unimpaired.git
 
