@@ -16,7 +16,7 @@ Make sure that your machine satisfies the following:
 - Has env, bash, and git (required by install scripts)
 - Has a working internet connection (will be cloning git repos for plugin
   installation)
-- Has Node.js and npm (required by ESLint and Tern)
+
 [1]: https://github.com/tpope/vim-pathogen
 
 ## Installation
@@ -24,13 +24,8 @@ Make sure that your machine satisfies the following:
 Just run `./install` from the repository's root directory. This will
 automatically do the following:
 - Symlink all of the contents of `.vim` into your home directory (`install-vim`)
-- Create `.vim/tmp` directory if none exists, for backup/undofile/swapfile
-  storage (`install-tmp`)
 - Create `.vim/pack` directory if none exists, and install my plugin packages
   into it (`install-plugins`)
-- Install ESLint with React plugins (`install-eslint`)
-- Symlink `.eslintrc` into your home directory (`install-eslintrc`)
-- Symlink `.tern-config` into your home directory (`install-tern`)
 
 ## Licensing
 
