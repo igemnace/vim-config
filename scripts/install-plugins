@@ -19,6 +19,7 @@ bg_clone https://github.com/leafgarland/typescript-vim.git
 bg_clone https://github.com/mattn/emmet-vim
 bg_clone https://github.com/mxw/vim-jsx.git
 bg_clone https://github.com/pangloss/vim-javascript.git
+bg_clone https://github.com/posva/vim-vue.git
 bg_clone https://github.com/salomvary/vim-eslint-compiler.git
 bg_clone https://github.com/vimwiki/vimwiki.git
 
