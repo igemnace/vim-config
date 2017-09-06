@@ -432,6 +432,7 @@ noremap <Leader>ns :Sexplore<CR>
 noremap <Leader>nv :Vexplore<CR>
 
 " map keys for useful native Vim functions
+noremap <Leader>vv :source $MYVIMRC<CR>
 noremap <Leader>va :argadd **/*
 noremap <Leader>vp :packadd<Space>
 " edit with no parameters is useful for reloading a buffer
