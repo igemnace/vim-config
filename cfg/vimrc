@@ -52,7 +52,7 @@ set statusline+=%*
 set statusline+=%(%{statusline#bufnameshort()}%)
 " window type (help, preview, qlist)
 set statusline+=%*
-set statusline+=%(%h%w%q%)
+set statusline+=%(%h%w%)
 " modified flag
 set statusline+=%3*
 set statusline+=%(%m%)
@@ -64,9 +64,6 @@ set statusline+=%=
 " buffer syntax
 set statusline+=%*
 set statusline+=%(%y%)
-" ruler (line/col numbers, percent, total lines)
-set statusline+=%*
-set statusline+=\ %-8.(%l,%v%)\ %(%p%%\ %LL%)
 """ END STATUSLINE BEHAVIOR }}}
 
 """ WINDOW BEHAVIOR {{{
