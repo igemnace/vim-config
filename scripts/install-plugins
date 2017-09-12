@@ -50,7 +50,6 @@ bg_clone https://github.com/tpope/vim-abolish.git
 bg_clone https://github.com/tpope/vim-commentary.git
 bg_clone https://github.com/tpope/vim-endwise
 bg_clone https://github.com/tpope/vim-repeat.git
-bg_clone https://github.com/tpope/vim-rsi.git
 bg_clone https://github.com/tpope/vim-speeddating.git
 bg_clone https://github.com/tpope/vim-surround.git
 bg_clone https://github.com/tpope/vim-unimpaired.git
@@ -58,6 +57,7 @@ bg_clone https://github.com/tpope/vim-unimpaired.git
 # OPT
 cd "$HOME/.vim/pack/extend/opt" || exit
 bg_clone https://github.com/sjl/gundo.vim
+bg_clone https://github.com/tpope/vim-rsi.git
 ### END EXTEND
 
 ### FILENAV
