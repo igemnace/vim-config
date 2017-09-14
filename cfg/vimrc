@@ -538,6 +538,12 @@ let g:vimwiki_folding = 'expr'
 let g:argwrap_tail_comma_braces = '[{'
 """ END VIM-ARGWRAP }}}
 
+""" EMMET.VIM {{{
+" make Emmet.vim set only <Plug> mappings
+" since I only ever use the expand and the next/prev mappings
+let g:emmet_install_only_plug = 1
+""" END EMMET.VIM }}}
+
 """ AUTO-PAIRS {{{
 " disallow AutoPairs from jumping to closing brackets on the next line
 let g:AutoPairsMultilineClose = 0
