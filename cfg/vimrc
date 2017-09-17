@@ -378,14 +378,12 @@ command! -nargs=0 SudoWrite w ! sudo tee % > /dev/null
 command! -nargs=0 -range Sprunge
   \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
 
-" define wrapper commands to set makeprg and tagsprg
+" define wrapper commands to set makeprg
 command! -nargs=+ MakePrg let &makeprg=<q-args>
-command! -nargs=+ TagsPrg let g:tagsprg=<q-args>
 
 " define commands to run native functions with AsyncRun
 command! -nargs=* AsyncMake AsyncRun -program=make <args>
 command! -nargs=+ AsyncGrep AsyncRun -program=grep <args>
-command! -nargs=0 AsyncTags execute "AsyncRun" g:tagsprg
 """ END COMMANDS }}}
 
 """ LEADER KEY BEHAVIOR {{{
@@ -450,10 +448,14 @@ noremap <Leader>a :ArgWrap<CR>
 
 " map keys for AsyncRun
 noremap <Leader>rr :AsyncRun<Space>
-noremap <Leader>rt :AsyncTags<CR>
 noremap <Leader>rm :AsyncMake<CR>
 noremap <Leader>rl :AsyncMake %<CR>
 noremap <Leader>rg :AsyncGrep<Space>
+
+" map keys for Makery.vim
+nnoremap <Leader>ml :Mlint %<CR>
+nnoremap <Leader>mg :Mtags<CR>
+nnoremap <Leader>mt :Mtest<CR>
 
 " map keys for Vim-Slime
 xmap <Leader>s <Plug>SlimeRegionSend
@@ -507,7 +509,7 @@ augroup END
 """ END COMPLETOR.VIM }}}
 
 """ ASYNCRUN.VIM {{{
-" define a Make command for Fugitive's Gpush and Gpull
+" define a Make command for Fugitive and Makery
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 """ END ASYNCRUN.VIM }}}
 
