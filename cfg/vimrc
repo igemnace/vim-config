@@ -456,6 +456,7 @@ noremap <Leader>rg :AsyncGrep<Space>
 nnoremap <Leader>ml :Mlint %<CR>
 nnoremap <Leader>mg :Mtags<CR>
 nnoremap <Leader>mt :Mtest<CR>
+nnoremap <Leader>mb :Mbuild<CR>
 
 " map keys for Vim-Slime
 xmap <Leader>s <Plug>SlimeRegionSend
