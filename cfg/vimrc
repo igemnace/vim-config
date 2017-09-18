@@ -257,6 +257,9 @@ nnoremap ZT :tabclose<CR>
 " map Y to y$, to be similar to D and C
 nnoremap Y y$
 
+" map <BS> to switch to the alternate buffer
+nnoremap <BS> <C-^>
+
 " map keys to toggle a colorcolumn at the 80-char limit
 function! ToggleColorColumn()
   if &colorcolumn
@@ -304,9 +307,6 @@ xnoremap < <gv
 """ END VISUAL MODE BEHAVIOR }}}
 
 """ NON-MODE-SPECIFIC MAPS {{{
-" map <BS> to switch to the alternate buffer
-noremap <BS> <C-^>
-
 " unmap <Space> so it doesn't move to the right when I press <Leader>
 " since I have <Space> as <Leader>
 noremap <Space> <nop>
@@ -316,10 +316,6 @@ noremap <Space> <nop>
 " but g] is easier to press
 noremap g] g<C-]>
 noremap g<C-]> g]
-
-" map keys for moving between linted errors
-map ]w <Plug>(ale_next_wrap)
-map [w <Plug>(ale_previous_wrap)
 """ END NON-MODE-SPECIFIC MAPS }}}
 
 """ FUNCTIONS {{{
@@ -391,66 +387,66 @@ command! -nargs=+ AsyncGrep AsyncRun -program=grep <args>
 let mapleader = "\<Space>"
 
 " map a key to reset search text
-noremap <Leader><Leader> :let @/=""<CR>
+nnoremap <Leader><Leader> :let @/=""<CR>
 
 " map keys for Fugitive
-noremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit --verbose<CR>
-noremap <Leader>gm :Gmerge<CR>
-noremap <Leader>gd :Gdiff<CR>
-noremap <Leader>gb :Gblame \| ToggleLineBind<CR>
-noremap <Leader>gg :Ggrep<Space>
-noremap <Leader>gl :Gllog -- %<CR><CR><CR>
-noremap <Leader>gL :Gllog --<CR><CR><CR>
-noremap <Leader>gw :Gbrowse<CR>
-noremap <Leader>gp :Gpush<CR>
-noremap <Leader>gf :Gfetch<CR>
+nnoremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
+nnoremap <Leader>ga :Gwrite<CR>
+nnoremap <Leader>gc :Gcommit --verbose<CR>
+nnoremap <Leader>gm :Gmerge<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gb :Gblame \| ToggleLineBind<CR>
+nnoremap <Leader>gg :Ggrep<Space>
+nnoremap <Leader>gl :Gllog -- %<CR><CR><CR>
+nnoremap <Leader>gL :Gllog --<CR><CR><CR>
+nnoremap <Leader>gw :Gbrowse<CR>
+nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gf :Gfetch<CR>
 
 " map keys for FZF
-noremap <Leader>fp :Files<CR>
-noremap <Leader>fr :Rg<CR>
-noremap <Leader>fs :GFiles?<CR>
-noremap <Leader>fb :Buffers<CR>
-noremap <Leader>fL :Lines<CR>
-noremap <Leader>fl :BLines<CR>
-noremap <Leader>f: :History:<CR>
-noremap <Leader>f/ :History/<CR>
-noremap <Leader>fc :Commits<CR>
-noremap <Leader>fo :Commands<CR>
-noremap <Leader>fm :Marks<CR>
-noremap <Leader>ff :Filetypes<CR>
-noremap <Leader>ft :Tags<CR>
+nnoremap <Leader>fp :Files<CR>
+nnoremap <Leader>fr :Rg<CR>
+nnoremap <Leader>fs :GFiles?<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>fL :Lines<CR>
+nnoremap <Leader>fl :BLines<CR>
+nnoremap <Leader>f: :History:<CR>
+nnoremap <Leader>f/ :History/<CR>
+nnoremap <Leader>fc :Commits<CR>
+nnoremap <Leader>fo :Commands<CR>
+nnoremap <Leader>fm :Marks<CR>
+nnoremap <Leader>ff :Filetypes<CR>
+nnoremap <Leader>ft :Tags<CR>
 
 " map keys for netrw
-noremap <Leader>nn :Explore<CR>
-noremap <Leader>ns :Sexplore<CR>
-noremap <Leader>nv :Vexplore<CR>
+nnoremap <Leader>nn :Explore<CR>
+nnoremap <Leader>ns :Sexplore<CR>
+nnoremap <Leader>nv :Vexplore<CR>
 
 " map keys for useful native Vim functions
-noremap <Leader>vv :source $MYVIMRC<CR>
-noremap <Leader>va :argadd **/*
-noremap <Leader>vp :packadd<Space>
+nnoremap <Leader>vv :source $MYVIMRC<CR>
+nnoremap <Leader>va :argadd **/*
+nnoremap <Leader>vp :packadd<Space>
 " edit with no parameters is useful for reloading a buffer
-noremap <Leader>vr :edit<CR>
-noremap <Leader>vf :filetype detect<CR>
-noremap <Leader>vdd :setlocal foldmethod=
-noremap <Leader>vds :setlocal foldmethod=syntax<CR>
-noremap <Leader>vdr :setlocal foldmethod=marker<CR>
-noremap <Leader>vdm :setlocal foldmethod=manual<CR>
+nnoremap <Leader>vr :edit<CR>
+nnoremap <Leader>vf :filetype detect<CR>
+nnoremap <Leader>vdd :setlocal foldmethod=
+nnoremap <Leader>vds :setlocal foldmethod=syntax<CR>
+nnoremap <Leader>vdr :setlocal foldmethod=marker<CR>
+nnoremap <Leader>vdm :setlocal foldmethod=manual<CR>
 
 " map keys for quickfix and loc lists
 nmap <Leader>qq <Plug>qf_qf_toggle
 nmap <Leader>ql <Plug>qf_loc_toggle
 
 " map a key to trigger ArgWrap
-noremap <Leader>a :ArgWrap<CR>
+nnoremap <Leader>a :ArgWrap<CR>
 
 " map keys for AsyncRun
-noremap <Leader>rr :AsyncRun<Space>
-noremap <Leader>rm :AsyncMake<CR>
-noremap <Leader>rl :AsyncMake %<CR>
-noremap <Leader>rg :AsyncGrep<Space>
+nnoremap <Leader>rr :AsyncRun<Space>
+nnoremap <Leader>rm :AsyncMake<CR>
+nnoremap <Leader>rl :AsyncMake %<CR>
+nnoremap <Leader>rg :AsyncGrep<Space>
 
 " map keys for Makery.vim
 nnoremap <Leader>ml :Mlint %<CR>
