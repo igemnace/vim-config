@@ -437,7 +437,7 @@ nnoremap <Leader>vr :edit<CR>
 nnoremap <Leader>vf :filetype detect<CR>
 nnoremap <Leader>vdd :setlocal foldmethod=
 nnoremap <Leader>vds :setlocal foldmethod=syntax<CR>
-nnoremap <Leader>vdr :setlocal foldmethod=marker<CR>
+nnoremap <Leader>vdk :setlocal foldmethod=marker<CR>
 nnoremap <Leader>vdm :setlocal foldmethod=manual<CR>
 
 " map keys for quickfix and loc lists
