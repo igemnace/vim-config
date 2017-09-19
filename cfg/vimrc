@@ -62,6 +62,9 @@ set statusline+=%1*
 set statusline+=%(%r%)
 " midline separator
 set statusline+=%=
+" quickfix flag
+set statusline+=%3*
+set statusline+=%(%{statusline#quickfix()}%)
 " buffer syntax
 set statusline+=%*
 set statusline+=%(%y%)
