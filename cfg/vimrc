@@ -316,6 +316,8 @@ noremap <Space> <nop>
 " but g] is easier to press
 noremap g] g<C-]>
 noremap g<C-]> g]
+noremap <C-w>g] <C-w>g<C-]>
+noremap <C-w>g<C-]> <C-w>g]
 """ END NON-MODE-SPECIFIC MAPS }}}
 
 """ FUNCTIONS {{{
