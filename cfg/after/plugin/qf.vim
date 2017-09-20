@@ -5,7 +5,7 @@ function! s:MarkQF() abort
 endfunction
 
 function! s:UnmarkQF() abort
-  if qf#IsQfWindow(winnr()) && exists('g:quickfix_pending')
+  if exists('g:quickfix_pending')
     unlet g:quickfix_pending
   endif
 endfunction
@@ -14,5 +14,5 @@ augroup QfAfter
   autocmd!
 
   autocmd QuickFixCmdPost [^l]* call s:MarkQF()
-  autocmd WinEnter * call s:UnmarkQF()
+  autocmd Filetype qf call s:UnmarkQF()
 augroup END
