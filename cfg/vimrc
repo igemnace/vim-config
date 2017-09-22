@@ -383,8 +383,8 @@ command! -nargs=0 -range Sprunge
 command! -nargs=+ MakePrg let &makeprg=<q-args>
 
 " define commands to run native functions with AsyncRun
-command! -nargs=* AsyncMake AsyncRun -program=make <args>
-command! -nargs=+ AsyncGrep AsyncRun -program=grep <args>
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+command! -bang -nargs=+ Grep AsyncRun -program=grep @ <args>
 """ END COMMANDS }}}
 
 """ LEADER KEY BEHAVIOR {{{
@@ -444,14 +444,19 @@ nnoremap <Leader>vdm :setlocal foldmethod=manual<CR>
 nmap <Leader>qq <Plug>qf_qf_toggle
 nmap <Leader>ql <Plug>qf_loc_toggle
 
+" map keys for search
+nmap <Leader>h <Plug>SearchInPlace
+xmap <Leader>h <Plug>SearchInPlace
+nmap <Leader>G <Plug>GrepStar
+xmap <Leader>G <Plug>GrepStar
+
 " map a key to trigger ArgWrap
 nnoremap <Leader>a :ArgWrap<CR>
 
 " map keys for AsyncRun
 nnoremap <Leader>rr :AsyncRun<Space>
-nnoremap <Leader>rm :AsyncMake<CR>
-nnoremap <Leader>rl :AsyncMake %<CR>
-nnoremap <Leader>rg :AsyncGrep<Space>
+nnoremap <Leader>rm :Make<Space>
+nnoremap <Leader>rg :Grep<Space>
 
 " map keys for Makery.vim
 nnoremap <Leader>ml :Mlint %<CR>
@@ -509,11 +514,6 @@ augroup Completor
   autocmd CompleteDone * set completeopt&
 augroup END
 """ END COMPLETOR.VIM }}}
-
-""" ASYNCRUN.VIM {{{
-" define a Make command for Fugitive and Makery
-command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-""" END ASYNCRUN.VIM }}}
 
 """ VIM-QF {{{
 " disallow Vim-QF from automatically resizing quickfix and location windows
