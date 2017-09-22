@@ -198,6 +198,25 @@ set number
 set relativenumber
 """ END LINE NUMBERING }}}
 
+""" LINE LENGTH {{{
+" highlight any characters at the textwidth limit
+function! s:TextWidthHighlight() abort
+  if exists('b:textwidth_match')
+    call matchdelete(b:textwidth_match)
+  endif
+
+  let b:textwidth_match = matchadd('Error', '\%' . &l:textwidth . 'c\zs.\ze')
+endfunction
+
+" call TextWidthHighlight every time the textwidth option is set
+augroup TextWidthHighlight
+  autocmd!
+
+  autocmd BufRead,BufNewFile * call s:TextWidthHighlight()
+  autocmd OptionSet textwidth call s:TextWidthHighlight()
+augroup END
+""" END LINE LENGTH }}}
+
 """ SEARCH BEHAVIOR {{{
 " allow incremental search
 set incsearch
@@ -262,18 +281,6 @@ nnoremap Y y$
 
 " map <BS> to switch to the alternate buffer
 nnoremap <BS> <C-^>
-
-" map keys to toggle a colorcolumn at the 80-char limit
-function! ToggleColorColumn()
-  if &colorcolumn
-    set colorcolumn=
-  else
-    set colorcolumn=80
-  endif
-endfunction
-nnoremap [ot :set colorcolumn=80<CR>
-nnoremap ]ot :set colorcolumn=<CR>
-nnoremap =ot :call ToggleColorColumn()<CR>
 """ END NORMAL MODE BEHAVIOR }}}
 
 """ INSERT MODE BEHAVIOR {{{
