@@ -4,6 +4,8 @@ setlocal include=^import.\\+from
 " make Vim use ES6 export statements as define statements
 setlocal define=^export\\s\\(var\\\|let\\\|const\\\|function\\\|default\\\|class\\)\\{,2}
 
+setlocal textwidth=80
+
 let b:match_switch = matchutils#add_word_bounds('switch:case:default')
 let b:match_words = exists("b:match_words")
   \ ? matchutils#concat_groups(b:match_words, b:match_switch)
