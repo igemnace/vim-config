@@ -205,7 +205,9 @@ function! s:TextWidthHighlight() abort
     call matchdelete(b:textwidth_match)
   endif
 
-  let b:textwidth_match = matchadd('Error', '\%' . &l:textwidth . 'c\zs.\ze')
+  let l:limit = &l:textwidth == 0 ? 0 : &l:textwidth + 1
+  let b:textwidth_match =
+    \ matchadd('Error', '\%' . l:limit . 'c\zs.\ze')
 endfunction
 
 " call TextWidthHighlight every time the textwidth option is set
