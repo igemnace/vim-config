@@ -493,6 +493,12 @@ let g:rg_command = '
 command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 """ END FZF.VIM }}}
 
+""" NETRW {{{
+" disallow Netrw from setting the alternate buffer
+" to ensure that <C-^> always lands on a file buffer not a dir
+let g:netrw_altfile = 1
+""" END NETRW }}}
+
 """ ALE {{{
 " use eslint for linting
 let g:ale_linters = {
