@@ -1,0 +1,6 @@
+" set guifont to be same as terminal fonts
+set guifont=Roboto\ Mono\ Light\ 9
+
+" set guioptions to the defaults, but with the following removed:
+" menu bar, tool bar, scroll bars
+set guioptions=aei
