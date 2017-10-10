@@ -94,6 +94,8 @@ function! OverrideHighlights()
   " define colors for the statusline
   highlight StatusLine ctermfg=015 ctermbg=008
   highlight StatusLineNC ctermfg=015 ctermbg=008
+  highlight StatusLineTerm ctermfg=015 ctermbg=008
+  highlight StatusLineTermNC ctermfg=015 ctermbg=008
   highlight User1 ctermfg=001 ctermbg=008
   highlight User2 ctermfg=002 ctermbg=008
   highlight User3 ctermfg=003 ctermbg=008
