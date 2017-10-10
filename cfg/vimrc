@@ -202,7 +202,11 @@ set relativenumber
 " highlight any characters at the textwidth limit
 function! s:TextWidthHighlight() abort
   if exists('b:textwidth_match')
-    call matchdelete(b:textwidth_match)
+    try
+      call matchdelete(b:textwidth_match)
+    catch
+      " pass
+    endtry
   endif
 
   let l:limit = &l:textwidth == 0 ? 0 : &l:textwidth + 1
@@ -214,7 +218,7 @@ endfunction
 augroup TextWidthHighlight
   autocmd!
 
-  autocmd BufRead,BufNewFile * call s:TextWidthHighlight()
+  autocmd BufEnter * call s:TextWidthHighlight()
   autocmd OptionSet textwidth call s:TextWidthHighlight()
 augroup END
 """ END LINE LENGTH }}}
