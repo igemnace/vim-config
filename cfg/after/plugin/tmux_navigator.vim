@@ -1,13 +1,17 @@
-" map meta keys for tmux-navigator
-silent! execute 'set <F31>=\<Esc>h'
-silent! execute 'set <F32>=\<Esc>j'
-silent! execute 'set <F33>=\<Esc>k'
-silent! execute 'set <F34>=\<Esc>l'
+" map Meta keys for tmux-navigator
 nnoremap <silent> <M-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <M-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <M-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <M-l> :TmuxNavigateRight<CR>
-nmap <F31> <M-h>
-nmap <F32> <M-j>
-nmap <F33> <M-k>
-nmap <F34> <M-l>
+
+" handle Meta keys in terminal
+if !has('gui_running')
+  silent! execute 'set <F31>=h'
+  silent! execute 'set <F32>=j'
+  silent! execute 'set <F33>=k'
+  silent! execute 'set <F34>=l'
+  nmap <F31> <M-h>
+  nmap <F32> <M-j>
+  nmap <F33> <M-k>
+  nmap <F34> <M-l>
+endif
