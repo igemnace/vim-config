@@ -578,6 +578,12 @@ augroup AutoPairs
 augroup END
 """ END AUTO-PAIRS }}}
 
+""" VIM-TMUX-NAVIGATOR {{{
+" disallow tmux-navigator's default navigation keys
+" I set my own keys in after/plugin/tmux_navigator.vim
+let g:tmux_navigator_no_mappings = 1
+""" END VIM-TMUX-NAVIGATOR }}}
+
 """ VIM-SLIME {{{
 " make vim-slime work with tmux panes by default
 " guard for tmux
