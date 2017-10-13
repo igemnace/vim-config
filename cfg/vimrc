@@ -450,6 +450,7 @@ nnoremap <Leader>vp :packadd<Space>
 " edit with no parameters is useful for reloading a buffer
 nnoremap <Leader>vr :edit<CR>
 nnoremap <Leader>vf :filetype detect<CR>
+nnoremap <Leader>vt :vert term<Space>
 nnoremap <Leader>vdd :setlocal foldmethod=
 nnoremap <Leader>vds :setlocal foldmethod=syntax<CR>
 nnoremap <Leader>vdk :setlocal foldmethod=marker<CR>
