@@ -407,7 +407,7 @@ command! -bang -nargs=+ Grep AsyncRun -program=grep @ <args>
 let mapleader = "\<Space>"
 
 " map a key to reset search text
-nnoremap <Leader><Leader> :let @/=""<CR>
+nnoremap <Leader><Leader> :nohlsearch<CR>
 
 " map keys for Fugitive
 nnoremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
