@@ -272,6 +272,9 @@ set wildmenu
 " partial-complete before displaying wildmenu, then cycle through options
 set wildmode=list:full,full
 
+" ignore case when completing files
+set wildignorecase
+
 " limit command history
 set history=100
 
