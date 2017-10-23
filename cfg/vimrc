@@ -366,11 +366,6 @@ function! ToggleLineBind()
     call EnableLineBind()
   endif
 endfunction
-
-" define function to turn current buffer into a scratch buffer
-function! Scratch()
-  setlocal buftype=nofile bufhidden=hide noswapfile
-endfunction
 """ END FUNCTIONS }}}
 
 """ COMMANDS {{{
@@ -381,11 +376,6 @@ command! -nargs=0 SplitWrapperXML silent normal! ^f>a$F<i
 
 " define a command for ToggleLineBind
 command! -nargs=0 ToggleLineBind call ToggleLineBind()
-
-" define commands to open scratch buffers with Scratch()
-command! -nargs=0 Scratch enew | call Scratch()
-command! -nargs=0 SScratch split | Scratch
-command! -nargs=0 VScratch vsplit | Scratch
 
 " define a convenience command to write with sudo privileges
 command! -nargs=0 SudoWrite w ! sudo tee % > /dev/null
