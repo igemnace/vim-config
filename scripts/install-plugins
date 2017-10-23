@@ -36,7 +36,6 @@ bg_clone https://github.com/w0rp/ale.git
 
 ### EXTEND
 mkdir -p "$HOME/.vim/pack/extend/start"
-mkdir -p "$HOME/.vim/pack/extend/opt"
 
 # START
 cd "$HOME/.vim/pack/extend/start" || exit
@@ -55,11 +54,6 @@ bg_clone https://github.com/tpope/vim-repeat.git
 bg_clone https://github.com/tpope/vim-speeddating.git
 bg_clone https://github.com/tpope/vim-surround.git
 bg_clone https://github.com/tpope/vim-unimpaired.git
-
-# OPT
-cd "$HOME/.vim/pack/extend/opt" || exit
-bg_clone https://github.com/sjl/gundo.vim
-bg_clone https://github.com/tpope/vim-rsi.git
 ### END EXTEND
 
 ### FILENAV

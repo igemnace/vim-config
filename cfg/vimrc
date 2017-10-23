@@ -409,36 +409,19 @@ nnoremap <Leader>gc :Gcommit --verbose<CR>
 nnoremap <Leader>gm :Gmerge<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gb :Gblame \| ToggleLineBind<CR>
-nnoremap <Leader>gg :Ggrep<Space>
 nnoremap <Leader>gl :Gllog -- %<CR><CR><CR>
 nnoremap <Leader>gL :Gllog --<CR><CR><CR>
-nnoremap <Leader>gw :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 
 " map keys for FZF
 nnoremap <Leader>fp :Files<CR>
-nnoremap <Leader>fr :Rg<CR>
-nnoremap <Leader>fs :GFiles?<CR>
 nnoremap <Leader>fb :Buffers<CR>
-nnoremap <Leader>fL :Lines<CR>
 nnoremap <Leader>fl :BLines<CR>
-nnoremap <Leader>f: :History:<CR>
-nnoremap <Leader>f/ :History/<CR>
-nnoremap <Leader>fc :Commits<CR>
-nnoremap <Leader>fo :Commands<CR>
-nnoremap <Leader>fm :Marks<CR>
 nnoremap <Leader>ff :Filetypes<CR>
-nnoremap <Leader>ft :Tags<CR>
-
-" map keys for netrw
-nnoremap <Leader>nn :Explore<CR>
-nnoremap <Leader>ns :Sexplore<CR>
-nnoremap <Leader>nv :Vexplore<CR>
 
 " map keys for useful native Vim functions
 nnoremap <Leader>vv :source $MYVIMRC<CR>
-nnoremap <Leader>va :argadd **/*
 nnoremap <Leader>vp :packadd<Space>
 " edit with no parameters is useful for reloading a buffer
 nnoremap <Leader>vr :edit<CR>
@@ -477,9 +460,6 @@ nnoremap <Leader>mb :Mbuild<CR>
 xmap <Leader>s <Plug>SlimeRegionSend
 nmap <Leader>s <Plug>SlimeMotionSend
 nmap <Leader>ss <Plug>SlimeLineSend
-
-" map a key for GUndo
-nnoremap <Leader>u :GundoToggle<CR>
 """ END LEADER KEY BEHAVIOR }}}
 """ END VIM CONFIG }}}
 
