@@ -7,5 +7,5 @@ nnoremap <Plug>GrepStar :Grep <lt>cword><CR>
 xnoremap <Plug>GrepStar y:<C-u>Grep '<C-r>"'<CR>
 
 " add <Plug> mappings for searching in place
-nnoremap <Plug>SearchInPlace m`*``
-xnoremap <Plug>SearchInPlace m`y/<C-r>"<CR>``
+nnoremap <Plug>SearchInPlace mzHmy`z*`yzt`z
+xnoremap <Plug>SearchInPlace mzHmy`zy/<C-r>"<CR>`yzt`z
