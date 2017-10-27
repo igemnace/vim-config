@@ -604,6 +604,12 @@ highlight default link jsObjectKey Label
 let g:jsx_ext_required = 0
 """ END VIM-JSX }}}
 
+""" VIM-VUE {{{
+" disallow vim-vue from doing multiple regex checks for pre-processors
+" for performance
+let g:vue_disable_pre_processors = 1
+""" END VIM-VUE }}}
+
 """ VIM-TEMPLATE-LITE {{{
 " declare mappings of patterns to templates to load
 let g:template_lite_mappings = {
