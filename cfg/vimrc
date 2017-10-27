@@ -439,6 +439,8 @@ nmap <Leader>ql <Plug>qf_loc_toggle
 " map keys for search
 nmap <Leader>h <Plug>SearchInPlace
 xmap <Leader>h <Plug>SearchInPlace
+nmap <Leader>c <Plug>SearchInPlacecgn
+xmap <Leader>c <Plug>SearchInPlacecgn
 nmap <Leader>G <Plug>GrepStar
 xmap <Leader>G <Plug>GrepStar
 
