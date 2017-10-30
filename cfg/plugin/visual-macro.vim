@@ -1,0 +1,1 @@
+xnoremap <expr> @ maps#VisualMacro()
