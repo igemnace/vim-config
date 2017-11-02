@@ -9,6 +9,7 @@ function! s:ShowMRU(bang) abort
     SScratch
   endif
 
+  setlocal nowrap
   0put =v:oldfiles
   normal! gg
 endfunction
