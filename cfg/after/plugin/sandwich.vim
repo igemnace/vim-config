@@ -31,8 +31,12 @@ let g:sandwich#recipes += [
 " use gs to surround instead of ys, for a better mnemonic: "go surround"
 map gs ys
 
-" remove s mappings in Visual mode
-" because I actually like s over c in Visual mode
+" remove s mappings because I actually like s
+nunmap sr
+nunmap sd
+nunmap sa
+nunmap srb
+nunmap sdb
 xunmap sr
 xunmap sd
 xunmap sa
