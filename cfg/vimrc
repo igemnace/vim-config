@@ -283,6 +283,11 @@ set history=100
 set shortmess=atoO
 """ END COMMAND LINE BEHAVIOR }}}
 
+""" TERMINAL MODE BEHAVIOR {{{
+" map a key to quickly quit the terminal buffer, disregarding the running job
+tnoremap <C-w>q <C-w>:bd!<CR>
+""" END TERMINAL MODE BEHAVIOR }}}
+
 """ NORMAL MODE BEHAVIOR {{{
 " map a key to quickly close a tab
 nnoremap ZT :tabclose<CR>

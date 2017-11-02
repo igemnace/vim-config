@@ -52,7 +52,7 @@ bg_clone https://github.com/tpope/vim-endwise
 bg_clone https://github.com/tpope/vim-projectionist.git
 bg_clone https://github.com/tpope/vim-repeat.git
 bg_clone https://github.com/tpope/vim-speeddating.git
-bg_clone https://github.com/tpope/vim-surround.git
+bg_clone https://github.com/machakann/vim-sandwich.git
 bg_clone https://github.com/tpope/vim-unimpaired.git
 ### END EXTEND
 
