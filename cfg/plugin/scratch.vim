@@ -1,6 +1,6 @@
 " define function to turn current buffer into a scratch buffer
 function! s:Scratch(...)
-  setlocal buftype=nofile bufhidden=hide noswapfile
+  setlocal buftype=nofile bufhidden=delete noswapfile
 
   if exists('a:1')
     execute 'set filetype=' . a:1
