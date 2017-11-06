@@ -297,6 +297,9 @@ nnoremap Y y$
 
 " map <BS> to switch to the alternate buffer
 nnoremap <BS> <C-^>
+
+" map gS to split, opposite of gJ (somewhat)
+nmap gS <Plug>Split
 """ END NORMAL MODE BEHAVIOR }}}
 
 """ INSERT MODE BEHAVIOR {{{
