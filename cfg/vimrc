@@ -281,6 +281,11 @@ set history=100
 " abbreviate commandline messages as much as possible
 " to help avoid hit-enter prompts
 set shortmess=atoO
+
+" map keys to expand my own system of snippets
+" add both <C-Space><C-Space> and <C-Space><C-Space>, to cover errors
+cmap <C-@><Space> <Plug>SnipletExpand
+cmap <C-@><C-@> <Plug>SnipletExpand
 """ END COMMAND LINE BEHAVIOR }}}
 
 """ TERMINAL MODE BEHAVIOR {{{

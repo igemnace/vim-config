@@ -44,6 +44,10 @@ for [s:pattern, s:expansion] in items(s:snippets_map)
   execute "ISnipletBuffer" s:pattern s:expansion
 endfor
 
+CSnipletBuffer json JSON.stringify
+CSnipletBuffer warn console.warn
+CSnipletBuffer log console.log
+
 " define convenience map for destructuring
 inoremap <buffer> <C-@>xx ;<C-o>Bconst {} = <C-o>F}<Space><Space><Left>
 inoremap <buffer> <C-@>xi ';<C-o>B'<Left>import {} from <C-o>F}
