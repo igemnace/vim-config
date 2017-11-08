@@ -295,7 +295,7 @@ nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>fp :Files<CR>
 nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>fl :BLines<CR>
-nnoremap <Leader>ff :Filetypes<CR>
+nnoremap <Leader>ft :Filetypes<CR>
 
 " map keys for useful native Vim functions
 nnoremap <Leader>vv :source $MYVIMRC<CR>
@@ -343,33 +343,11 @@ nmap <Leader>ss <Plug>SlimeLineSend
 """ END VIM CONFIG }}}
 
 """ PLUGIN CONFIG {{{
-""" FZF.VIM {{{
-" add a command to search with ripgrep then feed to fzf
-let g:rg_command = '
-  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
-  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
-  \ -g "!{.git,node_modules,vendor}/*" '
-command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
-""" END FZF.VIM }}}
-
 """ NETRW {{{
 " disallow Netrw from setting the alternate buffer
 " to ensure that <C-^> always lands on a file buffer not a dir
 let g:netrw_altfile = 1
 """ END NETRW }}}
-
-""" ALE {{{
-" use eslint for linting
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-
-" disallow ALE from setting highlights
-let g:ale_set_highlights = 0
-
-" customize ALE signs
-let g:ale_sign_error = '!!'
-""" END ALE }}}
 
 """ COMPLETOR.VIM {{{
 " disallow auto popup except for filename

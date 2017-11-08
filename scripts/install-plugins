@@ -31,7 +31,6 @@ bg_clone https://github.com/editorconfig/editorconfig-vim.git
 bg_clone https://github.com/maralla/completor.vim.git
 bg_clone https://github.com/Quramy/tsuquyomi.git
 bg_clone https://github.com/ternjs/tern_for_vim.git
-bg_clone https://github.com/w0rp/ale.git
 ### END CODE
 
 ### EXTEND
@@ -44,6 +43,7 @@ bg_clone https://github.com/igemnace/vim-makery.git
 bg_clone https://github.com/igemnace/vim-sniplet.git
 bg_clone https://github.com/igemnace/vim-template-lite.git
 bg_clone https://github.com/jiangmiao/auto-pairs.git
+bg_clone https://github.com/machakann/vim-sandwich.git
 bg_clone https://github.com/romainl/vim-qf.git
 bg_clone https://github.com/skywind3000/asyncrun.vim.git
 bg_clone https://github.com/tpope/vim-abolish.git
@@ -51,8 +51,6 @@ bg_clone https://github.com/tpope/vim-commentary.git
 bg_clone https://github.com/tpope/vim-endwise
 bg_clone https://github.com/tpope/vim-projectionist.git
 bg_clone https://github.com/tpope/vim-repeat.git
-bg_clone https://github.com/tpope/vim-speeddating.git
-bg_clone https://github.com/machakann/vim-sandwich.git
 bg_clone https://github.com/tpope/vim-unimpaired.git
 ### END EXTEND
 
@@ -80,12 +78,7 @@ bg_clone https://github.com/jpalardy/vim-slime.git
 ### END INTEGRATE
 
 ### THEME
-mkdir -p "$HOME/.vim/pack/theme/start"
 mkdir -p "$HOME/.vim/pack/theme/opt"
-
-# START
-cd "$HOME/.vim/pack/theme/start" || exit
-bg_clone https://github.com/chriskempson/base16-vim.git
 
 # OPT
 cd "$HOME/.vim/pack/theme/opt" || exit
