@@ -89,86 +89,8 @@ set undodir=~/.vim/tmp//,.
 """ END TEMP FILES BEHAVIOR }}}
 
 """ COLORS {{{
-" define a wrapper function to set all my highlight overrides
-function! OverrideHighlights()
-  " define colors for the statusline
-  highlight StatusLine ctermfg=015 ctermbg=008
-  highlight StatusLineNC ctermfg=015 ctermbg=008
-  highlight StatusLineTerm ctermfg=015 ctermbg=008
-  highlight StatusLineTermNC ctermfg=015 ctermbg=008
-  highlight User1 ctermfg=001 ctermbg=008
-  highlight User2 ctermfg=002 ctermbg=008
-  highlight User3 ctermfg=003 ctermbg=008
-  highlight User4 ctermfg=004 ctermbg=008
-
-  " define colors for the tabline
-  highlight TabLine ctermfg=015 ctermbg=008
-  highlight TabLineFill ctermbg=008
-  highlight TabLineSel ctermfg=003 ctermbg=008
-
-  " define colors for highlighting search results
-  highlight Search ctermfg=008 ctermbg=015
-  highlight IncSearch ctermfg=008 ctermbg=015
-
-  " define colors for comments
-  highlight Comment ctermfg=015
-
-  " define colors for todo flags and similar
-  highlight Todo ctermbg=008
-
-  " define colors for Visual selection
-  highlight Visual ctermbg=008
-
-  " define colors for Insert mode completion popup
-  highlight Pmenu ctermfg=015 ctermbg=008
-  highlight PmenuSel ctermfg=003 ctermbg=008
-
-  " define colors for special characters
-  highlight SpecialKey ctermfg=015
-  highlight EndOfBuffer ctermfg=015
-
-  " define colors for the colorcolumn marking the 80-char limit
-  highlight ColorColumn ctermbg=008
-
-  " define colors for the cursor crosshairs
-  highlight CursorLine ctermbg=008
-  highlight CursorColumn ctermbg=008
-
-  " blend line number, sign, and vert split columns into the background
-  highlight LineNr ctermfg=015 ctermbg=000
-  highlight CursorLineNr ctermfg=015 ctermbg=000
-  highlight SignColumn ctermbg=000
-
-  " define colors for folds
-  highlight Folded ctermfg=015 ctermbg=008
-
-  " define colors for vsplit separator
-  highlight VertSplit ctermbg=000
-
-  " define colors for wildmenu
-  highlight WildMenu ctermfg=003 ctermbg=008
-
-  " redefine colors for diff highlights
-  highlight DiffAdd cterm=bold ctermfg=002 ctermbg=008
-  highlight DiffDelete cterm=bold ctermfg=001 ctermbg=008
-  highlight DiffChange cterm=bold ctermfg=015 ctermbg=008
-  highlight DiffText cterm=bold ctermfg=003 ctermbg=008
-
-  " redefine colors for ALE highlights
-  highlight ALEErrorSign ctermfg=000 ctermbg=001
-  highlight ALEWarningSign ctermfg=003 ctermbg=000
-endfunction
-
-" override highlights every time the colorscheme is set
-augroup HighlightOverrides
-  autocmd!
-
-  autocmd ColorScheme * call OverrideHighlights()
-augroup END
-
 " set the colorscheme
-" base16-eighties works only if base16 is forced into 256-color mode
-colorscheme base16-eighties
+colorscheme highlight
 """ END COLORS }}}
 
 """ INDENT BEHAVIOR {{{
