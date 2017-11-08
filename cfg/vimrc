@@ -251,44 +251,11 @@ noremap <C-w>g] <C-w>g<C-]>
 noremap <C-w>g<C-]> <C-w>g]
 """ END NON-MODE-SPECIFIC MAPS }}}
 
-""" FUNCTIONS {{{
-" define convenience functions for cursorline+scrollbind
-" define enable, disable, and toggle
-function! EnableLineBind()
-  let t:line_bind_on = 1
-
-  setlocal cursorline scrollbind
-  wincmd w
-  setlocal cursorline scrollbind
-  wincmd w
-endfunction
-
-function! DisableLineBind()
-  unlet t:line_bind_on
-
-  setlocal nocursorline noscrollbind
-  wincmd w
-  setlocal nocursorline noscrollbind
-  wincmd w
-endfunction
-
-function! ToggleLineBind()
-  if exists("t:line_bind_on")
-    call DisableLineBind()
-  else
-    call EnableLineBind()
-  endif
-endfunction
-""" END FUNCTIONS }}}
-
 """ COMMANDS {{{
 " define a command for splitting a statement with a ternary operator
 command! -nargs=0 SplitTernary
   \ silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
 command! -nargs=0 SplitWrapperXML silent normal! ^f>a$F<i
-
-" define a command for ToggleLineBind
-command! -nargs=0 ToggleLineBind call ToggleLineBind()
 
 " define a convenience command to write with sudo privileges
 command! -nargs=0 SudoWrite w ! sudo tee % > /dev/null
