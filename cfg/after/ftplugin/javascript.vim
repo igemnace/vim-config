@@ -1,8 +1,8 @@
 " make Vim recognize ES6 import statements
-setlocal include=^import.\\+from
+let &l:include = 'from\|require'
 
 " make Vim use ES6 export statements as define statements
-setlocal define=^export\\s\\(var\\\|let\\\|const\\\|function\\\|default\\\|class\\)\\{,2}
+let &l:define = '\v(export\s+(default\s+)?)?(var|let|const|function|class)|export\s+'
 
 setlocal textwidth=80
 
