@@ -45,6 +45,7 @@ bg_clone https://github.com/igemnace/vim-template-lite.git
 bg_clone https://github.com/jiangmiao/auto-pairs.git
 bg_clone https://github.com/machakann/vim-sandwich.git
 bg_clone https://github.com/romainl/vim-qf.git
+bg_clone https://github.com/romainl/vim-qlist.git
 bg_clone https://github.com/skywind3000/asyncrun.vim.git
 bg_clone https://github.com/tpope/vim-abolish.git
 bg_clone https://github.com/tpope/vim-commentary.git
