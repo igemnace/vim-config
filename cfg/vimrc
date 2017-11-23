@@ -246,7 +246,8 @@ xnoremap < <gv
 """ NON-MODE-SPECIFIC MAPS {{{
 " unmap <Space> so it doesn't move to the right when I press <Leader>
 " since I have <Space> as <Leader>
-noremap <Space> <nop>
+nnoremap <Space> <nop>
+xnoremap <Space> <nop>
 
 " swap g] and g<C-]>
 " since g<C-]> jumps immediately if there is just one tag, which I want
