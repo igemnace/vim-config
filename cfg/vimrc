@@ -33,9 +33,6 @@ set fillchars=fold:\ ,diff:-
 " display trailing whitespace and line continuations in list mode
 set listchars=trail:_,extends:>,precedes:<,tab:>-
 
-" make Vim use 'define' for completion
-set complete+=d
-
 " disallow octal detection for <C-a>/<C-x>
 set nrformats-=octal
 """ MISC EDITOR BEHAVIOR }}}
@@ -134,6 +131,15 @@ set hlsearch
 set ignorecase
 set smartcase
 """ END SEARCH BEHAVIOR }}}
+
+""" COMPLETION BEHAVIOR {{{
+" make Vim use 'define' for completion
+set complete+=d
+
+" disallow preview during completion
+set completeopt&
+set completeopt-=preview
+""" END COMPLETION BEHAVIOR }}}
 
 """ BUFFER-SPECIFIC BEHAVIOR {{{
 augroup BufferSpecific
@@ -363,7 +369,7 @@ augroup Completor
   " completor.vim automatically sets up completeopt
   " such that it works sanely with auto popup (noselect in particular)
   " set it back after completion
-  autocmd CompleteDone * set completeopt&
+  autocmd CompleteDone * set completeopt& | set completeopt-=preview
 augroup END
 """ END COMPLETOR.VIM }}}
 
