@@ -313,6 +313,9 @@ nnoremap <Leader>vds :setlocal foldmethod=syntax<CR>
 nnoremap <Leader>vdk :setlocal foldmethod=marker<CR>
 nnoremap <Leader>vdm :setlocal foldmethod=manual<CR>
 
+" map keys for quick-buffer
+nnoremap <Leader>b :B<Space>
+
 " map keys for quickfix and loc lists
 nmap <Leader>qq <Plug>qf_qf_toggle
 nmap <Leader>ql <Plug>qf_loc_toggle
