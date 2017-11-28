@@ -1,6 +1,8 @@
 " Original form was a single mapping that did everything, made by dza on #vim
 " I refactored it into its current function+command form, which is much nicer
 
+" Note: depends on scratch.vim
+
 " create a Scratch buffer with MRU
 function! s:ShowMRU(bang) abort
   if a:bang ==? '!'
