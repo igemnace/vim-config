@@ -480,6 +480,7 @@ let g:template_lite_mappings = {
   \  '*.component.jsx': 'react/component.jsx',
   \  '*.hoc.jsx': 'react/hoc.jsx',
   \  '*.component.ts': 'angular/component.ts',
+  \  '*.vue': 'vue/component.vue',
   \  '*.sh': 'sh.sh',
   \}
 
