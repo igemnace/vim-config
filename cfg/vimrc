@@ -145,9 +145,6 @@ set completeopt-=preview
 augroup BufferSpecific
   autocmd!
 
-  " allow K to search :help in vim files
-  autocmd FileType vim setlocal keywordprg=:help
-
   " disallow soft-wrapping in quickfix and loc lists
   autocmd FileType qf setlocal nowrap
 
