@@ -16,6 +16,7 @@ let s:snippets_map={
   \ "log": "console.log(",
   \ "warn": "console.warn(",
   \ "json": "JSON.stringify",
+  \ "jlog": "console.log(JSON.stringify(, null, 2))\<C-o>2F,",
   \ "fn": "() => {}",
   \ "pobj": "PropTypes.object",
   \ "pfn": "PropTypes.func",
