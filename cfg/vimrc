@@ -321,7 +321,7 @@ nmap <Leader>qq <Plug>qf_qf_toggle
 nmap <Leader>ql <Plug>qf_loc_toggle
 
 " map keys for search
-nmap <silent> <Leader>h :set operatorfunc=visual_op#maps#SearchInPlace<CR>g@
+nmap <Leader>h <Plug>SearchInPlace
 xmap <Leader>h <Plug>SearchInPlace
 nmap <silent> <Leader>c :set operatorfunc=visual_op#maps#Cgn<CR>g@
 xmap <Leader>c <Plug>SearchInPlacecgn
