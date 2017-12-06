@@ -29,7 +29,10 @@ let g:sandwich#recipes += [
       \ ]
 
 " use gs to surround instead of ys, for a better mnemonic: "go surround"
-map gs ys
+nmap gs <Plug>(operator-sandwich-add)
+xmap gs <Plug>(operator-sandwich-add)
+nunmap ys
+xunmap S
 
 " remove s mappings because I actually like s
 nunmap sr
