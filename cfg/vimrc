@@ -62,9 +62,6 @@ set statusline+=%=
 " quickfix flag
 set statusline+=%3*
 set statusline+=%(%{statusline#quickfix()}%)
-" buffer syntax
-set statusline+=%*
-set statusline+=%(%y%)
 """ END STATUSLINE BEHAVIOR }}}
 
 """ WINDOW BEHAVIOR {{{
