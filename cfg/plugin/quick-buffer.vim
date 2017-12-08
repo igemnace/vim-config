@@ -4,10 +4,11 @@ function! QuickBuffer(pattern) abort
   if empty(a:pattern)
     call feedkeys(":B \<C-d>")
   endif
+  let l:globbed = '*' . join(split(a:pattern, ' '), '*') . '*'
   try
-    execute 'buffer' join(split(a:pattern, ' '), '*')
+    execute 'buffer' l:globbed
   catch
-    call feedkeys(':B ' . join(split(a:pattern, ' '), '*') . "\<C-d>\<C-u>B "
+    call feedkeys(':B ' . l:globbed . "\<C-d>\<C-u>B "
       \ . a:pattern)
   endtry
 endfunction
