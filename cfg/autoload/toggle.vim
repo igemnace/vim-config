@@ -3,19 +3,13 @@
 function! toggle#EnableLineBind()
   let t:line_bind_on = 1
 
-  setlocal cursorline scrollbind
-  wincmd w
-  setlocal cursorline scrollbind
-  wincmd w
+  windo setlocal cursorline scrollbind
 endfunction
 
 function! toggle#DisableLineBind()
   unlet t:line_bind_on
 
-  setlocal nocursorline noscrollbind
-  wincmd w
-  setlocal nocursorline noscrollbind
-  wincmd w
+  windo setlocal nocursorline noscrollbind
 endfunction
 
 function! toggle#ToggleLineBind()
