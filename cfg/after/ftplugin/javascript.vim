@@ -6,11 +6,6 @@ let &l:define = '\v(export\s+(default\s+)?)?(var|let|const|function|class)|expor
 
 setlocal textwidth=80
 
-let b:match_switch = matchutils#add_word_bounds('switch:case:default')
-let b:match_words = exists("b:match_words")
-  \ ? matchutils#concat_groups(b:match_words, b:match_switch)
-  \ : b:match_switch
-
 " define convenience sniplets
 let s:snippets_map={
   \ "log": "console.log(",
