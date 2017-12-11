@@ -109,13 +109,6 @@ set tabstop=8
 set autoindent
 """ END INDENT BEHAVIOR }}}
 
-""" LINE NUMBERING {{{
-" make Vim display the line number of the current line
-" but relative line numbers for all other lines
-set number
-set relativenumber
-""" END LINE NUMBERING }}}
-
 """ SEARCH BEHAVIOR {{{
 " allow incremental search
 set incsearch
