@@ -1,92 +1,75 @@
 #!/usr/bin/env bash
 
-### FUNCTIONS
 bg_clone() {
   >&2 echo "Cloning $1..."
   git clone "$1" &>/dev/null &
 }
 
-### CODE
-mkdir -p "$HOME/.vim/pack/code/start"
-mkdir -p "$HOME/.vim/pack/code/opt"
+# Init packages
+for package in code extend filenav integrate theme; do
+  mkdir -p "$HOME/.vim/pack/$package"/{start,opt}
+done
 
-# START
-cd "$HOME/.vim/pack/code/start" || exit
-bg_clone https://github.com/bpietravalle/vim-bolt.git
-bg_clone https://github.com/digitaltoad/vim-pug.git
-bg_clone https://github.com/elzr/vim-json.git
-bg_clone https://github.com/fcpg/vim-complimentary.git
-bg_clone https://github.com/freitass/todo.txt-vim.git
-bg_clone https://github.com/leafgarland/typescript-vim.git
-bg_clone https://github.com/mattn/emmet-vim
-bg_clone https://github.com/mxw/vim-jsx.git
-bg_clone https://github.com/pangloss/vim-javascript.git
-bg_clone https://github.com/posva/vim-vue.git
-bg_clone https://github.com/salomvary/vim-eslint-compiler.git
-bg_clone https://github.com/vimwiki/vimwiki.git
+# Clone plugins
+cd "$HOME/.vim/pack/code/start" && {
+  bg_clone https://github.com/bpietravalle/vim-bolt.git
+  bg_clone https://github.com/digitaltoad/vim-pug.git
+  bg_clone https://github.com/elzr/vim-json.git
+  bg_clone https://github.com/fcpg/vim-complimentary.git
+  bg_clone https://github.com/freitass/todo.txt-vim.git
+  bg_clone https://github.com/leafgarland/typescript-vim.git
+  bg_clone https://github.com/mattn/emmet-vim
+  bg_clone https://github.com/mxw/vim-jsx.git
+  bg_clone https://github.com/pangloss/vim-javascript.git
+  bg_clone https://github.com/posva/vim-vue.git
+  bg_clone https://github.com/salomvary/vim-eslint-compiler.git
+  bg_clone https://github.com/vimwiki/vimwiki.git
+}
 
-# OPT
-cd "$HOME/.vim/pack/code/opt" || exit
-bg_clone https://github.com/dhruvasagar/vim-table-mode.git
-bg_clone https://github.com/editorconfig/editorconfig-vim.git
-bg_clone https://github.com/maralla/completor.vim.git
-bg_clone https://github.com/Quramy/tsuquyomi.git
-bg_clone https://github.com/ternjs/tern_for_vim.git
-### END CODE
+cd "$HOME/.vim/pack/code/opt" && {
+  bg_clone https://github.com/dhruvasagar/vim-table-mode.git
+  bg_clone https://github.com/editorconfig/editorconfig-vim.git
+  bg_clone https://github.com/maralla/completor.vim.git
+  bg_clone https://github.com/Quramy/tsuquyomi.git
+  bg_clone https://github.com/ternjs/tern_for_vim.git
+}
 
-### EXTEND
-mkdir -p "$HOME/.vim/pack/extend/start"
+cd "$HOME/.vim/pack/extend/start" && {
+  bg_clone https://github.com/FooSoft/vim-argwrap
+  bg_clone https://github.com/igemnace/vim-makery.git
+  bg_clone https://github.com/igemnace/vim-sniplet.git
+  bg_clone https://github.com/igemnace/vim-template-lite.git
+  bg_clone https://github.com/jiangmiao/auto-pairs.git
+  bg_clone https://github.com/machakann/vim-sandwich.git
+  bg_clone https://github.com/romainl/vim-qf.git
+  bg_clone https://github.com/romainl/vim-qlist.git
+  bg_clone https://github.com/skywind3000/asyncrun.vim.git
+  bg_clone https://github.com/tpope/vim-abolish.git
+  bg_clone https://github.com/tpope/vim-commentary.git
+  bg_clone https://github.com/tpope/vim-endwise
+  bg_clone https://github.com/tpope/vim-projectionist.git
+  bg_clone https://github.com/tpope/vim-repeat.git
+  bg_clone https://github.com/tpope/vim-unimpaired.git
+}
 
-# START
-cd "$HOME/.vim/pack/extend/start" || exit
-bg_clone https://github.com/FooSoft/vim-argwrap
-bg_clone https://github.com/igemnace/vim-makery.git
-bg_clone https://github.com/igemnace/vim-sniplet.git
-bg_clone https://github.com/igemnace/vim-template-lite.git
-bg_clone https://github.com/jiangmiao/auto-pairs.git
-bg_clone https://github.com/machakann/vim-sandwich.git
-bg_clone https://github.com/romainl/vim-qf.git
-bg_clone https://github.com/romainl/vim-qlist.git
-bg_clone https://github.com/skywind3000/asyncrun.vim.git
-bg_clone https://github.com/tpope/vim-abolish.git
-bg_clone https://github.com/tpope/vim-commentary.git
-bg_clone https://github.com/tpope/vim-endwise
-bg_clone https://github.com/tpope/vim-projectionist.git
-bg_clone https://github.com/tpope/vim-repeat.git
-bg_clone https://github.com/tpope/vim-unimpaired.git
-### END EXTEND
+cd "$HOME/.vim/pack/filenav/start" && {
+  bg_clone https://github.com/junegunn/fzf.vim.git
+  bg_clone https://github.com/tpope/vim-vinegar.git
+}
 
-### FILENAV
-mkdir -p "$HOME/.vim/pack/filenav/start"
+cd "$HOME/.vim/pack/integrate/start" && {
+  bg_clone https://github.com/christoomey/vim-tmux-navigator.git
+  bg_clone https://github.com/tpope/vim-fugitive.git
+}
 
-# START
-cd "$HOME/.vim/pack/filenav/start" || exit
-bg_clone https://github.com/junegunn/fzf.vim.git
-bg_clone https://github.com/tpope/vim-vinegar.git
-### END FILENAV
+cd "$HOME/.vim/pack/integrate/opt" && {
+  bg_clone https://github.com/jpalardy/vim-slime.git
+}
 
-### INTEGRATE
-mkdir -p "$HOME/.vim/pack/integrate/start"
-mkdir -p "$HOME/.vim/pack/integrate/opt"
+cd "$HOME/.vim/pack/theme/opt" && {
+  bg_clone https://github.com/ap/vim-css-color.git
+}
 
-# START
-cd "$HOME/.vim/pack/integrate/start" || exit
-bg_clone https://github.com/christoomey/vim-tmux-navigator.git
-bg_clone https://github.com/tpope/vim-fugitive.git
-
-# OPT
-cd "$HOME/.vim/pack/integrate/opt" || exit
-bg_clone https://github.com/jpalardy/vim-slime.git
-### END INTEGRATE
-
-### THEME
-mkdir -p "$HOME/.vim/pack/theme/opt"
-
-# OPT
-cd "$HOME/.vim/pack/theme/opt" || exit
-bg_clone https://github.com/ap/vim-css-color.git
-### END THEME
-
+# Finish up
 wait
-
 >&2 echo "Done."
