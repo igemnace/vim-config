@@ -35,6 +35,9 @@ set listchars=trail:_,extends:>,precedes:<,tab:>-
 
 " disallow octal detection for <C-a>/<C-x>
 set nrformats-=octal
+
+" make Vim use vsplits for diff mode
+set diffopt+=vertical
 """ MISC EDITOR BEHAVIOR }}}
 
 """ STATUSLINE BEHAVIOR {{{
@@ -123,9 +126,6 @@ set smartcase
 """ END SEARCH BEHAVIOR }}}
 
 """ COMPLETION BEHAVIOR {{{
-" make Vim use 'define' for completion
-set complete+=d
-
 " disallow preview during completion
 set completeopt&
 set completeopt-=preview
@@ -138,8 +138,8 @@ augroup BufferSpecific
   " disallow soft-wrapping in quickfix and loc lists
   autocmd FileType qf setlocal nowrap
 
-  " automatically set cursorline for fugitive, todo.txt, and quickfix
-  autocmd FileType gitcommit,todo,qf setlocal cursorline
+  " automatically set cursorline for gina, todo.txt, and quickfix
+  autocmd FileType gina-status,todo,qf setlocal cursorline
 
   " set notes textwidth to 80
   autocmd FileType vimwiki,markdown setlocal textwidth=80
@@ -266,16 +266,13 @@ let mapleader = "\<Space>"
 nnoremap <Leader><Leader> :nohlsearch<CR>
 
 " map keys for Fugitive
-nnoremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
+nnoremap <Leader>gs :Gina status -s<CR>
 nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>gc :Gcommit --verbose<CR>
+nnoremap <Leader>gc :Gina commit<CR>
 nnoremap <Leader>gm :Gmerge<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gb :Gblame \| ToggleLineBind<CR>
-nnoremap <Leader>gl :Gllog -- %<CR><CR><CR>
-nnoremap <Leader>gL :Gllog --<CR><CR><CR>
-nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gf :Gfetch<CR>
+nnoremap <Leader>gb :Gina blame<CR>
+nnoremap <Leader>gl :Gina log -- %<CR>
+nnoremap <Leader>gL :Gina log<CR>
 
 " map keys for FZF
 nnoremap <Leader>fp :Files<CR>
