@@ -243,9 +243,6 @@ command! -nargs=0 SplitTernary
   \ silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
 command! -nargs=0 SplitWrapperXML silent normal! ^f>a$F<i
 
-" define a convenience command to write with sudo privileges
-command! -nargs=0 SudoWrite w ! sudo tee % > /dev/null
-
 " define a command to post to Sprunge
 command! -nargs=0 -range Sprunge
   \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
@@ -278,14 +275,14 @@ nnoremap <Leader>gL :Gina log<CR>
 nnoremap <Leader>fp :Files<CR>
 nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>fl :BLines<CR>
-nnoremap <Leader>ft :Filetypes<CR>
 
 " map keys for useful native Vim functions
 nnoremap <Leader>vv :source $MYVIMRC<CR>
 nnoremap <Leader>vp :packadd<Space>
 " edit with no parameters is useful for reloading a buffer
 nnoremap <Leader>vr :edit<CR>
-nnoremap <Leader>vf :filetype detect<CR>
+nnoremap <Leader>vff :filetype detect<CR>
+nnoremap <Leader>vft :set filetype=
 nnoremap <Leader>vt :vert term<Space>
 nnoremap <Leader>vdd :setlocal foldmethod=
 nnoremap <Leader>vds :setlocal foldmethod=syntax<CR>
@@ -333,6 +330,9 @@ nmap <Leader>ss <Plug>SlimeLineSend
 " disallow Netrw from setting the alternate buffer
 " to ensure that <C-^> always lands on a file buffer not a dir
 let g:netrw_altfile = 1
+
+" disallow Netrw from displaying its banner
+let g:netrw_banner = 0
 """ END NETRW }}}
 
 """ COMPLETOR.VIM {{{
