@@ -214,14 +214,6 @@ imap <C-@><C-@> <Plug>SnipletExpand
 inoremap <C-@>d <C-r>=system("date -Idate \| xargs echo -n")<CR>
 inoremap <C-@>t <C-r>=system("date +%R \| xargs echo -n")<CR>
 inoremap <C-@>i <C-r>=system("date -Is \| xargs echo -n")<CR>
-
-augroup InsertBehavior
-  autocmd!
-
-  " make Vim respect relative paths for file completion
-  autocmd InsertEnter * let b:save_cwd = getcwd() | lcd %:p:h
-  autocmd InsertLeave * execute 'cd' fnameescape(b:save_cwd)
-augroup END
 """ END INSERT MODE BEHAVIOR }}}
 
 """ VISUAL MODE BEHAVIOR {{{
