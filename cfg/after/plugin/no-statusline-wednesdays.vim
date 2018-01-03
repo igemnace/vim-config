@@ -1,3 +1,3 @@
-if system("date +%a") =~? "wed"
+if strftime('%a') =~? "wed"
   set laststatus=0
 endif
