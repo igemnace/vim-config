@@ -139,7 +139,7 @@ augroup BufferSpecific
   autocmd FileType qf setlocal nowrap
 
   " automatically set cursorline for gina, todo.txt, and quickfix
-  autocmd FileType gina-status,todo,qf setlocal cursorline
+  autocmd FileType gitcommit,gina-status,todo,qf setlocal cursorline
 
   " set notes textwidth to 80
   autocmd FileType vimwiki,markdown setlocal textwidth=80
@@ -263,9 +263,9 @@ let mapleader = "\<Space>"
 nnoremap <Leader><Leader> :nohlsearch<CR>
 
 " map keys for Fugitive
-nnoremap <Leader>gs :Gina status -s<CR>
+nnoremap <Leader>gs :tab split \| Gstatus \| wincmd o<CR>
 nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>gc :Gina commit<CR>
+nnoremap <Leader>gc :Gcommit --verbose<CR>
 nnoremap <Leader>gm :Gmerge<CR>
 nnoremap <Leader>gb :Gina blame<CR>
 nnoremap <Leader>gl :Gina log -- %<CR>
