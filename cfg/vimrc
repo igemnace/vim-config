@@ -235,6 +235,10 @@ noremap g] g<C-]>
 noremap g<C-]> g]
 noremap <C-w>g] <C-w>g<C-]>
 noremap <C-w>g<C-]> <C-w>g]
+
+" map keys for changing with cgn
+nnoremap <silent> gz :set operatorfunc=visual_op#maps#Cgn<CR>g@
+xmap gz <Plug>SearchInPlacecgn
 """ END NON-MODE-SPECIFIC MAPS }}}
 
 """ COMMANDS {{{
@@ -299,8 +303,6 @@ nmap <Leader>ql <Plug>qf_loc_toggle
 " map keys for search
 nmap <Leader>h <Plug>SearchInPlace
 xmap <Leader>h <Plug>SearchInPlace
-nmap <silent> <Leader>c :set operatorfunc=visual_op#maps#Cgn<CR>g@
-xmap <Leader>c <Plug>SearchInPlacecgn
 nmap <Leader>G <Plug>GrepStar
 xmap <Leader>G <Plug>GrepStar
 
