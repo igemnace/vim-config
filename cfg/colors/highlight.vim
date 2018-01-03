@@ -41,7 +41,7 @@ highlight Question         cterm=NONE      ctermfg=4    ctermbg=NONE gui=NONE   
 highlight Search           cterm=NONE      ctermfg=8    ctermbg=15   gui=NONE      guifg=#747369 guibg=#ffcc66    guisp=NONE
 highlight SignColumn       cterm=NONE      ctermfg=8    ctermbg=0    gui=NONE      guifg=#747369 guibg=#393939    guisp=NONE
 highlight SpecialKey       cterm=NONE      ctermfg=15   ctermbg=NONE gui=NONE      guifg=#747369 guibg=NONE       guisp=NONE
-highlight SpellBad         cterm=NONE      ctermfg=NONE ctermbg=0    gui=NONE      guifg=NONE    guibg=#2d2d2d    guisp=#f2777a
+highlight SpellBad         cterm=underline ctermfg=7    ctermbg=0    gui=NONE      guifg=NONE    guibg=#2d2d2d    guisp=#f2777a
 highlight SpellCap         cterm=NONE      ctermfg=NONE ctermbg=0    gui=NONE      guifg=NONE    guibg=#2d2d2d    guisp=#6699cc
 highlight SpellLocal       cterm=NONE      ctermfg=NONE ctermbg=0    gui=NONE      guifg=NONE    guibg=#2d2d2d    guisp=#66cccc
 highlight SpellRare        cterm=NONE      ctermfg=NONE ctermbg=0    gui=NONE      guifg=NONE    guibg=#2d2d2d    guisp=#cc99cc
