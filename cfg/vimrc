@@ -192,9 +192,6 @@ nnoremap Y y$
 
 " map <BS> to switch to the alternate buffer
 nnoremap <BS> <C-^>
-
-" map gS to split, opposite of gJ (somewhat)
-nmap gS <Plug>Split
 """ END NORMAL MODE BEHAVIOR }}}
 
 """ INSERT MODE BEHAVIOR {{{
@@ -244,12 +241,14 @@ xmap gz <Plug>SearchInPlacecgn
 """ COMMANDS {{{
 " define a command for splitting a statement with a ternary operator
 command! -nargs=0 SplitTernary
-  \ silent normal! 0f?if:iVkk:s/\s\+$//e:let @/=""
+  \ silent normal! 0f?if:iVkk:keeppatterns s/\s\+$//e
 command! -nargs=0 SplitWrapperXML silent normal! ^f>a$F<i
 
-" define a command to post to Sprunge
+" define commands to post to pastebins
 command! -nargs=0 -range Sprunge
   \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
+command! -nargs=0 -range Ixio
+  \ <line1>,<line2>w ! curl -F "f:1=<-" ix.io
 
 " define wrapper commands to set makeprg
 command! -nargs=+ MakePrg let &makeprg=<q-args>
