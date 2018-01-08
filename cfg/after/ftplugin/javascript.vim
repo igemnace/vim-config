@@ -50,7 +50,7 @@ inoremap <buffer> <C-@>xi ';<C-o>B'<Left>import {} from <C-o>F}
 
 " define convenience map for passing down handler props
 inoremap <buffer> <C-@>xp <C-o>"zyiw<C-r>z={<End>}
-  \<C-o>:s/handle/on<CR><C-o>:let @/ = ""<CR><End>
+  \<C-o>:keeppatterns s/handle/on<CR><End>
 
 augroup JavascriptInsert
   " make Vim respect relative paths for file completion
