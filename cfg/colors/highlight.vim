@@ -38,6 +38,7 @@ highlight PmenuSbar        cterm=NONE      ctermfg=NONE ctermbg=248  gui=NONE   
 highlight PmenuSel         cterm=NONE      ctermfg=3    ctermbg=8    gui=NONE      guifg=#393939 guibg=#a09f93    guisp=NONE
 highlight PmenuThumb       cterm=NONE      ctermfg=NONE ctermbg=15   gui=NONE      guifg=NONE    guibg=White      guisp=NONE
 highlight Question         cterm=NONE      ctermfg=4    ctermbg=NONE gui=NONE      guifg=#6699cc guibg=NONE       guisp=NONE
+highlight QuickFixLine     cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=#d3d0c8 guibg=NONE       guisp=NONE
 highlight Search           cterm=NONE      ctermfg=8    ctermbg=15   gui=NONE      guifg=#747369 guibg=#ffcc66    guisp=NONE
 highlight SignColumn       cterm=NONE      ctermfg=8    ctermbg=0    gui=NONE      guifg=#747369 guibg=#393939    guisp=NONE
 highlight SpecialKey       cterm=NONE      ctermfg=15   ctermbg=NONE gui=NONE      guifg=#747369 guibg=NONE       guisp=NONE
@@ -63,7 +64,6 @@ highlight Visual           cterm=NONE      ctermfg=NONE ctermbg=8    gui=NONE   
 highlight WarningMsg       cterm=NONE      ctermfg=1    ctermbg=NONE gui=NONE      guifg=#f2777a guibg=NONE       guisp=NONE
 highlight WildMenu         cterm=NONE      ctermfg=3    ctermbg=8    gui=NONE      guifg=#f2777a guibg=#ffcc66    guisp=NONE
 highlight link PreCondit      PreProc
-highlight link QuickFixLine   Search
 highlight link SpecialComment Special
 highlight clear Italic
 
