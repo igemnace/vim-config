@@ -7,11 +7,7 @@ nnoremap g? :let g:inchlsearch = 1<CR>?
 function! s:EnterHlsearch() abort
   let g:save_hlsearch = &hlsearch
 
-  if exists('g:inchlsearch') && g:inchlsearch
-    set hlsearch
-  else
-    set nohlsearch
-  endif
+  let &hlsearch = exists('g:inchlsearch') && g:inchlsearch
 endfunction
 
 " restore hlsearch setting after incsearch
@@ -20,11 +16,7 @@ function! s:LeaveHlsearch() abort
     unlet g:inchlsearch
   endif
 
-  if exists('g:save_hlsearch') && g:save_hlsearch
-    set hlsearch
-  else
-    set nohlsearch
-  endif
+  let &hlsearch = exists('g:save_hlsearch') && g:save_hlsearch
 endfunction
 
 " attach EnterHlsearch and LeaveHlsearch to autocmds
