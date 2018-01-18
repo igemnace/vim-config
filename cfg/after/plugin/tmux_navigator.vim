@@ -1,9 +1,9 @@
 " handle Meta keys in terminal
 if !has('gui_running')
-  silent! execute 'set <M-h>=h'
-  silent! execute 'set <M-j>=j'
-  silent! execute 'set <M-k>=k'
-  silent! execute 'set <M-l>=l'
+  silent! execute "set <M-h>=\<Esc>h"
+  silent! execute "set <M-j>=\<Esc>j"
+  silent! execute "set <M-k>=\<Esc>k"
+  silent! execute "set <M-l>=\<Esc>l"
 endif
 
 " map Meta keys for tmux-navigator
