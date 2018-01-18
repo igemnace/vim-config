@@ -176,6 +176,11 @@ set shortmess=atoO
 " add both <C-Space><C-Space> and <C-Space><C-Space>, to cover errors
 cmap <C-@><Space> <Plug>SnipletExpand
 cmap <C-@><C-@> <Plug>SnipletExpand
+
+" make Vim use history recall even for <C-n>/<C-p>
+" since they're easier to hit than the arrow keys
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 """ END COMMAND LINE BEHAVIOR }}}
 
 """ TERMINAL MODE BEHAVIOR {{{
