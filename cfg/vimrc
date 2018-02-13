@@ -479,8 +479,8 @@ augroup TemplatesVim
   autocmd!
 
   " replace skeleton-name with filename
-  autocmd User TemplateLoad
-    \ silent! execute "%S/skeleton-name/" . expand('%:t:r:r') . "/g"
+  autocmd User TemplateLoad silent! execute
+    \ "%S/skeleton-name/" . path#remove_extension(expand('%:t')) . "/g"
 augroup END
 """ END VIM-TEMPLATE-LITE }}}
 """ END PLUGIN CONFIG }}}
