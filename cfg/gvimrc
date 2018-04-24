@@ -3,4 +3,9 @@ set guifont=Roboto\ Mono\ Light\ 9
 
 " set guioptions to the defaults, but with the following removed:
 " menu bar, tool bar, scroll bars
-set guioptions=aei
+set guioptions-=g
+set guioptions-=m
+set guioptions-=r
+set guioptions-=L
+set guioptions-=t
+set guioptions-=T
