@@ -1,3 +1,7 @@
+if !exists('##CmdLineEnter') || !exists('##CmdLineLeave')
+  finish
+endif
+
 " expose new maps that explicitly allow hlsearch during incsearch
 nnoremap g/ :let g:inchlsearch = 1<CR>/
 nnoremap g? :let g:inchlsearch = 1<CR>?
