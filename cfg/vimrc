@@ -464,6 +464,7 @@ let g:vue_disable_pre_processors = 1
 let g:template_lite_mappings = {
   \  '*.component.js': 'react-native/component.js',
   \  '*.hoc.js': 'react-native/hoc.js',
+  \  '*.container.js': 'react-native/container.js',
   \  '*.styles.js': 'react-native/styles.js',
   \  '*.redux.js': 'react-native/redux.js',
   \  '*.fire.js': 'react-native/fire.js',
