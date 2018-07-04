@@ -138,8 +138,8 @@ augroup BufferSpecific
   " disallow soft-wrapping in quickfix and loc lists
   autocmd FileType qf setlocal nowrap
 
-  " automatically set cursorline for gina, todo.txt, and quickfix
-  autocmd FileType gitcommit,gina-status,todo,qf setlocal cursorline
+  " automatically set cursorline for todo.txt, and quickfix
+  autocmd FileType gitcommit,todo,qf setlocal cursorline
 
   " set notes textwidth to 80
   autocmd FileType vimwiki,markdown setlocal textwidth=80
@@ -278,8 +278,8 @@ nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
 nnoremap <Leader>gm :Gmerge<CR>
 nnoremap <Leader>gb :Gina blame<CR>
-nnoremap <Leader>gl :Gina log -- %<CR>
-nnoremap <Leader>gL :Gina log<CR>
+nnoremap <Leader>gl :Gllog -- %<CR><CR><CR>
+nnoremap <Leader>gL :Gllog<CR><CR><CR>
 
 " map keys for FZF
 nnoremap <Leader>fp :Files<CR>
