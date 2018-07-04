@@ -373,10 +373,13 @@ let g:qf_auto_open_loclist = 0
 let g:qf_bufname_or_text = 1
 """ END VIM-QF }}}
 
-""" TERN_FOR_VIM {{{
-" allow tern_for_vim to map <LocalLeader> keybinds
-let tern_map_keys = 1
-""" END TERN_FOR_VIM }}}
+""" VIM-KICKFIX {{{
+" tweak zebra colors for quickfix window
+highlight qfFileName1 ctermfg=4
+highlight qfFileName2 ctermfg=6
+highlight link qfZebra1 Normal
+highlight link qfZebra2 Normal
+""" END VIM-KICKFIX }}}
 
 """ VIMWIKI {{{
 " allow VimWiki to fold sections and code blocks
@@ -433,15 +436,6 @@ let g:table_mode_header_fillchar = '-'
 " disallow vim-table-mode from automatically aligning every now and then
 let g:table_mode_auto_align = 0
 """ END VIM-TABLE-MODE }}}
-
-""" TSUQUYOMI {{{
-" make Tsuquyomi use single quotes for automatic imports
-let g:tsuquyomi_single_quote_import = 1
-
-" disallow Tsuquyomi from a lot of unwanted default behavior
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_disable_default_mappings = 1
-""" END TSUQUYOMI }}}
 
 """ VIM-JSON {{{
 " define a default highlight for vim-JSON's highlight groups

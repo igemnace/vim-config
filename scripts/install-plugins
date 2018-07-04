@@ -30,12 +30,11 @@ cd "$HOME/.vim/pack/code/opt" && {
   bg_clone https://github.com/dhruvasagar/vim-table-mode.git
   bg_clone https://github.com/editorconfig/editorconfig-vim.git
   bg_clone https://github.com/maralla/completor.vim.git
-  bg_clone https://github.com/Quramy/tsuquyomi.git
-  bg_clone https://github.com/ternjs/tern_for_vim.git
 }
 
 cd "$HOME/.vim/pack/extend/start" && {
   bg_clone https://github.com/FooSoft/vim-argwrap
+  bg_clone https://github.com/fcpg/vim-kickfix
   bg_clone https://github.com/igemnace/vim-makery.git
   bg_clone https://github.com/igemnace/vim-sniplet.git
   bg_clone https://github.com/igemnace/vim-template-lite.git
@@ -65,10 +64,6 @@ cd "$HOME/.vim/pack/integrate/start" && {
 
 cd "$HOME/.vim/pack/integrate/opt" && {
   bg_clone https://github.com/jpalardy/vim-slime.git
-}
-
-cd "$HOME/.vim/pack/theme/opt" && {
-  bg_clone https://github.com/ap/vim-css-color.git
 }
 
 # Finish up
