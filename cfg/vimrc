@@ -260,9 +260,12 @@ command! -nargs=0 -range Ixio
 " define wrapper commands to set makeprg
 command! -nargs=+ MakePrg let &makeprg=<q-args>
 
-" define commands to run native functions with AsyncRun
-command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-command! -bang -nargs=+ Grep AsyncRun -program=grep @ <args>
+" define commands to run native functions with AsyncDo
+command! -bang -nargs=* -complete=file Make
+  \ call asyncdo#run(<bang>0, &makeprg, <f-args>)
+command! -bang -nargs=* -complete=file LMake
+  \ call asyncdo#lrun(<bang>0, &makeprg, <f-args>)
+command! -bang -nargs=+ Grep call asyncdo#run(<bang>0, &grepprg, <f-args>)
 """ END COMMANDS }}}
 
 """ LEADER KEY BEHAVIOR {{{
@@ -315,13 +318,13 @@ xmap <Leader>G <Plug>GrepStar
 " map a key to trigger ArgWrap
 nnoremap <Leader>a :ArgWrap<CR>
 
-" map keys for AsyncRun
-nnoremap <Leader>rr :AsyncRun<Space>
+" map keys for AsyncDo
+nnoremap <Leader>rr :AsyncDo<Space>
 nnoremap <Leader>rm :Make<Space>
 nnoremap <Leader>rg :Grep<Space>
 
 " map keys for Makery.vim
-nnoremap <Leader>ml :Mlint %<CR>
+nnoremap <Leader>ml :LMlint %<CR>
 nnoremap <Leader>mg :Mtags<CR>
 nnoremap <Leader>mt :Mtest<CR>
 nnoremap <Leader>mb :Mbuild<CR>
