@@ -5,14 +5,29 @@ function! s:MarkQF() abort
 endfunction
 
 function! s:UnmarkQF() abort
-  if exists('g:quickfix_pending')
+  if empty(getloclist(0)) && exists('g:quickfix_pending')
     unlet g:quickfix_pending
+  endif
+endfunction
+
+function! s:PrepareMarkLoc() abort
+  if !exists('g:loclist_seen')
+    let g:loclist_seen = {}
+  endif
+
+  let l:win = winnr()
+  if has_key(g:loclist_seen, l:win)
+    unlet g:loclist_seen[l:win]
   endif
 endfunction
 
 augroup QfAfter
   autocmd!
 
+  " quickfix
   autocmd QuickFixCmdPost [^l]* call s:MarkQF()
   autocmd Filetype qf call s:UnmarkQF()
+
+  " loclist
+  autocmd QuickFixCmdPre l* call s:PrepareMarkLoc()
 augroup END

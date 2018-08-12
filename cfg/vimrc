@@ -64,7 +64,7 @@ set statusline+=%(%r%)
 set statusline+=%=
 " quickfix flag
 set statusline+=%3*
-set statusline+=%(%{statusline#quickfix()}%)
+set statusline+=%(%{statusline#loclist()}%{statusline#quickfix()}%)
 """ END STATUSLINE BEHAVIOR }}}
 
 """ WINDOW BEHAVIOR {{{
