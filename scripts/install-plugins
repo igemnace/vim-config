@@ -48,7 +48,6 @@ cd "$HOME/.vim/pack/extend/start" && {
   bg_clone https://github.com/tpope/vim-endwise
   bg_clone https://github.com/tpope/vim-projectionist.git
   bg_clone https://github.com/tpope/vim-repeat.git
-  bg_clone https://github.com/tpope/vim-unimpaired.git
 }
 
 cd "$HOME/.vim/pack/filenav/start" && {

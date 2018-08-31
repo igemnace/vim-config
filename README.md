@@ -32,4 +32,6 @@ automatically do the following:
 If anyone else sees this and wants to use it, go ahead.
 
 This project is licensed under the Unlicense and is entirely under public
-domain.
+domain, with the exception of the following files:
+
+- `cfg/plugin/impaired.vim`: licensed under the Vim license, see header
