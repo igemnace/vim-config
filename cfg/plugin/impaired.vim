@@ -68,7 +68,7 @@ function! s:toggle(op) abort
 endfunction
 
 nnoremap =ol :setlocal <C-r>=<SID>toggle('list')<CR><CR>
-nnoremap =oc :setlocal <C-r>=<SID>toggle('cursorcolumn')<CR><CR>
+nnoremap =oc :setlocal <C-r>=<SID>toggle('cursorline')<CR><CR>
 nnoremap =os :setlocal <C-r>=<SID>toggle('spell')<CR><CR>
 nnoremap =ow :setlocal <C-r>=<SID>toggle('wrap')<CR><CR>
 " }}}
