@@ -15,6 +15,25 @@ nnoremap ]l :lnext<CR>
 nnoremap [l :lprevious<CR>
 " }}}
 
+" Line operations {{{1
+function! s:BlankUp(count) abort
+  put!=repeat(nr2char(10), a:count)
+  ']+1
+  silent! call repeat#set("\<Plug>impairedBlankUp", a:count)
+endfunction
+
+function! s:BlankDown(count) abort
+  put =repeat(nr2char(10), a:count)
+  '[-1
+  silent! call repeat#set("\<Plug>impairedBlankDown", a:count)
+endfunction
+
+nnoremap <silent> <Plug>impairedBlankUp   :<C-U>call <SID>BlankUp(v:count1)<CR>
+nnoremap <silent> <Plug>impairedBlankDown :<C-U>call <SID>BlankDown(v:count1)<CR>
+nmap [<Space> <Plug>impairedBlankUp
+nmap ]<Space> <Plug>impairedBlankDown
+" }}}
+
 " SCM conflict motions {{{1
 nnoremap <silent> [n :call <SID>Context(1)<CR>
 nnoremap <silent> ]n :call <SID>Context(0)<CR>
