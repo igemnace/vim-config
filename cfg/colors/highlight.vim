@@ -1,3 +1,4 @@
+" vim: syntax=:nowrap:tw=0
 " setup
 highlight clear
 syntax reset
