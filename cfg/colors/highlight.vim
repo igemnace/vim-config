@@ -1,4 +1,3 @@
-" vim: syntax=:nowrap:tw=0
 " setup
 highlight clear
 syntax reset
@@ -210,3 +209,5 @@ highlight User1 cterm=NONE ctermfg=1 ctermbg=15 gui=NONE guifg=NONE guibg=NONE g
 highlight User2 cterm=NONE ctermfg=2 ctermbg=15 gui=NONE guifg=NONE guibg=NONE guisp=NONE
 highlight User3 cterm=NONE ctermfg=3 ctermbg=15 gui=NONE guifg=NONE guibg=NONE guisp=NONE
 highlight User4 cterm=NONE ctermfg=4 ctermbg=15 gui=NONE guifg=NONE guibg=NONE guisp=NONE
+
+" vim: syntax=:nowrap:tw=0
