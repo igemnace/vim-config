@@ -470,6 +470,7 @@ let g:template_lite_mappings = {
   \  '*.component.ts': 'angular/component.ts',
   \  '*.vue': 'vue/component.vue',
   \  '*.sh': 'sh.sh',
+  \  'PKGBUILD': 'PKGBUILD',
   \}
 
 " trigger vim-abolish on template load
@@ -479,6 +480,9 @@ augroup TemplatesVim
   " replace skeleton-name with filename
   autocmd User TemplateLoad silent! execute
     \ "%S/skeleton-name/" . path#remove_extension(expand('%:t')) . "/g"
+  " replace skeleton-dir with dirname
+  autocmd User TemplateLoad silent! execute
+    \ "%S/skeleton-dir/" . expand('%:p:h:t') . "/g"
 augroup END
 """ END VIM-TEMPLATE-LITE }}}
 """ END PLUGIN CONFIG }}}
