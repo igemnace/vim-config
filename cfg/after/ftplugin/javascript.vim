@@ -52,8 +52,5 @@ inoremap <buffer> <C-@>xi ';<C-o>B'<Left>import {} from <C-o>F}
 inoremap <buffer> <C-@>xp <C-o>"zyiw<C-r>z={<End>}
   \<C-o>:keeppatterns s/handle/on<CR><End>
 
-augroup JavascriptInsert
-  " make Vim respect relative paths for file completion
-  autocmd! InsertEnter <buffer> let b:save_cwd = getcwd() | lcd %:p:h
-  autocmd! InsertLeave <buffer> execute 'lcd' fnameescape(b:save_cwd)
-augroup END
+" allow filename completion with import * from ../<C-x><C-f>
+call cwd#ChangeOnInsert()
