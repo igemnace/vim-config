@@ -76,20 +76,14 @@ endfunction
 " }}}
 
 " Option toggling {{{1
-function! s:statusbump() abort
-  let &l:readonly = &l:readonly
-  return ''
-endfunction
-
 function! s:toggle(op) abort
-  call s:statusbump()
-  return eval('&'.a:op) ? 'no'.a:op : a:op
+  execute 'setlocal' a:op . '!' a:op . '?'
 endfunction
 
-nnoremap =ol :setlocal <C-r>=<SID>toggle('list')<CR><CR>
-nnoremap =oc :setlocal <C-r>=<SID>toggle('cursorline')<CR><CR>
-nnoremap =os :setlocal <C-r>=<SID>toggle('spell')<CR><CR>
-nnoremap =ow :setlocal <C-r>=<SID>toggle('wrap')<CR><CR>
+nnoremap =ol :call <SID>toggle('list')<CR>
+nnoremap =oc :call <SID>toggle('cursorline')<CR>
+nnoremap =os :call <SID>toggle('spell')<CR>
+nnoremap =ow :call <SID>toggle('wrap')<CR>
 " }}}
 
 " Put mappings {{{1
