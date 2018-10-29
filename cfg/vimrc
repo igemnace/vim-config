@@ -181,6 +181,9 @@ cmap <C-@><C-@> <Plug>SnipletExpand
 " since they're easier to hit than the arrow keys
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" map key to clear args but leave command behind
+cnoremap <C-k> <C-\>eget(split(getcmdline()), 0, '')<CR>
 """ END COMMAND LINE BEHAVIOR }}}
 
 """ TERMINAL MODE BEHAVIOR {{{
