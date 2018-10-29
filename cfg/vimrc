@@ -349,24 +349,6 @@ let g:netrw_altfile = 1
 let g:netrw_banner = 0
 """ END NETRW }}}
 
-""" COMPLETOR.VIM {{{
-" disallow auto popup except for filename
-" auto popup needs certain completeopt settings to work sanely
-" but that messes with repeated <C-x><C-p> and <C-l> completion
-let g:completor_disable_filename = 0
-let g:completor_disable_buffer = 1
-let g:completor_disable_ultisnips = 1
-
-augroup Completor
-  autocmd!
-
-  " completor.vim automatically sets up completeopt
-  " such that it works sanely with auto popup (noselect in particular)
-  " set it back after completion
-  autocmd CompleteDone * set completeopt& | set completeopt-=preview
-augroup END
-""" END COMPLETOR.VIM }}}
-
 """ VIM-QF {{{
 " disallow Vim-QF from automatically resizing quickfix and location windows
 let g:qf_auto_resize = 0

@@ -11,7 +11,6 @@ Make sure that your machine satisfies the following:
   - If installing on versions lower than Vim 8, installing [tpope's pathogen][1]
     will take care of loading the plugins in start directories in place of the
     package system
-  - Python support is needed for the optional completor.vim plugin
 - Has no pre-existing `.vimrc` (backup and remove if existing)
 - Has env, bash, and git (required by install scripts)
 - Has a working internet connection (will be cloning git repos for plugin
