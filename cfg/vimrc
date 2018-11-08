@@ -219,6 +219,8 @@ imap <C-@><C-@> <Plug>SnipletExpand
 inoremap <C-@>d <C-r>=strftime('%F')<CR>
 inoremap <C-@>t <C-r>=strftime('%R')<CR>
 inoremap <C-@>i <C-r>=strftime('%FT%T%z')<CR>
+inoremap <C-@>y <C-r>=strftime('%a')<CR>
+inoremap <C-@>n <C-r>=localtime()<CR>
 """ END INSERT MODE BEHAVIOR }}}
 
 """ VISUAL MODE BEHAVIOR {{{
