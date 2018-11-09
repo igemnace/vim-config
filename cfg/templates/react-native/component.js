@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PropTypes, Component } from 'react';
 import { View } from 'react-native';
 import { styleObj, styles } from './skeleton-name.styles.js';

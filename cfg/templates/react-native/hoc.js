@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PropTypes, Component } from 'react';
 import SkeletonName from './skeleton-name.component.js';
 

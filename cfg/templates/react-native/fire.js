@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PropTypes, Component } from 'react';
 import { InteractionManager } from 'react-native';
 import SkeletonNameHOC from './skeleton-name.hoc.js';

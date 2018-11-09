@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PropTypes, Component } from 'react';
 import SkeletonNameHOC from './skeleton-name.hoc.js';
 import { connect } from 'react-redux';
