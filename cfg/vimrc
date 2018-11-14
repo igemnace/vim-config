@@ -458,6 +458,7 @@ let g:template_lite_mappings = {
   \  '*.vue': 'vue/component.vue',
   \  '*.sh': 'sh.sh',
   \  'PKGBUILD': 'PKGBUILD',
+  \  '~/vimwiki/diary/*.wiki': 'diary.wiki'
   \}
 
 " trigger vim-abolish on template load
@@ -466,10 +467,12 @@ augroup TemplatesVim
 
   " replace skeleton-name with filename
   autocmd User TemplateLoad silent! execute
-    \ "%S/skeleton-name/" . path#remove_extension(expand('%:t')) . "/g"
+        \ "%S/skeleton-name/" . path#remove_extension(expand('%:t')) . "/g"
   " replace skeleton-dir with dirname
   autocmd User TemplateLoad silent! execute
-    \ "%S/skeleton-dir/" . expand('%:p:h:t') . "/g"
+        \ "%S/skeleton-dir/" . expand('%:p:h:t') . "/g"
+  " replace skeleton-day with current day of week
+  autocmd User TemplateLoad silent! %s/skeleton-day/\=strftime('%a')/g
 augroup END
 """ END VIM-TEMPLATE-LITE }}}
 """ END PLUGIN CONFIG }}}
