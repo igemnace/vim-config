@@ -2,7 +2,7 @@
 let &l:include = 'from\|require'
 
 " make Vim use ES6 export statements as define statements
-let &l:define = '\v(export\s+(default\s+)?)?(var|let|const|function|class)|export\s+'
+let &l:define = '\v(export\s+(default\s+)?)?(var|let|const|(async\s+)?function|class)|export\s+'
 
 setlocal textwidth=80
 
