@@ -427,6 +427,11 @@ let g:table_mode_header_fillchar = '-'
 let g:table_mode_auto_align = 0
 """ END VIM-TABLE-MODE }}}
 
+""" VIM-MARKDOWN {{{
+" allow default markdown syntax file to recognize fenced languages
+let g:markdown_fenced_languages = ['javascript', 'json']
+""" END VIM-MARKDOWN }}}
+
 """ VIM-JSON {{{
 " define a default highlight for vim-JSON's highlight groups
 highlight default link jsObjectKey Label
