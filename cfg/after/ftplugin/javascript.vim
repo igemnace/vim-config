@@ -1,6 +1,12 @@
 " make Vim recognize ES6 import statements
 let &l:include = 'from\|require'
 
+" allow Vim to parse path aliases such as ~/components or @/components
+" which are common in Vue projects
+setlocal isfname+=@-@
+setlocal suffixesadd+=.vue
+let &l:includeexpr = "path#resolve_alias(['~', '@'], ['src', 'app'], v:fname)"
+
 " make Vim use ES6 export statements as define statements
 let &l:define = '\v(export\s+(default\s+)?)?(var|let|const|(async\s+)?function|class)|export\s+'
 
