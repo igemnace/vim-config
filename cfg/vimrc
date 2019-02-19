@@ -432,6 +432,11 @@ let g:table_mode_auto_align = 0
 let g:markdown_fenced_languages = ['typescript', 'javascript', 'json']
 """ END VIM-MARKDOWN }}}
 
+""" VIM-JAVASCRIPT {{{
+" allow highlighting JSDocs within comments
+let g:javascript_plugin_jsdoc = 1
+""" END VIM-JAVASCRIPT }}}
+
 """ VIM-JSON {{{
 " define a default highlight for vim-JSON's highlight groups
 highlight default link jsObjectKey Label
