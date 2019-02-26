@@ -31,7 +31,7 @@ highlight Macro            cterm=NONE      ctermfg=1    ctermbg=NONE gui=NONE   
 highlight MatchParen       cterm=NONE      ctermfg=NONE ctermbg=237  gui=NONE      guifg=#2d2d2d guibg=#747369    guisp=NONE
 highlight ModeMsg          cterm=bold      ctermfg=2    ctermbg=NONE gui=bold      guifg=#99cc99 guibg=NONE       guisp=NONE
 highlight MoreMsg          cterm=NONE      ctermfg=2    ctermbg=NONE gui=NONE      guifg=#99cc99 guibg=NONE       guisp=NONE
-highlight NonText          cterm=NONE      ctermfg=237  ctermbg=NONE gui=NONE      guifg=#747369 guibg=NONE       guisp=NONE
+highlight NonText          cterm=NONE      ctermfg=8    ctermbg=NONE gui=NONE      guifg=#747369 guibg=NONE       guisp=NONE
 highlight Normal           cterm=NONE      ctermfg=7    ctermbg=0    gui=NONE      guifg=#d3d0c8 guibg=#2d2d2d    guisp=NONE
 highlight Pmenu            cterm=NONE      ctermfg=8    ctermbg=237  gui=NONE      guifg=#a09f93 guibg=#393939    guisp=NONE
 highlight PmenuSbar        cterm=NONE      ctermfg=NONE ctermbg=248  gui=NONE      guifg=NONE    guibg=Grey       guisp=NONE
