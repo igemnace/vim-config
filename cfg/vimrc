@@ -131,27 +131,6 @@ set completeopt&
 set completeopt-=preview
 """ END COMPLETION BEHAVIOR }}}
 
-""" BUFFER-SPECIFIC BEHAVIOR {{{
-augroup BufferSpecific
-  autocmd!
-
-  " disallow soft-wrapping in quickfix and loc lists
-  autocmd FileType qf setlocal nowrap
-
-  " automatically set cursorline for todo.txt, and quickfix
-  autocmd FileType gitcommit,todo,qf setlocal cursorline
-
-  " set notes textwidth to 80
-  autocmd FileType vimwiki,markdown setlocal textwidth=80
-
-  " set spell check for prose-related buffers
-  autocmd FileType vimwiki,markdown,gitcommit setlocal spell
-
-  " set makeprg to pandoc for markdown
-  autocmd FileType markdown setlocal makeprg=pandoc\ %\ -o\ %:r.pdf
-augroup END
-""" END BUFFER-SPECIFIC BEHAVIOR }}}
-
 """ COMMAND LINE BEHAVIOR {{{
 " display commands below the statusline
 set showcmd
