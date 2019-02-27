@@ -261,7 +261,6 @@ nnoremap <Leader>gL :Gllog<CR><CR><CR>
 " map keys for FZF
 nnoremap <Leader>fp :Files<CR>
 nnoremap <Leader>fb :Buffers<CR>
-nnoremap <Leader>fl :BLines<CR>
 
 " map keys for useful native Vim functions
 nnoremap <Leader>vv :source $MYVIMRC<CR>
