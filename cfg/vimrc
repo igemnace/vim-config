@@ -49,22 +49,17 @@ set showtabline=1
 " define statusline items
 set statusline=
 " filename
-set statusline+=%*
-set statusline+=%(%{statusline#bufnameshort()}%)
+set statusline+=%*%{statusline#bufnameshort()}
 " window type (help, preview, qlist)
-set statusline+=%*
-set statusline+=%(%h%w%)
+set statusline+=%*%h%w
 " modified flag
-set statusline+=%3*
-set statusline+=%(%m%)
+set statusline+=%3*%m
 " readonly flag
-set statusline+=%1*
-set statusline+=%(%r%)
+set statusline+=%1*%r
 " midline separator
 set statusline+=%=
 " quickfix flag
-set statusline+=%3*
-set statusline+=%(%{statusline#loclist()}%{statusline#quickfix()}%)
+set statusline+=%3*%{statusline#loclist()}%{statusline#quickfix()}
 """ END STATUSLINE BEHAVIOR }}}
 
 """ WINDOW BEHAVIOR {{{
