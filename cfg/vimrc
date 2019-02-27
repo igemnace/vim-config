@@ -375,9 +375,12 @@ let g:tmux_navigator_no_mappings = 1
 """ VIM-SLIME {{{
 " make vim-slime work with tmux panes by default
 " guard for tmux
-if $TMUX != ""
+if !empty($TMUX)
   let g:slime_target = "tmux"
-  let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+  let g:slime_default_config = {
+    \ "socket_name": split($TMUX, ",")[0],
+    \ "target_pane": ":.1"
+    \ }
 endif
 
 " unset vim-slime's default emacs bindings
