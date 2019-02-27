@@ -233,9 +233,6 @@ command! -nargs=0 -range Sprunge
 command! -nargs=0 -range Ixio
   \ <line1>,<line2>w ! curl -F "f:1=<-" http://ix.io
 
-" define wrapper commands to set makeprg
-command! -nargs=+ MakePrg let &makeprg=<q-args>
-
 " define commands to run native functions with AsyncDo
 command! -bang -nargs=* -complete=file Make
   \ call asyncdo#run(<bang>0, &makeprg, <f-args>)
