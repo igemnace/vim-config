@@ -146,11 +146,6 @@ set history=100
 " to help avoid hit-enter prompts
 set shortmess=atoO
 
-" map keys to expand my own system of snippets
-" add both <C-Space><C-Space> and <C-Space><C-Space>, to cover errors
-cmap <C-@><Space> <Plug>SnipletExpand
-cmap <C-@><C-@> <Plug>SnipletExpand
-
 " make Vim use history recall even for <C-n>/<C-p>
 " since they're easier to hit than the arrow keys
 cnoremap <C-p> <Up>
@@ -174,6 +169,14 @@ nnoremap Y y$
 
 " map <BS> to switch to the alternate buffer
 nnoremap <BS> <C-^>
+
+" swap g] and g<C-]>
+" since g<C-]> jumps immediately if there is just one tag, which I want
+" but g] is easier to press
+nnoremap g] g<C-]>
+nnoremap g<C-]> g]
+nnoremap <C-w>g] <C-w>g<C-]>
+nnoremap <C-w>g<C-]> <C-w>g]
 """ END NORMAL MODE BEHAVIOR }}}
 
 """ INSERT MODE BEHAVIOR {{{
@@ -183,11 +186,6 @@ set backspace=indent,eol,start
 " map <C-@> to nop, so I can use it as my Insert mode leader
 " this byte is sent by both <C-2> and <C-Space>
 inoremap <C-@> <nop>
-
-" map keys to expand my own system of snippets
-" add both <C-Space><C-Space> and <C-Space><C-Space>, to cover errors
-imap <C-@><Space> <Plug>SnipletExpand
-imap <C-@><C-@> <Plug>SnipletExpand
 
 " map keys to quickly insert dates and times
 inoremap <C-@>d <C-r>=strftime('%F')<CR>
@@ -203,24 +201,23 @@ xnoremap > >gv
 xnoremap < <gv
 """ END VISUAL MODE BEHAVIOR }}}
 
-""" NON-MODE-SPECIFIC MAPS {{{
+""" CROSS-MODE MAPS {{{
 " unmap <Space> so it doesn't move to the right when I press <Leader>
 " since I have <Space> as <Leader>
 nnoremap <Space> <nop>
 xnoremap <Space> <nop>
 
-" swap g] and g<C-]>
-" since g<C-]> jumps immediately if there is just one tag, which I want
-" but g] is easier to press
-noremap g] g<C-]>
-noremap g<C-]> g]
-noremap <C-w>g] <C-w>g<C-]>
-noremap <C-w>g<C-]> <C-w>g]
-
 " map keys for changing with cgn
 nnoremap <silent> gz :set operatorfunc=visual_op#maps#Cgn<CR>g@
 xmap gz <Plug>SearchInPlacecgn
-""" END NON-MODE-SPECIFIC MAPS }}}
+
+" map keys to expand my own system of snippets
+" add both <C-Space><C-Space> and <C-Space><C-Space>, to cover errors
+imap <C-@><Space> <Plug>SnipletExpand
+imap <C-@><C-@> <Plug>SnipletExpand
+cmap <C-@><Space> <Plug>SnipletExpand
+cmap <C-@><C-@> <Plug>SnipletExpand
+""" END CROSS-MODE MAPS }}}
 
 """ COMMANDS {{{
 " define a command for splitting a statement with a ternary operator
