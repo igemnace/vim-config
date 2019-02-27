@@ -231,7 +231,7 @@ command! -nargs=0 SplitWrapperXML
 command! -nargs=0 -range Sprunge
   \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
 command! -nargs=0 -range Ixio
-  \ <line1>,<line2>w ! curl -F "f:1=<-" ix.io
+  \ <line1>,<line2>w ! curl -F "f:1=<-" http://ix.io
 
 " define wrapper commands to set makeprg
 command! -nargs=+ MakePrg let &makeprg=<q-args>
