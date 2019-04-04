@@ -33,11 +33,7 @@ function! path#resolve_alias(alias, prefix, path) abort
 
   " build substitute
   let pattern = escape(join(alias_list, '\|'), '~')
-  echom a:path
-  echom pattern
-  echom canonical_prefix
   let resolved_path = substitute(a:path, pattern, canonical_prefix, '')
-  echom resolved_path
 
   return resolved_path
 endfunction
