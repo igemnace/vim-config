@@ -23,6 +23,7 @@ function! path#resolve_alias(alias, prefix, path) abort
   for prefix in prefix_list
     if isdirectory(prefix)
       let canonical_prefix = prefix
+      break
     endif
   endfor
 
