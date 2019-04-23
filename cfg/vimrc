@@ -233,13 +233,17 @@ command! -nargs=0 -range Sprunge
 command! -nargs=0 -range Ixio
   \ <line1>,<line2>w ! curl -F "f:1=<-" http://ix.io
 
+" define convenience command for preserving errorformat
+command! -nargs=* -complete=command UseDefaultErrorformat
+  \ call make#use_default_errorformat(<q-args>)
+
 " define commands to run native functions with AsyncDo
 command! -bang -nargs=* -complete=file Make
   \ call asyncdo#run(<bang>0, &makeprg, <f-args>)
 command! -bang -nargs=* -complete=file LMake
   \ call asyncdo#lrun(<bang>0, &makeprg, <f-args>)
 command! -bang -nargs=+ -complete=file Grep
-  \ call asyncdo#run(<bang>0, &grepprg, <f-args>)
+  \ UseDefaultErrorformat call asyncdo#run(<bang>0, &grepprg, <f-args>)
 """ END COMMANDS }}}
 
 """ LEADER KEY BEHAVIOR {{{
