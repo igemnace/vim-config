@@ -454,6 +454,9 @@ augroup TemplatesVim
         \ "%S/skeleton-dir/" . expand('%:p:h:t') . "/g"
   " replace skeleton-day with current day of week
   autocmd User TemplateLoad silent! %s/skeleton-day/\=strftime('%a')/g
+  " replace skeleton-date with provided date format
+  autocmd User TemplateLoad silent!
+        \ %s/skeleton-date{\(.\{-}\)}/\=strftime(submatch(1))/g
 augroup END
 """ END VIM-TEMPLATE-LITE }}}
 """ END PLUGIN CONFIG }}}

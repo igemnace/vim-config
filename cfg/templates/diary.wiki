@@ -1,1 +1,3 @@
 = Daily Report (skeleton-day) =
+
+skeleton-date{%b %d, %Y}
