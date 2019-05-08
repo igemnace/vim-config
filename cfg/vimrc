@@ -130,6 +130,9 @@ set completeopt-=preview
 " display commands below the statusline
 set showcmd
 
+" disallow ruler below the statusline for when I have statusline disabled
+set noruler
+
 " display tab completions for command line
 set wildmenu
 
