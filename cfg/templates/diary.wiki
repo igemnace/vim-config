@@ -1,3 +1,14 @@
-= Daily Report (skeleton-day) =
+= Reports (skeleton-day) =
+
+== Standup Report ==
+
+PREV:
+NOW:
+WBM:
+FFUP:
+DELAY:
+DEPLOY:
+
+== Daily Report ==
 
 skeleton-date{%b %d, %Y}

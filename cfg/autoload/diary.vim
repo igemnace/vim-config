@@ -50,3 +50,42 @@ function! diary#compute_twh() range abort
   let output = '`Total` - ' . string(total_hours) . 'hrs'
   execute a:lastline . 'put =output'
 endfunction
+
+function! diary#get_prev_entry() abort
+  let diary_dir = expand('%:h')
+  " use GNU date because I'm not in the mood for date manipulation
+  let date_offset = 1
+  let prev_datestamp = systemlist('date -I -d "' . date_offset . ' days ago"')[0]
+  let file = diary_dir . '/' . prev_datestamp . '.wiki'
+
+  while !filereadable(file)
+    let date_offset = date_offset + 1
+    let prev_datestamp = systemlist('date -I -d "' . date_offset . ' days ago"')[0]
+    let file = diary_dir . '/' . prev_datestamp . '.wiki'
+  endwhile
+
+  return file
+endfunction
+
+function! diary#extract_standup() abort
+  let prev = diary#get_prev_entry()
+  execute 'split' prev
+  1
+  redir => rawlines
+  /Daily Report/,$g/^- /p
+  redir END
+
+  let lines = split(rawlines, '\n')
+  let tasks = []
+  for line in lines
+    if line !~? '^- ' || line =~# 'Break' || line =~? 'standup'
+      continue
+    endif
+    call add(tasks, substitute(line, '^- ', '', ''))
+  endfor
+  let tasks = uniq(sort(copy(tasks)))
+
+  q
+  /PREV/
+  execute "normal! A \<C-r>=join(tasks, ', ')\<CR>\<Esc>"
+endfunction
