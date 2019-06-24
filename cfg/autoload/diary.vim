@@ -83,7 +83,7 @@ function! diary#extract_standup() abort
     endif
     call add(tasks, substitute(line, '^- ', '', ''))
   endfor
-  let tasks = uniq(sort(copy(tasks)))
+  let tasks = list#uniq(tasks)
 
   q
   /PREV/
