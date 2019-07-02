@@ -35,4 +35,4 @@ inoremap <buffer> <C-@>xx ;<C-o>Bconst {} = <C-o>F}<Space><Space><Left>
 inoremap <buffer> <C-@>xi ';<C-o>B'<Left>import {} from <C-o>F}
 
 " define convenience map for passing down handler props
-inoremap <buffer> <C-@>xp <Left><C-o>"zyiw:<C-r>z="<C-o>e<Right>"
+imap <buffer> <C-@>xp <Left><C-o>"zyiw:<C-r>z=<Left><Left><C-o><Plug>Coerce-<C-o>f=<Right><C-v>"<C-o>e<Right><C-v>"
