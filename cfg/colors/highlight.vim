@@ -68,46 +68,33 @@ highlight link SpecialComment Special
 highlight clear Italic
 
 " standard syntax
-highlight Boolean      cterm=NONE ctermfg=9  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
-highlight Character    cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
-highlight Comment      cterm=NONE ctermfg=8  ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE    guisp=NONE
-highlight Conditional  cterm=NONE ctermfg=5  ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE    guisp=NONE
-highlight Constant     cterm=NONE ctermfg=9  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
-highlight Define       cterm=NONE ctermfg=5  ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE    guisp=NONE
-highlight Delimiter    cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#d27b53 guibg=NONE    guisp=NONE
-highlight Float        cterm=NONE ctermfg=9  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
-highlight Function     cterm=NONE ctermfg=4  ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE    guisp=NONE
-highlight Identifier   cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
-highlight Include      cterm=NONE ctermfg=4  ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE    guisp=NONE
-highlight Keyword      cterm=NONE ctermfg=5  ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE    guisp=NONE
-highlight Label        cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
-highlight Number       cterm=NONE ctermfg=9  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
-highlight Operator     cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
-highlight PreProc      cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
-highlight Repeat       cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
-highlight SpecialChar  cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#d27b53 guibg=NONE    guisp=NONE
-highlight Special      cterm=NONE ctermfg=6  ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE    guisp=NONE
-highlight Statement    cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
-highlight StorageClass cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
-highlight String       cterm=NONE ctermfg=2  ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
-highlight Structure    cterm=NONE ctermfg=5  ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE    guisp=NONE
-highlight Tag          cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
-highlight Todo         cterm=NONE ctermfg=3  ctermbg=237  gui=NONE guifg=#ffcc66 guibg=#393939 guisp=NONE
-highlight Type         cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
-highlight Typedef      cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
-
-" C
-highlight cOperator  cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
-highlight cPreCondit cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-
-" C#
-highlight csClass                cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight csAttribute            cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight csModifier             cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight csType                 cterm=NONE ctermfg=1 ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE guisp=NONE
-highlight csUnspecifiedStatement cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
-highlight csContextualStatement  cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight csNewDecleration       cterm=NONE ctermfg=1 ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE guisp=NONE
+highlight Boolean     cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
+highlight Comment     cterm=NONE ctermfg=8  ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE    guisp=NONE
+highlight Constant    cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
+highlight Delimiter   cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#d27b53 guibg=NONE    guisp=NONE
+highlight Identifier  cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
+highlight Keyword     cterm=NONE ctermfg=5  ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE    guisp=NONE
+highlight Number      cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
+highlight Operator    cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
+highlight PreProc     cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
+highlight SpecialChar cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#d27b53 guibg=NONE    guisp=NONE
+highlight Special     cterm=NONE ctermfg=6  ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE    guisp=NONE
+highlight Statement   cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
+highlight String      cterm=NONE ctermfg=2  ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
+highlight Tag         cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
+highlight Todo        cterm=NONE ctermfg=3  ctermbg=237  gui=NONE guifg=#ffcc66 guibg=#393939 guisp=NONE
+highlight link Character    String
+highlight link Conditional  Keyword
+highlight link Define       Include
+highlight link Float        Number
+highlight link Function     Identifier
+highlight link Include      Keyword
+highlight link Label        Keyword
+highlight link Repeat       Keyword
+highlight link StorageClass Keyword
+highlight link Structure    Keyword
+highlight link Type         Keyword
+highlight link Typedef      Keyword
 
 " CSS
 highlight cssBraces    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
@@ -143,26 +130,32 @@ highlight htmlBold   cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 gu
 highlight htmlItalic cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
 highlight htmlEndTag cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight htmlTag    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
+highlight htmlArg    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 
 " JavaScript
-highlight javaScript          cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight javaScriptBraces    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight javaScriptNumber    cterm=NONE ctermfg=9 ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE guisp=NONE
-highlight jsOperator          cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
-highlight jsStatement         cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight jsReturn            cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight jsThis              cterm=NONE ctermfg=1 ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE guisp=NONE
-highlight jsClassDefinition   cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight jsFunction          cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight jsFuncName          cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
-highlight jsFuncCall          cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
-highlight jsClassFuncName     cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
-highlight jsClassMethodType   cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight jsRegexpString      cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
-highlight jsGlobalObjects     cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight jsGlobalNodeObjects cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight jsExceptions        cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight jsBuiltins          cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
+highlight javaScript       cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
+highlight javaScriptBraces cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
+highlight jsRegexpString   cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
+highlight jsGlobalObjects  cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
+highlight jsBuiltins       cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
+highlight jsArrowFunction  cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
+highlight jsDocType        cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
+highlight link jsReturn            Keyword
+highlight link jsThis              Keyword
+highlight link jsFuncCall          Identifier
+highlight link jsClassFuncName     Function
+highlight link jsClassDefinition   Identifier
+highlight link jsGlobalNodeObjects jsGlobalObjects
+highlight link jsExceptions        jsGlobalObjects
+highlight link jsException         Keyword
+highlight link jsTry               Keyword
+highlight link jsCatch             Keyword
+highlight link jsNull              Keyword
+highlight link jsUndefined         jsNull
+highlight link jsObjectKey         Identifier
+highlight link jsDocTypeNoParam    jsDocType
+highlight link jsDocParam          Identifier
+highlight link jsTaggedTemplate    Identifier
 
 " Mail
 highlight mailQuoted1 cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
@@ -179,30 +172,6 @@ highlight markdownCode             cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE gu
 highlight markdownError            cterm=NONE ctermfg=7 ctermbg=0    gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
 highlight markdownCodeBlock        cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
 highlight markdownHeadingDelimiter cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE    guisp=NONE
-
-" PHP
-highlight phpMemberSelector cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight phpComparison     cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight phpParent         cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-
-" Python
-highlight pythonOperator cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight pythonRepeat   cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-
-" Ruby
-highlight rubyAttribute              cterm=NONE ctermfg=4  ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
-highlight rubyConstant               cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight rubyInterpolationDelimiter cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#d27b53 guibg=NONE guisp=NONE
-highlight rubyRegexp                 cterm=NONE ctermfg=6  ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
-highlight rubySymbol                 cterm=NONE ctermfg=2  ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE guisp=NONE
-highlight rubyStringDelimiter        cterm=NONE ctermfg=2  ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE guisp=NONE
-
-" SASS
-highlight sassidChar    cterm=NONE ctermfg=1 ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE guisp=NONE
-highlight sassClassChar cterm=NONE ctermfg=9 ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE guisp=NONE
-highlight sassInclude   cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight sassMixing    cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight sassMixinName cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
 
 " User
 highlight User1 cterm=NONE ctermfg=1 ctermbg=237gui=NONE guifg=NONE guibg=NONE guisp=NONE
