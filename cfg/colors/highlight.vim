@@ -69,27 +69,28 @@ highlight clear Italic
 highlight Boolean     cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
 highlight Comment     cterm=NONE ctermfg=8  ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE    guisp=NONE
 highlight Constant    cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
-highlight Delimiter   cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#d27b53 guibg=NONE    guisp=NONE
+highlight Delimiter   cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d27b53 guibg=NONE    guisp=NONE
 highlight Identifier  cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
 highlight Keyword     cterm=NONE ctermfg=5  ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE    guisp=NONE
 highlight Number      cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f99157 guibg=NONE    guisp=NONE
 highlight Operator    cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
-highlight PreProc     cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
 highlight SpecialChar cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#d27b53 guibg=NONE    guisp=NONE
 highlight Special     cterm=NONE ctermfg=6  ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE    guisp=NONE
-highlight Statement   cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
 highlight String      cterm=NONE ctermfg=2  ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
 highlight Tag         cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
 highlight Todo        cterm=NONE ctermfg=3  ctermbg=237  gui=NONE guifg=#ffcc66 guibg=#393939 guisp=NONE
 highlight! link Character    String
 highlight! link Conditional  Keyword
+highlight! link PreProc      Include
 highlight! link Define       Include
+highlight! link Macro        Include
 highlight! link Float        Number
 highlight! link Function     Identifier
 highlight! link Include      Keyword
 highlight! link Label        Keyword
 highlight! link Repeat       Keyword
 highlight! link StorageClass Keyword
+highlight! link Statement    Keyword
 highlight! link Structure    Keyword
 highlight! link Type         Keyword
 highlight! link Typedef      Keyword
@@ -159,6 +160,12 @@ highlight! link jsDocTypeNoParam    jsDocType
 highlight! link jsDocParam          Identifier
 highlight! link jsTaggedTemplate    Identifier
 
+" Shell
+highlight shOption       cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
+highlight shCommandSub   cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
+highlight shDeref        cterm=NONE ctermfg=6 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
+highlight shCmdSubRegion cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
+
 " Mail
 highlight mailQuoted1 cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight mailQuoted2 cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE guisp=NONE
@@ -174,6 +181,9 @@ highlight markdownCode             cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE gu
 highlight markdownError            cterm=NONE ctermfg=7 ctermbg=0    gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
 highlight markdownCodeBlock        cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
 highlight markdownHeadingDelimiter cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE    guisp=NONE
+
+" Netrw
+highlight netrwExe cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE guisp=NONE
 
 " User
 highlight User1 cterm=NONE ctermfg=1 ctermbg=237gui=NONE guifg=NONE guibg=NONE guisp=NONE
