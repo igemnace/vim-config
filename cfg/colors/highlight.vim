@@ -125,6 +125,10 @@ highlight gitcommitUnmergedFile  cterm=bold ctermfg=1  ctermbg=NONE gui=bold gui
 highlight gitcommitDiscardedFile cterm=bold ctermfg=1  ctermbg=NONE gui=bold guifg=#f2777a guibg=NONE guisp=NONE
 highlight gitcommitSelectedFile  cterm=bold ctermfg=2  ctermbg=NONE gui=bold guifg=#99cc99 guibg=NONE guisp=NONE
 
+" Fugitive
+highlight fugitiveModifier cterm=NONE ctermfg=1 ctermbg=NONE gui=bold guifg=#99cc99 guibg=NONE guisp=NONE
+highlight diffSubname      cterm=NONE ctermfg=8 ctermbg=NONE gui=bold guifg=#99cc99 guibg=NONE guisp=NONE
+
 " HTML
 highlight htmlBold   cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight htmlItalic cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
