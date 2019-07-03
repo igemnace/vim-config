@@ -63,8 +63,6 @@ highlight VisualNOS        cterm=NONE      ctermfg=1    ctermbg=NONE gui=NONE   
 highlight Visual           cterm=NONE      ctermfg=NONE ctermbg=237  gui=NONE      guifg=NONE    guibg=#515151    guisp=NONE
 highlight WarningMsg       cterm=NONE      ctermfg=1    ctermbg=NONE gui=NONE      guifg=#f2777a guibg=NONE       guisp=NONE
 highlight WildMenu         cterm=NONE      ctermfg=3    ctermbg=237  gui=NONE      guifg=#f2777a guibg=#ffcc66    guisp=NONE
-highlight link PreCondit      PreProc
-highlight link SpecialComment Special
 highlight clear Italic
 
 " standard syntax
@@ -83,18 +81,18 @@ highlight Statement   cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a 
 highlight String      cterm=NONE ctermfg=2  ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
 highlight Tag         cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
 highlight Todo        cterm=NONE ctermfg=3  ctermbg=237  gui=NONE guifg=#ffcc66 guibg=#393939 guisp=NONE
-highlight link Character    String
-highlight link Conditional  Keyword
-highlight link Define       Include
-highlight link Float        Number
-highlight link Function     Identifier
-highlight link Include      Keyword
-highlight link Label        Keyword
-highlight link Repeat       Keyword
-highlight link StorageClass Keyword
-highlight link Structure    Keyword
-highlight link Type         Keyword
-highlight link Typedef      Keyword
+highlight! link Character    String
+highlight! link Conditional  Keyword
+highlight! link Define       Include
+highlight! link Float        Number
+highlight! link Function     Identifier
+highlight! link Include      Keyword
+highlight! link Label        Keyword
+highlight! link Repeat       Keyword
+highlight! link StorageClass Keyword
+highlight! link Structure    Keyword
+highlight! link Type         Keyword
+highlight! link Typedef      Keyword
 
 " CSS
 highlight cssBraces    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
@@ -144,22 +142,22 @@ highlight jsGlobalObjects  cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#ffc
 highlight jsBuiltins       cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight jsArrowFunction  cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight jsDocType        cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight link jsReturn            Keyword
-highlight link jsThis              Keyword
-highlight link jsFuncCall          Identifier
-highlight link jsClassFuncName     Function
-highlight link jsClassDefinition   Identifier
-highlight link jsGlobalNodeObjects jsGlobalObjects
-highlight link jsExceptions        jsGlobalObjects
-highlight link jsException         Keyword
-highlight link jsTry               Keyword
-highlight link jsCatch             Keyword
-highlight link jsNull              Keyword
-highlight link jsUndefined         jsNull
-highlight link jsObjectKey         Identifier
-highlight link jsDocTypeNoParam    jsDocType
-highlight link jsDocParam          Identifier
-highlight link jsTaggedTemplate    Identifier
+highlight! link jsReturn            Keyword
+highlight! link jsThis              Keyword
+highlight! link jsFuncCall          Identifier
+highlight! link jsClassFuncName     Function
+highlight! link jsClassDefinition   Identifier
+highlight! link jsGlobalNodeObjects jsGlobalObjects
+highlight! link jsExceptions        jsGlobalObjects
+highlight! link jsException         Keyword
+highlight! link jsTry               Keyword
+highlight! link jsCatch             Keyword
+highlight! link jsNull              Keyword
+highlight! link jsUndefined         jsNull
+highlight! link jsObjectKey         Identifier
+highlight! link jsDocTypeNoParam    jsDocType
+highlight! link jsDocParam          Identifier
+highlight! link jsTaggedTemplate    Identifier
 
 " Mail
 highlight mailQuoted1 cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
