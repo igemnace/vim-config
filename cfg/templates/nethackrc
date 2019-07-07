@@ -1,1 +1,6 @@
-OPTIONS=altmeta,!autopickup,!cmdassist,hilite_pet,color,name:skeleton-name,align:,gender:,race:,role:
+OPTIONS=altmeta,!autopickup,!cmdassist,hilite_pet,color
+OPTIONS=name:skeleton-name
+OPTIONS=align:
+OPTIONS=gender:
+OPTIONS=race:
+OPTIONS=role:
