@@ -93,6 +93,9 @@ highlight! link Structure    Keyword
 highlight! link Type         Keyword
 highlight! link Typedef      Keyword
 
+" Help
+highlight! link helpHyperTextJump Keyword
+
 " CSS
 highlight cssBraces    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight cssClassName cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
