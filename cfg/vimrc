@@ -147,7 +147,10 @@ set history=100
 
 " abbreviate commandline messages as much as possible
 " to help avoid hit-enter prompts
-set shortmess=atoOS
+set shortmess=atoO
+if has('patch-8.1.1270')
+  set shortmess+=S
+endif
 
 " make Vim use history recall even for <C-n>/<C-p>
 " since they're easier to hit than the arrow keys
