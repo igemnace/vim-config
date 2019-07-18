@@ -29,6 +29,7 @@ cd "$HOME/.vim/pack/code/start" && {
 cd "$HOME/.vim/pack/code/opt" && {
   bg_clone https://github.com/dhruvasagar/vim-table-mode.git
   bg_clone https://github.com/editorconfig/editorconfig-vim.git
+  bg_clone https://github.com/tpope/vim-scriptease.git
 }
 
 cd "$HOME/.vim/pack/extend/start" && {
