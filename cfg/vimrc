@@ -38,6 +38,9 @@ set nrformats-=octal
 
 " make Vim use vsplits for diff mode
 set diffopt+=vertical
+
+" make Vim use patience algorithm for diffing
+set diffopt+=algorithm:patience
 """ MISC EDITOR BEHAVIOR }}}
 
 """ STATUSLINE BEHAVIOR {{{
