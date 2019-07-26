@@ -162,6 +162,10 @@ highlight! link jsDocTypeNoParam    jsDocType
 highlight! link jsDocParam          Identifier
 highlight! link jsTaggedTemplate    Identifier
 
+" Pug
+highlight! link pugClass Identifier
+highlight! link pugPipeChar Identifier
+
 " Shell
 highlight shOption       cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
 highlight shCommandSub   cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
