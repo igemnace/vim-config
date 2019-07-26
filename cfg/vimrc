@@ -430,7 +430,7 @@ let g:jsx_ext_required = 0
 """ VIM-VUE {{{
 " disallow vim-vue from doing multiple regex checks for pre-processors
 " for performance
-let g:vue_pre_processors = ['pug']
+let g:vue_pre_processors = []
 """ END VIM-VUE }}}
 
 """ VIM-TEMPLATE-LITE {{{
