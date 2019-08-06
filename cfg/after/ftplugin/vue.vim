@@ -22,8 +22,8 @@ let s:snippets_map={
   \ "tlog": "this.$log(",
   \ "if": "if () {\<CR>\<C-o>k\<C-o>f)",
   \ "ifelse": "if () {\<CR>\<C-o>j else {\<CR>\<C-o>3k\<C-o>f)",
-  \ "try": "try {\<CR>\<C-o>j catch (e) {\<CR>\<C-o>{\<C-f>",
-  \ "tryf": "try {\<CR>\<C-o>j catch (e) {\<CR>\<C-o>j finally {\<CR>\<C-o>2{\<C-f>",
+  \ "try": "try {\<CR>\<C-o>j catch (error) {\<CR>\<C-o>{\<C-f>",
+  \ "tryf": "try {\<CR>\<C-o>j catch (error) {\<CR>\<C-o>j finally {\<CR>\<C-o>2{\<C-f>",
   \ }
 
 for [s:pattern, s:expansion] in items(s:snippets_map)
