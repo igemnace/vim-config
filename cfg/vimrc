@@ -297,6 +297,9 @@ xmap <Leader>h <Plug>SearchInPlace
 nmap <Leader>G <Plug>GrepStar
 xmap <Leader>G <Plug>GrepStar
 
+" map key for searching same-indent blocks
+nnoremap <Leader>i 0yiw/^<C-r>"\S/e<CR>
+
 " map a key to trigger ArgWrap
 nnoremap <Leader>a :ArgWrap<CR>
 
