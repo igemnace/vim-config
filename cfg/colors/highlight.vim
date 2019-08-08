@@ -202,6 +202,28 @@ highlight markdownError            cterm=NONE ctermfg=7 ctermbg=0    gui=NONE gu
 highlight markdownCodeBlock        cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
 highlight markdownHeadingDelimiter cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE    guisp=NONE
 
+" Vim
+highlight! link vimAddress        Identifier
+highlight! link vimBracket        Identifier
+highlight! link vimContinue       Identifier
+highlight! link vimEnvvar         Identifier
+highlight! link vimFuncSID        Identifier
+highlight! link vimGroup          Identifier
+highlight! link vimHiAttrib       Identifier
+highlight! link vimHiGroup        Identifier
+highlight! link vimHiGuiRgb       Identifier
+highlight! link vimHiNmbr         Identifier
+highlight! link vimHiTerm         Identifier
+highlight! link vimMapMod         Identifier
+highlight! link vimNotation       Identifier
+highlight! link vimOption         Identifier
+highlight! link vimPatSep         Identifier
+highlight! link vimSetSep         Identifier
+highlight! link vimSubstFlags     Identifier
+highlight! link vimUserAttrb      Identifier
+highlight! link vimMapModKey      vimMapMod
+highlight! link vimUserAttrbCmplt vimUserAttrb
+
 " Netrw
 highlight netrwExe cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE guisp=NONE
 
