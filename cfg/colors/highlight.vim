@@ -98,8 +98,18 @@ highlight! link helpHyperTextJump Keyword
 
 " CSS
 highlight cssBraces    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight cssClassName cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
-highlight cssColor     cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
+highlight! link cssAttr           Identifier
+highlight! link cssClassName      Identifier
+highlight! link cssColor          Identifier
+highlight! link cssImportant      Identifier
+highlight! link cssProp           Identifier
+highlight! link cssPseudoClassId  Identifier
+highlight! link cssUnitDecorators Identifier
+highlight! link cssValueLength    Identifier
+highlight! link cssValueNumber    Identifier
+highlight! link cssValueTime      Identifier
+highlight! link cssVendor         Identifier
+highlight! link cssKeyFrameProp   cssProp
 
 " Diff
 highlight DiffAdded   cterm=NONE ctermfg=2 ctermbg=0 gui=NONE guifg=#99cc99 guibg=#2d2d2d guisp=NONE
@@ -135,12 +145,14 @@ highlight htmlItalic cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc gu
 highlight htmlEndTag cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight htmlTag    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight htmlArg    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
+highlight! link htmlSpecialChar Identifier
+highlight! link htmlTitle       Identifier
+highlight! link htmlBold        Identifier
 
 " JavaScript
 highlight javaScript       cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight javaScriptBraces cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight jsRegexpString   cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
-highlight jsGlobalObjects  cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
 highlight jsBuiltins       cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight jsArrowFunction  cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight jsDocType        cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
@@ -149,6 +161,7 @@ highlight! link jsThis              Keyword
 highlight! link jsFuncCall          Identifier
 highlight! link jsClassFuncName     Function
 highlight! link jsClassDefinition   Identifier
+highlight! link jsGlobalObjects     Identifier
 highlight! link jsGlobalNodeObjects jsGlobalObjects
 highlight! link jsExceptions        jsGlobalObjects
 highlight! link jsBuiltins          jsGlobalObjects
@@ -163,8 +176,9 @@ highlight! link jsDocParam          Identifier
 highlight! link jsTaggedTemplate    Identifier
 
 " Pug
-highlight! link pugClass Identifier
+highlight! link pugClass    Identifier
 highlight! link pugPipeChar Identifier
+highlight! link pugIdChar   Identifier
 
 " Shell
 highlight shOption       cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
