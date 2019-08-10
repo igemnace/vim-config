@@ -145,9 +145,11 @@ highlight htmlItalic cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc gu
 highlight htmlEndTag cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight htmlTag    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight htmlArg    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight! link htmlSpecialChar Identifier
-highlight! link htmlTitle       Identifier
-highlight! link htmlBold        Identifier
+highlight! link htmlBold           Identifier
+highlight! link htmlSpecialChar    Identifier
+highlight! link htmlSpecialTagName Identifier
+highlight! link htmlTagName        Identifier
+highlight! link htmlTitle          Identifier
 
 " JavaScript
 highlight javaScript       cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
