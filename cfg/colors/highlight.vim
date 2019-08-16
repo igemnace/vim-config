@@ -63,19 +63,18 @@ highlight WildMenu         cterm=NONE      ctermfg=3    ctermbg=237  gui=NONE   
 highlight clear Italic
 
 " standard syntax
-highlight Boolean     cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
 highlight Comment     cterm=NONE ctermfg=8  ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE    guisp=NONE
 highlight Constant    cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
 highlight Delimiter   cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
 highlight Identifier  cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
 highlight Keyword     cterm=NONE ctermfg=5  ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE    guisp=NONE
-highlight Number      cterm=NONE ctermfg=1  ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE    guisp=NONE
 highlight Operator    cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
 highlight SpecialChar cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE    guisp=NONE
 highlight Special     cterm=NONE ctermfg=6  ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE    guisp=NONE
 highlight String      cterm=NONE ctermfg=2  ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
 highlight Tag         cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
 highlight Todo        cterm=NONE ctermfg=3  ctermbg=237  gui=NONE guifg=#ffcc66 guibg=#303030 guisp=NONE
+highlight! link Boolean      Identifier
 highlight! link Character    String
 highlight! link Conditional  Keyword
 highlight! link PreProc      Include
@@ -86,6 +85,7 @@ highlight! link Float        Number
 highlight! link Function     Identifier
 highlight! link Include      Keyword
 highlight! link Label        Keyword
+highlight! link Number       Identifier
 highlight! link Repeat       Keyword
 highlight! link StorageClass Keyword
 highlight! link Statement    Keyword
@@ -99,6 +99,7 @@ highlight! link helpHyperTextJump Keyword
 " CSS
 highlight cssBraces    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight! link cssAttr           Identifier
+highlight! link cssAttrComma      cssAttr
 highlight! link cssClassName      Identifier
 highlight! link cssColor          Identifier
 highlight! link cssImportant      Identifier
@@ -157,7 +158,6 @@ highlight javaScriptBraces cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d
 highlight jsRegexpString   cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
 highlight jsBuiltins       cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight jsArrowFunction  cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight jsDocType        cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight! link jsReturn            Keyword
 highlight! link jsThis              Keyword
 highlight! link jsFuncCall          Identifier
@@ -173,9 +173,13 @@ highlight! link jsCatch             Keyword
 highlight! link jsNull              Keyword
 highlight! link jsUndefined         jsNull
 highlight! link jsObjectKey         Identifier
-highlight! link jsDocTypeNoParam    jsDocType
 highlight! link jsDocParam          Identifier
+highlight! link jsDocType           jsDocParam
+highlight! link jsDocTypeNoParam    jsDocType
 highlight! link jsTaggedTemplate    Identifier
+highlight! link jsRegexpString      Identifier
+highlight! link jsRegexpQuantifier  Identifier
+highlight! link jsSpecial           Identifier
 
 " Pug
 highlight! link pugClass    Identifier
@@ -205,7 +209,9 @@ highlight markdownCodeBlock        cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE gu
 highlight markdownHeadingDelimiter cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE    guisp=NONE
 
 " Vim
+highlight vimCommentTitle cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight! link vimAddress        Identifier
+highlight! link vimAutoEvent      Identifier
 highlight! link vimBracket        Identifier
 highlight! link vimContinue       Identifier
 highlight! link vimEnvvar         Identifier
@@ -222,6 +228,8 @@ highlight! link vimOption         Identifier
 highlight! link vimPatSep         Identifier
 highlight! link vimSetSep         Identifier
 highlight! link vimSubstFlags     Identifier
+highlight! link vimSynOption      Identifier
+highlight! link vimSynReg         Identifier
 highlight! link vimUserAttrb      Identifier
 highlight! link vimMapModKey      vimMapMod
 highlight! link vimUserAttrbCmplt vimUserAttrb
