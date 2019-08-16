@@ -229,6 +229,12 @@ highlight! link vimUserAttrbCmplt vimUserAttrb
 " Netrw
 highlight netrwExe cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE guisp=NONE
 
+" Kickfix
+highlight qfFileName1 cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
+highlight qfFileName2 cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
+highlight! link qfZebra1 Normal
+highlight! link qfZebra2 Normal
+
 " User
 highlight User1 cterm=NONE ctermfg=1 ctermbg=237 gui=NONE guifg=#f2777a guibg=#303030 guisp=NONE
 highlight User2 cterm=NONE ctermfg=2 ctermbg=237 gui=NONE guifg=#99cc99 guibg=#303030 guisp=NONE
