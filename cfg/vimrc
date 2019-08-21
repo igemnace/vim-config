@@ -385,6 +385,7 @@ if !empty($TMUX)
     \ "socket_name": split($TMUX, ",")[0],
     \ "target_pane": ":.1"
     \ }
+  let g:slime_dont_ask_default = 1
 endif
 
 " unset vim-slime's default emacs bindings
