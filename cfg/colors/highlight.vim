@@ -159,33 +159,36 @@ highlight jsArrowFunction  cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d
 highlight jsBuiltins       cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
 highlight jsDocTags        cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc guibg=NONE guisp=NONE
 highlight jsRegexpString   cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
-highlight! link jsReturn            Keyword
-highlight! link jsThis              Keyword
-highlight! link jsFuncCall          Identifier
-highlight! link jsClassFuncName     Function
-highlight! link jsClassDefinition   Identifier
-highlight! link jsGlobalObjects     Identifier
-highlight! link jsGlobalNodeObjects jsGlobalObjects
-highlight! link jsExceptions        jsGlobalObjects
 highlight! link jsBuiltins          jsGlobalObjects
-highlight! link jsException         Keyword
-highlight! link jsTry               Keyword
 highlight! link jsCatch             Keyword
-highlight! link jsNull              Keyword
-highlight! link jsUndefined         jsNull
-highlight! link jsObjectKey         Identifier
+highlight! link jsClassDefinition   Identifier
+highlight! link jsClassFuncName     Function
 highlight! link jsDocParam          Identifier
 highlight! link jsDocType           jsDocParam
 highlight! link jsDocTypeNoParam    jsDocType
-highlight! link jsTaggedTemplate    Identifier
-highlight! link jsRegexpString      Identifier
+highlight! link jsException         Keyword
+highlight! link jsExceptions        jsGlobalObjects
+highlight! link jsFuncCall          Identifier
+highlight! link jsGlobalNodeObjects jsGlobalObjects
+highlight! link jsGlobalObjects     Identifier
+highlight! link jsNull              Keyword
+highlight! link jsObjectKey         Identifier
+highlight! link jsPrototype         Identifier
 highlight! link jsRegexpQuantifier  Identifier
+highlight! link jsRegexpString      Identifier
+highlight! link jsReturn            Keyword
 highlight! link jsSpecial           Identifier
+highlight! link jsSuper             Keyword
+highlight! link jsTaggedTemplate    Identifier
+highlight! link jsThis              Keyword
+highlight! link jsTry               Keyword
+highlight! link jsUndefined         jsNull
 
 " Pug
-highlight! link pugClass    Identifier
-highlight! link pugPipeChar Identifier
-highlight! link pugIdChar   Identifier
+highlight! link pugClassChar pugClass
+highlight! link pugClass     Identifier
+highlight! link pugIdChar    Identifier
+highlight! link pugPipeChar  Identifier
 
 " Shell
 highlight shOption       cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
@@ -243,6 +246,11 @@ highlight qfFileName1 cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#6699cc g
 highlight qfFileName2 cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
 highlight! link qfZebra1 Normal
 highlight! link qfZebra2 Normal
+
+" Vimwiki
+highlight VimwikiLink cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
+highlight! link VimwikiPre  Normal
+highlight! link VimwikiCode Keyword
 
 " User
 highlight User1 cterm=NONE ctermfg=1 ctermbg=237 gui=NONE guifg=#f2777a guibg=#303030 guisp=NONE
