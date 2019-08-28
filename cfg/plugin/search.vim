@@ -3,7 +3,7 @@ xnoremap * y/<C-r>"<CR>
 xnoremap # y?<C-r>"<CR>
 
 " add <Plug> mappings for grepping the current selection, like *
-nnoremap <Plug>GrepStar :Grep <lt>cword><CR>
+nnoremap <Plug>GrepStar :Grep <C-r><C-w><CR>
 xnoremap <Plug>GrepStar "gy:<C-u>Grep '<C-r>g'<CR>
 
 " add <Plug> mappings for searching in place
