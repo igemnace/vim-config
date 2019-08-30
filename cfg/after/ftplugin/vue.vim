@@ -41,4 +41,4 @@ inoremap <buffer> <C-@>xi ';<C-o>B'<Left>import {} from <C-o>F}
 " define convenience maps for passing down props
 imap <buffer> <C-@>xp <Left><C-o>"zyiw:<C-r>z=<Left><Left><C-o><Plug>Coerce-<C-o>f=<Right><C-v>"<C-o>e<Right><C-v>"
 imap <buffer> <C-@>xo <Left><C-o>"zyiw@<C-r>z=<Left><Left><C-o><Plug>Coerce-<C-o>f=<Right><C-v>"<C-o>e<Right><C-v>"<C-o>viW:<C-u>keeppatterns s/\%Von-//<CR><C-o>`><Right>
-imap <buffer> <C-@>xi <Left><C-o>"zyiw:<C-r>z.sync=<Left><Left><Left><Left><Left><Left><C-o><Plug>Coerce-<C-o>f=<Right><C-v>"<C-o>e<Right><C-v>"
+imap <buffer> <C-@>xi <Left><C-o>"zyiw:<C-r>z.sync=<Left><Left><Left><Left><Left><Left><Left><C-o><Plug>Coerce-<C-o>f=<Right><C-v>"<C-o>e<Right><C-v>"
