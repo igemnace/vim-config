@@ -6,7 +6,7 @@ bg_clone() {
 }
 
 # Init packages
-for package in code extend filenav integrate theme; do
+for package in code extend filenav integrate; do
   mkdir -p "$HOME/.vim/pack/$package"/{start,opt}
 done
 
