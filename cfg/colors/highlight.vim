@@ -20,7 +20,7 @@ highlight Directory        cterm=NONE      ctermfg=4    ctermbg=NONE gui=NONE   
 highlight EndOfBuffer      cterm=NONE      ctermfg=8    ctermbg=NONE gui=NONE      guifg=#747369 guibg=NONE    guisp=NONE
 highlight ErrorMsg         cterm=NONE      ctermfg=1    ctermbg=0    gui=NONE      guifg=#f2777a guibg=#2d2d2d guisp=NONE
 highlight Error            cterm=NONE      ctermfg=0    ctermbg=1    gui=NONE      guifg=#2d2d2d guibg=#f2777a guisp=NONE
-highlight FoldColumn       cterm=NONE      ctermfg=6    ctermbg=10   gui=NONE      guifg=#66cccc guibg=#99cc99 guisp=NONE
+highlight FoldColumn       cterm=NONE      ctermfg=8    ctermbg=0    gui=NONE      guifg=#747369 guibg=#2d2d2d guisp=NONE
 highlight Folded           cterm=NONE      ctermfg=8    ctermbg=237  gui=NONE      guifg=#747369 guibg=#303030 guisp=NONE
 highlight Ignore           cterm=NONE      ctermfg=0    ctermbg=NONE gui=NONE      guifg=#2d2d2d guibg=NONE    guisp=NONE
 highlight IncSearch        cterm=NONE      ctermfg=237  ctermbg=8    gui=NONE      guifg=#303030 guibg=#747369 guisp=NONE
