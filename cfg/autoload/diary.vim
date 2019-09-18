@@ -1,27 +1,3 @@
-" deprecated format
-function! diary#compute_twh_legacy() range abort
-  let total_hours = 0
-  let time_pattern = '`\(.\{-}\)`'
-  let lines = getline(a:firstline, a:lastline)
-
-  for line in lines
-    if line !~? time_pattern
-      continue
-    endif
-
-    let [_, time; rest] = matchlist(line, time_pattern)
-    let [time_diff] = systemlist('qalc -t ' . time)
-    let hours = -str2float(time_diff) 
-
-    if line !~# 'BREAK'
-      let total_hours += hours
-    endif
-  endfor
-
-  let output = 'TWH: ' . string(total_hours)
-  execute a:lastline . 'put =output'
-endfunction
-
 function! diary#compute_twh() range abort
   let total_hours = 0
   let time_pattern = '`\(.\{-}\)`'
@@ -51,14 +27,19 @@ function! diary#compute_twh() range abort
   execute a:lastline . 'put =output'
 endfunction
 
-function! diary#extract_standup() abort
-  VimwikiDiaryPrevDay
+" Parses daily report task lines from current buffer
+function! s:parse_daily_report() abort
   1
   redir => rawlines
   /Daily Report/,$g/^- /p
   redir END
+  return rawlines
+endfunction
 
-  let lines = split(rawlines, '\n')
+" Expects buffer lines in daily report format as a single argument
+" Returns an array of daily tasks
+function! s:extract_tasks(rawlines) abort
+  let lines = split(a:rawlines, '\n')
   let tasks = []
   for line in lines
     if line !~? '^- ' || line =~# 'Break' || line =~? 'standup'
@@ -66,9 +47,39 @@ function! diary#extract_standup() abort
     endif
     call add(tasks, substitute(line, '^- ', '', ''))
   endfor
-  let tasks = list#uniq(tasks)
+  return list#uniq(tasks)
+endfunction
 
+function! diary#extract_standup() abort
+  " grab previous day's daily report
+  VimwikiDiaryPrevDay
+  let rawlines = s:parse_daily_report()
+
+  " extract tasks from daily report
+  let tasks = s:extract_tasks(rawlines)
+
+  " append comma-separated tasks to PREV: line in standup report
   b#
   /PREV/
   execute "normal! A \<C-r>=join(tasks, ', ')\<CR>\<Esc>"
+endfunction
+
+function! diary#extract_completion() abort
+  " grab current day's daily report
+  let rawlines = s:parse_daily_report()
+
+  " extract tasks from daily report
+  let tasks = s:extract_tasks(rawlines)
+
+  " append completion report
+  $put =nr2char(10)
+  $LoadTemplate completion-report.wiki
+
+  " append tasks, one per line
+  $put =map(tasks, {k, v -> '[x] ' . v})
+
+  " Copy total to end
+  $put =nr2char(10)
+  1
+  /`Total` -/copy $
 endfunction

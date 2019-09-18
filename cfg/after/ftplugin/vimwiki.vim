@@ -9,3 +9,6 @@ command! -buffer -range=% TWH <line1>,<line2>call diary#compute_twh()
 
 " define convenience command for grabbing previous tasks for standup report
 command! -buffer Standup silent call diary#extract_standup()
+
+" define convenience command for grabbing today's tasks for completion report
+command! -buffer CompletionReport silent call diary#extract_completion()
