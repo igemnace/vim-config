@@ -344,6 +344,9 @@ let g:qf_bufname_or_text = 1
 """ END VIM-QF }}}
 
 """ VIMWIKI {{{
+" use Dropbox for default vimwiki
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
+
 " allow VimWiki to fold sections and code blocks
 let g:vimwiki_folding = 'expr'
 """ END VIMWIKI }}}
