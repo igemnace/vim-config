@@ -442,7 +442,7 @@ let g:template_lite_mappings = {
   \  '*.vue': 'vue/component.vue',
   \  '*.sh': 'sh.sh',
   \  'PKGBUILD': 'PKGBUILD',
-  \  '~/vimwiki/diary/*.wiki': 'diary.wiki',
+  \  '~/Dropbox/vimwiki/diary/*.wiki': 'diary.wiki',
   \  '~/Games/nethack/load/*': 'nethackrc'
   \}
 
