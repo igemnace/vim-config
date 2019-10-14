@@ -31,3 +31,14 @@ augroup QfAfter
   " loclist
   autocmd QuickFixCmdPre l* call s:PrepareMarkLoc()
 augroup END
+
+function! s:UnmarkAll()
+  if exists('g:quickfix_pending')
+    unlet g:quickfix_pending
+  endif
+  if exists('g:loclist_seen')
+    unlet g:loclist_seen
+  endif
+endfunction
+
+command! QfUnmarkAll call s:UnmarkAll()
