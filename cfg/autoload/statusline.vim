@@ -31,3 +31,8 @@ function! statusline#loclist()
 
   return ''
 endfunction
+
+" displays a flag if there is a currently running background job
+function! statusline#bg()
+  return exists('g:asyncdo') ? '[bg]' : ''
+endfunction

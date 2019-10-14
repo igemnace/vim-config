@@ -61,6 +61,8 @@ set statusline+=%3*%m
 set statusline+=%1*%r
 " midline separator
 set statusline+=%=
+" background job flag
+set statusline+=%4*%{statusline#bg()}
 " quickfix flag
 set statusline+=%3*%{statusline#loclist()}%{statusline#quickfix()}
 """ END STATUSLINE BEHAVIOR }}}
