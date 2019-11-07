@@ -184,11 +184,15 @@ highlight! link jsThis              Keyword
 highlight! link jsTry               Keyword
 highlight! link jsUndefined         jsNull
 
+" TypeScript
+highlight! link typescriptDecorators Identifier
+
 " Pug
-highlight! link pugClassChar pugClass
-highlight! link pugClass     Identifier
-highlight! link pugIdChar    Identifier
-highlight! link pugPipeChar  Identifier
+highlight! link pugClassChar     pugClass
+highlight! link pugClass         Identifier
+highlight! link pugIdChar        Identifier
+highlight! link pugPipeChar      Identifier
+highlight! link pugTagBlockChar  Identifier
 
 " Shell
 highlight shOption       cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
