@@ -137,9 +137,10 @@ highlight gitcommitDiscardedFile cterm=bold ctermfg=1 ctermbg=NONE gui=bold guif
 highlight gitcommitSelectedFile  cterm=bold ctermfg=2 ctermbg=NONE gui=bold guifg=#99cc99 guibg=NONE guisp=NONE
 
 " Fugitive
+highlight diffSubname               cterm=NONE ctermfg=8 ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE guisp=NONE
 highlight fugitiveModifier          cterm=NONE ctermfg=1 ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE guisp=NONE
 highlight fugitiveStagedModifier    cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE guisp=NONE
-highlight diffSubname               cterm=NONE ctermfg=8 ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE guisp=NONE
+highlight! link fugitiveHash              Comment
 highlight! link fugitiveUnstagedModifier  fugitiveModifier
 highlight! link fugitiveUntrackedModifier fugitiveModifier
 
