@@ -66,7 +66,6 @@ highlight clear Italic
 highlight Comment     cterm=NONE ctermfg=8  ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE    guisp=NONE
 highlight Delimiter   cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
 highlight Identifier  cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
-highlight Keyword     cterm=NONE ctermfg=5  ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE    guisp=NONE
 highlight Operator    cterm=NONE ctermfg=7  ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE    guisp=NONE
 highlight SpecialChar cterm=NONE ctermfg=14 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE    guisp=NONE
 highlight Special     cterm=NONE ctermfg=6  ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE    guisp=NONE
@@ -75,6 +74,7 @@ highlight Tag         cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 
 highlight Todo        cterm=NONE ctermfg=3  ctermbg=237  gui=NONE guifg=#ffcc66 guibg=#3a3a3a guisp=NONE
 highlight! link Boolean      Identifier
 highlight! link Constant     Identifier
+highlight! link Keyword      Identifier
 highlight! link Character    String
 highlight! link Conditional  Keyword
 highlight! link PreProc      Include
@@ -94,7 +94,7 @@ highlight! link Type         Keyword
 highlight! link Typedef      Keyword
 
 " Help
-highlight! link helpHyperTextJump Keyword
+highlight helpHyperTextJump cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
 
 " CSS
 highlight cssBraces    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
@@ -137,8 +137,11 @@ highlight gitcommitDiscardedFile cterm=bold ctermfg=1 ctermbg=NONE gui=bold guif
 highlight gitcommitSelectedFile  cterm=bold ctermfg=2 ctermbg=NONE gui=bold guifg=#99cc99 guibg=NONE guisp=NONE
 
 " Fugitive
-highlight fugitiveModifier cterm=NONE ctermfg=1 ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE guisp=NONE
-highlight diffSubname      cterm=NONE ctermfg=8 ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE guisp=NONE
+highlight fugitiveModifier          cterm=NONE ctermfg=1 ctermbg=NONE gui=NONE guifg=#f2777a guibg=NONE guisp=NONE
+highlight fugitiveStagedModifier    cterm=NONE ctermfg=2 ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE guisp=NONE
+highlight diffSubname               cterm=NONE ctermfg=8 ctermbg=NONE gui=NONE guifg=#747369 guibg=NONE guisp=NONE
+highlight! link fugitiveUnstagedModifier  fugitiveModifier
+highlight! link fugitiveUntrackedModifier fugitiveModifier
 
 " HTML
 highlight htmlBold   cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
