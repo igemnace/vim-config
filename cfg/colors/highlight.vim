@@ -255,9 +255,9 @@ highlight! link qfZebra1 Normal
 highlight! link qfZebra2 Normal
 
 " Vimwiki
+highlight VimwikiCode cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
 highlight VimwikiLink cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc guibg=NONE guisp=NONE
 highlight! link VimwikiPre  Normal
-highlight! link VimwikiCode Keyword
 
 " User
 highlight User1 cterm=NONE ctermfg=1 ctermbg=237 gui=NONE guifg=#f2777a guibg=#3a3a3a guisp=NONE
