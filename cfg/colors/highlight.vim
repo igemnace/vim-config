@@ -72,9 +72,9 @@ highlight Special     cterm=NONE ctermfg=6  ctermbg=NONE gui=NONE guifg=#66cccc 
 highlight String      cterm=NONE ctermfg=2  ctermbg=NONE gui=NONE guifg=#99cc99 guibg=NONE    guisp=NONE
 highlight Tag         cterm=NONE ctermfg=3  ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE    guisp=NONE
 highlight Todo        cterm=NONE ctermfg=3  ctermbg=237  gui=NONE guifg=#ffcc66 guibg=#3a3a3a guisp=NONE
-highlight! link Boolean      Identifier
-highlight! link Constant     Identifier
-highlight! link Keyword      Identifier
+highlight! link Boolean      Normal
+highlight! link Constant     Normal
+highlight! link Keyword      Normal
 highlight! link Character    String
 highlight! link Conditional  Keyword
 highlight! link PreProc      Include
@@ -82,10 +82,10 @@ highlight! link Define       Include
 highlight! link Macro        Include
 highlight! link Exception    Keyword
 highlight! link Float        Number
-highlight! link Function     Identifier
+highlight! link Function     Normal
 highlight! link Include      Keyword
 highlight! link Label        Keyword
-highlight! link Number       Identifier
+highlight! link Number       Normal
 highlight! link Repeat       Keyword
 highlight! link StorageClass Keyword
 highlight! link Statement    Keyword
@@ -98,18 +98,18 @@ highlight helpHyperTextJump cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc
 
 " CSS
 highlight cssBraces    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight! link cssAttr           Identifier
+highlight! link cssAttr           Normal
 highlight! link cssAttrComma      cssAttr
-highlight! link cssClassName      Identifier
-highlight! link cssColor          Identifier
-highlight! link cssImportant      Identifier
-highlight! link cssProp           Identifier
-highlight! link cssPseudoClassId  Identifier
-highlight! link cssUnitDecorators Identifier
-highlight! link cssValueLength    Identifier
-highlight! link cssValueNumber    Identifier
-highlight! link cssValueTime      Identifier
-highlight! link cssVendor         Identifier
+highlight! link cssClassName      Normal
+highlight! link cssColor          Normal
+highlight! link cssImportant      Normal
+highlight! link cssProp           Normal
+highlight! link cssPseudoClassId  Normal
+highlight! link cssUnitDecorators Normal
+highlight! link cssValueLength    Normal
+highlight! link cssValueNumber    Normal
+highlight! link cssValueTime      Normal
+highlight! link cssVendor         Normal
 highlight! link cssKeyFrameProp   cssProp
 
 " Diff
@@ -150,11 +150,11 @@ highlight htmlItalic cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=#cc99cc gu
 highlight htmlEndTag cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight htmlTag    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
 highlight htmlArg    cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
-highlight! link htmlBold           Identifier
-highlight! link htmlSpecialChar    Identifier
-highlight! link htmlSpecialTagName Identifier
-highlight! link htmlTagName        Identifier
-highlight! link htmlTitle          Identifier
+highlight! link htmlBold           Normal
+highlight! link htmlSpecialChar    Normal
+highlight! link htmlSpecialTagName Normal
+highlight! link htmlTagName        Normal
+highlight! link htmlTitle          Normal
 
 " JavaScript
 highlight javaScriptBraces cterm=NONE ctermfg=7 ctermbg=NONE gui=NONE guifg=#d3d0c8 guibg=NONE guisp=NONE
@@ -165,40 +165,40 @@ highlight jsDocTags        cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE guifg=#669
 highlight jsRegexpString   cterm=NONE ctermfg=6 ctermbg=NONE gui=NONE guifg=#66cccc guibg=NONE guisp=NONE
 highlight! link jsBuiltins          jsGlobalObjects
 highlight! link jsCatch             Keyword
-highlight! link jsClassDefinition   Identifier
+highlight! link jsClassDefinition   Normal
 highlight! link jsClassFuncName     Function
-highlight! link jsDocParam          Identifier
+highlight! link jsDocParam          Normal
 highlight! link jsDocType           jsDocParam
 highlight! link jsDocTypeNoParam    jsDocType
 highlight! link jsException         Keyword
 highlight! link jsExceptions        jsGlobalObjects
-highlight! link jsFuncCall          Identifier
+highlight! link jsFuncCall          Normal
 highlight! link jsGlobalNodeObjects jsGlobalObjects
-highlight! link jsGlobalObjects     Identifier
+highlight! link jsGlobalObjects     Normal
 highlight! link jsNull              Keyword
-highlight! link jsObjectKey         Identifier
-highlight! link jsPrototype         Identifier
-highlight! link jsRegexpQuantifier  Identifier
-highlight! link jsRegexpString      Identifier
+highlight! link jsObjectKey         Normal
+highlight! link jsPrototype         Normal
+highlight! link jsRegexpQuantifier  Normal
+highlight! link jsRegexpString      Normal
 highlight! link jsReturn            Keyword
-highlight! link jsSpecial           Identifier
+highlight! link jsSpecial           Normal
 highlight! link jsSuper             Keyword
-highlight! link jsTaggedTemplate    Identifier
+highlight! link jsTaggedTemplate    Normal
 highlight! link jsThis              Keyword
 highlight! link jsTry               Keyword
 highlight! link jsUndefined         jsNull
 
 " TypeScript
-highlight! link typescriptDecorators    Identifier
-highlight! link typescriptExceptions    Identifier
-highlight! link typescriptGlobalObjects Identifier
+highlight! link typescriptDecorators    Normal
+highlight! link typescriptExceptions    Normal
+highlight! link typescriptGlobalObjects Normal
 
 " Pug
 highlight! link pugClassChar     pugClass
-highlight! link pugClass         Identifier
-highlight! link pugIdChar        Identifier
-highlight! link pugPipeChar      Identifier
-highlight! link pugTagBlockChar  Identifier
+highlight! link pugClass         Normal
+highlight! link pugIdChar        Normal
+highlight! link pugPipeChar      Normal
+highlight! link pugTagBlockChar  Normal
 
 " Shell
 highlight shOption       cterm=NONE ctermfg=7 ctermbg=0 gui=NONE guifg=#d3d0c8 guibg=#2d2d2d guisp=NONE
@@ -224,27 +224,27 @@ highlight markdownHeadingDelimiter cterm=NONE ctermfg=4 ctermbg=NONE gui=NONE gu
 
 " Vim
 highlight vimCommentTitle cterm=NONE ctermfg=3 ctermbg=NONE gui=NONE guifg=#ffcc66 guibg=NONE guisp=NONE
-highlight! link vimAddress        Identifier
-highlight! link vimAutoEvent      Identifier
-highlight! link vimBracket        Identifier
-highlight! link vimContinue       Identifier
-highlight! link vimEnvvar         Identifier
-highlight! link vimFuncSID        Identifier
-highlight! link vimGroup          Identifier
-highlight! link vimHiAttrib       Identifier
-highlight! link vimHiGroup        Identifier
-highlight! link vimHiGuiRgb       Identifier
-highlight! link vimHiNmbr         Identifier
-highlight! link vimHiTerm         Identifier
-highlight! link vimMapMod         Identifier
-highlight! link vimNotation       Identifier
-highlight! link vimOption         Identifier
-highlight! link vimPatSep         Identifier
-highlight! link vimSetSep         Identifier
-highlight! link vimSubstFlags     Identifier
-highlight! link vimSynOption      Identifier
-highlight! link vimSynReg         Identifier
-highlight! link vimUserAttrb      Identifier
+highlight! link vimAddress        Normal
+highlight! link vimAutoEvent      Normal
+highlight! link vimBracket        Normal
+highlight! link vimContinue       Normal
+highlight! link vimEnvvar         Normal
+highlight! link vimFuncSID        Normal
+highlight! link vimGroup          Normal
+highlight! link vimHiAttrib       Normal
+highlight! link vimHiGroup        Normal
+highlight! link vimHiGuiRgb       Normal
+highlight! link vimHiNmbr         Normal
+highlight! link vimHiTerm         Normal
+highlight! link vimMapMod         Normal
+highlight! link vimNotation       Normal
+highlight! link vimOption         Normal
+highlight! link vimPatSep         Normal
+highlight! link vimSetSep         Normal
+highlight! link vimSubstFlags     Normal
+highlight! link vimSynOption      Normal
+highlight! link vimSynReg         Normal
+highlight! link vimUserAttrb      Normal
 highlight! link vimMapModKey      vimMapMod
 highlight! link vimUserAttrbCmplt vimUserAttrb
 
