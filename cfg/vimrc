@@ -446,7 +446,8 @@ let g:template_lite_mappings = {
   \  '*.sh': 'sh.sh',
   \  'PKGBUILD': 'PKGBUILD',
   \  '~/Dropbox/vimwiki/diary/*.wiki': 'diary.wiki',
-  \  '~/Games/nethack/load/*': 'nethackrc'
+  \  '~/Games/nethack/load/*': 'nethackrc',
+  \  '*.spec.js': 'jest/component.spec.js'
   \}
 
 " trigger vim-abolish on template load
