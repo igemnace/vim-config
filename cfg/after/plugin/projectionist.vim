@@ -5,8 +5,13 @@ function! s:extract_value (key) abort
 endfunction
 
 function! s:activate() abort
-  let g:argwrap_tail_comma_braces = s:extract_value('argwrap_tail_comma_braces')
-  let g:argwrap_padded_braces = s:extract_value('argwrap_padded_braces')
+  let keys = ['argwrap_tail_comma_braces', 'argwrap_padded_braces']
+  for key in keys
+    let value = s:extract_value(key)
+    if !empty(value)
+      execute 'let g:' . key . ' = value'
+    endif
+  endfor
 endfunction
 
 augroup AfterProjectionist
