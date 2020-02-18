@@ -1,4 +1,11 @@
 == Completion Report ==
 
-skeleton-date{%b %d, %Y}
+skeleton-date{%b %e, %Y (%A)}
 
+Today's Tasks:
+Average Score:
+
+Extra Mile:
+Total Hours:
+
+Reason Incomplete:

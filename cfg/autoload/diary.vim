@@ -76,10 +76,12 @@ function! diary#extract_completion() abort
   $LoadTemplate completion-report.wiki
 
   " append tasks, one per line
-  $put =map(tasks, {k, v -> '[x] ' . v})
+  $put =map(tasks, {k, v -> '0. ' . v})
 
   " Copy total to end
   $put =nr2char(10)
   1
   /`Total` -/copy $
+  $s/`Total` -/Total Day Hours:/
+  $s/hrs//
 endfunction
