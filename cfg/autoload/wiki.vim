@@ -1,10 +1,19 @@
-function! wiki#generate_version_logs() range abort
+function! wiki#generate_version_logs(...) range abort
   execute a:firstline . ',' . a:lastline 'y'
   SScratch
   0put
   $d
-  %s/=== \(.*\) ===/\1
   %s/*/-
+
+  " flatten into 1-per-row format
+  if a:0 && a:1 ==? 'flat'
+    %g/^===/+1;+2d
+    %g/^\s\+-/d
+    %v/./d
+  else
+    %s/=== \(.*\) ===/\1
+  endif
+
   %y +
   redraw!
   echom 'Version logs copied to clipboard!'

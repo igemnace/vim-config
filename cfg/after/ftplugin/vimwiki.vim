@@ -14,7 +14,7 @@ command! -buffer Standup silent call diary#extract_standup()
 command! -buffer CompletionReport silent call diary#extract_completion()
 
 " define convenience command for generating non-wiki-syntax version logs
-command! -buffer -range VersionLogs <line1>,<line2>call wiki#generate_version_logs()
+command! -buffer -range -nargs=* VersionLogs <line1>,<line2>call wiki#generate_version_logs(<f-args>)
 
 " define convenience command for generating JSON change logs
 command! -buffer -range ChangeLogs <line1>,<line2>call wiki#generate_changelogs()
