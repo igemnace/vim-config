@@ -5,11 +5,18 @@ function! wiki#generate_version_logs(...) range abort
   $d
   %s/*/-
 
-  " flatten into 1-per-row format
   if a:0 && a:1 ==? 'flat'
+    " flatten into 1-per-row format
     %g/^===/+1;+2d
     %g/^\s\+-/d
     %v/./d
+    %s/^- (.*)/- /
+  elseif a:0 && a:1 ==? 'pr'
+    " extract only PR numbers
+    %g/^===/+1;+2d
+    %g/^\s\+-/d
+    %v/./d
+    %s/^- (\(.*\)).*/\1/
   else
     %s/=== \(.*\) ===/\1
   endif
@@ -32,7 +39,8 @@ function! wiki#generate_changelogs() range abort
   1,.d h
   " format logs
   1d
-  g/\v^\* (feat|refactor|fix): (.*)/s//"tag": "\1",\r"title":"\2",
+  %s/"/\\"/g
+  g/\v^\* (\(.*\)) (feat|refactor|fix): (.*)/s//"tag": "\2",\r"title":"\3",
   g/^  \* \(.*\)/s//"description": "\1"
   g/^"tag":/normal! O{
   g/^"description":/normal! o},
