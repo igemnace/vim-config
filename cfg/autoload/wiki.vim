@@ -40,7 +40,7 @@ function! wiki#generate_changelogs() range abort
   " format logs
   1d
   %s/"/\\"/ge
-  g/\v^\* (\(.*\)) (feat|refactor|fix): (.*)/s//"tag": "\2",\r"title":"\3",
+  g/\v^\* (\(.*\)) (feat|refactor|fix): (.*)/s//"tag": "\2",\r"title": "\3",
   g/^  \* \(.*\)/s//"description": "\1"
   g/^"tag":/normal! O{
   g/^"description":/normal! o},
