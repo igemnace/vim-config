@@ -84,6 +84,7 @@ nnoremap =ol :call <SID>toggle('list')<CR>
 nnoremap =oc :call <SID>toggle('cursorline')<CR>
 nnoremap =os :call <SID>toggle('spell')<CR>
 nnoremap =ow :call <SID>toggle('wrap')<CR>
+nnoremap =on :call <SID>toggle('number')<CR>
 " }}}
 
 " Put mappings {{{1
