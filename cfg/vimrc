@@ -325,6 +325,11 @@ nmap <Leader>ss <Plug>SlimeLineSend
 """ END VIM CONFIG }}}
 
 """ PLUGIN CONFIG {{{
+""" FZF {{{
+" use down layout explicitly
+let g:fzf_layout = { 'down': '40%' }
+""" END FZF }}}
+
 """ NETRW {{{
 " disallow Netrw from setting the alternate buffer
 " to ensure that <C-^> always lands on a file buffer not a dir
