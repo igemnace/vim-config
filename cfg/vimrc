@@ -412,6 +412,12 @@ let g:table_mode_header_fillchar = '-'
 
 " disallow vim-table-mode from automatically aligning every now and then
 let g:table_mode_auto_align = 0
+
+" disallow vim-table-mode from mapping over []{} motions
+let g:table_mode_motion_up_map = '<Leader>{<Bar>'
+let g:table_mode_motion_down_map = '<Leader>}<Bar>'
+let g:table_mode_motion_left_map = '<Leader>[<Bar>'
+let g:table_mode_motion_right_map = '<Leader>]<Bar>'
 """ END VIM-TABLE-MODE }}}
 
 """ VIM-MARKDOWN {{{
