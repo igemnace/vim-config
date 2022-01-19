@@ -265,6 +265,10 @@ highlight! link VimwikiPre  Normal
 " Tmux
 highlight! link tmuxKey Normal
 
+" i3
+highlight! link i3ConfigVariableModifier Normal
+highlight! link i3ConfigString           String
+
 " User
 highlight User1 cterm=NONE ctermfg=1 ctermbg=237 gui=NONE guifg=#f2777a guibg=#3a3a3a guisp=NONE
 highlight User2 cterm=NONE ctermfg=2 ctermbg=237 gui=NONE guifg=#99cc99 guibg=#3a3a3a guisp=NONE
