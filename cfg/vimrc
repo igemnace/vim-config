@@ -265,7 +265,7 @@ nnoremap <Leader>gs :tab Git<CR>
 nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gc :Gcommit --verbose<CR>
 nnoremap <Leader>gm :Gmerge<CR>
-nnoremap <Leader>gb :Gblame <bar> ToggleLineBind<CR>
+nnoremap <Leader>gb :Git blame <bar> ToggleLineBind<CR>
 nnoremap <Leader>gl :Gllog -- %<CR><CR><CR>
 nnoremap <Leader>gL :Gllog<CR><CR><CR>
 
@@ -338,6 +338,11 @@ let g:netrw_altfile = 1
 " disallow Netrw from displaying its banner
 let g:netrw_banner = 0
 """ END NETRW }}}
+
+""" FUGITIVE.VIM {{{
+" disallow Fugitive.vim from highlighting commit hashes in blames
+let g:fugitive_dynamic_colors = 0
+""" END FUGITIVE.VIM }}}
 
 """ VIM-QF {{{
 " disallow Vim-QF from automatically resizing quickfix and location windows
