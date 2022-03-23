@@ -1,5 +1,11 @@
 """ VIM CONFIG {{{
 """ MISC EDITOR BEHAVIOR {{{
+" accommodate nvim with the same config under ~/.vim
+if has('nvim')
+  set runtimepath^=$HOME/.vim runtimepath+=$HOME/.vim/after
+  let &packpath = &runtimepath
+endif
+
 " use matchit
 packadd! matchit
 
