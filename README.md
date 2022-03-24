@@ -30,7 +30,12 @@ automatically do the following:
 
 If anyone else sees this and wants to use it, go ahead.
 
-This project is licensed under the Unlicense and is entirely under public
-domain, with the exception of the following files:
+This project is open source, licensed under MIT, with the exception of the
+following files:
 
 - `cfg/plugin/impaired.vim`: licensed under the Vim license, see header
+
+Do you remember this project being Unlicensed? Read more about the license
+change [here][license-change].
+
+[license-change]: https://github.com/igemnace/dotfiles/issues/2
