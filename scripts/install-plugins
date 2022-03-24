@@ -64,6 +64,10 @@ cd "$HOME/.vim/pack/integrate/opt" && {
   bg_clone https://github.com/jpalardy/vim-slime.git
 }
 
+cd "$HOME/.vim/pack/theme/start" && {
+  bg_clone https://github.com/igemnace/highlight.vim.git
+}
+
 # Finish up
 wait
 >&2 echo "Done."
