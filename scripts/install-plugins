@@ -58,6 +58,7 @@ cd "$HOME/.vim/pack/filenav/start" && {
 cd "$HOME/.vim/pack/integrate/start" && {
   bg_clone https://github.com/christoomey/vim-tmux-navigator.git
   bg_clone https://github.com/tpope/vim-fugitive.git
+  bg_clone https://github.com/jamessan/vim-gnupg.git
 }
 
 cd "$HOME/.vim/pack/integrate/opt" && {
