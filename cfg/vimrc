@@ -268,9 +268,7 @@ nnoremap <Leader><Leader> :nohlsearch<CR>
 
 " map keys for Fugitive
 nnoremap <Leader>gs :tab Git<CR>
-nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>gc :Gcommit --verbose<CR>
-nnoremap <Leader>gm :Gmerge<CR>
+nnoremap <Leader>gm :Git mergetool<CR>
 nnoremap <Leader>gb :Git blame <bar> ToggleLineBind<CR>
 nnoremap <Leader>gl :Gllog -- %<CR><CR><CR>
 nnoremap <Leader>gL :Gllog<CR><CR><CR>
