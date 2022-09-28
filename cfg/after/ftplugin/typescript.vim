@@ -7,7 +7,7 @@ setlocal isfname+=@-@
 let &l:includeexpr = "path#resolve_alias(['~', '@app-cms', '@'], ['src/app', 'src', 'app'], v:fname)"
 
 " make Vim use export statements as define statements
-let &l:define = '\v(export\s+(default\s+)?)?(var|let|const|(async\s+)?function|class)|export\s+'
+let &l:define = '\v(export\s+(default\s+)?)?(var|let|const|(async\s+)?function|class|type)|export\s+'
 
 setlocal textwidth=80
 

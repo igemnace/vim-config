@@ -1,0 +1,1 @@
+call maps#MapEmmet()
