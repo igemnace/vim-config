@@ -1,11 +1,5 @@
 """ VIM CONFIG {{{
 """ MISC EDITOR BEHAVIOR {{{
-" accommodate nvim with the same config under ~/.vim
-if has('nvim')
-  set runtimepath^=$HOME/.vim runtimepath+=$HOME/.vim/after
-  let &packpath = &runtimepath
-endif
-
 " use matchit
 packadd! matchit
 
@@ -86,9 +80,11 @@ set splitbelow
 set swapfile
 set backup
 set undofile
-set directory=~/.vim/tmp//,.
-set backupdir=~/.vim/tmp//,.
-set undodir=~/.vim/tmp//,.
+if !has('nvim')
+  set directory=~/.vim/tmp//,.
+  set backupdir=~/.vim/tmp//,.
+  set undodir=~/.vim/tmp//,.
+endif
 """ END TEMP FILES BEHAVIOR }}}
 
 """ COLORS {{{
