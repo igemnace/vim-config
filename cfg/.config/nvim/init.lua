@@ -12,3 +12,8 @@ vim.cmd('source ~/.vim/vimrc')
 
 -- always use a block cursor
 vim.opt.guicursor = { 'a:block' }
+
+-- set up mappings for traversing diagnostics
+vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[e', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']e', vim.diagnostic.goto_next)
