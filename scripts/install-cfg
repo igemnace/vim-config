@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cp -faTs "$PWD/cfg" "$HOME"

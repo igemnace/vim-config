@@ -41,7 +41,7 @@ function! QuickBuffer(pattern, split) abort
     " :buffer throws when there are several matching buffers
     " in which case, display matching buffers with <C-d>
     " then repopulate commandline for convenience
-    call feedkeys(qbcmd . globbed . "\<C-d>\<C-u>" . qbcmd . ' ' . pattern, 'n')
+    call feedkeys(":" . qbcmd . " " . globbed . "\<C-d>\<C-u>" . qbcmd . ' ' . pattern, 'n')
   endtry
 endfunction
 

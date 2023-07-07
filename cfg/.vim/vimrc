@@ -210,6 +210,10 @@ inoremap <C-@>t <C-r>=strftime('%R')<CR>
 inoremap <C-@>i <C-r>=strftime('%FT%T%z')<CR>
 inoremap <C-@>y <C-r>=strftime('%a')<CR>
 inoremap <C-@>n <C-r>=localtime()<CR>
+
+" map keys to quickly open/close preview tags
+inoremap <C-x>} <Left><Left><C-o><C-w>}<Right><Right>
+inoremap <C-x>z <C-o><C-w>z
 """ END INSERT MODE BEHAVIOR }}}
 
 """ VISUAL MODE BEHAVIOR {{{

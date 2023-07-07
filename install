@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-./scripts/install-vim
+./scripts/install-cfg
 ./scripts/install-plugins
