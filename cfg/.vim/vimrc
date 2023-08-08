@@ -371,6 +371,9 @@ let g:vimwiki_folding = 'expr'
 """ VIM-ARGWRAP {{{
 " make ArgWrap add tail commas when working with [] or {}
 let g:argwrap_tail_comma_braces = '[{'
+
+" use padded braces by default
+let g:argwrap_padded_braces = '{'
 """ END VIM-ARGWRAP }}}
 
 """ EMMET.VIM {{{
