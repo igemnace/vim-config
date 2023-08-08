@@ -12,9 +12,5 @@ if root_dir and vim.fn.exepath('typescript-language-server') then
   })
 
   -- i've decided automatic diagnostics is fine, but i don't want all the UI -- it wrecks my attention
-  vim.diagnostic.config({ virtual_text = false })
-
-  -- always draw the sign column, so the buffer doesn't shift left and right all the time
-  -- (only with LSP diagnostics enabled!)
-  vim.opt.signcolumn = 'yes'
+  vim.diagnostic.config({ virtual_text = false, signs = false })
 end
