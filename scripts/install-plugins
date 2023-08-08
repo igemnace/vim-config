@@ -35,6 +35,7 @@ cd "$HOME/.vim/pack/code/opt" && {
 cd "$HOME/.vim/pack/extend/start" && {
   bg_clone https://github.com/FooSoft/vim-argwrap
   bg_clone https://github.com/fcpg/vim-kickfix
+  bg_clone https://github.com/github/copilot.vim.git
   bg_clone https://github.com/hauleth/asyncdo.vim.git
   bg_clone https://github.com/igemnace/vim-makery.git
   bg_clone https://github.com/igemnace/vim-sniplet.git

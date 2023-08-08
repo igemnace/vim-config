@@ -329,6 +329,11 @@ nmap <Leader>ss <Plug>SlimeLineSend
 """ END VIM CONFIG }}}
 
 """ PLUGIN CONFIG {{{
+""" COPILOT.VIM {{{
+" disable default mappings, since I set my own
+let g:copilot_no_maps = v:true
+""" END COPILOT.VIM }}}
+
 """ FZF {{{
 " use down layout explicitly
 let g:fzf_layout = { 'down': '40%' }
