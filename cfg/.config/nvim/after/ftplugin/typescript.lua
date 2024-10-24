@@ -1,1 +1,2 @@
-require('lsp.typescript')
+local typescript = require('lsp.typescript')
+typescript.start();
