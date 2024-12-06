@@ -2,7 +2,9 @@
 """ MISC EDITOR BEHAVIOR {{{
 " use built-in opt packages
 packadd! matchit
-packadd! editorconfig
+if !has('nvim')
+	packadd! editorconfig
+endif
 
 " use Unicode
 set encoding=utf-8
