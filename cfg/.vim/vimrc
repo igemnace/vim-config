@@ -1,7 +1,8 @@
 """ VIM CONFIG {{{
 """ MISC EDITOR BEHAVIOR {{{
-" use matchit
+" use built-in opt packages
 packadd! matchit
+packadd! editorconfig
 
 " use Unicode
 set encoding=utf-8
