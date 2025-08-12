@@ -1,5 +1,5 @@
 local typescript = require('lsp.typescript')
-typescript.start();
+typescript.start()
 
 local biome = require('lsp.biome')
-biome.start();
+biome.start()
