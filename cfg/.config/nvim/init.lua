@@ -11,7 +11,7 @@ vim.cmd 'source ~/.vim/vimrc'
 -- NEOVIM-SPECIFIC --
 
 -- force disable mouse
-vim.opt.mouse = nil
+vim.opt.mouse = {}
 
 -- force backup dir to be XDG
 vim.opt.backupdir = { vim.fn.expand('~/.local/state/nvim/backup//') }
