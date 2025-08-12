@@ -24,11 +24,12 @@ cd "$HOME/.vim/pack/code/start" && {
   bg_clone https://github.com/posva/vim-vue.git
   bg_clone https://github.com/salomvary/vim-eslint-compiler.git
   bg_clone https://github.com/vimwiki/vimwiki.git
+  bg_clone https://github.com/gleam-lang/gleam.vim.git
+  bg_clone https://github.com/guns/vim-sexp.git
 }
 
 cd "$HOME/.vim/pack/code/opt" && {
   bg_clone https://github.com/dhruvasagar/vim-table-mode.git
-  bg_clone https://github.com/editorconfig/editorconfig-vim.git
   bg_clone https://github.com/tpope/vim-scriptease.git
 }
 
@@ -64,6 +65,7 @@ cd "$HOME/.vim/pack/integrate/start" && {
 
 cd "$HOME/.vim/pack/integrate/opt" && {
   bg_clone https://github.com/jpalardy/vim-slime.git
+  bg_clone https://github.com/kovisoft/slimv.git
 }
 
 cd "$HOME/.vim/pack/theme/start" && {

@@ -498,6 +498,12 @@ augroup TemplatesVim
         \ %s/skeleton-date{\(.\{-}\)}/\=strftime(submatch(1))/g
 augroup END
 """ END VIM-TEMPLATE-LITE }}}
+
+""" VIM-SEXP {{{
+" disallow default mappings, use ONLY normal mappings
+let g:sexp_filetypes = ''
+let g:sexp_normal_mapping_filetypes = 'lisp,scheme,clojure,racket'
+""" END VIM-SEXP }}}
 """ END PLUGIN CONFIG }}}
 
 " vim:fdm=marker
