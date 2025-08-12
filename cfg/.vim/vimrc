@@ -249,9 +249,11 @@ command! -nargs=0 SplitWrapperXML
 
 " define commands to post to pastebins
 command! -nargs=0 -range Sprunge
-  \ <line1>,<line2>w ! curl -F "sprunge=<-" http://sprunge.us
+  \ <line1>,<line2>w ! curl -F "sprunge=<-" https://sprunge.us
 command! -nargs=0 -range Ixio
-  \ <line1>,<line2>w ! curl -F "f:1=<-" http://ix.io
+  \ <line1>,<line2>w ! curl -F "f:1=<-" https://ix.io
+command! -nargs=0 -range Paste0x0
+  \ <line1>,<line2>w ! curl -F "file=@-" https://0x0.st
 
 " define commands to run native functions with AsyncDo
 command! -bang -nargs=* -complete=file Make
